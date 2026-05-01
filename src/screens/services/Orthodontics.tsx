@@ -1,0 +1,212 @@
+import SEO from '@/components/SEO';
+import { breadcrumbForService, medicalProcedureSchema } from '@/seo/schemas';
+import { 
+  ServiceHeroSection, 
+  ServiceStatsBar, 
+  ServiceTreatmentCards, 
+  ServiceBenefits,
+  ServiceProcessTimeline,
+  ServiceTestimonials,
+  FloatingCTABar 
+} from '@/components/service';
+import WhyChooseUsSection from '@/components/WhyChooseUsSection';
+import AppointmentBookingSection from '@/components/AppointmentBookingSection';
+import ServiceFAQ from '@/components/ServiceFAQ';
+import { dentalImages } from '@/lib/dentalImages';
+import { AlignCenter, Eye, Clock, Smile, Sparkles, Grid3X3, Glasses } from 'lucide-react';
+
+// Import JFDC images
+import jamunaSmile1 from '@/assets/jamuna-smile-1.jpg';
+import jamunaSmile2 from '@/assets/jamuna-smile-2.jpg';
+import jamunaDoctorTreatment from '@/assets/jamuna-doctor-treatment.jpg';
+import jamunaClinicInterior from '@/assets/jamuna-clinic-interior.jpg';
+import jamunaTreatmentRoom from '@/assets/jamuna-treatment-room.jpg';
+
+const Orthodontics = () => {
+  const stats = [
+    { value: 2500, suffix: '+', label: 'Smiles Straightened' },
+    { value: 98, suffix: '%', label: 'Success Rate' },
+    { value: 6, suffix: '-12', label: 'Months Treatment' },
+    { value: 4.9, suffix: '★', label: 'Google Rating' },
+  ];
+
+  const treatments = [
+    {
+      title: 'Invisalign Clear Aligners',
+      description: 'Nearly invisible, removable aligners that straighten your teeth without anyone knowing. Perfect for adults and teens.',
+      image: dentalImages.services.orthodontics,
+      icon: Sparkles,
+      duration: '6-18 months'
+    },
+    {
+      title: 'Traditional Metal Braces',
+      description: 'Time-tested and highly effective for all types of alignment issues. Modern braces are smaller and more comfortable than ever.',
+      image: jamunaSmile1,
+      icon: Grid3X3,
+      duration: '12-24 months'
+    },
+    {
+      title: 'Ceramic Braces',
+      description: 'All the effectiveness of traditional braces with tooth-colored brackets that blend with your smile.',
+      image: jamunaSmile2,
+      icon: Glasses,
+      duration: '12-24 months'
+    },
+    {
+      title: 'Retainers',
+      description: 'Essential post-treatment appliances to maintain your perfectly aligned smile for years to come.',
+      image: jamunaDoctorTreatment,
+      icon: AlignCenter,
+      duration: 'Ongoing'
+    }
+  ];
+
+  const processSteps = [
+    {
+      title: 'Free Consultation',
+      description: 'We assess your teeth, discuss your goals, and recommend the best orthodontic solution for you.',
+      image: jamunaClinicInterior
+    },
+    {
+      title: 'Treatment Planning',
+      description: 'Digital scans create a precise 3D model of your teeth and map out your treatment journey.',
+      image: jamunaTreatmentRoom
+    },
+    {
+      title: 'Begin Treatment',
+      description: 'Your aligners or braces are fitted, and we provide complete guidance for optimal results.',
+      image: jamunaDoctorTreatment
+    },
+    {
+      title: 'Regular Checkups',
+      description: 'Monthly visits ensure your treatment is progressing as planned. Watch your smile transform!',
+      image: jamunaSmile1
+    }
+  ];
+
+  const benefits = [
+    {
+      icon: AlignCenter,
+      title: 'Straighter Teeth',
+      description: 'Correct crowding, gaps, and misalignment'
+    },
+    {
+      icon: Smile,
+      title: 'Better Bite',
+      description: 'Fix overbite, underbite, and crossbite issues'
+    },
+    {
+      icon: Eye,
+      title: 'Improved Confidence',
+      description: 'Feel great about your smile every day'
+    },
+    {
+      icon: Clock,
+      title: 'Long-Term Health',
+      description: 'Easier cleaning means healthier teeth'
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: 'Deepika Nair',
+      quote: 'Invisalign was the perfect choice for me. No one at work even noticed I was straightening my teeth!',
+      rating: 5,
+      service: 'Invisalign'
+    },
+    {
+      name: 'Vikram Selvam',
+      quote: 'My son\'s braces experience was wonderful. The team made him feel comfortable and now his smile is perfect.',
+      rating: 5,
+      service: 'Traditional Braces'
+    },
+    {
+      name: 'Preethi Subramanian',
+      quote: 'At 35, I finally got the straight teeth I always wanted. The ceramic braces were barely visible!',
+      rating: 5,
+      service: 'Ceramic Braces'
+    }
+  ];
+
+  const faqs = [
+    {
+      question: 'Am I too old for braces?',
+      answer: 'Absolutely not! There\'s no age limit for orthodontic treatment. Many of our patients are adults who want to improve their smile. With options like Invisalign, getting straighter teeth has never been more convenient for adults.'
+    },
+    {
+      question: 'How long does orthodontic treatment take?',
+      answer: 'Treatment time varies based on the complexity of your case. Simple cases may take 6-12 months, while more complex issues may require 18-24 months. During your consultation, we\'ll give you a personalized timeline.'
+    },
+    {
+      question: 'Is Invisalign as effective as braces?',
+      answer: 'Invisalign is highly effective for most orthodontic issues, including crowding, gaps, and bite problems. However, very complex cases may still benefit more from traditional braces. We\'ll recommend the best option for your specific needs.'
+    },
+    {
+      question: 'Do braces hurt?',
+      answer: 'You may experience some discomfort for a few days after braces are placed and after adjustments. This is normal and manageable with over-the-counter pain relievers. Most patients adjust quickly and find braces comfortable.'
+    },
+    {
+      question: 'How much does orthodontic treatment cost?',
+      answer: 'Costs vary based on the type of treatment and duration. We offer flexible payment plans to make treatment affordable. During your free consultation, we\'ll provide a detailed quote and discuss payment options.'
+    },
+    {
+      question: 'Will I need to wear retainers after treatment?',
+      answer: 'Yes, retainers are essential to maintain your results. After your braces come off or Invisalign is complete, you\'ll wear retainers to keep your teeth in their new positions. We\'ll provide specific instructions for your case.'
+    }
+  ];
+
+  return (
+    <>
+      <SEO
+        title="Braces & Clear Aligners in Dindigul | Orthodontics | JFDC"
+        description="Orthodontic treatment in Dindigul — metal braces, ceramic braces and Invisalign clear aligners for kids, teens and adults at Jamuna Family Dental Care. Call +91 7200 620 011."
+        canonical="https://jamunadental.com/services/orthodontics/"
+        jsonLd={[
+          breadcrumbForService("Orthodontics", "/services/orthodontics/"),
+          medicalProcedureSchema("Orthodontics — Braces & Aligners", "Metal braces, ceramic braces, clear aligners and retainers for all ages.", "/services/orthodontics/"),
+        ]}
+      />
+      <ServiceHeroSection
+        badge="Orthodontics"
+        title="Achieve Perfectly Aligned Teeth"
+        description="Whether you prefer the discretion of Invisalign or the reliability of traditional braces, our orthodontic treatments straighten teeth and correct bite issues for patients of all ages at JFDC."
+        backgroundImage={dentalImages.services.orthodontics}
+        ctaText="Free Consultation"
+      />
+
+      <ServiceStatsBar stats={stats} />
+
+      <ServiceTreatmentCards
+        title="Orthodontic Options"
+        subtitle="Modern solutions for straighter teeth and improved bite function."
+        treatments={treatments}
+      />
+
+      <ServiceProcessTimeline
+        title="Your Path to a Perfect Smile"
+        subtitle="From consultation to confident smiles—here's how your orthodontic journey unfolds."
+        steps={processSteps}
+      />
+
+      <ServiceBenefits
+        badge="Benefits"
+        title="Why Straighten Your Teeth?"
+        description="Orthodontic treatment offers benefits beyond aesthetics. Properly aligned teeth are easier to clean, reducing your risk of cavities and gum disease. A correct bite also prevents jaw pain and uneven wear."
+        benefits={benefits}
+        images={[jamunaSmile2, jamunaDoctorTreatment]}
+      />
+
+      <ServiceTestimonials testimonials={testimonials} />
+
+      <WhyChooseUsSection />
+
+      <ServiceFAQ faqs={faqs} image={dentalImages.services.orthodontics} />
+
+      <AppointmentBookingSection />
+
+      <FloatingCTABar />
+    </>
+  );
+};
+
+export default Orthodontics;

@@ -1,0 +1,33 @@
+{
+  "name": "Jamuna Family Dental Care",
+  "tagline": "Dindigul's Most Trusted Dental Clinic — We Care, Not Just Cure",
+  "phone": "+917200620011",
+  "phoneDisplay": "+91 7200 620 011",
+  "whatsapp": "+917200620011",
+  "email": "info@jamunadental.com",
+  "address": {
+    "streetAddress": "41, Kurinji Street, Ram Nagar, Near Vijayan Temptation",
+    "addressLocality": "Dindigul",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "624001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "latitude": 10.3673,
+    "longitude": 77.9803
+  },
+  "hours": {
+    "opens": "09:00",
+    "closes": "21:00",
+    "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/p/Jamuna-Family-Dental-Care-JFDC-100071995166959/",
+    "instagram": "https://www.instagram.com/jamuna_family_dental_care/",
+    "linkedin": "https://in.linkedin.com/in/jamuna-family-dental-care-dindigul-0abb46358"
+  },
+  "rating": {
+    "value": "4.9",
+    "count": "553"
+  }
+}

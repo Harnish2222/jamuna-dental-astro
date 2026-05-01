@@ -1,0 +1,174 @@
+---
+import '@/styles/global.css';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import FindUsSection from '@/components/FindUsSection';
+import WhatsAppWidget from '@/components/WhatsAppWidget';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  hideFooterMap?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = 'https://jamunadental.com/images/og-image.jpg',
+  noindex = false,
+  jsonLd,
+  hideFooterMap = false,
+} = Astro.props as Props;
+
+const SITE_URL = 'https://jamunadental.com';
+const resolvedCanonical = canonical ?? new URL(Astro.url.pathname, SITE_URL).toString();
+const ldBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+
+const GTAG_ID = 'AW-10788600128';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={resolvedCanonical} />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    )}
+
+    <meta name="author" content="Jamuna Family Dental Care" />
+    <meta name="geo.region" content="IN-TN" />
+    <meta name="geo.placename" content="Dindigul" />
+    <meta name="geo.position" content="10.3673;77.9803" />
+    <meta name="ICBM" content="10.3673, 77.9803" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Jamuna Family Dental Care" />
+    <meta property="og:locale" content="en_IN" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {/* JSON-LD blocks rendered statically at build time */}
+    {ldBlocks.map((block) => (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(block)}
+      />
+    ))}
+
+    {/* Sync inline: opt content into the hidden state BEFORE first paint, so
+        no FOUC. If JS is unavailable, content stays visible (the .js-anim
+        class never gets added). */}
+    <script is:inline>
+      document.documentElement.classList.add('js-anim');
+    </script>
+
+    {/* Google tag — loaded async, doesn't block render */}
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+    <script is:inline define:vars={{ GTAG_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', GTAG_ID);
+      gtag('config', `${GTAG_ID}/ZFGGCOaZ7pscEMDys5go`, {
+        phone_conversion_number: '+91 7200 620 011',
+      });
+      window.gtag_report_phone_conversion = function () {
+        gtag('event', 'conversion', {
+          send_to: `${GTAG_ID}/ZFGGCOaZ7pscEMDys5go`,
+          phone_conversion_number: '+91 7200 620 011',
+        });
+        return true;
+      };
+      document.addEventListener('mousedown', function (e) {
+        if (e.target && e.target.closest && e.target.closest('[href^="https://wa.me"]')) {
+          gtag('event', 'conversion', { send_to: `${GTAG_ID}/LAe1CMC1gpwcEMDys5go` });
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="min-h-screen flex flex-col">
+      {/* Mobile menu state lives in Navigation — kept as a hydrated island. */}
+      <Navigation client:load />
+
+      <main class="flex-1">
+        <slot />
+      </main>
+
+      {/* Leaflet map needs JS, but only when scrolled into view. */}
+      {!hideFooterMap && (
+        <FindUsSection client:visible />
+      )}
+
+      {/* Footer is pure presentational — render statically, no JS shipped. */}
+      <Footer />
+
+      {/* Non-critical floating widget — hydrate when the browser is idle. */}
+      <WhatsAppWidget client:idle />
+    </div>
+
+    {/* Global IntersectionObserver — drives all `.scroll-fade-*` animations
+        without requiring React hydration on the wrapped sections. */}
+    <script>
+      const ANIMATED_SELECTOR =
+        '.scroll-fade-up, .scroll-fade-left, .scroll-fade-right, .scroll-scale-in';
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -50px 0px' },
+      );
+
+      const observeAll = (root: ParentNode = document) => {
+        root.querySelectorAll(ANIMATED_SELECTOR).forEach((el) => observer.observe(el));
+      };
+
+      observeAll();
+
+      // Also pick up sections rendered by any React island that hydrates later.
+      const mutationObserver = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          m.addedNodes.forEach((node) => {
+            if (node instanceof HTMLElement) {
+              if (node.matches?.(ANIMATED_SELECTOR)) observer.observe(node);
+              observeAll(node);
+            }
+          });
+        }
+      });
+      mutationObserver.observe(document.body, { childList: true, subtree: true });
+    </script>
+  </body>
+</html>

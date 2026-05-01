@@ -1,0 +1,258 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FAQAccordion from '@/components/FAQAccordion.astro';
+
+// Static-rendered React components (no `client:*` directive → no JS shipped)
+import ServiceMarquee from '@/components/ServiceMarquee';
+import AboutUsSection from '@/components/AboutUsSection';
+import MilestonesSection from '@/components/MilestonesSection';
+import MissionVisionSection from '@/components/MissionVisionSection';
+import WhyChooseUsSection from '@/components/WhyChooseUsSection';
+import InstagramReelsSection from '@/components/InstagramReelsSection';
+
+// Hydrated React islands — only the genuinely interactive pieces
+import HeroCarousel from '@/components/HeroCarousel';
+import PhotoGalleryMarquee from '@/components/PhotoGalleryMarquee';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import AppointmentBookingSection from '@/components/AppointmentBookingSection';
+
+// Static images
+import { Image } from 'astro:assets';
+import dentalExam from '@/assets/dental-exam.jpg';
+import serviceRootCanal from '@/assets/service-root-canal.jpg';
+import serviceImplants from '@/assets/service-implants.jpg';
+import serviceSmileDesign from '@/assets/service-smile-design.jpg';
+import orthodonticsAligners from '@/assets/orthodontics-aligners.jpg';
+import pediatricDentistry from '@/assets/pediatric-dentistry.jpg';
+import serviceToothExtraction from '@/assets/service-tooth-extraction.jpg';
+import dentist1 from '@/assets/indian-dentist-male-1.jpg';
+import dentist2 from '@/assets/indian-dentist-male-2.jpg';
+import hygienist from '@/assets/indian-hygienist-female.jpg';
+
+import {
+  dentistSchema,
+  organizationSchema,
+  breadcrumbHome,
+  homeFaqSchema,
+} from '@/seo/schemas';
+
+const title = 'Best Dental Clinic in Dindigul | Jamuna Family Dental Care';
+const description =
+  'Jamuna Family Dental Care – Best dental clinic in Dindigul offering dental implants, root canal, teeth whitening, braces, smile design & pediatric dentistry. 4.9★ rated, 553+ Google reviews. Call +91 7200 620 011.';
+
+const services = [
+  {
+    title: 'General & Preventive Dentistry',
+    description: 'Routine care to keep your smile healthy and catch issues early.',
+    bullets: ['Oral Checkups', 'Teeth Cleaning & Polishing', 'Advanced Digital X-Rays', 'Dental Fillings'],
+    image: dentalExam,
+    link: '/services/general-dentistry/',
+  },
+  {
+    title: 'Root Canal Treatment',
+    description: 'Save your natural tooth with painless, advanced root canal therapy.',
+    bullets: ['Single-visit RCT', 'Painless procedure', 'Save the natural tooth'],
+    image: serviceRootCanal,
+    link: '/services/general-dentistry/',
+  },
+  {
+    title: 'Implants & Restorations',
+    description: 'Rebuild missing or damaged teeth with permanent, natural-looking solutions.',
+    bullets: ['Dental Implants', 'Zirconia Crowns & Bridges', 'Tooth Extraction', 'Minor Oral Surgery'],
+    image: serviceImplants,
+    link: '/services/restorative-dentistry/',
+  },
+  {
+    title: 'Cosmetic Dentistry',
+    description: 'Designed for a brighter, more confident smile.',
+    bullets: ['Teeth Whitening', 'Veneers & Bonding', 'Smile Design', 'Gum Care'],
+    image: serviceSmileDesign,
+    link: '/services/cosmetic-dentistry/',
+  },
+  {
+    title: 'Braces & Aligners',
+    description: 'Straighter teeth and a better bite for all ages.',
+    bullets: ['Metal & Ceramic Braces', 'Clear Aligners', 'Invisible Braces'],
+    image: orthodonticsAligners,
+    link: '/services/orthodontics/',
+  },
+  {
+    title: 'Kids Dentistry',
+    description: 'Gentle, child-friendly dental care in a fun, comfortable setting.',
+    bullets: ['Pediatric specialists', 'Child-friendly approach', 'Preventive kids care'],
+    image: pediatricDentistry,
+    link: '/services/pediatric-dentistry/',
+  },
+  {
+    title: 'Emergency Dental Care',
+    description: 'Fast relief for sudden dental pain, trauma, and urgent treatment needs.',
+    bullets: ['9 AM – 9 PM availability', 'Same-day relief', 'Walk-ins welcome'],
+    image: serviceToothExtraction,
+    link: '/services/emergency-dental-care/',
+  },
+];
+
+const faqs = [
+  { question: 'What dental treatments do you offer?', answer: 'We offer a full range of dental services including dental implants, root canal treatment, teeth cleaning & scaling, teeth whitening, braces & invisible aligners, cosmetic dentistry, pediatric dentistry, gum treatment, tooth extraction, and smile design.' },
+  { question: 'Is the treatment painful?', answer: 'We focus on gentle and comfortable treatments. Our experienced & certified dentists use modern techniques and equipment to ensure minimal discomfort during all procedures.' },
+  { question: 'What are your clinic timings?', answer: 'We are open from 9:00 AM to 9:00 PM, all days including weekends. Walk-ins and appointments are both welcome. We offer home visit services too.' },
+  { question: 'Do you treat children?', answer: 'Yes! We provide specialized pediatric dental care by MDS pedodontist doctors in a fun, comfortable environment designed to make children feel at ease during their visit.' },
+  { question: 'How long do dental implants last?', answer: 'With proper care and maintenance, dental implants can last a lifetime. They are designed to fuse with your bone, providing a permanent solution for missing teeth.' },
+  { question: 'Is teeth whitening safe?', answer: 'Professional teeth whitening is completely safe when performed by a dental professional. We use proven whitening systems that protect your enamel while delivering dramatic results.' },
+  { question: 'How often should I visit the dentist?', answer: 'We recommend visiting every 6 months for routine teeth cleanings and checkups. However, some patients may need frequent visits based on their oral health needs.' },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://jamunadental.com/"
+  jsonLd={[dentistSchema, organizationSchema, breadcrumbHome, homeFaqSchema]}
+>
+  {/* ─── Hero ─────────────────────────────────────────────────────────── */}
+  {/* Static text + hydrated carousel island. Hero copy ships zero JS. */}
+  <section id="hero" class="relative bg-background pt-24 pb-16 md:pt-32 md:pb-24">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6 text-center lg:text-left order-1">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <span class="text-foreground">Dindigul's Most </span>
+            <span class="text-primary">Trusted Dental Clinic</span>
+            <span class="text-foreground"> — We Care, </span>
+            <span class="text-primary">Not Just Cure</span>
+          </h1>
+          <p class="text-base md:text-lg text-foreground/80 leading-relaxed">
+            Jamuna Family Dental Care is a modern, trusted, best dental clinic in Dindigul providing complete expert dental care for children, adults and senior patients. We focus on comfortable & gentle dental treatments with advanced technology and personalized expert care.
+          </p>
+          <div class="grid grid-cols-2 gap-x-4 gap-y-3 justify-items-center lg:justify-items-start text-sm font-medium text-foreground/80">
+            <span class="flex items-center gap-2"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.8h6.1l-4.9 3.6 1.9 5.8L12 14.6l-4.9 3.6 1.9-5.8L4 8.8h6.1z"/></svg> Modern treatments</span>
+            <span class="flex items-center gap-2"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Pain-free procedures</span>
+            <span class="flex items-center gap-2"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5.4l-1.4-1.4A4 4 0 1 0 5 9.6l7 7 7-7a4 4 0 0 0-5.6-5.6L11 5.4z"/></svg> Gentle approach</span>
+            <span class="flex items-center gap-2"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg> Expert care</span>
+          </div>
+          <div class="flex justify-center lg:justify-start">
+            <a
+              href="tel:+917200620011"
+              onclick="window.gtag_report_phone_conversion?.()"
+              class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-10 py-5 rounded-full shadow-lg font-medium"
+            >
+              <svg class="mr-2 h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+              Call Now – +91 7200 620 011
+            </a>
+          </div>
+          <div class="flex items-center gap-6 pt-4 justify-center lg:justify-start">
+            <div class="flex -space-x-3">
+              <Image src={dentist1} alt="Dentist" width={48} height={48} class="w-12 h-12 rounded-full border-2 border-background object-cover shadow-md" />
+              <Image src={dentist2} alt="Dentist" width={48} height={48} class="w-12 h-12 rounded-full border-2 border-background object-cover shadow-md" />
+              <Image src={hygienist} alt="Hygienist" width={48} height={48} class="w-12 h-12 rounded-full border-2 border-background object-cover shadow-md" />
+            </div>
+            <div class="text-left">
+              <div class="font-semibold text-foreground">600+ Patient Reviews</div>
+              <div class="text-sm text-muted-foreground flex items-center gap-1">
+                <span class="text-yellow-500">★★★★★</span> 4.9 Rating
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-2 w-full">
+          {/* Embla carousel with autoplay → React island */}
+          <HeroCarousel client:visible />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── Static sections (zero JS) ───────────────────────────────────── */}
+  <ServiceMarquee />
+
+  <div id="about">
+    <AboutUsSection />
+  </div>
+
+  <MilestonesSection client:visible />
+
+  <MissionVisionSection />
+
+  {/* ─── Services grid (static HTML, just <a> + img) ─────────────────── */}
+  <section id="services" class="py-20 bg-muted/30">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 scroll-fade-up">
+        <span class="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-primary text-primary-foreground">Our Services</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-6">Complete Dental Care</h2>
+        <p class="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">From routine treatments to advanced procedures, we provide a full range of dental services for all age groups in a clean and hygienic environment.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service, index) => (
+          <a
+            href={service.link}
+            class={`scroll-fade-up delay-${(index % 3) * 100}`}
+          >
+            <article class="group h-full overflow-hidden rounded-xl bg-card border border-border shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 hover:border-primary/50">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  width={600}
+                  height={450}
+                  loading="lazy"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+                <p class="text-muted-foreground text-base leading-relaxed mb-4">{service.description}</p>
+                <ul class="space-y-1.5">
+                  {service.bullets.map((bullet) => (
+                    <li class="flex items-start gap-2 text-sm text-foreground/80">
+                      <svg class="h-4 w-4 text-primary shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <WhyChooseUsSection />
+
+  {/* Photo gallery slider — needs JS for the rAF-driven scroll */}
+  <PhotoGalleryMarquee client:visible />
+
+  {/* Static iframe-based reels */}
+  <InstagramReelsSection />
+
+  {/* JotForm widget injection — needs JS to mount the script */}
+  <TestimonialsSection client:visible />
+
+  <div id="appointment">
+    {/* Form state lives here — hydrated island */}
+    <AppointmentBookingSection client:load />
+  </div>
+
+  {/* ─── FAQ — static HTML accordion (no React, no JS) ───────────────── */}
+  <section id="faq" class="py-20 bg-primary/5">
+    <div class="container mx-auto px-4">
+      <div class="mb-12 text-center lg:text-left scroll-fade-up">
+        <span class="text-primary text-sm font-semibold tracking-wide mb-4 block">FAQs</span>
+        <h2 class="text-3xl md:text-4xl font-bold">
+          <span class="text-primary">Everything You Need To Know</span><br />
+          <span class="text-foreground">About Dental Care</span>
+        </h2>
+      </div>
+      <div class="grid lg:grid-cols-5 gap-12 items-start">
+        <div class="col-span-1 lg:col-span-3 scroll-fade-left">
+          <FAQAccordion faqs={faqs} />
+        </div>
+        <div class="hidden lg:block lg:col-span-2 relative scroll-fade-right">
+          <Image src={dentalExam} alt="Dental care" width={800} height={600} loading="lazy" class="w-full h-auto rounded-2xl object-cover shadow-lg" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

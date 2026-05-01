@@ -1,0 +1,5 @@
+# Cloudflare Pages config (optional — Pages can deploy without this).
+# Use `wrangler pages deploy dist --project-name=jamuna-dental` from CI.
+name = "jamuna-dental"
+compatibility_date = "2025-01-15"
+pages_build_output_dir = "dist"

@@ -1,0 +1,299 @@
+import SEO from '@/components/SEO';
+import { breadcrumbForService, medicalProcedureSchema } from '@/seo/schemas';
+import { 
+  ServiceHeroSection, 
+  ServiceStatsBar, 
+  ServiceTreatmentCards, 
+  ServiceBenefits,
+  ServiceProcessTimeline,
+  ServiceTestimonials,
+  FloatingCTABar 
+} from '@/components/service';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
+import { CheckCircle, Baby, Heart, Star, Shield, Smile, Sparkles, Droplet, Cookie } from 'lucide-react';
+import WhyChooseUsSection from '@/components/WhyChooseUsSection';
+import AppointmentBookingSection from '@/components/AppointmentBookingSection';
+import ServiceFAQ from '@/components/ServiceFAQ';
+import { dentalImages } from '@/lib/dentalImages';
+
+// Import JFDC images
+import jamunaChildTreatment from '@/assets/jamuna-child-treatment.jpg';
+import jamunaClinicInterior from '@/assets/jamuna-clinic-interior.jpg';
+import jamunaTreatmentRoom from '@/assets/jamuna-treatment-room.jpg';
+import jamunaDoctorTreatment from '@/assets/jamuna-doctor-treatment.jpg';
+
+const PediatricDentistry = () => {
+  const stats = [
+    { value: 5000, suffix: '+', label: 'Happy Kids' },
+    { value: 99, suffix: '%', label: 'Kids Love Us' },
+    { value: 15, suffix: '+', label: 'Years Experience' },
+    { value: 4.9, suffix: '★', label: 'Parent Rating' },
+  ];
+
+  const treatments = [
+    {
+      title: 'First Dental Visit',
+      description: 'Gentle introduction to dentistry for babies and toddlers. We make the first visit fun and build positive associations.',
+      image: jamunaChildTreatment,
+      icon: Baby,
+      duration: '30 min'
+    },
+    {
+      title: 'Child-Friendly Cleanings',
+      description: 'Fun, gentle cleanings that teach kids good oral hygiene while keeping their teeth sparkling clean.',
+      image: dentalImages.services.pediatric,
+      icon: Sparkles,
+      duration: '30-45 min'
+    },
+    {
+      title: 'Dental Sealants',
+      description: 'Protective coatings on back teeth that prevent up to 80% of cavities. Quick, painless, and highly effective.',
+      image: jamunaTreatmentRoom,
+      icon: Shield,
+      duration: '15-20 min'
+    },
+    {
+      title: 'Fluoride Treatments',
+      description: 'Strengthen growing teeth and protect against decay with professional fluoride applications.',
+      image: jamunaDoctorTreatment,
+      icon: Droplet,
+      duration: '10 min'
+    }
+  ];
+
+  const processSteps = [
+    {
+      title: 'Warm Welcome',
+      description: 'Our friendly team greets your child, gives them a tour, and lets them pick a toy or sticker.',
+      image: jamunaClinicInterior
+    },
+    {
+      title: 'Fun Introduction',
+      description: 'We explain everything in kid-friendly terms, show them the "special" tools, and answer their questions.',
+      image: dentalImages.services.pediatric
+    },
+    {
+      title: 'Gentle Checkup',
+      description: 'A thorough but gentle examination with lots of encouragement and positive reinforcement.',
+      image: jamunaChildTreatment
+    },
+    {
+      title: 'Happy Goodbye',
+      description: 'Your child leaves with a prize, a new toothbrush, and excitement for their next visit!',
+      image: jamunaTreatmentRoom
+    }
+  ];
+
+  const benefits = [
+    {
+      icon: Heart,
+      title: 'Gentle Approach',
+      description: 'Patient care that builds trust and comfort'
+    },
+    {
+      icon: Star,
+      title: 'Fun Environment',
+      description: 'Kid-friendly clinic they\'ll love visiting'
+    },
+    {
+      icon: Shield,
+      title: 'Preventive Focus',
+      description: 'Building healthy habits for life'
+    },
+    {
+      icon: Smile,
+      title: 'Positive Experiences',
+      description: 'Creating confident, cavity-free smiles'
+    }
+  ];
+
+  const ageGuide = [
+    {
+      age: '0-2 Years',
+      title: 'First Visit',
+      description: 'Baby\'s first dental visit should be by age 1. We\'ll check development, clean gums/teeth, and discuss nutrition and oral hygiene.'
+    },
+    {
+      age: '3-6 Years',
+      title: 'Building Habits',
+      description: 'Regular checkups, first cleanings, fluoride treatments, and teaching proper brushing techniques. Sealants may be applied to protect molars.'
+    },
+    {
+      age: '7-12 Years',
+      title: 'Mixed Dentition',
+      description: 'Monitoring adult teeth coming in, orthodontic assessment, continued preventive care, and addressing any cavities or concerns.'
+    },
+    {
+      age: '13+ Years',
+      title: 'Teen Care',
+      description: 'Comprehensive care including orthodontic treatment if needed, wisdom teeth monitoring, and education about oral health during adolescence.'
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: 'Revathi Subramaniam',
+      quote: 'My daughter used to be terrified of dentists. Now she actually asks when her next appointment is! Amazing team.',
+      rating: 5,
+      service: 'Pediatric Checkup'
+    },
+    {
+      name: 'Karthik Natarajan',
+      quote: 'Both my kids love coming here. The staff is so patient and makes everything fun. Best pediatric dental care!',
+      rating: 5,
+      service: 'Kids Cleaning'
+    },
+    {
+      name: 'Sangeetha Pillai',
+      quote: 'They caught my son\'s cavity early and treated it so gently he didn\'t even realize. So grateful for JFDC!',
+      rating: 5,
+      service: 'Cavity Treatment'
+    }
+  ];
+
+  const parentTips = [
+    'Schedule morning appointments when your child is well-rested',
+    'Use positive language—avoid words like "hurt" or "shot"',
+    'Read books about visiting the dentist beforehand',
+    'Let them bring a comfort toy or blanket',
+    'Stay calm—children pick up on parental anxiety',
+    'Celebrate after the visit with praise (not sugary treats!)'
+  ];
+
+  const faqs = [
+    {
+      question: 'When should my child first see a dentist?',
+      answer: 'We recommend bringing your child for their first dental visit by their first birthday, or within 6 months of their first tooth appearing. Early visits help us catch potential issues and establish good habits from the start.'
+    },
+    {
+      question: 'How do you handle anxious children?',
+      answer: 'Our team is specially trained to work with anxious children. We use gentle techniques, explain everything in kid-friendly terms, take breaks when needed, and make visits fun. Many nervous kids end up loving their dental visits with us!'
+    },
+    {
+      question: 'Are dental X-rays safe for children?',
+      answer: 'Yes, modern digital X-rays use very low radiation—much less than traditional X-rays. We only take X-rays when necessary and always use protective lead aprons. The diagnostic benefits far outweigh the minimal exposure.'
+    },
+    {
+      question: 'What are dental sealants and does my child need them?',
+      answer: 'Sealants are thin protective coatings applied to the chewing surfaces of back teeth where cavities commonly form. They\'re quick, painless, and can prevent up to 80% of cavities in these teeth. We recommend them for most children once their permanent molars come in.'
+    },
+    {
+      question: 'How can I help my child have good oral health at home?',
+      answer: 'Supervise brushing until age 7-8, use fluoride toothpaste (pea-sized amount), brush twice daily for 2 minutes, start flossing when teeth touch, limit sugary snacks and drinks, and make oral care fun with songs or apps!'
+    },
+    {
+      question: 'What if my child has a cavity?',
+      answer: 'Don\'t worry—cavities are common in children. We use gentle techniques and tooth-colored fillings that blend naturally. We\'ll make the experience as comfortable as possible and teach your child how to prevent future cavities.'
+    }
+  ];
+
+  return (
+    <>
+      <SEO
+        title="Pediatric Dentist in Dindigul | Kids Dental Care | JFDC"
+        description="Gentle pediatric dentistry in Dindigul — kid-friendly checkups, cleanings, fluoride treatment and cavity care at Jamuna Family Dental Care. Call +91 7200 620 011."
+        canonical="https://jamunadental.com/services/pediatric-dentistry/"
+        jsonLd={[
+          breadcrumbForService("Pediatric Dentistry", "/services/pediatric-dentistry/"),
+          medicalProcedureSchema("Pediatric Dentistry", "Child-friendly dental checkups, fluoride treatment, sealants and cavity care for kids and teens.", "/services/pediatric-dentistry/"),
+        ]}
+      />
+      <ServiceHeroSection
+        badge="Pediatric Dentistry"
+        badgeIcon={Baby}
+        title="Gentle Care for Little Smiles"
+        description="At JFDC, we make dental visits fun and stress-free for children. Our kid-friendly environment and gentle approach help kids develop positive attitudes about dental care that last a lifetime."
+        backgroundImage={jamunaChildTreatment}
+        ctaText="Book Kid's Appointment"
+      />
+
+      <ServiceStatsBar stats={stats} />
+
+      <ServiceTreatmentCards
+        title="Children's Dental Services"
+        subtitle="Age-appropriate care designed to keep kids' smiles healthy and happy."
+        treatments={treatments}
+      />
+
+      <ServiceProcessTimeline
+        title="A Kid's Visit to JFDC"
+        subtitle="Every visit is designed to be a positive, fun experience for your child."
+        steps={processSteps}
+      />
+
+      <ServiceBenefits
+        badge="Kid-Friendly Care"
+        title="Why Kids Love Coming to JFDC"
+        description="We understand that visiting the dentist can be scary for children. That's why we've created a welcoming environment where kids feel comfortable and even excited about their dental visits."
+        benefits={benefits}
+        images={[dentalImages.services.pediatric, jamunaClinicInterior]}
+      />
+
+      {/* Age Guide Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Badge className="mb-4">Age Guide</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Dental Care By Age</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              What to expect at each stage of your child's dental development.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ageGuide.map((stage, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow border-t-4 border-t-primary">
+                <CardContent className="p-6">
+                  <div className="text-3xl font-bold text-primary mb-2">{stage.age}</div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{stage.title}</h3>
+                  <p className="text-muted-foreground text-sm">{stage.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tips for Parents */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <img 
+                src={jamunaTreatmentRoom} 
+                alt="Modern treatment room" 
+                className="rounded-2xl shadow-xl"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <Badge className="mb-4">For Parents</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Tips for a Great First Visit
+              </h2>
+              <div className="space-y-4">
+                {parentTips.map((tip, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 bg-background rounded-lg">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground">{tip}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ServiceTestimonials testimonials={testimonials} />
+
+      <WhyChooseUsSection />
+
+      <ServiceFAQ faqs={faqs} image={dentalImages.services.pediatric} />
+
+      <AppointmentBookingSection />
+
+      <FloatingCTABar />
+    </>
+  );
+};
+
+export default PediatricDentistry;

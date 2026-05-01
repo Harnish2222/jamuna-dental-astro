@@ -1,0 +1,119 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import {
+  ServiceHeroSection,
+  ServiceStatsBar,
+  ServiceTreatmentCards,
+  ServiceBenefits,
+  ServiceProcessTimeline,
+  ServiceTestimonials,
+  FloatingCTABar,
+} from '@/components/service';
+import WhyChooseUsSection from '@/components/WhyChooseUsSection';
+import ServiceFAQ from '@/components/ServiceFAQ';
+import AppointmentBookingSection from '@/components/AppointmentBookingSection';
+import { dentalImages } from '@/lib/dentalImages';
+import { Sparkles, Star, Smile, Camera, Layers, Palette, Wand2 } from 'lucide-react';
+import { breadcrumbForService, medicalProcedureSchema } from '@/seo/schemas';
+
+import jamunaSmile1 from '@/assets/jamuna-smile-1.jpg';
+import jamunaSmile2 from '@/assets/jamuna-smile-2.jpg';
+import jamunaDoctorTreatment from '@/assets/jamuna-doctor-treatment.jpg';
+import jamunaClinicInterior from '@/assets/jamuna-clinic-interior.jpg';
+import jamunaTreatmentRoom from '@/assets/jamuna-treatment-room.jpg';
+
+const stats = [
+  { value: 5000, suffix: '+', label: 'Smile Makeovers' },
+  { value: 99, suffix: '%', label: 'Patient Satisfaction' },
+  { value: 8, suffix: '', label: 'Shades Whiter' },
+  { value: 4.9, suffix: '★', label: 'Google Rating' },
+];
+
+const treatments = [
+  { title: 'Professional Teeth Whitening', description: 'Brighten your smile up to 8 shades whiter in just one visit with our professional in-office whitening treatment.', image: dentalImages.services.whitening, icon: Sparkles, duration: '60 min' },
+  { title: 'Porcelain Veneers', description: 'Ultra-thin shells that cover the front of your teeth, correcting chips, gaps, stains, and minor misalignment.', image: jamunaSmile1, icon: Layers, duration: '2 visits' },
+  { title: 'Smile Makeover', description: 'Complete transformation combining multiple treatments for your perfect, personalized smile.', image: jamunaSmile2, icon: Wand2, duration: 'Customized' },
+  { title: 'Dental Bonding', description: 'Quick and affordable fix for chips, cracks, and gaps using tooth-colored composite resin.', image: jamunaDoctorTreatment, icon: Palette, duration: '30-60 min' },
+];
+
+const processSteps = [
+  { title: 'Consultation', description: 'We discuss your smile goals, assess your teeth, and create a personalized treatment plan.', image: jamunaClinicInterior },
+  { title: 'Digital Preview', description: 'See your new smile before treatment with our digital smile design technology.', image: jamunaTreatmentRoom },
+  { title: 'Treatment Day', description: 'Our skilled team performs your cosmetic procedure with precision and care.', image: jamunaDoctorTreatment },
+  { title: 'Reveal Your Smile', description: 'Experience the joy of your transformed smile and receive aftercare instructions.', image: jamunaSmile1 },
+];
+
+const benefits = [
+  { icon: Sparkles, title: 'Boost Confidence', description: 'Feel great in social and professional settings' },
+  { icon: Star, title: 'First Impressions', description: 'Make a memorable, positive impact' },
+  { icon: Smile, title: 'Look Younger', description: 'A brighter smile takes years off your appearance' },
+  { icon: Camera, title: 'Photo Ready', description: 'Feel confident in photos and videos' },
+];
+
+const testimonials = [
+  { name: 'Meera Krishnan', quote: "My smile transformation was incredible! The veneers look so natural. I can't stop smiling now.", rating: 5, service: 'Porcelain Veneers' },
+  { name: 'Arun Sundaram', quote: 'The teeth whitening results were amazing. My smile is 8 shades brighter and the process was quick and painless.', rating: 5, service: 'Teeth Whitening' },
+  { name: 'Lakshmi Rajan', quote: 'Best decision I ever made. My complete smile makeover has changed my life. Thank you JFDC!', rating: 5, service: 'Smile Makeover' },
+];
+
+const faqs = [
+  { question: 'How long does teeth whitening last?', answer: 'Professional teeth whitening results typically last 1-3 years, depending on your lifestyle. Avoiding staining foods and drinks (coffee, tea, red wine) and not smoking will help maintain your bright smile longer. We also offer touch-up treatments.' },
+  { question: 'Are veneers permanent?', answer: 'Veneers are considered a permanent treatment because a thin layer of enamel is removed to place them. However, they typically last 10-15 years before needing replacement. With proper care, they can last even longer.' },
+  { question: 'Is cosmetic dentistry painful?', answer: 'Most cosmetic procedures are minimally invasive and cause little to no discomfort. We use local anesthesia when needed and prioritize your comfort throughout. Many patients are surprised at how easy the process is.' },
+  { question: 'How much does a smile makeover cost?', answer: "Costs vary based on the treatments included. During your consultation, we'll create a personalized plan and provide a detailed quote. We offer flexible payment options to make your dream smile affordable." },
+  { question: 'Can I see what my new smile will look like before treatment?', answer: "Yes! We use digital smile design technology to show you a preview of your expected results. This helps you make informed decisions and ensures you're excited about your transformation." },
+];
+---
+
+<BaseLayout
+  title="Cosmetic Dentistry in Dindigul | Smile Design & Whitening | JFDC"
+  description="Cosmetic dentistry in Dindigul — smile design, professional teeth whitening, veneers and bonding by Dr. Arun Baabu Sarath, MDS. Call +91 7200 620 011."
+  canonical="https://jamunadental.com/services/cosmetic-dentistry/"
+  jsonLd={[
+    breadcrumbForService('Cosmetic Dentistry', '/services/cosmetic-dentistry/'),
+    medicalProcedureSchema(
+      'Cosmetic Dentistry',
+      'Smile design, professional teeth whitening, dental veneers, bonding and complete smile makeovers.',
+      '/services/cosmetic-dentistry/',
+    ),
+  ]}
+>
+  <ServiceHeroSection
+    badge="Cosmetic Dentistry"
+    title="Transform Your Smile with Confidence"
+    description="From subtle enhancements to complete smile makeovers, our cosmetic dentistry services help you achieve the beautiful, radiant smile you've always dreamed of. Let JFDC reveal your best smile."
+    backgroundImage={jamunaSmile1.src}
+  />
+
+  <ServiceStatsBar stats={stats} client:visible />
+
+  <ServiceTreatmentCards
+    title="Cosmetic Services We Offer"
+    subtitle="Personalized treatments designed to enhance your natural beauty and boost your confidence."
+    treatments={treatments}
+  />
+
+  <ServiceProcessTimeline
+    title="Your Smile Transformation Journey"
+    subtitle="A seamless process from consultation to your stunning new smile."
+    steps={processSteps}
+  />
+
+  <ServiceBenefits
+    badge="Why Cosmetic Dentistry?"
+    title="More Than Just Looks"
+    description="A beautiful smile does more than improve your appearance—it boosts your confidence, enhances your career prospects, and improves your overall quality of life."
+    benefits={benefits}
+    images={[jamunaSmile2.src, jamunaDoctorTreatment.src]}
+  />
+
+  <ServiceTestimonials testimonials={testimonials} />
+
+  <WhyChooseUsSection />
+
+  <ServiceFAQ faqs={faqs} image={dentalImages.services.whitening} />
+
+  <AppointmentBookingSection client:load />
+
+  <FloatingCTABar />
+</BaseLayout>

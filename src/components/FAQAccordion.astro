@@ -1,0 +1,42 @@
+---
+// Pure-HTML accordion using <details>/<summary> — no JS, no React hydration.
+// Crawlers see all Q+A content statically (good for FAQPage schema).
+export interface Props {
+  faqs: Array<{ question: string; answer: string }>;
+}
+
+const { faqs } = Astro.props;
+---
+
+<div class="space-y-3">
+  {faqs.map((faq, index) => (
+    <details
+      class="group bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 px-5"
+      name="home-faq"
+    >
+      <summary class="cursor-pointer list-none py-5 flex items-start gap-3 text-left font-medium text-foreground text-lg group-hover:text-primary transition-colors">
+        <span class="text-primary font-semibold shrink-0">Q{index + 1}.</span>
+        <span class="flex-1">{faq.question}</span>
+        <svg
+          class="w-5 h-5 shrink-0 mt-1 transition-transform duration-200 group-open:rotate-180"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="text-muted-foreground text-base leading-relaxed pb-5 pl-9">
+        {faq.answer}
+      </div>
+    </details>
+  ))}
+</div>
+
+<style>
+  /* Hide the default disclosure triangle (Safari) */
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

@@ -1,0 +1,443 @@
+/* Outfit + Plus Jakarta Sans font stack */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GCM Contracting Design System - Modern Professional Construction Company */
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 0 0% 100%;
+    --background-muted: 204 17% 96%; /* #F2F5F7 */
+    --foreground: 0 0% 0%; /* black body text */
+
+    /* Card colors */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    /* Popover colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Primary - Refined Deep Navy (#0E2A87) */
+    --primary: 234 82% 29%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 234 70% 42%;
+    --primary-dark: 234 88% 20%;
+
+    /* Secondary - Neutral for UI components */
+    --secondary: 204 17% 96%;
+    --secondary-foreground: 0 0% 0%;
+
+    /* Accent Teal - Dental Teal (#009AA7) */
+    --accent-teal: 185 100% 33%;
+    --accent-teal-light: 185 100% 40%;
+    --accent-teal-foreground: 0 0% 100%;
+
+    /* Soft Mint (#7ED1C8) */
+    --mint: 174 47% 66%;
+    --mint-foreground: 210 69% 16%;
+
+    /* Light Clinical Blue (#DDEBF7) */
+    --clinical: 210 67% 92%;
+    --clinical-foreground: 210 69% 16%;
+
+    /* Muted colors */
+    --muted: 204 17% 96%;
+    --muted-foreground: 210 9% 45%;
+
+    /* Accent colors */
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 13% 18%;
+
+    /* Success color for CTAs */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border and input */
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 185 100% 33%;
+
+    /* Design tokens */
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 6px -1px hsl(var(--primary) / 0.1), 0 2px 4px -1px hsl(var(--primary) / 0.06);
+    --shadow-medium: 0 10px 15px -3px hsl(var(--primary) / 0.1), 0 4px 6px -2px hsl(var(--primary) / 0.05);
+    --shadow-large: 0 25px 50px -12px hsl(var(--primary) / 0.25);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Base colors */
+    --background: 220 13% 9%;
+    --foreground: 0 0% 95%;
+
+    /* Card colors */
+    --card: 220 13% 12%;
+    --card-foreground: 0 0% 95%;
+
+    /* Popover colors */
+    --popover: 220 13% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Primary - Lighter navy for dark mode */
+    --primary: 210 60% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 210 55% 50%;
+    --primary-dark: 210 70% 18%;
+
+    /* Secondary - Neutral for UI components */
+    --secondary: 220 13% 20%;
+    --secondary-foreground: 0 0% 95%;
+
+    /* Accent Teal - Dental Teal */
+    --accent-teal: 185 100% 40%;
+    --accent-teal-light: 185 100% 50%;
+    --accent-teal-foreground: 0 0% 100%;
+
+    /* Soft Mint */
+    --mint: 174 47% 66%;
+    --mint-foreground: 210 11% 12%;
+
+    /* Light Clinical Blue */
+    --clinical: 210 40% 30%;
+    --clinical-foreground: 0 0% 100%;
+
+    /* Muted colors */
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 8.9% 65%;
+
+    /* Accent colors */
+    --accent: 220 13% 15%;
+    --accent-foreground: 0 0% 95%;
+
+    /* Success color */
+    --success: 142 71% 55%;
+    --success-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border and input */
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 185 100% 40%;
+
+    /* Custom gradients for dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-6xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .section-padding {
+    @apply py-16 lg:py-24;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-lg;
+  }
+
+  .fade-in {
+    @apply opacity-0 translate-y-4 transition-all duration-700;
+  }
+
+  .fade-in.animate {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Alternating Section Pattern */
+  .section-odd {
+    background-color: #0E2A87;
+    color: white;
+  }
+  
+  .section-odd h1,
+  .section-odd h2,
+  .section-odd h3,
+  .section-odd h4,
+  .section-odd h5,
+  .section-odd h6 {
+    color: white !important;
+  }
+  
+  .section-odd .text-primary {
+    color: white !important;
+  }
+  
+  .section-odd .text-muted-foreground {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  .section-odd .text-foreground {
+    color: white !important;
+  }
+  
+  /* Keep card content readable on white backgrounds */
+  .section-odd .bg-white .text-foreground,
+  .section-odd .bg-white h1,
+  .section-odd .bg-white h2,
+  .section-odd .bg-white h3,
+  .section-odd .bg-white h4,
+  .section-odd .bg-white h5,
+  .section-odd .bg-white h6,
+  .section-odd .bg-white .text-muted-foreground {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  .section-odd .bg-primary {
+    background-color: white !important;
+    color: hsl(var(--primary)) !important;
+  }
+  
+  .section-odd .border-primary {
+    border-color: white !important;
+  }
+  
+  .section-odd .hover\:bg-primary:hover {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: hsl(var(--primary)) !important;
+  }
+  
+  /* Fix button visibility in dark sections */
+  .section-odd button {
+    color: white !important;
+  }
+  
+  .section-odd button:hover {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: hsl(var(--primary)) !important;
+  }
+  
+  .section-odd .bg-white {
+    background-color: white !important;
+    color: hsl(var(--primary)) !important;
+  }
+  
+  .section-odd .hover\:bg-white:hover {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: hsl(var(--primary)) !important;
+  }
+  
+  .section-odd .bg-white\/20 {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  
+  .section-odd .hover\:bg-white\/30:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  .section-odd .bg-card {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(4px);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white !important;
+  }
+  
+  .section-odd .text-card-foreground {
+    color: white !important;
+  }
+  
+  /* Ensure all card content in dark sections is visible */
+  .section-odd .card h4,
+  .section-odd .card h3,
+  .section-odd .card p {
+    color: white !important;
+  }
+  
+  .section-even {
+    background-color: #FFFFFF;
+    color: hsl(var(--foreground));
+  }
+  
+  .section-even h1,
+  .section-even h2,
+  .section-even h3,
+  .section-even h4,
+  .section-even h5,
+  .section-even h6 {
+    color: hsl(var(--primary)) !important;
+  }
+  
+  .section-even .text-primary {
+    color: hsl(var(--primary)) !important;
+  }
+  
+  .section-even .text-muted-foreground {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+  
+  .section-even .text-foreground {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  .section-even .bg-primary {
+    background-color: hsl(var(--primary)) !important;
+    color: white !important;
+  }
+  
+  .section-even .border-primary {
+    border-color: hsl(var(--primary));
+  }
+  
+  .section-even .hover\:bg-primary:hover {
+    background-color: hsl(var(--primary) / 0.9) !important;
+    color: white !important;
+  }
+  
+  /* Ensure button text visibility */
+  .section-even button {
+    color: white !important;
+  }
+  
+  .section-even button:hover {
+    color: white !important;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Scroll-triggered intro animations
+ *
+ * SSR-safe: when JS is unavailable (or before the global animation script
+ * runs), all .scroll-* elements remain fully visible. The `.js-anim` class
+ * on <html> opts content into the hidden initial state — added synchronously
+ * by an inline script in BaseLayout.astro before first paint.
+ */
+.scroll-fade-up,
+.scroll-fade-left,
+.scroll-fade-right,
+.scroll-scale-in {
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-anim .scroll-fade-up:not(.visible) {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.js-anim .scroll-fade-left:not(.visible) {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+.js-anim .scroll-fade-right:not(.visible) {
+  opacity: 0;
+  transform: translateX(40px);
+}
+.js-anim .scroll-scale-in:not(.visible) {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.scroll-fade-up.visible,
+.scroll-fade-left.visible,
+.scroll-fade-right.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.scroll-scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays for cards */
+.delay-0 { transition-delay: 0ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-700 { transition-delay: 700ms; }
