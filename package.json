@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "tina:install": "npm install -D tinacms @tinacms/cli",
-    "tina:dev": "tinacms dev -c \"astro dev\"",
+    "tina:dev": "tinacms dev -c \"npx astro dev\"",
     "tina:build": "tinacms build && astro build"
   },
   "dependencies": {
@@ -77,11 +77,13 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
+    "@tinacms/cli": "^2.2.5",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
+    "tinacms": "^2.2.5",
     "typescript": "^5.6.3"
   }
 }
