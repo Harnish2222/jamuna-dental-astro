@@ -24,19 +24,19 @@ const PhotoGalleryMarquee = () => {
   const scrollPositionRef = useRef(0);
 
   const galleryImages = [
-    { src: vipKamalahassan, alt: 'Mr. N. KamalaHassan - Anil Foods MD at JFDC' },
-    { src: vipVengatachalam, alt: 'Mr. Vengatachalam - Vivera Grande MD at JFDC' },
-    { src: vipPalpandi, alt: 'Mr. Palpandi - MSP School HM at JFDC' },
-    { src: vipRamji, alt: 'Mr. Ramji Natarajan - SMB CBSE Principal at JFDC' },
-    { src: vipRavi, alt: 'Mr. Ravi Thiyagarajan - Chettinadu Construction at JFDC' },
-    { src: vipRavichandran, alt: 'Mr. Ravichandran - Padma Lites MD at JFDC' },
-    { src: vipRamesh, alt: 'Mr. S. Ramesh - Naga Foods Director at JFDC' },
-    { src: vipArul, alt: 'Dr. Er. Arul - VA Consultancy at JFDC' },
-    { src: vipThenmozhi, alt: 'Mrs. Thenmozhi MLA & Mr. Gunasekar - Nilakottai MLA at JFDC' },
-    { src: vipVengatachalamSteels, alt: 'Mr. Vengatachalam - 3S Shree Sivabalaaji Steels Vice Chairman at JFDC' },
-    { src: vipSujana, alt: 'Mrs. Sujana - iGenius Int PreSchool at JFDC' },
-    { src: vipArul2, alt: 'Dr. Er. Arul - VA Consultancy at JFDC' },
-    { src: vipManoharan, alt: 'Mr. Manoharan - Ambal Jeweller MD at JFDC' },
+    { src: vipKamalahassan.src, alt: 'Mr. N. KamalaHassan - Anil Foods MD at JFDC' },
+    { src: vipVengatachalam.src, alt: 'Mr. Vengatachalam - Vivera Grande MD at JFDC' },
+    { src: vipPalpandi.src, alt: 'Mr. Palpandi - MSP School HM at JFDC' },
+    { src: vipRamji.src, alt: 'Mr. Ramji Natarajan - SMB CBSE Principal at JFDC' },
+    { src: vipRavi.src, alt: 'Mr. Ravi Thiyagarajan - Chettinadu Construction at JFDC' },
+    { src: vipRavichandran.src, alt: 'Mr. Ravichandran - Padma Lites MD at JFDC' },
+    { src: vipRamesh.src, alt: 'Mr. S. Ramesh - Naga Foods Director at JFDC' },
+    { src: vipArul.src, alt: 'Dr. Er. Arul - VA Consultancy at JFDC' },
+    { src: vipThenmozhi.src, alt: 'Mrs. Thenmozhi MLA & Mr. Gunasekar - Nilakottai MLA at JFDC' },
+    { src: vipVengatachalamSteels.src, alt: 'Mr. Vengatachalam - 3S Shree Sivabalaaji Steels Vice Chairman at JFDC' },
+    { src: vipSujana.src, alt: 'Mrs. Sujana - iGenius Int PreSchool at JFDC' },
+    { src: vipArul2.src, alt: 'Dr. Er. Arul - VA Consultancy at JFDC' },
+    { src: vipManoharan.src, alt: 'Mr. Manoharan - Ambal Jeweller MD at JFDC' },
   ];
 
   const tripleImages = [...galleryImages, ...galleryImages, ...galleryImages];

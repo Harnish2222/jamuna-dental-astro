@@ -275,12 +275,12 @@ const EmergencyDentalCare = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="grid grid-cols-2 gap-4">
               <img 
-                src={jamunaDoctorOperation} 
+                src={jamunaDoctorOperation.src} 
                 alt="Emergency treatment" 
                 className="rounded-xl shadow-lg"
               />
               <img 
-                src={jamunaTreatmentRoom} 
+                src={jamunaTreatmentRoom.src} 
                 alt="Treatment room" 
                 className="rounded-xl shadow-lg mt-8"
               />

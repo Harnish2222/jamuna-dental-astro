@@ -38,7 +38,7 @@ const AboutUsSection = () => {
             <Sparkles className="absolute top-1/3 right-0 w-10 h-10 text-primary/20" />
             
             <div className="relative z-10 w-[70%] rounded-2xl overflow-hidden shadow-xl">
-              <img src={jamunaDoctorOperation} alt="Doctor performing dental treatment at JFDC" className="w-full aspect-[4/3] object-cover" />
+              <img src={jamunaDoctorOperation.src} alt="Doctor performing dental treatment at JFDC" className="w-full aspect-[4/3] object-cover" />
             </div>
             
             <div className="absolute top-4 right-[15%] z-20 w-24 h-24 rounded-full bg-primary text-primary-foreground flex flex-col items-center justify-center text-center shadow-lg border-4 border-background">
@@ -47,7 +47,7 @@ const AboutUsSection = () => {
             </div>
             
             <div className="relative z-10 w-[65%] ml-auto -mt-16 rounded-2xl overflow-hidden shadow-xl border-4 border-background">
-              <img src={jamunaClinicInterior} alt="Modern JFDC clinic interior" className="w-full aspect-[4/3] object-cover" />
+              <img src={jamunaClinicInterior.src} alt="Modern JFDC clinic interior" className="w-full aspect-[4/3] object-cover" />
             </div>
           </AnimatedSection>
 

@@ -59,7 +59,7 @@ const MilestonesSection = () => {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           <AnimatedSection animation="fade-left" className="w-full lg:w-[42%] flex-shrink-0">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-border">
-              <img src={heroJfdcFront} alt="Modern dental clinic at Jamuna Family Dental Care" className="w-full h-[280px] md:h-[380px] object-cover" />
+              <img src={heroJfdcFront.src} alt="Modern dental clinic at Jamuna Family Dental Care" className="w-full h-[280px] md:h-[380px] object-cover" />
             </div>
           </AnimatedSection>
 

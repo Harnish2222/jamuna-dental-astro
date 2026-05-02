@@ -9,11 +9,11 @@ import heroConsultation from '@/assets/hero-consultation-room.jpg';
 import heroDoctorChild from '@/assets/hero-doctor-child.jpg';
 
 const heroImages = [
-  { src: heroJfdcFront, alt: 'Jamuna Family Dental Care - Building Front' },
-  { src: heroTreatmentBlue, alt: 'Modern blue treatment room' },
-  { src: heroReception, alt: 'Clinic reception area' },
-  { src: heroConsultation, alt: 'Doctor consultation room' },
-  { src: heroDoctorChild, alt: 'Doctor treating a child patient' },
+  { src: heroJfdcFront.src, alt: 'Jamuna Family Dental Care - Building Front' },
+  { src: heroTreatmentBlue.src, alt: 'Modern blue treatment room' },
+  { src: heroReception.src, alt: 'Clinic reception area' },
+  { src: heroConsultation.src, alt: 'Doctor consultation room' },
+  { src: heroDoctorChild.src, alt: 'Doctor treating a child patient' },
 ];
 
 const HeroCarousel = () => {

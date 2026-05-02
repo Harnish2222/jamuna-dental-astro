@@ -29,12 +29,12 @@ const PHONE = '+917200620011';
 const PHONE_DISPLAY = '+91 7200 620 011';
 
 const services = [
-  { img: stockDentalImplants, title: 'Dental Implants', desc: 'Permanent tooth replacement with latest technology' },
-  { img: stockTeethWhitening, title: 'Teeth Whitening', desc: 'Professional whitening for a brighter smile' },
-  { img: stockDentalExam, title: 'Root Canal', desc: 'Painless treatment to save your natural teeth' },
-  { img: stockOrthodontics, title: 'Braces & Aligners', desc: 'Invisible aligners & braces for better alignment' },
-  { img: stockPediatric, title: 'Kids Dentistry', desc: 'Gentle, child-friendly dental care' },
-  { img: stockDentalCrowns, title: 'Teeth Cleaning', desc: 'Professional scaling & polishing for healthy gums' },
+  { img: stockDentalImplants.src, title: 'Dental Implants', desc: 'Permanent tooth replacement with latest technology' },
+  { img: stockTeethWhitening.src, title: 'Teeth Whitening', desc: 'Professional whitening for a brighter smile' },
+  { img: stockDentalExam.src, title: 'Root Canal', desc: 'Painless treatment to save your natural teeth' },
+  { img: stockOrthodontics.src, title: 'Braces & Aligners', desc: 'Invisible aligners & braces for better alignment' },
+  { img: stockPediatric.src, title: 'Kids Dentistry', desc: 'Gentle, child-friendly dental care' },
+  { img: stockDentalCrowns.src, title: 'Teeth Cleaning', desc: 'Professional scaling & polishing for healthy gums' },
 ];
 
 const usps = [
@@ -72,11 +72,11 @@ const LandingPage = () => {
   const autoplayPlugin = useRef(Autoplay({ delay: 3500, stopOnInteraction: false }));
 
   const heroImages = [
-    { src: jamunaBuilding, alt: 'Jamuna Family Dental Care building' },
-    { src: jamunaExterior, alt: 'Clinic exterior' },
-    { src: jamunaTreatmentRoom, alt: 'Modern treatment room' },
-    { src: jamunaDoctorTreatment, alt: 'Doctor treating patient' },
-    { src: jamunaClinicInterior, alt: 'Clinic interior' },
+    { src: jamunaBuilding.src, alt: 'Jamuna Family Dental Care building' },
+    { src: jamunaExterior.src, alt: 'Clinic exterior' },
+    { src: jamunaTreatmentRoom.src, alt: 'Modern treatment room' },
+    { src: jamunaDoctorTreatment.src, alt: 'Doctor treating patient' },
+    { src: jamunaClinicInterior.src, alt: 'Clinic interior' },
   ];
 
   useEffect(() => {
@@ -116,7 +116,7 @@ const LandingPage = () => {
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-4 py-2.5 sm:px-6 md:gap-4 md:py-3">
           <img
-            src={jfdcLogo}
+            src={jfdcLogo.src}
             alt="JFDC Logo"
             className="h-9 w-9 rounded-full border-2 border-primary/15 object-cover md:h-11 md:w-11"
           />
@@ -244,7 +244,7 @@ const LandingPage = () => {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-12 lg:gap-16">
             <div className="flex justify-center">
               <img
-                src={drArunPortrait}
+                src={drArunPortrait.src}
                 alt="Dr. Arun Baabu Sarath"
                 className="aspect-[3/4] w-52 max-w-full rounded-2xl border-4 border-primary/10 object-cover shadow-xl md:w-72 lg:w-80"
               />

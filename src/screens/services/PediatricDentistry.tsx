@@ -260,7 +260,7 @@ const PediatricDentistry = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <img 
-                src={jamunaTreatmentRoom} 
+                src={jamunaTreatmentRoom.src} 
                 alt="Modern treatment room" 
                 className="rounded-2xl shadow-xl"
               />

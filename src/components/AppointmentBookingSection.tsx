@@ -47,7 +47,7 @@ const AppointmentBookingSection = () => {
                 </p>
               </div>
               <div className="flex-grow relative h-[250px] lg:h-auto overflow-hidden">
-                <img src={smileCarousel1} alt="Happy patient at Jamuna Family Dental Care" className="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
+                <img src={smileCarousel1.src} alt="Happy patient at Jamuna Family Dental Care" className="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
                 <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-primary to-transparent z-10" />
               </div>
             </div>

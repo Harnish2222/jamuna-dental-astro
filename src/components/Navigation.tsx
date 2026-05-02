@@ -61,7 +61,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-14 lg:h-16 px-4 lg:px-8">
           {/* Logo */}
           <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2 cursor-pointer">
-            <img src={jfdcLogo} alt="Jamuna Family Dental Care" className="h-10 w-auto object-contain" />
+            <img src={jfdcLogo.src} alt="Jamuna Family Dental Care" className="h-10 w-auto object-contain" />
             <div>
               <span className="text-sm sm:text-lg font-bold text-primary sm:hidden">Jamuna Family Dental</span>
               <span className="text-lg font-bold text-primary hidden sm:block">JFDC</span>
