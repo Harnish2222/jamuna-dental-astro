@@ -29,6 +29,7 @@ pnpm-debug.log*
 # tina
 .tina/__generated__/
 tina/__generated__/
+public/admin/
 
 # cloudflare
 .wrangler/
