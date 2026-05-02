@@ -1,247 +1,247 @@
 {
-    "why_choose":  {
-                       "features":  [
-                                        {
-                                            "description":  "We provide dental care for all ages — children, adults, and seniors — with gentle, comfortable treatments tailored to each patient.",
-                                            "title":  "Family-Centered Care"
-                                        },
-                                        {
-                                            "description":  "Many patients highlight our professional care, advanced equipment, patient-friendly and comfortable \u0026 safe treatment experience. Trusted by families across Dindigul.",
-                                            "title":  "4.9★ Rating | 600+ Reviews"
-                                        },
-                                        {
-                                            "description":  "We use the latest dental equipment with sterilized instruments in a clean, hygienic clinic for quick diagnosis and precise treatment.",
-                                            "title":  "Advanced Technology"
-                                        }
-                                    ],
-                       "description":  "Jamuna Family Dental Care focuses on comfortable treatments, advanced technology, and personalized patient-centered dental care to help patients maintain healthy and confident smiles.",
-                       "heading":  "Your smile is our priority",
-                       "image":  "/assets/why-choose-tooth.png"
-                   },
-    "about":  {
-                  "badge":  "About Us",
-                  "heading_part1":  "Your Journey to a",
-                  "cta_text":  "View Our Services",
-                  "heading_part2":  "Healthier Smile",
-                  "highlights":  [
-                                     {
-                                         "text":  "Experienced Specialists"
-                                     },
-                                     {
-                                         "text":  "Sterilized \u0026 Hygienic Clinic"
-                                     },
-                                     {
-                                         "text":  "Gentle \u0026 Comfortable Treatment"
-                                     },
-                                     {
-                                         "text":  "Certified Doctors"
-                                     }
-                                 ],
-                  "heading_part3":  "Begins Here",
-                  "image":  "/assets/jamuna-doctor-portrait.png",
-                  "description":  "With certified MDS specialists, advanced equipment and a gentle approach, JFDC delivers both routine and advanced dental care in a clean, hygienic environment — making dentistry transparent, comfortable and ethical for every patient across Dindigul."
-              },
-    "services":  {
-                     "title":  "Complete Dental Care",
-                     "description":  "From routine treatments to advanced procedures, we provide a full range of dental services for all age groups in a clean and hygienic environment.",
-                     "badge":  "Our Services",
-                     "cards":  [
-                                   {
-                                       "title":  "General \u0026 Preventive Dentistry",
-                                       "description":  "Routine care to keep your smile healthy and catch issues early.",
-                                       "link":  "/services/general-dentistry/",
-                                       "bullets":  [
-                                                       {
-                                                           "text":  "Oral Checkups"
-                                                       },
-                                                       {
-                                                           "text":  "Teeth Cleaning \u0026 Polishing"
-                                                       },
-                                                       {
-                                                           "text":  "Advanced Digital X-Rays"
-                                                       },
-                                                       {
-                                                           "text":  "Dental Fillings"
-                                                       }
-                                                   ],
-                                       "image":  "/assets/service-general-dentistry.png"
-                                   },
-                                   {
-                                       "title":  "Root Canal Treatment",
-                                       "description":  "Save your natural tooth with painless, advanced root canal therapy.",
-                                       "link":  "/services/general-dentistry/",
-                                       "bullets":  [
-                                                       {
-                                                           "text":  "Single-visit RCT"
-                                                       },
-                                                       {
-                                                           "text":  "Painless procedure"
-                                                       },
-                                                       {
-                                                           "text":  "Save the natural tooth"
-                                                       }
-                                                   ],
-                                       "image":  "/assets/service-root-canal.png"
-                                   },
-                                   {
-                                       "title":  "Implants \u0026 Restorations",
-                                       "description":  "Rebuild missing or damaged teeth with permanent, natural-looking solutions.",
-                                       "link":  "/services/restorative-dentistry/",
-                                       "bullets":  [
-                                                       {
-                                                           "text":  "Dental Implants"
-                                                       },
-                                                       {
-                                                           "text":  "Zirconia Crowns \u0026 Bridges"
-                                                       },
-                                                       {
-                                                           "text":  "Tooth Extraction"
-                                                       },
-                                                       {
-                                                           "text":  "Minor Oral Surgery"
-                                                       }
-                                                   ],
-                                       "image":  "/assets/service-implants.png"
-                                   },
-                                   {
-                                       "title":  "Cosmetic Dentistry",
-                                       "description":  "Designed for a brighter, more confident smile.",
-                                       "link":  "/services/cosmetic-dentistry/",
-                                       "bullets":  [
-                                                       {
-                                                           "text":  "Teeth Whitening"
-                                                       },
-                                                       {
-                                                           "text":  "Veneers \u0026 Bonding"
-                                                       },
-                                                       {
-                                                           "text":  "Smile Design"
-                                                       },
-                                                       {
-                                                           "text":  "Gum Care"
-                                                       }
-                                                   ],
-                                       "image":  "/assets/service-smile-design.png"
-                                   },
-                                   {
-                                       "title":  "Braces \u0026 Aligners",
-                                       "description":  "Straighter teeth and a better bite for all ages.",
-                                       "link":  "/services/orthodontics/",
-                                       "bullets":  [
-                                                       {
-                                                           "text":  "Metal \u0026 Ceramic Braces"
-                                                       },
-                                                       {
-                                                           "text":  "Clear Aligners"
-                                                       },
-                                                       {
-                                                           "text":  "Invisible Braces"
-                                                       }
-                                                   ],
-                                       "image":  "/assets/orthodontics-aligners.jpg"
-                                   },
-                                   {
-                                       "title":  "Kids Dentistry",
-                                       "description":  "Gentle, child-friendly dental care in a fun, comfortable setting.",
-                                       "link":  "/services/pediatric-dentistry/",
-                                       "bullets":  [
-                                                       {
-                                                           "text":  "Pediatric specialists"
-                                                       },
-                                                       {
-                                                           "text":  "Child-friendly approach"
-                                                       },
-                                                       {
-                                                           "text":  "Preventive kids care"
-                                                       }
-                                                   ],
-                                       "image":  "/assets/pediatric-dentistry.png"
-                                   },
-                                   {
-                                       "title":  "Emergency Dental Care",
-                                       "description":  "Fast relief for sudden dental pain, trauma, and urgent treatment needs.",
-                                       "link":  "/services/emergency-dental-care/",
-                                       "bullets":  [
-                                                       {
-                                                           "text":  "9 AM – 9 PM availability"
-                                                       },
-                                                       {
-                                                           "text":  "Same-day relief"
-                                                       },
-                                                       {
-                                                           "text":  "Walk-ins welcome"
-                                                       }
-                                                   ],
-                                       "image":  "/assets/emergency-toothache.png"
-                                   }
-                               ]
-                 },
-    "settings":  {
-                     "title":  "Best Dental Clinic in Dindigul | Jamuna Family Dental Care",
-                     "description":  "Jamuna Family Dental Care – Best dental clinic in Dindigul offering dental implants, root canal, teeth whitening, braces, smile design \u0026 pediatric dentistry. 4.9★ rated, 553+ Google reviews. Call +91 7200 620 011.",
-                     "canonical":  "https://jamunadental.com/"
-                 },
-    "hero":  {
-                 "heading_part1":  "Dindigul\u0027s Most",
-                 "heading_part4":  "Not Just Cure",
-                 "heading_part3":  "— We Care,",
-                 "social_proof":  {
-                                      "rating":  "4.9",
-                                      "review_count":  "600+ Patient Reviews"
-                                  },
-                 "highlights":  [
-                                    {
-                                        "text":  "Modern treatments"
-                                    },
-                                    {
-                                        "text":  "Pain-free procedures"
-                                    },
-                                    {
-                                        "text":  "Gentle approach"
-                                    },
-                                    {
-                                        "text":  "Expert care"
-                                    }
-                                ],
-                 "description":  "Jamuna Family Dental Care is a modern, trusted dental clinic in Dindigul providing complete expert dental care for children, adults and senior patients with advanced technology and personalized care.",
-                 "cta_text":  "Call Now – +91 7200 620 011",
-                 "phone":  "+917200620011",
-                 "heading_part2":  "Trusted Dental Clinic"
-             },
-    "faq":  {
-                "image":  "/assets/dental-exam.jpg",
-                "heading_part2":  "About Dental Care",
-                "badge":  "FAQs",
-                "items":  [
-                              {
-                                  "question":  "What dental treatments do you offer?",
-                                  "answer":  "We offer a full range of dental services including dental implants, root canal treatment, teeth cleaning \u0026 scaling, teeth whitening, braces \u0026 invisible aligners, cosmetic dentistry, pediatric dentistry, gum treatment, tooth extraction, and smile design."
-                              },
-                              {
-                                  "question":  "Is the treatment painful?",
-                                  "answer":  "We focus on gentle and comfortable treatments. Our experienced \u0026 certified dentists use modern techniques and equipment to ensure minimal discomfort during all procedures."
-                              },
-                              {
-                                  "question":  "What are your clinic timings?",
-                                  "answer":  "We are open from 9:00 AM to 9:00 PM, all days including weekends. Walk-ins and appointments are both welcome. We offer home visit services too."
-                              },
-                              {
-                                  "question":  "Do you treat children?",
-                                  "answer":  "Yes! We provide specialized pediatric dental care by MDS pedodontist doctors in a fun, comfortable environment designed to make children feel at ease during their visit."
-                              },
-                              {
-                                  "question":  "How long do dental implants last?",
-                                  "answer":  "With proper care and maintenance, dental implants can last a lifetime. They are designed to fuse with your bone, providing a permanent solution for missing teeth."
-                              },
-                              {
-                                  "question":  "Is teeth whitening safe?",
-                                  "answer":  "Professional teeth whitening is completely safe when performed by a dental professional. We use proven whitening systems that protect your enamel while delivering dramatic results."
-                              },
-                              {
-                                  "question":  "How often should I visit the dentist?",
-                                  "answer":  "We recommend visiting every 6 months for routine teeth cleanings and checkups. However, some patients may need frequent visits based on their oral health needs."
-                              }
-                          ],
-                "heading_part1":  "Everything You Need To Know"
-            }
+  "hero": {
+    "heading_part1": "Dindigul's Most",
+    "heading_part2": "Trusted Dental Clinic,",
+    "heading_part3": "We Care,",
+    "heading_part4": "Not Just Cure",
+    "description": "Jamuna Family Dental Care is a modern, trusted dental clinic in Dindigul providing complete expert dental care for children, adults and senior patients with advanced technology and personalized care.",
+    "cta_text": "Call Now – +91 7200 620 011",
+    "phone": "+917200620011",
+    "highlights": [
+      {
+        "text": "Modern treatments"
+      },
+      {
+        "text": "Pain-free procedures"
+      },
+      {
+        "text": "Gentle approach"
+      },
+      {
+        "text": "Expert care"
+      }
+    ],
+    "social_proof": {
+      "review_count": "600+ Patient Reviews",
+      "rating": "4.9"
+    }
+  },
+  "about": {
+    "badge": "About Us",
+    "heading_part1": "Your Journey to a",
+    "heading_part2": "Healthier Smile",
+    "heading_part3": "Begins Here",
+    "description": "With certified MDS specialists, advanced equipment and a gentle approach, JFDC delivers both routine and advanced dental care in a clean, hygienic environment — making dentistry transparent, comfortable and ethical for every patient across Dindigul.",
+    "highlights": [
+      {
+        "text": "Experienced Specialists"
+      },
+      {
+        "text": "Sterilized & Hygienic Clinic"
+      },
+      {
+        "text": "Gentle & Comfortable Treatment"
+      },
+      {
+        "text": "Certified Doctors"
+      }
+    ],
+    "image": "/uploads/emergency.png",
+    "cta_text": "View Our Services"
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Complete Dental Care",
+    "description": "From routine treatments to advanced procedures, we provide a full range of dental services for all age groups in a clean and hygienic environment.",
+    "cards": [
+      {
+        "title": "General & Preventive Dentistry",
+        "description": "Routine care to keep your smile healthy and catch issues early.",
+        "bullets": [
+          {
+            "text": "Oral Checkups"
+          },
+          {
+            "text": "Teeth Cleaning & Polishing"
+          },
+          {
+            "text": "Advanced Digital X-Rays"
+          },
+          {
+            "text": "Dental Fillings"
+          }
+        ],
+        "image": "/uploads/service-general-dentistry.png",
+        "link": "/services/general-dentistry/"
+      },
+      {
+        "title": "Root Canal Treatment",
+        "description": "Save your natural tooth with painless, advanced root canal therapy.",
+        "bullets": [
+          {
+            "text": "Single-visit RCT"
+          },
+          {
+            "text": "Painless procedure"
+          },
+          {
+            "text": "Save the natural tooth"
+          }
+        ],
+        "image": "/uploads/service-root-canal.png",
+        "link": "/services/general-dentistry/"
+      },
+      {
+        "title": "Implants & Restorations",
+        "description": "Rebuild missing or damaged teeth with permanent, natural-looking solutions.",
+        "bullets": [
+          {
+            "text": "Dental Implants"
+          },
+          {
+            "text": "Zirconia Crowns & Bridges"
+          },
+          {
+            "text": "Tooth Extraction"
+          },
+          {
+            "text": "Minor Oral Surgery"
+          }
+        ],
+        "image": "/uploads/service-implants.png",
+        "link": "/services/restorative-dentistry/"
+      },
+      {
+        "title": "Cosmetic Dentistry",
+        "description": "Designed for a brighter, more confident smile.",
+        "bullets": [
+          {
+            "text": "Teeth Whitening"
+          },
+          {
+            "text": "Veneers & Bonding"
+          },
+          {
+            "text": "Smile Design"
+          },
+          {
+            "text": "Gum Care"
+          }
+        ],
+        "image": "/uploads/service-smile-design.png",
+        "link": "/services/cosmetic-dentistry/"
+      },
+      {
+        "title": "Braces & Aligners",
+        "description": "Straighter teeth and a better bite for all ages.",
+        "bullets": [
+          {
+            "text": "Metal & Ceramic Braces"
+          },
+          {
+            "text": "Clear Aligners"
+          },
+          {
+            "text": "Invisible Braces"
+          }
+        ],
+        "image": "/assets/orthodontics-aligners.jpg",
+        "link": "/services/orthodontics/"
+      },
+      {
+        "title": "Kids Dentistry",
+        "description": "Gentle, child-friendly dental care in a fun, comfortable setting.",
+        "bullets": [
+          {
+            "text": "Pediatric specialists"
+          },
+          {
+            "text": "Child-friendly approach"
+          },
+          {
+            "text": "Preventive kids care"
+          }
+        ],
+        "image": "/uploads/pediatric-dentistry.png",
+        "link": "/services/pediatric-dentistry/"
+      },
+      {
+        "title": "Emergency Dental Care",
+        "description": "Fast relief for sudden dental pain, trauma, and urgent treatment needs.",
+        "bullets": [
+          {
+            "text": "9 AM – 9 PM availability"
+          },
+          {
+            "text": "Same-day relief"
+          },
+          {
+            "text": "Walk-ins welcome"
+          }
+        ],
+        "image": "/uploads/emergency-toothache.png",
+        "link": "/services/emergency-dental-care/"
+      }
+    ]
+  },
+  "why_choose": {
+    "heading": "Your smile is our priority",
+    "description": "Jamuna Family Dental Care focuses on comfortable treatments, advanced technology, and personalized patient-centered dental care to help patients maintain healthy and confident smiles.",
+    "image": "/uploads/why-choose-tooth.png",
+    "features": [
+      {
+        "title": "Family-Centered Care",
+        "description": "We provide dental care for all ages — children, adults, and seniors — with gentle, comfortable treatments tailored to each patient."
+      },
+      {
+        "title": "4.9★ Rating | 600+ Reviews",
+        "description": "Many patients highlight our professional care, advanced equipment, patient-friendly and comfortable & safe treatment experience. Trusted by families across Dindigul."
+      },
+      {
+        "title": "Advanced Technology",
+        "description": "We use the latest dental equipment with sterilized instruments in a clean, hygienic clinic for quick diagnosis and precise treatment."
+      }
+    ]
+  },
+  "faq": {
+    "badge": "FAQs",
+    "heading_part1": "Everything You Need To Know",
+    "heading_part2": "About Dental Care",
+    "items": [
+      {
+        "question": "What dental treatments do you offer?",
+        "answer": "We offer a full range of dental services including dental implants, root canal treatment, teeth cleaning & scaling, teeth whitening, braces & invisible aligners, cosmetic dentistry, pediatric dentistry, gum treatment, tooth extraction, and smile design."
+      },
+      {
+        "question": "Is the treatment painful?",
+        "answer": "We focus on gentle and comfortable treatments. Our experienced & certified dentists use modern techniques and equipment to ensure minimal discomfort during all procedures."
+      },
+      {
+        "question": "What are your clinic timings?",
+        "answer": "We are open from 9:00 AM to 9:00 PM, all days including weekends. Walk-ins and appointments are both welcome. We offer home visit services too."
+      },
+      {
+        "question": "Do you treat children?",
+        "answer": "Yes! We provide specialized pediatric dental care by MDS pedodontist doctors in a fun, comfortable environment designed to make children feel at ease during their visit."
+      },
+      {
+        "question": "How long do dental implants last?",
+        "answer": "With proper care and maintenance, dental implants can last a lifetime. They are designed to fuse with your bone, providing a permanent solution for missing teeth."
+      },
+      {
+        "question": "Is teeth whitening safe?",
+        "answer": "Professional teeth whitening is completely safe when performed by a dental professional. We use proven whitening systems that protect your enamel while delivering dramatic results."
+      },
+      {
+        "question": "How often should I visit the dentist?",
+        "answer": "We recommend visiting every 6 months for routine teeth cleanings and checkups. However, some patients may need frequent visits based on their oral health needs."
+      }
+    ],
+    "image": "/assets/dental-exam.jpg"
+  },
+  "settings": {
+    "title": "Best Dental Clinic in Dindigul | Jamuna Family Dental Care",
+    "description": "Jamuna Family Dental Care – Best dental clinic in Dindigul offering dental implants, root canal, teeth whitening, braces, smile design & pediatric dentistry. 4.9★ rated, 553+ Google reviews. Call +91 7200 620 011.",
+    "canonical": "https://jamunadental.com/"
+  }
 }
