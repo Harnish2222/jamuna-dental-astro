@@ -2,11 +2,21 @@ import { CheckCircle, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import AnimatedSection from '@/components/AnimatedSection';
-import jamunaDoctorOperation from '@/assets/jamuna-doctor-operation.jpg';
-import jamunaClinicInterior from '@/assets/jamuna-clinic-interior.jpg';
+import jamunaDoctorOperation from '@/assets/jamuna-doctor-portrait.png';
 
-const AboutUsSection = () => {
-  const highlights = [
+interface AboutContent {
+  badge?: string;
+  heading_part1?: string;
+  heading_part2?: string;
+  heading_part3?: string;
+  description?: string;
+  highlights?: { text: string }[];
+  image?: string;
+  cta_text?: string;
+}
+
+const AboutUsSection = ({ content }: { content?: AboutContent }) => {
+  const highlights = content?.highlights?.map(h => h.text) || [
     "Experienced Specialists",
     "Sterilized & Hygienic Clinic",
     "Gentle & Comfortable Treatment",
@@ -14,53 +24,41 @@ const AboutUsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background overflow-hidden">
+    <section className="py-12 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 items-center">
           {/* Mobile: Heading first */}
-          <AnimatedSection animation="fade-right" className="order-1 lg:order-none space-y-6 text-center lg:text-left w-full lg:col-start-2 lg:row-start-1">
+          <AnimatedSection animation="fade-right" className="order-1 lg:order-none space-y-3 text-center lg:text-left w-full lg:col-start-2 lg:row-start-1">
             <Badge variant="outline" className="text-primary border-primary/30">
               <Sparkles className="w-3 h-3 mr-1" />
-              About Us
+              {content?.badge || 'About Us'}
             </Badge>
-            
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              <span className="text-foreground">Your Journey to a </span>
-              <span className="text-primary">Healthier Smile</span>
-              <span className="text-foreground"> Begins Here</span>
+
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+              <span className="text-foreground">{content?.heading_part1 || 'Your Journey to a '} </span>
+              <span className="text-primary">{content?.heading_part2 || 'Healthier Smile'}</span>
+              <span className="text-foreground"> {content?.heading_part3 || 'Begins Here'}</span>
             </h2>
           </AnimatedSection>
 
-          {/* Images */}
+          {/* Image */}
           <AnimatedSection animation="fade-left" className="relative order-2 lg:order-none lg:col-start-1 lg:row-start-1 lg:row-span-2">
-            <Sparkles className="absolute top-0 left-0 w-8 h-8 text-primary/30" />
-            <Sparkles className="absolute bottom-20 left-8 w-6 h-6 text-primary/40" />
-            <Sparkles className="absolute top-1/3 right-0 w-10 h-10 text-primary/20" />
-            
-            <div className="relative z-10 w-[70%] rounded-2xl overflow-hidden shadow-xl">
-              <img src={jamunaDoctorOperation.src} alt="Doctor performing dental treatment at JFDC" className="w-full aspect-[4/3] object-cover" />
-            </div>
-            
-            <div className="absolute top-4 right-[15%] z-20 w-24 h-24 rounded-full bg-primary text-primary-foreground flex flex-col items-center justify-center text-center shadow-lg border-4 border-background">
-              <span className="text-2xl font-bold">4.9★</span>
-              <span className="text-[10px] tracking-wide leading-tight">600+<br/>Reviews</span>
-            </div>
-            
-            <div className="relative z-10 w-[65%] ml-auto -mt-16 rounded-2xl overflow-hidden shadow-xl border-4 border-background">
-              <img src={jamunaClinicInterior.src} alt="Modern JFDC clinic interior" className="w-full aspect-[4/3] object-cover" />
+            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+              <img src={content?.image || jamunaDoctorOperation.src} alt="Doctor performing dental treatment at JFDC" className="w-full aspect-[4/3] object-cover" />
+              <div className="absolute bottom-4 right-4 bg-primary text-primary-foreground rounded-xl px-4 py-2 text-center shadow-lg">
+                <div className="text-xl font-bold">4.9★</div>
+                <div className="text-xs">600+ Reviews</div>
+              </div>
             </div>
           </AnimatedSection>
 
           {/* Content */}
-          <AnimatedSection animation="fade-right" delay="delay-200" className="order-3 lg:order-none space-y-6 text-center lg:text-left w-full lg:col-start-2 lg:row-start-2">
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              With experienced and certified dentists along with modern equipment, we provide both routine dental treatments and advanced dental procedures in a clean and hygienic environment. Jamuna Family Dental Care combines modern techniques with a gentle & friendly approach to help every patient achieve their dream smile.
+          <AnimatedSection animation="fade-right" delay="delay-200" className="order-3 lg:order-none space-y-4 text-center lg:text-left w-full lg:col-start-2 lg:row-start-2">
+            <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+              {content?.description || 'With certified MDS specialists, advanced equipment and a gentle approach, JFDC delivers both routine and advanced dental care in a clean, hygienic environment — making dentistry transparent, comfortable and ethical for every patient across Dindigul.'}
             </p>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              At JFDC, we believe in making dentistry transparent, ethical and comfortable for families, young adults and professionals across Dindigul. Pleasing ambience, state-of-the-art facilities, home-care dental services and ample parking space are all our added advantages.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-4 pt-4">
+
+            <div className="grid grid-cols-2 gap-3">
               {highlights.map((item, index) => (
                 <div key={index} className="flex items-center gap-3 justify-center lg:justify-start">
                   <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
@@ -71,9 +69,9 @@ const AboutUsSection = () => {
               ))}
             </div>
             
-            <div className="pt-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
-                View Our Services
+            <div>
+              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
+                {content?.cta_text || 'View Our Services'}
               </Button>
             </div>
           </AnimatedSection>

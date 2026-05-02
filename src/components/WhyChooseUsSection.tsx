@@ -1,14 +1,25 @@
 import { Phone, Shield, Star, Heart, Stethoscope } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { dentalImages } from '@/lib/dentalImages';
 import AnimatedSection from '@/components/AnimatedSection';
+import whyChooseTooth from '@/assets/why-choose-tooth.png';
 
-const WhyChooseUsSection = () => {
-  const features = [
-    { icon: Heart, title: "Family-Centered Care", description: "We provide dental care for all ages — children, adults, and seniors — with gentle, comfortable treatments tailored to each patient." },
-    { icon: Star, title: "4.9★ Rating | 600+ Reviews", description: "Many patients highlight our professional care, advanced equipment, patient-friendly and comfortable & safe treatment experience. Trusted by families across Dindigul." },
-    { icon: Stethoscope, title: "Advanced Technology", description: "We use the latest dental equipment with sterilized instruments in a clean, hygienic clinic for quick diagnosis and precise treatment." }
-  ];
+interface WhyChooseContent {
+  heading?: string;
+  description?: string;
+  image?: string;
+  features?: { title: string; description: string }[];
+}
+
+const featureIcons = [Heart, Star, Stethoscope];
+
+const WhyChooseUsSection = ({ content }: { content?: WhyChooseContent }) => {
+  const features = content?.features?.length
+    ? content.features.map((f, i) => ({ icon: featureIcons[i] || Heart, title: f.title, description: f.description }))
+    : [
+        { icon: Heart, title: "Family-Centered Care", description: "We provide dental care for all ages — children, adults, and seniors — with gentle, comfortable treatments tailored to each patient." },
+        { icon: Star, title: "4.9★ Rating | 600+ Reviews", description: "Many patients highlight our professional care, advanced equipment, patient-friendly and comfortable & safe treatment experience. Trusted by families across Dindigul." },
+        { icon: Stethoscope, title: "Advanced Technology", description: "We use the latest dental equipment with sterilized instruments in a clean, hygienic clinic for quick diagnosis and precise treatment." }
+      ];
 
   return (
     <section className="relative py-20 overflow-hidden bg-primary">
@@ -20,10 +31,10 @@ const WhyChooseUsSection = () => {
               <span className="text-sm font-semibold tracking-wide">Why Choose JFDC</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-teal leading-tight">
-              Your smile is<br />our priority
+              {content?.heading || 'Your smile is our priority'}
             </h2>
             <p className="text-white/90 leading-relaxed max-w-md mx-auto lg:mx-0">
-              Jamuna Family Dental Care focuses on comfortable treatments, advanced technology, and personalized patient-centered dental care to help patients maintain healthy and confident smiles.
+              {content?.description || 'Jamuna Family Dental Care focuses on comfortable treatments, advanced technology, and personalized patient-centered dental care to help patients maintain healthy and confident smiles.'}
             </p>
             <Button size="lg" className="bg-white hover:bg-white/90 text-primary rounded-full px-8" asChild>
               <a href="tel:+917200620011" onClick={() => (window as any).gtag_report_phone_conversion?.()}><Phone className="mr-2 h-5 w-5" />Call Now</a>
@@ -41,7 +52,7 @@ const WhyChooseUsSection = () => {
               <div className="w-[19rem] h-[19rem] rounded-full border border-white/25" />
             </div>
             <div className="relative z-10 w-72 h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden ring-4 ring-white/20 shadow-[0_0_60px_rgba(0,154,167,0.35)]">
-              <img src={dentalImages.team.dentist1} alt="Professional dentist team at JFDC" className="w-full h-full object-cover" />
+              <img src={content?.image || whyChooseTooth.src} alt="3D tooth illustration — Why Choose JFDC" className="w-full h-full object-cover" />
             </div>
           </AnimatedSection>
 
