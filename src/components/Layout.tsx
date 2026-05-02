@@ -1,4 +1,4 @@
-import { ReactNode, lazy, Suspense } from 'react';
+import { type ReactNode, lazy, Suspense } from 'react';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import InView from './InView';

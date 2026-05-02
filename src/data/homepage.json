@@ -2,9 +2,9 @@
   "hero": {
     "heading_part1": "Dindigul's Most",
     "heading_part2": "Trusted Dental Clinic,",
-    "heading_part3": "We Care,",
+    "heading_part3": "We Care -",
     "heading_part4": "Not Just Cure",
-    "description": "Jamuna Family Dental Care is a modern, trusted dental clinic in Dindigul providing complete expert dental care for children, adults and senior patients with advanced technology and personalized care.",
+    "description": "Jamuna Family Dental Care is a modern, trusted dental clinic in Dindigul providing complete expert dental care for children, adults and senior patients with advanced technology and personalized care!!",
     "cta_text": "Call Now – +91 7200 620 011",
     "phone": "+917200620011",
     "highlights": [
@@ -27,7 +27,7 @@
     }
   },
   "about": {
-    "badge": "About Us",
+    "badge": "About US",
     "heading_part1": "Your Journey to a",
     "heading_part2": "Healthier Smile",
     "heading_part3": "Begins Here",
@@ -47,7 +47,7 @@
       }
     ],
     "image": "/uploads/emergency.png",
-    "cta_text": "View Our Services"
+    "cta_text": "View Our Services11"
   },
   "services": {
     "badge": "Our Services",

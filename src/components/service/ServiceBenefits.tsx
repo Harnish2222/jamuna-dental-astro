@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/badge';
-import { LucideIcon } from 'lucide-react';
+import { type LucideIcon } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
 
 interface Benefit {

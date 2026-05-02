@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { LucideIcon, ArrowRight, Clock } from 'lucide-react';
+import { type LucideIcon, ArrowRight, Clock } from 'lucide-react';
 import { Link } from '@/lib/router-compat';
 import AnimatedSection from '@/components/AnimatedSection';
 

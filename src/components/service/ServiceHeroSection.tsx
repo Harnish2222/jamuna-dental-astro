@@ -2,7 +2,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/lib/router-compat';
 import { ArrowRight, Phone, Star, Users, Clock } from 'lucide-react';
-import { LucideIcon } from 'lucide-react';
+import { type LucideIcon } from 'lucide-react';
 
 interface HeroStat {
   value: string;
