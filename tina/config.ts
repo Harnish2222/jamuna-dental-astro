@@ -1,7 +1,13 @@
 ﻿import { defineConfig } from "tinacms";
 
+const branch =
+  process.env.NEXT_PUBLIC_TINA_BRANCH ||
+  process.env.CF_PAGES_BRANCH ||        // Cloudflare Pages
+  process.env.HEAD ||                    // Netlify
+  "main";
+
 export default defineConfig({
-  branch: "main",
+  branch,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
   token: process.env.TINA_TOKEN || "",
   build: {
