@@ -18,39 +18,39 @@ import stockClinicExterior from '@/assets/stock-clinic-exterior.jpg';
 export const dentalImages = {
   // Clinic & Facilities
   clinic: {
-    reception: stockDentalClinic,
-    treatmentRoom: stockTreatmentRoom,
-    exterior: stockClinicExterior,
+    reception: stockDentalClinic.src,
+    treatmentRoom: stockTreatmentRoom.src,
+    exterior: stockClinicExterior.src,
   },
-  
+
   // Services
   services: {
-    generalExam: stockDentalExam,
-    whitening: stockTeethWhitening,
-    implants: stockDentalImplants,
-    orthodontics: stockOrthodontics,
-    pediatric: stockPediatric,
-    emergency: stockEmergencyDental,
-    crowns: stockDentalCrowns,
+    generalExam: stockDentalExam.src,
+    whitening: stockTeethWhitening.src,
+    implants: stockDentalImplants.src,
+    orthodontics: stockOrthodontics.src,
+    pediatric: stockPediatric.src,
+    emergency: stockEmergencyDental.src,
+    crowns: stockDentalCrowns.src,
   },
-  
+
   // Team
   team: {
-    dentist1: stockDentistPortrait,
-    dentist2: stockDentistPortrait2,
-    hygienist: stockHygienist,
+    dentist1: stockDentistPortrait.src,
+    dentist2: stockDentistPortrait2.src,
+    hygienist: stockHygienist.src,
   },
-  
+
   // Patients & Results
   patients: {
-    family: stockHappyFamily,
-    smile: stockBeautifulSmile,
+    family: stockHappyFamily.src,
+    smile: stockBeautifulSmile.src,
   },
-  
+
   // Hero images
   hero: {
-    main: stockDentalClinic,
-    secondary: stockBeautifulSmile,
+    main: stockDentalClinic.src,
+    secondary: stockBeautifulSmile.src,
   },
 };
 
