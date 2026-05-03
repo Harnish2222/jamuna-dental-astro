@@ -46,7 +46,7 @@
         "text": "Certified Doctors"
       }
     ],
-    "image": "/uploads/emergency.png",
+    "image": "/uploads/about%20jamuna%20dental.png",
     "cta_text": "View Our Services11"
   },
   "services": {
@@ -145,7 +145,7 @@
             "text": "Invisible Braces"
           }
         ],
-        "image": "/assets/orthodontics-aligners.jpg",
+        "image": "/uploads/assets/orthodontics-aligners.jpg",
         "link": "/services/orthodontics/"
       },
       {
@@ -237,7 +237,7 @@
         "answer": "We recommend visiting every 6 months for routine teeth cleanings and checkups. However, some patients may need frequent visits based on their oral health needs."
       }
     ],
-    "image": "/assets/dental-exam.jpg"
+    "image": "/uploads/assets/dental-exam.jpg"
   },
   "settings": {
     "title": "Best Dental Clinic in Dindigul | Jamuna Family Dental Care",
