@@ -27,7 +27,7 @@
     }
   },
   "about": {
-    "badge": "About US",
+    "badge": "About Us",
     "heading_part1": "Your Journey to a",
     "heading_part2": "Healthier Smile",
     "heading_part3": "Begins Here",
@@ -47,7 +47,7 @@
       }
     ],
     "image": "/uploads/about%20jamuna%20dental.png",
-    "cta_text": "View Our Services11"
+    "cta_text": "View Our Services"
   },
   "services": {
     "badge": "Our Services",
