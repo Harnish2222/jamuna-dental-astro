@@ -39,32 +39,8 @@ const AboutUsSection = ({ content }: { content?: AboutContent }) => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column - Image & Badges */}
-          <AnimatedSection animation="fade-right" className="relative w-full">
-            <div className="relative rounded-3xl overflow-hidden bg-gray-200 aspect-[4/5] md:aspect-[4/3] lg:aspect-[4/4.5] xl:aspect-[4/4]">
-              <img 
-                src={content?.image || jamunaDoctorOperation.src} 
-                alt="Doctor performing dental treatment at JFDC" 
-                className="w-full h-full object-cover object-top" 
-              />
-            </div>
-
-            {/* Top Right Badge: Rating */}
-            <div className="absolute top-6 -right-2 md:-right-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 w-[160px]">
-              <div className="text-3xl font-extrabold text-gray-900 mb-1">4.9</div>
-              <div className="flex gap-1 mb-2 text-yellow-400">
-                <Star className="w-4 h-4 fill-current" />
-                <Star className="w-4 h-4 fill-current" />
-                <Star className="w-4 h-4 fill-current" />
-                <Star className="w-4 h-4 fill-current" />
-                <Star className="w-4 h-4 fill-current" />
-              </div>
-              <div className="text-sm font-bold text-[#072674]">600+ Happy Patients</div>
-            </div>
-          </AnimatedSection>
-
-          {/* Right Column - Content */}
-          <AnimatedSection animation="fade-left" delay="delay-100" className="w-full flex flex-col space-y-6 pt-12 lg:pt-0">
+          {/* Mobile Heading & Subtitle (Hidden on Desktop) */}
+          <div className="flex lg:hidden w-full flex-col space-y-6 text-center items-center mb-[-2rem]">
             {/* Tag */}
             <div>
               <Badge variant="outline" className="text-[#072674] border-[#072674]/20 rounded-full px-4 py-1.5 uppercase tracking-widest text-xs font-bold bg-white">
@@ -75,19 +51,68 @@ const AboutUsSection = ({ content }: { content?: AboutContent }) => {
 
             {/* Headings */}
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.2] text-[#072674]">
+              <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.2] text-[#072674]">
                 {content?.heading_part1 || "Your Family's Trusted Dental Experts in"} <span className="text-[#0080B5]">{content?.heading_part2 || "Dindigul"}</span>
               </h2>
               <p className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed">
                 {content?.subtitle}
               </p>
             </div>
+          </div>
 
-            {/* Horizontal Line */}
-            <div className="h-px w-full bg-gray-200"></div>
+          {/* Left Column - Image & Badges (Order 2 on Mobile, 1 on Desktop) */}
+          <AnimatedSection animation="fade-right" className="relative w-full order-2 lg:order-1">
+            <div className="relative rounded-3xl overflow-hidden bg-gray-200 aspect-[4/5] md:aspect-[4/3] lg:aspect-[4/4.5] xl:aspect-[4/4]">
+              <img 
+                src={content?.image || jamunaDoctorOperation.src} 
+                alt="Doctor performing dental treatment at JFDC" 
+                className="w-full h-full object-cover object-top" 
+              />
+            </div>
 
-            {/* Description */}
-            <div className="text-[15px] text-gray-600 leading-relaxed max-w-2xl whitespace-pre-line">
+            {/* Top Right Badge: Rating */}
+            <div className="absolute top-6 -right-2 md:-right-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 w-[160px]">
+              <div className="text-3xl font-extrabold text-gray-900 mb-1 text-left">4.9</div>
+              <div className="flex gap-1 mb-2 text-yellow-400">
+                <Star className="w-4 h-4 fill-current" />
+                <Star className="w-4 h-4 fill-current" />
+                <Star className="w-4 h-4 fill-current" />
+                <Star className="w-4 h-4 fill-current" />
+                <Star className="w-4 h-4 fill-current" />
+              </div>
+              <div className="text-sm font-bold text-[#072674] text-left">600+ Happy Patients</div>
+            </div>
+          </AnimatedSection>
+
+          {/* Right Column - Content (Order 3 on Mobile, 2 on Desktop) */}
+          <AnimatedSection animation="fade-left" delay="delay-100" className="w-full flex flex-col space-y-6 pt-0 lg:pt-0 order-3 lg:order-2 items-center lg:items-start text-center lg:text-left">
+            
+            {/* Desktop Heading & Subtitle */}
+            <div className="hidden lg:flex flex-col space-y-6 w-full">
+              {/* Tag */}
+              <div>
+                <Badge variant="outline" className="text-[#072674] border-[#072674]/20 rounded-full px-4 py-1.5 uppercase tracking-widest text-xs font-bold bg-white">
+                  <User className="w-3.5 h-3.5 mr-2" />
+                  {content?.badge || 'ABOUT US'}
+                </Badge>
+              </div>
+
+              {/* Headings */}
+              <div className="space-y-4">
+                <h2 className="text-4xl lg:text-5xl font-extrabold leading-[1.2] text-[#072674]">
+                  {content?.heading_part1 || "Your Family's Trusted Dental Experts in"} <span className="text-[#0080B5]">{content?.heading_part2 || "Dindigul"}</span>
+                </h2>
+                <p className="text-xl text-gray-600 font-medium leading-relaxed">
+                  {content?.subtitle}
+                </p>
+              </div>
+            </div>
+
+            {/* Horizontal Line (Desktop only) */}
+            <div className="hidden lg:block h-px w-full bg-gray-200"></div>
+
+            {/* Description (Centered on mobile, left on desktop) */}
+            <div className="text-[15px] text-gray-600 leading-relaxed max-w-2xl whitespace-pre-line text-center lg:text-left">
               {content?.description}
             </div>
 

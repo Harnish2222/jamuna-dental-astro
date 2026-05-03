@@ -66,7 +66,7 @@ export default function TeamSection({ content }: { content?: TeamContent }) {
                   </div>
 
                   {/* Content Area */}
-                  <div className="p-6 flex flex-col flex-grow bg-white">
+                  <div className="p-6 flex flex-col flex-grow bg-white items-center text-center md:items-start md:text-left">
                     <div className="mb-5">
                       <h3 className="text-2xl font-bold text-gray-900 mb-1">{member.name}</h3>
                       <div className="text-primary font-bold text-sm">
@@ -121,7 +121,7 @@ export default function TeamSection({ content }: { content?: TeamContent }) {
                   </div>
 
                   {/* Content Area */}
-                  <div className="p-6 flex flex-col flex-grow bg-white">
+                  <div className="p-6 flex flex-col flex-grow bg-white items-center text-center md:items-start md:text-left">
                     <div className="mb-5">
                       <h3 className="text-2xl font-bold text-gray-900 mb-1">{member.name}</h3>
                       <div className="text-primary font-bold text-sm">

@@ -281,20 +281,21 @@ export default function PriceTellerSection({ content }: { content?: PriceTellerC
         <div className="bg-white rounded-[2rem] shadow-xl p-4 md:p-6 lg:p-8 flex flex-col lg:flex-row gap-6 max-w-[1400px] mx-auto border border-gray-100">
           
           {/* ── Mobile Dropdown (Visible only on mobile) ── */}
-          <div className="block lg:hidden w-full">
-            <div className="relative">
-              <select 
-                className="w-full appearance-none bg-white border border-gray-200 rounded-2xl py-4 pl-5 pr-12 text-gray-900 font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary shadow-sm text-lg"
-                value={selectedIdx}
-                onChange={(e) => setSelectedIdx(Number(e.target.value))}
-              >
-                {treatments.map((t, idx) => (
-                  <option key={idx} value={idx}>{t.label} ({t.services.length} services)</option>
-                ))}
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-5 text-gray-500">
-                <ChevronDown className="w-6 h-6" />
-              </div>
+          <div className="block lg:hidden w-full -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="flex overflow-x-auto gap-2 pb-4 custom-scrollbar-hide snap-x">
+              {treatments.map((t, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedIdx(idx)}
+                  className={`snap-start whitespace-nowrap px-5 py-2.5 rounded-full font-bold text-sm transition-all border flex-shrink-0 ${
+                    selectedIdx === idx 
+                      ? 'bg-primary text-white border-primary shadow-md' 
+                      : 'bg-[#F2F5F7] text-gray-700 border-transparent hover:bg-gray-100'
+                  }`}
+                >
+                  {t.label}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -424,6 +425,13 @@ export default function PriceTellerSection({ content }: { content?: PriceTellerC
       
       {/* Custom Scrollbar Styles for the sidebar */}
       <style>{`
+        .custom-scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .custom-scrollbar-hide {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+        }
         .custom-scrollbar::-webkit-scrollbar {
           width: 6px;
         }

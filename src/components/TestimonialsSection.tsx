@@ -161,7 +161,7 @@ const TestimonialsSection = ({ content }: { content?: TestimonialsContent }) => 
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <div className="hidden md:flex justify-center mt-12 gap-4">
+                <div className="flex justify-center mt-8 md:mt-12 gap-4">
                   <CarouselPrevious className="static transform-none bg-white border border-gray-200 text-gray-700 hover:bg-[#4285F4] hover:text-white hover:border-[#4285F4] transition-all w-12 h-12 shadow-sm" />
                   <CarouselNext className="static transform-none bg-white border border-gray-200 text-gray-700 hover:bg-[#4285F4] hover:text-white hover:border-[#4285F4] transition-all w-12 h-12 shadow-sm" />
                 </div>

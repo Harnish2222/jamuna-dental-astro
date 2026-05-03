@@ -33,8 +33,8 @@ const MissionVisionSection = ({ content }: MissionVisionProps) => {
 
       <div className="container mx-auto px-4 relative z-10">
         <AnimatedSection animation="fade-up">
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-16">
-            <div className="space-y-4 max-w-3xl">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-8 mb-16 text-center lg:text-left">
+            <div className="space-y-4 max-w-3xl flex flex-col items-center lg:items-start">
               <div className="flex items-center gap-2 text-primary font-medium text-sm tracking-wide">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10" />
@@ -46,7 +46,7 @@ const MissionVisionSection = ({ content }: MissionVisionProps) => {
                 {content.heading}
               </h2>
             </div>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full self-start" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full" onClick={() => document.getElementById('appointment')?.scrollIntoView({ behavior: 'smooth' })}>
               {content.cta_text}
               <Plus className="ml-2 h-5 w-5" />
             </Button>
