@@ -480,6 +480,7 @@
       },
       {
         "label": "Dentures",
+        "image": "/uploads/dentures.png",
         "services": [
           {
             "name": "Complete Denture – Basic",
