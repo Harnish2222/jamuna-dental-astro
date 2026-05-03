@@ -9,6 +9,7 @@ import AboutUsSection from '@/components/AboutUsSection';
 import MilestonesSection from '@/components/MilestonesSection';
 import MissionVisionSection from '@/components/MissionVisionSection';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';
+import PriceTellerSection from '@/components/PriceTellerSection';
 import InstagramReelsSection from '@/components/InstagramReelsSection';
 
 // Hydrated React islands — only the genuinely interactive pieces
@@ -211,6 +212,9 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
       </div>
     </div>
   </section>
+
+  {/* ─── Price Teller (interactive, hydrated) ────────────────────────── */}
+  <PriceTellerSection client:visible />
 
   <WhyChooseUsSection content={homepageContent?.why_choose} />
 
