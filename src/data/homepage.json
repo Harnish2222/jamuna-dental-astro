@@ -92,26 +92,6 @@
         "link": "/services/general-dentistry/"
       },
       {
-        "title": "Implants & Restorations",
-        "description": "Rebuild missing or damaged teeth with permanent, natural-looking solutions.",
-        "bullets": [
-          {
-            "text": "Dental Implants"
-          },
-          {
-            "text": "Zirconia Crowns & Bridges"
-          },
-          {
-            "text": "Tooth Extraction"
-          },
-          {
-            "text": "Minor Oral Surgery"
-          }
-        ],
-        "image": "/uploads/service-implants.png",
-        "link": "/services/restorative-dentistry/"
-      },
-      {
         "title": "Cosmetic Dentistry",
         "description": "Designed for a brighter, more confident smile.",
         "bullets": [
@@ -130,6 +110,26 @@
         ],
         "image": "/uploads/service-smile-design.png",
         "link": "/services/cosmetic-dentistry/"
+      },
+      {
+        "title": "Implants & Restorations",
+        "description": "Rebuild missing or damaged teeth with permanent, natural-looking solutions.",
+        "bullets": [
+          {
+            "text": "Dental Implants"
+          },
+          {
+            "text": "Zirconia Crowns & Bridges"
+          },
+          {
+            "text": "Tooth Extraction"
+          },
+          {
+            "text": "Minor Oral Surgery"
+          }
+        ],
+        "image": "/uploads/service-implants.png",
+        "link": "/services/restorative-dentistry/"
       },
       {
         "title": "Braces & Aligners",
