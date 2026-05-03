@@ -22,11 +22,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    /* Primary - Refined Deep Navy (#0E2A87) */
-    --primary: 234 82% 29%;
+    /* Primary - Deep Navy (#072674) */
+    --primary: 223 88% 24%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 234 70% 42%;
-    --primary-dark: 234 88% 20%;
+    --primary-light: 223 70% 35%;
+    --primary-dark: 223 88% 18%;
 
     /* Secondary - Neutral for UI components */
     --secondary: 204 17% 96%;
@@ -230,9 +230,8 @@
     @apply opacity-100 translate-y-0;
   }
 
-  /* Alternating Section Pattern */
   .section-odd {
-    background-color: #0E2A87;
+    background-color: #072674;
     color: white;
   }
   
@@ -389,7 +388,7 @@
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
 /* Scroll-triggered intro animations

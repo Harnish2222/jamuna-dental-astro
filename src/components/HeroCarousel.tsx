@@ -2,30 +2,22 @@ import { useRef } from 'react';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 
-import heroJfdcFront from '@/assets/hero-jfdc-front.jpg';
-import heroTreatmentBlue from '@/assets/hero-treatment-room-blue.jpg';
-import heroReception from '@/assets/hero-reception.jpg';
-import heroConsultation from '@/assets/hero-consultation-room.jpg';
-import heroDoctorChild from '@/assets/hero-doctor-child.jpg';
+interface HeroCarouselProps {
+  images?: { src: string; alt: string }[];
+}
 
-const heroImages = [
-  { src: heroJfdcFront.src, alt: 'Jamuna Family Dental Care - Building Front' },
-  { src: heroTreatmentBlue.src, alt: 'Modern blue treatment room' },
-  { src: heroReception.src, alt: 'Clinic reception area' },
-  { src: heroConsultation.src, alt: 'Doctor consultation room' },
-  { src: heroDoctorChild.src, alt: 'Doctor treating a child patient' },
-];
-
-const HeroCarousel = () => {
+const HeroCarousel = ({ images }: HeroCarouselProps) => {
   const autoplayPlugin = useRef(
     Autoplay({ delay: 4000, stopOnInteraction: false }),
   );
+  
+  if (!images || images.length === 0) return null;
 
   return (
     <Carousel opts={{ loop: true }} plugins={[autoplayPlugin.current]} className="w-full">
       <CarouselContent>
-        {heroImages.map((image, index) => (
-          <CarouselItem key={image.src}>
+        {images.map((image, index) => (
+          <CarouselItem key={index}>
             <img
               src={image.src}
               alt={image.alt}

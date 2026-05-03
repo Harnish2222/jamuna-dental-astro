@@ -1,12 +1,13 @@
 {
   "hero": {
     "heading_part1": "Dindigul's Most",
-    "heading_part2": "Trusted Dental Clinic,",
-    "heading_part3": "We Care -",
-    "heading_part4": "Not Just Cure",
-    "description": "Jamuna Family Dental Care is a modern, trusted dental clinic in Dindigul providing complete expert dental care for children, adults and senior patients with advanced technology and personalized care!!",
-    "cta_text": "Call Now – +91 7200 620 011",
+    "heading_part2": "Trusted Dental Clinic",
+    "subheading": "WE CARE; NOT JUST CURE",
+    "description": "Jamuna Family Dental Care is a modern, trusted, best dental clinic in Dindigul providing complete expertised dental care for children, adults and senior patients. We focus on comfortable & gentle dental treatments with advanced technology and personalized expert care.",
+    "cta_text": "Call Now – +91 7200 6200 11",
     "phone": "+917200620011",
+    "whatsapp_text": "Book via WhatsApp",
+    "whatsapp_number": "+917200620011",
     "highlights": [
       {
         "text": "Modern treatments"
@@ -31,23 +32,30 @@
     "heading_part1": "Your Journey to a",
     "heading_part2": "Healthier Smile",
     "heading_part3": "Begins Here",
-    "description": "With certified MDS specialists, advanced equipment and a gentle approach, JFDC delivers both routine and advanced dental care in a clean, hygienic environment — making dentistry transparent, comfortable and ethical for every patient across Dindigul.",
-    "highlights": [
+    "subtitle": "Serving families across Dindigul with ethical, modern and comfortable dental care.",
+    "description": "With experienced and certified dentists along with modern equipments, we provide both routine dental treatments and advanced dental procedures in a clean and hygienic environment. Jamuna Family Dental Care combines modern techniques with a gentle & friendly approach to help every patient achieve their dream smile.\n\nAt JFDC, we believe in making dentistry transparent, ethical and comfortable for families, young adults and professionals across Dindigul. Pleasing ambience, State-of-the-Art Facilities, HomeCare Dental services and Ample parking space are all our added advantages.",
+    "features": [
       {
-        "text": "Experienced Specialists"
+        "title": "Certified & Experienced Specialists",
+        "description": ""
       },
       {
-        "text": "Sterilized & Hygienic Clinic"
+        "title": "Sterilized & Hygienic Clinic",
+        "description": ""
       },
       {
-        "text": "Gentle & Comfortable Treatment"
+        "title": "Gentle & Comfortable Treatment",
+        "description": ""
       },
       {
-        "text": "Certified Doctors"
+        "title": "Quick Diagnosis & Treatment",
+        "description": ""
       }
     ],
+    "stats": [],
     "image": "/uploads/about%20jamuna%20dental.png",
-    "cta_text": "View Our Services"
+    "cta_text": "View Treatments →",
+    "cta_secondary_text": "Meet Our Doctors"
   },
   "services": {
     "badge": "Our Services",
@@ -65,10 +73,10 @@
             "text": "Teeth Cleaning & Polishing"
           },
           {
-            "text": "Advanced Digital X-Rays"
+            "text": "Dental Fillings"
           },
           {
-            "text": "Dental Fillings"
+            "text": "Advanced Digital X-Rays"
           }
         ],
         "image": "/uploads/service-general-dentistry.png",
@@ -88,7 +96,7 @@
             "text": "Save the natural tooth"
           }
         ],
-        "image": "/uploads/service-root-canal.png",
+        "image": "/uploads/root canal.jpg",
         "link": "/services/general-dentistry/"
       },
       {
@@ -112,23 +120,39 @@
         "link": "/services/cosmetic-dentistry/"
       },
       {
-        "title": "Implants & Restorations",
-        "description": "Rebuild missing or damaged teeth with permanent, natural-looking solutions.",
+
+        "title": "Dental Implants",
+        "description": "Permanent, natural-looking replacement for missing teeth.",
         "bullets": [
           {
-            "text": "Dental Implants"
+            "text": "Single Tooth Implants"
           },
           {
-            "text": "Zirconia Crowns & Bridges"
+            "text": "Full Mouth Rehabilitation"
           },
           {
-            "text": "Tooth Extraction"
-          },
-          {
-            "text": "Minor Oral Surgery"
+            "text": "Bone Grafting"
           }
         ],
-        "image": "/uploads/service-implants.png",
+        "image": "/uploads/dental implant.jpg",
+        "link": "/services/dental-implants/"
+      },
+      {
+        "title": "Crowns & Bridges",
+        "description": "Restore damaged teeth and bridge gaps with strong, aesthetic zirconia.",
+        "bullets": [
+          {
+            "text": "Zirconia Crowns"
+          },
+          {
+            "text": "Dental Bridges"
+          },
+          {
+            "text": "Porcelain Fused to Metal"
+          }
+        ],
+        "image": "/uploads/crowns and bridges1.jpg",
+
         "link": "/services/restorative-dentistry/"
       },
       {
@@ -237,7 +261,616 @@
         "answer": "We recommend visiting every 6 months for routine teeth cleanings and checkups. However, some patients may need frequent visits based on their oral health needs."
       }
     ],
-    "image": "/uploads/assets/dental-exam.jpg"
+    "image": "/uploads/jamuna-clinic-interior.jpg"
+  },
+  "price_teller": {
+    "badge": "Most Affordable in Dindigul",
+    "heading": "Most Affordable Dental Treatments in Dindigul",
+    "description": "Transparent, honest pricing with zero hidden fees, select a treatment below to see our rates.",
+    "treatments": [
+      {
+        "label": "Root Canal",
+        "services": [
+          {
+            "name": "Root Canal – Front Teeth",
+            "price": "Rs. 2,500"
+          },
+          {
+            "name": "Root Canal – Back Teeth",
+            "price": "Rs. 3,000"
+          },
+          {
+            "name": "Root Canal – Milk Tooth (Pulpectomy)",
+            "price": "Rs. 2,500"
+          },
+          {
+            "name": "Re-Root Canal Treatment",
+            "price": "Rs. 4,500"
+          }
+        ]
+      },
+      {
+        "label": "Dental Implants",
+        "services": [
+          {
+            "name": "Basic Implants",
+            "price": "Rs. 18,000"
+          },
+          {
+            "name": "Advanced Implants",
+            "price": "Rs. 25,000"
+          },
+          {
+            "name": "Nobel Implants",
+            "price": "Rs. 35,000 – 45,000"
+          }
+        ]
+      },
+      {
+        "label": "Braces",
+        "services": [
+          {
+            "name": "Metal Braces (EMI available)",
+            "price": "Rs. 25,000"
+          },
+          {
+            "name": "Ceramic Braces (EMI available)",
+            "price": "Rs. 38,000"
+          },
+          {
+            "name": "Self Ligating Metal (EMI available)",
+            "price": "Rs. 45,000"
+          },
+          {
+            "name": "Self Ligating Ceramic (EMI available)",
+            "price": "Rs. 65,000"
+          },
+          {
+            "name": "Damon Metal (EMI available)",
+            "price": "Rs. 55,000"
+          },
+          {
+            "name": "Damon Ceramic (EMI available)",
+            "price": "Rs. 90,000"
+          }
+        ]
+      },
+      {
+        "label": "Aligners",
+        "services": [
+          {
+            "name": "Basic Aligner (14 days)",
+            "price": "Rs. 2,500 / Aligner"
+          },
+          {
+            "name": "Advanced Aligner (7 days)",
+            "price": "Rs. 3,500 / Aligner"
+          },
+          {
+            "name": "Retainer (Essix)",
+            "price": "Rs. 1,800"
+          }
+        ]
+      },
+      {
+        "label": "Crowns",
+        "services": [
+          {
+            "name": "Zirconia – Basic (5 yr warranty)",
+            "price": "Rs. 6,000"
+          },
+          {
+            "name": "Zirconia – Advanced (10 yr warranty)",
+            "price": "Rs. 10,000"
+          },
+          {
+            "name": "Zirconia – Premium (15 yr warranty)",
+            "price": "Rs. 15,000"
+          },
+          {
+            "name": "Ceramic Crown (PFM) – Basic",
+            "price": "Rs. 3,000"
+          },
+          {
+            "name": "Ceramic Crown (PFM) – Premium",
+            "price": "Rs. 5,000"
+          },
+          {
+            "name": "Metal Crown",
+            "price": "Rs. 2,000"
+          },
+          {
+            "name": "SSC Crown",
+            "price": "Rs. 2,500"
+          },
+          {
+            "name": "Gold Crown",
+            "price": "Gold rate + Lab Charges"
+          }
+        ]
+      },
+      {
+        "label": "Teeth Whitening",
+        "services": [
+          {
+            "name": "Single Tooth",
+            "price": "Rs. 450"
+          },
+          {
+            "name": "All Front Teeth",
+            "price": "Rs. 2,500"
+          }
+        ]
+      },
+      {
+        "label": "Teeth Cleaning",
+        "services": [
+          {
+            "name": "Scaling – Front Teeth",
+            "price": "Rs. 450"
+          },
+          {
+            "name": "Scaling – Mild Stains",
+            "price": "Rs. 750"
+          },
+          {
+            "name": "Scaling – Moderate Stains",
+            "price": "Rs. 1,200"
+          },
+          {
+            "name": "Scaling – Severe Stains",
+            "price": "Rs. 1,800"
+          },
+          {
+            "name": "Gum Surgery – Full Mouth Curettage",
+            "price": "Rs. 14,000"
+          },
+          {
+            "name": "Gum Surgery – Full Mouth Flap",
+            "price": "Rs. 25,000"
+          }
+        ]
+      },
+      {
+        "label": "Teeth Fillings",
+        "services": [
+          {
+            "name": "GIC Filling – Basic",
+            "price": "Rs. 500"
+          },
+          {
+            "name": "GIC Filling – Advanced",
+            "price": "Rs. 800"
+          },
+          {
+            "name": "Composite Filling – Back Tooth",
+            "price": "Rs. 1,000"
+          },
+          {
+            "name": "Composite Filling – Front Tooth",
+            "price": "Rs. 1,200"
+          },
+          {
+            "name": "Advanced Smile Makeover Filling",
+            "price": "Rs. 1,500"
+          }
+        ]
+      },
+      {
+        "label": "Extraction",
+        "services": [
+          {
+            "name": "Pre Shedding",
+            "price": "Rs. 350"
+          },
+          {
+            "name": "Extraction",
+            "price": "Rs. 500"
+          },
+          {
+            "name": "Impaction – Upper 3rd Molar with Suturing",
+            "price": "Rs. 2,500"
+          },
+          {
+            "name": "Impaction – Lower 3rd Molar with Suturing",
+            "price": "Rs. 3,500"
+          }
+        ]
+      },
+      {
+        "label": "Dentures",
+        "services": [
+          {
+            "name": "Complete Denture – Basic",
+            "price": "Rs. 9,000"
+          },
+          {
+            "name": "Complete Denture – Advanced",
+            "price": "Rs. 12,000"
+          },
+          {
+            "name": "Complete Denture – Premium",
+            "price": "Rs. 15,000"
+          },
+          {
+            "name": "Removable Denture",
+            "price": "Rs. 500 / Tooth"
+          }
+        ]
+      }
+    ]
+  },
+  "hero_carousel": {
+    "images": [
+      {
+        "src": "/uploads/jfdc clinic.png",
+        "alt": "jfdc"
+      },
+      {
+        "src": "/uploads/happy-family-appointment.jpg"
+      },
+      {
+        "src": "/uploads/hero-treatment-room-blue.jpg",
+        "alt": "Modern blue treatment room"
+      },
+      {
+        "src": "/uploads/service-smile-design.png"
+      },
+      {
+        "src": "/uploads/hero-doctor-child.jpg",
+        "alt": "Doctor treating a child patient"
+      },
+      {
+        "src": "/uploads/hero-consultation-room.jpg",
+        "alt": "Doctor consultation room"
+      }
+    ]
+  },
+  "testimonials": {
+    "badge": "Patient Reviews",
+    "heading": "What Our Patients Say",
+    "description": "Read real stories from our satisfied patients across Dindigul.",
+    "reviews": [
+      {
+        "author": "Kokila Kalimuthu",
+        "content": "Had a great experience at Jamuna Family dental care. Dr Arun sarath sir is very kind and gentle. he interpreted each step clearly, which helped me in understanding the issue and i went ahead for advised treatment line. Procedure was very smooth and pain-free. Very happy with the care and results.. highly recommended. Thanks Jamuna Dental :)"
+      },
+      {
+        "author": "Suki Vignesh",
+        "content": "Nice ambience and excellent quality crowns.. very happy to get treated here.. Highly recommending this best dental hospital in dindigul"
+      },
+      {
+        "author": "k. kokila",
+        "content": "Recently I visited jamuna family dental care for scaling and root canal treatment. Such a good & calm environment . Highly satisfied with their treatments, Especially doctors and sisters caring and their friendly approaching with the patients. They simply proved their words \"we care, not just cure\" with their actions."
+      },
+      {
+        "author": "ராகவேந்திரன் ரெங்கராஜ்",
+        "content": "The doctor was very thorough, friendly, and listened with sincerity. I felt comfortable talking to the doctor, who took their time to explain my treatment options clearly. The nurse showed great clarity in her diagnosis and was very good at making me feel at ease."
+      },
+      {
+        "author": "Antony Flx",
+        "content": "I had a very good experience of extraction of the wisdom tooth as well scaling and filling. So gentle and excellent service very kind in approach. Excellently skillful. Very peaceful and calm environment. So gentle and clear instructions has been given to me. I felt a homely environment."
+      },
+      {
+        "author": "karthick karthick",
+        "content": "I had the best experience at Jamuna dental..Dr Arun and Dr Priyanka were so well versed with the speciality procedures.. I'm extremely comfortable and they gave me incredibly best dental care to me. Overall excellent experience at Jamuna dental.. truly the best dental Hosptial in Dindigul"
+      },
+      {
+        "author": "Amal Raj",
+        "content": "Treatment was painless drs and staffs were very kind. I had pain in lower teeth did rct and followed by crown. Now i am happy and satisfied thank you dr. I suggest this clinic to everybody. 👍"
+      },
+      {
+        "author": "femi living",
+        "content": "Good ambience. Patient friendly clinc. I've been to this clinic for the first time for my RCT and at first I was bit hesitant but to be honest it was done perfectly without any complaints. The lead doctor is very friendly and elaborating procedures well enough to make the patient understand the treatment properly. If you're looking for proper treatment in the realm of expensive dental care in dindigul Jamuna is your right choice which is very budget friendly."
+      },
+      {
+        "author": "Richie Robinson",
+        "content": "I visited Jamuna Family Dental Care in Dindigul for the first time and I’m very impressed. The staff were professional and welcoming. The dentist took time to explain what I needed, answered my questions clearly and made me feel comfortable throughout. Thank you Doctor."
+      },
+      {
+        "author": "Sherlock Holmes",
+        "content": "I came for Root canal treatment here. It was tested with care and friendly. The doctors were calm and composed and explanatory for the all the doubts and questions. I really recommend to other if they really looking for dental issues and care"
+      },
+      {
+        "author": "vivek anandan",
+        "content": "Thank you Dr for extracting my wisdom tooth without any discomfort. I am very comfortable and satisfied with treatment. Staffs were very kind."
+      },
+      {
+        "author": "jansirani santhi",
+        "content": "Painless rcts and comfortable crowns.. highly recommended here for all your dental needs"
+      },
+      {
+        "author": "Panimatha Thiyagarajan",
+        "content": "Thank you dr for advising right treatment for my problem i had filling in multiple teeth and it was painless treatment and i felt it comfortable and satisfied."
+      },
+      {
+        "author": "Ariya Suresh",
+        "content": "I have fear about like this teeth pain last week.but I have satisfied like this treatment.because I haven't feel any pain at all.i am fully satisfied.Tjank you Dr.Arun and Dr.Sindhu.Thank you so much."
+      },
+      {
+        "author": "Katheeja Kabeer",
+        "content": "Thank you sir I am happy that I visited this clinic I cam with pain in my lower back tooth and got treated with root canal treatment as suggested by Dr.sindhu. Treatment was painless and felt very comfortable staffs were very friendly."
+      },
+      {
+        "author": "sugumar t",
+        "content": "Comfortable treatments and beautiful crowns given to me.. very happy and fully satisfied"
+      },
+      {
+        "author": "Vignesh Balakrishnan",
+        "content": "Treatment was good. Doctors and staff also very calm"
+      },
+      {
+        "author": "RAJ DEV",
+        "content": "Came here with gum swelling and bleeding dr.suggested for gum treatment and scaling and treatment was very comfortable and doctors and staffs were very kind and atmosphere was very pleasant. I suggest evryone to visit this clinic."
+      },
+      {
+        "author": "Ananthi Ananthi",
+        "content": "Experience was very comfortable.staffs and doctors were very supportive and caring. Underwent root canal treatment and followed by crown placement. Thank you dr.arun,dr.sindhu and other staffs"
+      },
+      {
+        "author": "DAISY RANI",
+        "content": "I had a comfortable and painless extraction and post extraction instructions were given properly. Thank you Dr for being kind and polite"
+      },
+      {
+        "author": "Indira Renganathan",
+        "content": "Painless and very comfortable root canals and very economical caps done here.. highly recommended"
+      }
+    ]
+  },
+  "service_marquee": {
+    "services": [
+      "Preventive Care",
+      "Teeth Cleaning",
+      "Oral Checkup",
+      "Advanced X-Rays",
+      "Dental Fillings",
+      "Teeth Whitening",
+      "Root Canal",
+      "Dental Implants",
+      "Orthodontics",
+      "Cosmetic Dentistry",
+      "Emergency Care",
+      "Kids Dentistry",
+      "Tooth Extraction",
+      "Gum Care",
+      "Zirconia Crowns",
+      "Aligners",
+      "Invisible Braces",
+      "Dental Surgery"
+    ]
+  },
+  "milestones": {
+    "badge": "Our Track Record",
+    "heading_part1": "Numbers That",
+    "heading_part2": "Speak for Us",
+    "description": "Trusted by families across Dindigul since 2011",
+    "image": "/uploads/hero-jfdc-front.jpg",
+    "stats": [
+      {
+        "icon": "Users",
+        "value": 18,
+        "suffix": "+",
+        "label": "Years Experience",
+        "iconColor": "text-primary",
+        "bgColor": "bg-primary/5"
+      },
+      {
+        "icon": "Star",
+        "value": 600,
+        "suffix": "+",
+        "label": "Patient Reviews",
+        "iconColor": "text-accent-teal",
+        "bgColor": "bg-accent-teal/10"
+      },
+      {
+        "icon": "Heart",
+        "value": 25,
+        "suffix": "K+",
+        "label": "Happy Patients",
+        "iconColor": "text-destructive",
+        "bgColor": "bg-destructive/5"
+      },
+      {
+        "icon": "Clock",
+        "value": 4,
+        "suffix": ".9★",
+        "label": "Google Rating",
+        "iconColor": "text-primary",
+        "bgColor": "bg-primary/5"
+      }
+    ]
+  },
+  "mission_vision": {
+    "badge": "Committed to Excellence",
+    "heading": "Our vision for the future and mission to serve with integrity, compassion and care.",
+    "cta_text": "Contact Now",
+    "cards": [
+      {
+        "icon": "HandHeart",
+        "title": "Our Mission",
+        "description": "Our mission is to provide high-quality & ethical dental care, promoting healthy smiles through personalized treatments and patient education."
+      },
+      {
+        "icon": "Eye",
+        "title": "Our Vision",
+        "description": "Our vision is to be the most trusted dental care provider in Tamil Nadu, known for excellence, innovation and patient-centered care."
+      },
+      {
+        "icon": "Diamond",
+        "title": "Our Value",
+        "description": "Our values are integrity, compassion, accountability and excellence. We treat every patient like family and strive for the highest standards in dental care."
+      }
+    ]
+  },
+  "clinic_gallery": {
+    "badge": "Our Clinic",
+    "heading_part1": "State-of-the-Art",
+    "heading_part2": "Facilities",
+    "description": "Experience world-class dental care in a clean, hygienic, and relaxing environment.",
+    "images": [
+      {
+        "src": "/uploads/clinic3.jpg"
+      },
+      {
+        "src": "/uploads/clininc2.jpg"
+      },
+      {
+        "src": "/uploads/clininc5.jpg"
+      },
+      {
+        "src": "/uploads/clinic1.jpg"
+      },
+      {
+        "src": "/uploads/clinic4.jpg"
+      },
+      {
+        "src": "/uploads/hero-consultation-room.jpg"
+      },
+      {
+        "src": "/uploads/hero-reception.jpg"
+      },
+      {
+        "src": "/uploads/jamuna-doctor-operation.jpg"
+      },
+      {
+        "src": "/uploads/pediatric dentistry.jpg"
+      }
+    ]
+  },
+  "photo_gallery": {
+    "badge": "+ Our Esteemed Patients",
+    "heading_part1": "Trusted",
+    "heading_part2": "by Dindigul",
+    "description": "Business leaders, educators, and public figures from Dindigul who choose Jamuna Family Dental Care.",
+    "images": [
+      {
+        "src": "/uploads/vip-kamalahassan.jpg",
+        "alt": "Mr. N. KamalaHassan - Anil Foods MD at JFDC"
+      },
+      {
+        "src": "/uploads/vip-vengatachalam.jpg",
+        "alt": "Mr. Vengatachalam - Vivera Grande MD at JFDC"
+      },
+      {
+        "src": "/uploads/vip-palpandi.jpg",
+        "alt": "Mr. Palpandi - MSP School HM at JFDC"
+      },
+      {
+        "src": "/uploads/vip-ramji.jpg",
+        "alt": "Mr. Ramji Natarajan - SMB CBSE Principal at JFDC"
+      },
+      {
+        "src": "/uploads/vip-ravi.jpg",
+        "alt": "Mr. Ravi Thiyagarajan - Chettinadu Construction at JFDC"
+      },
+      {
+        "src": "/uploads/vip-ravichandran.jpg",
+        "alt": "Mr. Ravichandran - Padma Lites MD at JFDC"
+      },
+      {
+        "src": "/uploads/vip-ramesh.jpg",
+        "alt": "Mr. S. Ramesh - Naga Foods Director at JFDC"
+      },
+      {
+        "src": "/uploads/vip-arul.jpg",
+        "alt": "Dr. Er. Arul - VA Consultancy at JFDC"
+      },
+      {
+        "src": "/uploads/vip-thenmozhi.jpg",
+        "alt": "Mrs. Thenmozhi MLA & Mr. Gunasekar - Nilakottai MLA at JFDC"
+      },
+      {
+        "src": "/uploads/vip-vengatachalam-steels.jpg",
+        "alt": "Mr. Vengatachalam - 3S Shree Sivabalaaji Steels Vice Chairman at JFDC"
+      },
+      {
+        "src": "/uploads/vip-sujana.jpg",
+        "alt": "Mrs. Sujana - iGenius Int PreSchool at JFDC"
+      },
+      {
+        "src": "/uploads/vip-arul-2.jpg",
+        "alt": "Dr. Er. Arul - VA Consultancy at JFDC"
+      },
+      {
+        "src": "/uploads/vip-manoharan.jpg",
+        "alt": "Mr. Manoharan - Ambal Jeweller MD at JFDC"
+      }
+    ]
+  },
+  "instagram_reels": {
+    "badge": "Instagram",
+    "heading": "Watch Our Reels",
+    "description": "Follow us on Instagram for dental tips, patient transformations, and behind-the-scenes moments.",
+    "cta_text": "Follow Jamuna on Instagram",
+    "reels": [
+      "C_atBRUyMby",
+      "C_jxdPmS-3h",
+      "DBvzB5uyjwS",
+      "DCGpxUQSL1F",
+      "DCO02CASsWL",
+      "DEumpuayZTo",
+      "DE2GYn5yu9p",
+      "DAGUJwBBlf2"
+    ]
+  },
+  "team": {
+    "badge": "Our Experts",
+    "heading_part1": "Meet Our",
+    "heading_part2": "Specialists",
+    "description": "Our team of highly qualified and experienced dentists are dedicated to providing you with the best dental care possible.",
+    "members": [
+      {
+        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_44_32 PM.png",
+        "name": "Dr T Arun Sarath Baabu, MDS",
+        "role": "Root Canal Specialist & Smile Designing Expert",
+        "qualifications": "",
+        "bio": "I make your Smiles Insta-worthy !"
+      },
+      {
+        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_35_52 PM.png",
+        "name": "Dr V Priyanka",
+        "role": "Esthetic Dentist ",
+        "qualifications": "",
+        "bio": "I get you Sparkling Smiles!"
+      },
+      {
+        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_24_55 PM.png",
+        "name": "Dr T Hema Kalai Chelvi, MDS",
+        "role": "Dental Implant Specialist",
+        "qualifications": "",
+        "bio": "I replace your missing teeth !!"
+      },
+      {
+        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_50_47 PM.png",
+        "name": "Dr T Arivukkarasu, MDS",
+        "role": "Gum and Surgery Specialist",
+        "bio": "I make your Teeth stronger and Rock-solid"
+      },
+      {
+        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_17_53 PM.png",
+        "name": "Dr S Sindhu",
+        "role": "General Dentist",
+        "bio": "I give you a comprehensive dental care"
+      },
+      {
+        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_16_06 PM.png",
+        "name": "Dr A Balamurugan",
+        "role": "Child Specialist",
+        "bio": "I protect your kids' teeth with no pain or fear "
+      },
+      {
+        "photo": "/uploads/dr noor.png",
+        "name": "Dr Noorul Thasleem",
+        "role": "General Dentist",
+        "bio": "I repair your damaged and decayed tooth"
+      }
+    ]
+  },
+  "appointment": {
+    "heading_part1": "Book Your",
+    "heading_part2": "Dental Visit",
+    "description": "Take the first step towards a healthier smile. Fill in your details and our patient care team will reach out within 30 minutes to confirm your visit.",
+    "image": "/uploads/happy-family-appointment.jpg"
   },
   "settings": {
     "title": "Best Dental Clinic in Dindigul | Jamuna Family Dental Care",

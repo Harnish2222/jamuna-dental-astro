@@ -1,14 +1,24 @@
 import { Button } from '@/components/ui/button';
-import { Plus, Eye, Diamond, HandHeart } from 'lucide-react';
+import { Plus } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
 import { AnimatedFeatureCard } from '@/components/ui/animated-feature-card';
 
-const MissionVisionSection = () => {
-  const cards = [
-    { icon: HandHeart, title: "Our Mission", description: "Our mission is to provide high-quality & ethical dental care, promoting healthy smiles through personalized treatments and patient education." },
-    { icon: Eye, title: "Our Vision", description: "Our vision is to be the most trusted dental care provider in Tamil Nadu, known for excellence, innovation and patient-centered care." },
-    { icon: Diamond, title: "Our Value", description: "Our values are integrity, compassion, accountability and excellence. We treat every patient like family and strive for the highest standards in dental care." }
-  ];
+interface MissionVisionProps {
+  content?: {
+    badge: string;
+    heading: string;
+    cta_text: string;
+    cards: {
+      icon: string;
+      title: string;
+      description: string;
+    }[];
+  }
+}
+
+const MissionVisionSection = ({ content }: MissionVisionProps) => {
+  if (!content) return null;
 
   return (
     <section className="py-20 bg-muted/30 relative overflow-hidden">
@@ -30,29 +40,32 @@ const MissionVisionSection = () => {
                   <circle cx="12" cy="12" r="10" />
                   <path d="M12 6v6l4 2" />
                 </svg>
-                Committed to Excellence
+                {content.badge}
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                Our vision for the future and mission to serve with integrity, compassion and care.
+                {content.heading}
               </h2>
             </div>
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full self-start" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-              Contact Now
+              {content.cta_text}
               <Plus className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </AnimatedSection>
         
         <div className="grid md:grid-cols-3 gap-6">
-          {cards.map((card, index) => (
+          {content.cards?.map((card, index) => {
+            // @ts-ignore
+            const IconComponent = LucideIcons[card.icon] || LucideIcons.Circle;
+            return (
             <AnimatedFeatureCard
               key={index}
-              icon={card.icon}
+              icon={IconComponent}
               title={card.title}
               description={card.description}
               index={index}
             />
-          ))}
+          )})}
         </div>
       </div>
     </section>

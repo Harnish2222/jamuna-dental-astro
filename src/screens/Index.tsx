@@ -59,7 +59,7 @@ const Index = () => {
       bullets: ["Oral Checkups", "Teeth Cleaning & Polishing", "Advanced Digital X-Rays", "Dental Fillings"],
       icon: Stethoscope,
       image: dentalImages.services.generalExam,
-      link: "/services/general-dentistry/",
+      link: "/#appointment",
     },
     {
       title: "Root Canal Treatment",
@@ -67,7 +67,7 @@ const Index = () => {
       bullets: ["Single-visit RCT", "Painless procedure", "Save the natural tooth"],
       icon: Sparkles,
       image: serviceRootCanal,
-      link: "/services/general-dentistry/",
+      link: "/#appointment",
     },
     {
       title: "Implants & Restorations",
@@ -75,7 +75,7 @@ const Index = () => {
       bullets: ["Dental Implants", "Zirconia Crowns & Bridges", "Tooth Extraction", "Minor Oral Surgery"],
       icon: Wrench,
       image: serviceImplants,
-      link: "/services/restorative-dentistry/",
+      link: "/#appointment",
     },
     {
       title: "Cosmetic Dentistry",
@@ -83,7 +83,7 @@ const Index = () => {
       bullets: ["Teeth Whitening", "Veneers & Bonding", "Smile Design", "Gum Care"],
       icon: SmilePlus,
       image: serviceSmileDesign,
-      link: "/services/cosmetic-dentistry/",
+      link: "/#appointment",
     },
     {
       title: "Braces & Aligners",
@@ -91,7 +91,7 @@ const Index = () => {
       bullets: ["Metal & Ceramic Braces", "Clear Aligners", "Invisible Braces"],
       icon: AlignCenter,
       image: dentalImages.services.orthodontics,
-      link: "/services/orthodontics/",
+      link: "/#appointment",
     },
     {
       title: "Kids Dentistry",
@@ -99,7 +99,7 @@ const Index = () => {
       bullets: ["Pediatric specialists", "Child-friendly approach", "Preventive kids care"],
       icon: Baby,
       image: dentalImages.services.pediatric,
-      link: "/services/pediatric-dentistry/",
+      link: "/#appointment",
     },
     {
       title: "Emergency Dental Care",
@@ -107,7 +107,7 @@ const Index = () => {
       bullets: ["9 AM – 9 PM availability", "Same-day relief", "Walk-ins welcome"],
       icon: Siren,
       image: serviceToothExtraction,
-      link: "/services/emergency-dental-care/",
+      link: "/#appointment",
     },
   ];
 

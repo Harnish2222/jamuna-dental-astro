@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import FAQAccordion from '@/components/FAQAccordion.astro';
+import FAQAccordionReact from '@/components/FAQAccordionReact';
 import { loadHomepageContent } from '@/lib/load-homepage';
 
 // Static-rendered React components (no `client:*` directive → no JS shipped)
@@ -10,6 +10,7 @@ import MilestonesSection from '@/components/MilestonesSection';
 import MissionVisionSection from '@/components/MissionVisionSection';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';
 import PriceTellerSection from '@/components/PriceTellerSection';
+import TeamSection from '@/components/TeamSection';
 import InstagramReelsSection from '@/components/InstagramReelsSection';
 
 // Hydrated React islands — only the genuinely interactive pieces
@@ -20,13 +21,7 @@ import AppointmentBookingSection from '@/components/AppointmentBookingSection';
 
 // Static images
 import { Image } from 'astro:assets';
-import dentalExam from '@/assets/service-general-dentistry.png';
-import serviceRootCanal from '@/assets/service-root-canal.png';
-import serviceImplants from '@/assets/service-implants.png';
-import serviceSmileDesign from '@/assets/service-smile-design.png';
-import orthodonticsAligners from '@/assets/orthodontics-aligners.jpg';
-import pediatricDentistry from '@/assets/pediatric-dentistry.png';
-import serviceToothExtraction from '@/assets/emergency-toothache.png';
+// Hero avatar images — statically imported for Astro <Image> optimisation
 import dentist1 from '@/assets/indian-dentist-male-1.jpg';
 import dentist2 from '@/assets/indian-dentist-male-2.jpg';
 import hygienist from '@/assets/indian-hygienist-female.jpg';
@@ -41,29 +36,12 @@ import {
 // Load content from TinaCMS
 const homepageContent = await loadHomepageContent();
 
-// Map service images to imported Image objects (handles both /assets/ and /uploads/ paths)
-const serviceImageMap: Record<string, any> = {
-  '/assets/service-general-dentistry.png': dentalExam,
-  '/assets/service-root-canal.png': serviceRootCanal,
-  '/assets/service-implants.png': serviceImplants,
-  '/assets/service-smile-design.png': serviceSmileDesign,
-  '/assets/orthodontics-aligners.jpg': orthodonticsAligners,
-  '/assets/pediatric-dentistry.png': pediatricDentistry,
-  '/assets/emergency-toothache.png': serviceToothExtraction,
-  '/uploads/service-general-dentistry.png': dentalExam,
-  '/uploads/service-root-canal.png': serviceRootCanal,
-  '/uploads/service-implants.png': serviceImplants,
-  '/uploads/service-smile-design.png': serviceSmileDesign,
-  '/uploads/pediatric-dentistry.png': pediatricDentistry,
-  '/uploads/emergency-toothache.png': serviceToothExtraction,
-};
-
-// Build services array from TinaCMS content
+// Build services array — use raw image URL from TinaCMS so any uploaded image shows immediately
 const services = homepageContent?.services?.cards?.map((card: any) => ({
   title: card.title,
   description: card.description,
   bullets: card.bullets?.map((b: any) => b.text) || [],
-  image: serviceImageMap[card.image] || dentalExam,
+  imageUrl: card.image || '/uploads/service-general-dentistry.png',
   link: card.link,
 })) || [];
 
@@ -88,85 +66,97 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   {/* Static text + hydrated carousel island. Hero copy ships zero JS. */}
   <section id="hero" class="relative bg-background min-h-screen flex items-center pt-20">
     <div class="container mx-auto px-4 relative z-10 py-8">
-      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        <div class="flex flex-col gap-7 text-center lg:text-left order-1">
+      {/* On mobile: flex-col (order 1→2→3). On desktop: 2-col grid with carousel spanning both rows */}
+      <div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-16 gap-6 lg:items-center">
 
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            <span class="text-foreground">{homepageContent?.hero?.heading_part1} </span>
-            <span class="text-primary">{homepageContent?.hero?.heading_part2}</span>
-            <span class="text-foreground"> {homepageContent?.hero?.heading_part3} </span>
-            <span class="text-primary">{homepageContent?.hero?.heading_part4}</span>
+        {/* ① Heading — always first */}
+        <div class="order-1 lg:col-start-1 lg:row-start-1 text-center lg:text-left pt-2">
+          <h1 class="text-5xl lg:text-[4rem] xl:text-[4.5rem] font-extrabold leading-[1.1] mb-3 tracking-tight">
+            <span class="text-gray-900 block">{homepageContent?.hero?.heading_part1}</span>
+            <span class="text-primary block mt-1 xl:whitespace-nowrap">{homepageContent?.hero?.heading_part2}</span>
           </h1>
+          <h2 class="text-[#0080B5] font-bold tracking-[0.15em] uppercase text-sm md:text-base">
+            {homepageContent?.hero?.subheading}
+          </h2>
+        </div>
 
-          <p class="text-sm md:text-base text-foreground/80 leading-relaxed max-w-md mx-auto lg:mx-0">
+        {/* ② Carousel — between heading & content on mobile, right col spanning both rows on desktop */}
+        <div class="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 w-full">
+          <HeroCarousel client:visible images={homepageContent?.hero_carousel?.images} />
+        </div>
+
+        {/* ③ Description, highlights, CTA, social proof — below carousel on mobile, left col row 2 on desktop */}
+        <div class="order-3 lg:col-start-1 lg:row-start-2 flex flex-col gap-5 text-center lg:text-left pb-4">
+
+          <p class="text-sm text-gray-600 leading-[1.6] max-w-2xl mx-auto lg:mx-0 font-medium">
             {homepageContent?.hero?.description}
           </p>
 
-          <div class="grid grid-cols-2 gap-x-8 gap-y-3 justify-items-center lg:justify-items-start text-sm font-medium text-foreground/70">
+          <div class="flex items-start justify-center lg:justify-start py-3 px-2 sm:px-4 border border-gray-100 bg-white/60 backdrop-blur-md rounded-2xl shadow-[0_4px_15px_-4px_rgba(0,0,0,0.05)] w-fit mx-auto lg:mx-0 mt-2">
             {homepageContent?.hero?.highlights?.map((highlight: any, idx: number) => {
               const icons = [
-                "M12 3l1.9 5.8h6.1l-4.9 3.6 1.9 5.8L12 14.6l-4.9 3.6 1.9-5.8L4 8.8h6.1z",
-                "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
-                "M11 5.4l-1.4-1.4A4 4 0 1 0 5 9.6l7 7 7-7a4 4 0 0 0-5.6-5.6L11 5.4z",
-                "M9 14l-2 7 5-3 5 3-2-7"
+                // Tooth
+                <path d="M12 22C12 22 15 19 16.5 16C18 13 18.5 10 17.5 7.5C16.5 5 14 4 12 5C10 4 7.5 5 6.5 7.5C5.5 10 6 13 7.5 16C9 19 12 22 12 22Z" />,
+                // Shield Check
+                <g><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-4" /></g>,
+                // People/Family
+                <g><circle cx="9" cy="7" r="4"/><path d="M16 11l-2-2m-1.5-1.5L11 6"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="16" cy="11" r="3"/><path d="M13 21v-2a3 3 0 0 1 3-3h3a3 3 0 0 1 3 3v2"/></g>,
+                // Hand holding Heart
+                <g><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 18V8"/></g>
               ];
-              const circleIcons = ["", "", "", "<circle cx=\"12\" cy=\"8\" r=\"6\"/>"];
               return (
-                <span class="flex items-center gap-2">
-                  <svg class="h-4 w-4 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    {circleIcons[idx] ? <path d={circleIcons[idx]} /> : null}
-                    <path d={icons[idx]} />
-                  </svg>
-                  {highlight.text}
-                </span>
+                <div class={`flex flex-col items-center px-4 ${idx !== homepageContent.hero.highlights.length - 1 ? 'border-r border-gray-300/60' : ''}`}>
+                  <div class="w-12 h-12 rounded-full bg-white shadow-sm border border-blue-50 flex items-center justify-center mb-2">
+                    <svg class="h-6 w-6 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      {icons[idx] || icons[0]}
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-center text-primary leading-tight max-w-[80px]">
+                    {highlight.text}
+                  </span>
+                </div>
               );
             })}
           </div>
 
-          <div class="flex justify-center lg:justify-start">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mt-1">
             <a
               href={`tel:${homepageContent?.hero?.phone}`}
               onclick="window.gtag_report_phone_conversion?.()"
-              class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-10 py-5 rounded-full shadow-lg font-medium"
+              class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-sm md:text-base px-6 py-3.5 rounded-full shadow-lg font-bold transition-all hover:-translate-y-1 hover:shadow-primary/30"
             >
-              <svg class="mr-2 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+              <svg class="mr-2 h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.03 21c.76 0 .98-.66.98-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
               {homepageContent?.hero?.cta_text}
+            </a>
+            <a
+              href={`https://wa.me/${homepageContent?.hero?.whatsapp_number?.replace(/\D/g, '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-[#00A859] hover:bg-[#00924D] text-white text-sm md:text-base px-6 py-3.5 rounded-full shadow-lg font-bold transition-all hover:-translate-y-1 hover:shadow-[#00A859]/30"
+            >
+              <svg class="mr-2 h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              {homepageContent?.hero?.whatsapp_text}
             </a>
           </div>
 
-          <div class="flex items-center gap-5 justify-center lg:justify-start">
-            <div class="flex -space-x-3">
-              <Image src={dentist1} alt="Dentist" width={44} height={44} class="w-11 h-11 rounded-full border-2 border-background object-cover shadow-md" />
-              <Image src={dentist2} alt="Dentist" width={44} height={44} class="w-11 h-11 rounded-full border-2 border-background object-cover shadow-md" />
-              <Image src={hygienist} alt="Hygienist" width={44} height={44} class="w-11 h-11 rounded-full border-2 border-background object-cover shadow-md" />
-            </div>
-            <div class="text-left">
-              <div class="font-semibold text-foreground">{homepageContent?.hero?.social_proof?.review_count}</div>
-              <div class="text-sm text-muted-foreground flex items-center gap-1">
-                <span class="text-yellow-500">★★★★★</span> {homepageContent?.hero?.social_proof?.rating} Rating
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="order-2 w-full">
-          <HeroCarousel client:visible />
         </div>
       </div>
     </div>
   </section>
 
   {/* ─── Static sections (zero JS) ───────────────────────────────────── */}
-  <ServiceMarquee />
+  <ServiceMarquee services={homepageContent?.service_marquee?.services} />
 
   <div id="about">
     <AboutUsSection content={homepageContent?.about} />
   </div>
 
-  <MilestonesSection client:visible />
+  {/* New Clinic Gallery Marquee (runs right to left) */}
+  <PhotoGalleryMarquee client:visible content={homepageContent?.clinic_gallery} />
 
-  <MissionVisionSection client:visible />
+  <MilestonesSection client:visible content={homepageContent?.milestones} />
+
+  <MissionVisionSection client:visible content={homepageContent?.mission_vision} />
 
   {/* ─── Services grid (static HTML, just <a> + img) ─────────────────── */}
   <section id="services" class="py-20 bg-muted/30">
@@ -176,19 +166,19 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
         <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-6">Complete Dental Care</h2>
         <p class="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">From routine treatments to advanced procedures, we provide a full range of dental services for all age groups in a clean and hygienic environment.</p>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((service, index) => (
           <a
             href={service.link}
-            class={`scroll-fade-up delay-${(index % 3) * 100}`}
+            class={`scroll-fade-up delay-${(index % 4) * 100}`}
           >
             <article class="group h-full overflow-hidden rounded-xl bg-card border border-border shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 hover:border-primary/50">
               <div class="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={service.image}
+                <img
+                  src={service.imageUrl}
                   alt={service.title}
-                  width={600}
-                  height={450}
+                  width="600"
+                  height="450"
                   loading="lazy"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -214,22 +204,24 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   </section>
 
   {/* ─── Price Teller (interactive, hydrated) ────────────────────────── */}
-  <PriceTellerSection client:visible />
+  <PriceTellerSection client:visible content={homepageContent?.price_teller} />
+
+  <TeamSection content={homepageContent?.team} />
 
   <WhyChooseUsSection content={homepageContent?.why_choose} />
 
   {/* Photo gallery slider — needs JS for the rAF-driven scroll */}
-  <PhotoGalleryMarquee client:visible />
+  <PhotoGalleryMarquee client:visible content={homepageContent?.photo_gallery} hasGap={true} />
 
   {/* Static iframe-based reels */}
-  <InstagramReelsSection />
+  <InstagramReelsSection content={homepageContent?.instagram_reels} />
 
   {/* JotForm widget injection — needs JS to mount the script */}
-  <TestimonialsSection client:visible />
+  <TestimonialsSection client:visible content={homepageContent?.testimonials} />
 
   <div id="appointment">
     {/* Form state lives here — hydrated island */}
-    <AppointmentBookingSection client:load />
+    <AppointmentBookingSection client:load content={homepageContent?.appointment} />
   </div>
 
   {/* ─── FAQ — static HTML accordion (no React, no JS) ───────────────── */}
@@ -242,12 +234,12 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
           <span class="text-foreground">{homepageContent?.faq?.heading_part2 || 'About Dental Care'}</span>
         </h2>
       </div>
-      <div class="grid lg:grid-cols-5 gap-12 items-start">
-        <div class="col-span-1 lg:col-span-3 scroll-fade-left">
-          <FAQAccordion faqs={faqs} />
+      <div class="grid lg:grid-cols-5 gap-10 lg:gap-16 items-stretch">
+        <div class="hidden lg:block lg:col-span-2 relative scroll-fade-right rounded-2xl overflow-hidden shadow-lg min-h-[500px]">
+          <img src={homepageContent?.faq?.image || '/uploads/service-general-dentistry.png'} alt="Dental care" loading="lazy" class="absolute inset-0 w-full h-full object-cover" />
         </div>
-        <div class="hidden lg:block lg:col-span-2 relative scroll-fade-right">
-          <Image src={dentalExam} alt="Dental care" width={800} height={600} loading="lazy" class="w-full h-auto rounded-2xl object-cover shadow-lg" />
+        <div class="col-span-1 lg:col-span-3 scroll-fade-left flex flex-col justify-center">
+          <FAQAccordionReact client:visible faqs={faqs.slice(0, 6)} />
         </div>
       </div>
     </div>

@@ -8,36 +8,21 @@ const ToothIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const services = [
-  "Preventive Care",
-  "Teeth Cleaning",
-  "Oral Checkup",
-  "Advanced X-Rays",
-  "Dental Fillings",
-  "Teeth Whitening",
-  "Root Canal",
-  "Dental Implants",
-  "Orthodontics",
-  "Cosmetic Dentistry",
-  "Emergency Care",
-  "Kids Dentistry",
-  "Tooth Extraction",
-  "Gum Care",
-  "Zirconia Crowns",
-  "Aligners",
-  "Invisible Braces",
-  "Dental Surgery",
-];
+interface ServiceMarqueeProps {
+  services?: string[];
+}
 
-const ServiceMarquee = () => {
+const ServiceMarquee = ({ services = [] }: ServiceMarqueeProps) => {
+  if (!services || services.length === 0) return null;
+
   return (
-    <section className="bg-primary py-5 overflow-hidden">
+    <section className="bg-primary py-4 overflow-hidden">
       <div className="relative flex">
         <div className="animate-marquee flex whitespace-nowrap">
           {services.map((service, index) => (
-            <div key={index} className="flex items-center mx-6">
-              <ToothIcon className="w-5 h-5 text-primary-foreground/70" />
-              <span className="ml-3 text-primary-foreground font-medium text-base tracking-wide">
+            <div key={index} className="flex items-center mx-8">
+              <ToothIcon className="w-6 h-6 text-white" />
+              <span className="ml-3 text-white font-bold text-lg tracking-wide">
                 {service}
               </span>
             </div>
@@ -45,9 +30,9 @@ const ServiceMarquee = () => {
         </div>
         <div className="animate-marquee flex whitespace-nowrap" aria-hidden="true">
           {services.map((service, index) => (
-            <div key={`dup-${index}`} className="flex items-center mx-6">
-              <ToothIcon className="w-5 h-5 text-primary-foreground/70" />
-              <span className="ml-3 text-primary-foreground font-medium text-base tracking-wide">
+            <div key={`dup-${index}`} className="flex items-center mx-8">
+              <ToothIcon className="w-6 h-6 text-white" />
+              <span className="ml-3 text-white font-bold text-lg tracking-wide">
                 {service}
               </span>
             </div>

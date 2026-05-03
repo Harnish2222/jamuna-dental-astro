@@ -9,7 +9,15 @@ const services = [
   'Smile Design', 'Other',
 ];
 
-const AppointmentBookingSection = () => {
+interface AppointmentContent {
+  badge?: string;
+  heading_part1?: string;
+  heading_part2?: string;
+  description?: string;
+  image?: string;
+}
+
+const AppointmentBookingSection = ({ content }: { content?: AppointmentContent }) => {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [service, setService] = useState('Dental Implants');
@@ -33,22 +41,21 @@ const AppointmentBookingSection = () => {
         <AnimatedSection animation="fade-up">
           <div className="bg-card rounded-[2.5rem] shadow-2xl overflow-hidden border border-border/80 flex flex-col lg:flex-row ring-1 ring-border/40">
             {/* Left: Image + Heading */}
-            <div className="lg:w-[40%] flex flex-col bg-primary relative group">
-              <div className="p-10 lg:p-12 flex flex-col justify-center relative z-20">
-                <span className="text-primary-foreground/60 text-[10px] font-bold uppercase tracking-[5px] mb-4 block">
-                  Get in Touch
-                </span>
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight tracking-tight text-primary-foreground">
-                  Book Your <br />
-                  Free <span className="text-teal italic">Consultation</span>
+            <div className="lg:w-[40%] flex flex-col relative group overflow-hidden bg-gradient-to-b from-[#072674] to-[#0080B5]">
+              {/* Upper Half: Text */}
+              <div className="p-10 lg:p-12 flex flex-col justify-center relative z-20 flex-shrink-0 pt-16">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight tracking-tight text-white drop-shadow-md">
+                  {content?.heading_part1 || 'Book Your'} <br />
+                  <span className="text-[#00A859] italic">{content?.heading_part2 || 'Dental Visit'}</span>
                 </h2>
-                <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-[380px] font-medium mb-8">
-                  Take the first step towards a healthier smile. Fill in your details and our patient care team will reach out within 30 minutes to confirm your visit.
+                <p className="text-blue-50 text-[15px] leading-relaxed font-medium opacity-90 drop-shadow-sm">
+                  {content?.description || 'Take the first step towards a healthier smile. Fill in your details and our patient care team will reach out within 30 minutes to confirm your visit.'}
                 </p>
               </div>
-              <div className="flex-grow relative h-[250px] lg:h-auto overflow-hidden">
-                <img src={smileCarousel1.src} alt="Happy patient at Jamuna Family Dental Care" className="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
-                <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-primary to-transparent z-10" />
+
+              {/* Bottom Half: Image */}
+              <div className="flex-grow relative min-h-[250px] lg:min-h-[300px]">
+                <img src={content?.image || '/uploads/happy-family-appointment.jpg'} alt="Happy patient family" className="absolute inset-0 w-full h-full object-cover object-top" />
               </div>
             </div>
 
@@ -110,7 +117,7 @@ const AppointmentBookingSection = () => {
                   <textarea rows={2} placeholder="Tell us about your dental concern..." className="w-full px-6 py-4 bg-muted/50 border border-border rounded-xl text-foreground font-bold placeholder-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary/5 focus:bg-card focus:border-primary transition-all shadow-sm resize-none text-sm" />
                 </div>
                 <button type="submit" disabled={submitting} className={`w-full py-4 rounded-md font-bold text-sm uppercase tracking-[3px] transition-all shadow-xl hover:-translate-y-1 active:scale-[0.98] ${success ? 'bg-success text-success-foreground' : 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-primary/20 shadow-lg'}`}>
-                  {submitting ? 'Booking...' : success ? '✓ Request Received!' : 'Book Free Consultation'}
+                  {submitting ? 'Booking...' : success ? '✓ Request Received!' : 'Book Appointment'}
                 </button>
                 {success && (
                   <div className="p-4 bg-success/10 border border-success/20 text-success rounded-xl text-center text-sm font-bold">

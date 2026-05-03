@@ -2,31 +2,33 @@ import AnimatedSection from '@/components/AnimatedSection';
 import { Badge } from '@/components/ui/badge';
 import { Instagram } from 'lucide-react';
 
-const reelIds = [
-  'C_atBRUyMby',
-  'C_jxdPmS-3h',
-  'DBvzB5uyjwS',
-  'DCGpxUQSL1F',
-  'DCO02CASsWL',
-  'DEumpuayZTo',
-  'DE2GYn5yu9p',
-];
+interface InstagramReelsProps {
+  content?: {
+    badge: string;
+    heading: string;
+    description: string;
+    cta_text: string;
+    reels: string[];
+  }
+}
 
-const InstagramReelsSection = () => {
+const InstagramReelsSection = ({ content }: InstagramReelsProps) => {
+  if (!content || !content.reels) return null;
+
   return (
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <AnimatedSection animation="fade-up">
           <div className="text-center mb-12">
-            <Badge className="mb-4">Instagram</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Watch Our Reels</h2>
+            <Badge className="mb-4">{content.badge}</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{content.heading}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Follow us on Instagram for dental tips, patient transformations, and behind-the-scenes moments.
+              {content.description}
             </p>
           </div>
         </AnimatedSection>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {reelIds.map((id, index) => (
+          {content.reels.map((id, index) => (
             <AnimatedSection key={id} animation="fade-up" delay={`delay-${(index % 4) * 100}`}>
               <div
                 className="relative w-full rounded-xl overflow-hidden shadow-md"
@@ -63,7 +65,7 @@ const InstagramReelsSection = () => {
               }}
             >
               <Instagram className="h-6 w-6" />
-              Follow Jamuna on Instagram
+              {content.cta_text}
             </a>
           </div>
         </AnimatedSection>

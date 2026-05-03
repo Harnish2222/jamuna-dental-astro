@@ -1,0 +1,53 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PriceTellerSection from '@/components/PriceTellerSection.tsx';
+import PriceTellerSectionVariant from '@/components/PriceTellerSectionVariant.tsx';
+
+import fs from 'node:fs';
+import path from 'node:path';
+
+let homepageContent: any = {};
+try {
+  const jsonPath = path.resolve(process.cwd(), 'src/data/homepage.json');
+  if (fs.existsSync(jsonPath)) {
+    const fileContent = fs.readFileSync(jsonPath, 'utf-8');
+    homepageContent = JSON.parse(fileContent);
+  }
+} catch (error) {
+  console.error("Error loading homepage.json:", error);
+}
+
+const fallbackContent = {
+  badge: "Most Affordable in Dindigul",
+  heading: "Most Affordable Dental Treatments in Dindigul",
+  description: "Transparent, honest pricing with zero hidden fees — select a treatment below to see our rates.",
+  treatments: []
+};
+
+const priceContent = homepageContent?.price_teller || fallbackContent;
+---
+
+<BaseLayout title="Compare Price Layouts">
+  <main class="bg-gray-100 py-10">
+    <div class="text-center mb-16 px-4 pt-10">
+      <h1 class="text-4xl font-bold mb-4">Price Section Layout Comparison</h1>
+      <p class="text-gray-600">Scroll down to see both variations side-by-side.</p>
+    </div>
+
+    <!-- Variation 1: Original Pixel-Perfect (3 Column) -->
+    <div class="mb-20">
+      <div class="bg-blue-100 text-blue-900 text-center py-3 font-bold text-lg border-y-2 border-blue-300">
+        VARIATION 1: Original 3-Column (Matches Screenshot Exactly)
+      </div>
+      <PriceTellerSection client:load content={priceContent} />
+    </div>
+
+    <!-- Variation 2: New Compact Horizontal (Less Vertically Lengthy) -->
+    <div class="mb-20">
+      <div class="bg-emerald-100 text-emerald-900 text-center py-3 font-bold text-lg border-y-2 border-emerald-300">
+        VARIATION 2: Compact Horizontal Tabs (Less Vertically Lengthy)
+      </div>
+      <PriceTellerSectionVariant client:load content={priceContent} />
+    </div>
+  </main>
+</BaseLayout>

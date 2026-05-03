@@ -71,34 +71,6 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              item.name === 'Services' ? (
-                <div key={item.id} className="relative group">
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className="px-4 py-2 text-sm font-medium rounded-full transition-colors text-foreground hover:text-primary flex items-center gap-1"
-                  >
-                    Services
-                    <ChevronDown className="w-3 h-3" />
-                  </button>
-                  
-                  {/* Dropdown Menu */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[280px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out">
-                    <div className="bg-white rounded-2xl shadow-xl border border-border p-4">
-                      <div className="grid grid-cols-1 gap-1">
-                        {serviceItems.map((service) => (
-                          <Link
-                            key={service.path}
-                            to={service.path}
-                            className="block px-4 py-3 rounded-lg text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors"
-                          >
-                            {service.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
@@ -106,7 +78,6 @@ const Navigation = () => {
                 >
                   {item.name}
                 </button>
-              )
             ))}
           </div>
 
@@ -136,28 +107,6 @@ const Navigation = () => {
         <div className="lg:hidden mt-2 mx-auto max-w-7xl bg-white rounded-2xl shadow-lg border border-border overflow-hidden animate-fade-in">
           <div className="p-4 space-y-1">
             {navItems.map((item) => (
-              item.name === 'Services' ? (
-                <div key={item.id} className="px-4 py-3">
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className="block font-medium text-foreground"
-                  >
-                    Services
-                  </button>
-                  <div className="ml-4 space-y-1 mt-3 border-l-2 border-border pl-4">
-                    {serviceItems.map((service) => (
-                      <Link
-                        key={service.path}
-                        to={service.path}
-                        onClick={() => setIsOpen(false)}
-                        className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {service.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
@@ -165,7 +114,6 @@ const Navigation = () => {
                 >
                   {item.name}
                 </button>
-              )
             ))}
             
             <div className="pt-3">
