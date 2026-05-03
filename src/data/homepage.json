@@ -353,6 +353,7 @@
       },
       {
         "label": "Crowns",
+        "image": "/uploads/crown.png",
         "services": [
           {
             "name": "Zirconia – Basic (5 yr warranty)",
