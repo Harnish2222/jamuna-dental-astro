@@ -28,6 +28,7 @@ export interface Props {
   noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   hideFooterMap?: boolean;
+  hideNav?: boolean;
 }
 
 const {
@@ -38,6 +39,7 @@ const {
   noindex = false,
   jsonLd,
   hideFooterMap = false,
+  hideNav = false,
 } = Astro.props as Props;
 
 const SITE_URL = 'https://jamunadental.com';
@@ -128,7 +130,7 @@ const GTAG_ID = 'AW-10788600128';
   <body>
     <div class="min-h-screen flex flex-col">
       {/* Mobile menu state lives in Navigation — kept as a hydrated island. */}
-      <Navigation client:load />
+      {!hideNav && <Navigation client:load />}
 
       <main class="flex-1">
         <slot />

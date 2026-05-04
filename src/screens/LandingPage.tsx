@@ -1,4 +1,4 @@
-import { Phone, Award, Users, CalendarCheck, Stethoscope, MapPin, Clock, CircleCheckBig } from 'lucide-react';
+import { Phone, Award, Users, MapPin, Clock, CircleCheckBig, User, CheckCircle2, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -8,6 +8,15 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { useEffect, useRef } from 'react';
 import PhotoGalleryMarquee from '@/components/PhotoGalleryMarquee';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import HeroCarousel from '@/components/HeroCarousel';
+import ServiceMarquee from '@/components/ServiceMarquee';
+import AboutUsSection from '@/components/AboutUsSection';
+import MilestonesSection from '@/components/MilestonesSection';
+import WhyChooseUsSection from '@/components/WhyChooseUsSection';
+import PriceTellerSection from '@/components/PriceTellerSection';
+import AppointmentBookingSection from '@/components/AppointmentBookingSection';
+import FindUsSection from '@/components/FindUsSection';
+import FAQAccordionReact from '@/components/FAQAccordionReact';
 import SEO from '@/components/SEO';
 
 import jfdcLogo from '@/assets/jfdc-logo.png';
@@ -29,12 +38,12 @@ const PHONE = '+917200620011';
 const PHONE_DISPLAY = '+91 7200 620 011';
 
 const services = [
-  { img: stockDentalImplants.src, title: 'Dental Implants', desc: 'Permanent tooth replacement with latest technology' },
-  { img: stockTeethWhitening.src, title: 'Teeth Whitening', desc: 'Professional whitening for a brighter smile' },
-  { img: stockDentalExam.src, title: 'Root Canal', desc: 'Painless treatment to save your natural teeth' },
-  { img: stockOrthodontics.src, title: 'Braces & Aligners', desc: 'Invisible aligners & braces for better alignment' },
-  { img: stockPediatric.src, title: 'Kids Dentistry', desc: 'Gentle, child-friendly dental care' },
-  { img: stockDentalCrowns.src, title: 'Teeth Cleaning', desc: 'Professional scaling & polishing for healthy gums' },
+  { img: '/uploads/service-general-dentistry.png', title: 'General & Preventive Dentistry', desc: 'Routine care to keep your smile healthy and catch issues early.' },
+  { img: '/uploads/root canal.jpg', title: 'Root Canal Treatment', desc: 'Save your natural tooth with painless, advanced root canal therapy.' },
+  { img: '/uploads/service-smile-design.png', title: 'Cosmetic Dentistry', desc: 'Designed for a brighter, more confident smile.' },
+  { img: '/uploads/dental implant.jpg', title: 'Dental Implants', desc: 'Permanent, natural-looking replacement for missing teeth.' },
+  { img: '/uploads/crowns and bridges1.jpg', title: 'Crowns & Bridges', desc: 'Restore damaged teeth and bridge gaps with strong, aesthetic zirconia.' },
+  { img: '/uploads/clear%20alligners.jpg', title: 'Braces & Aligners', desc: 'Straighter teeth and a better bite for all ages.' },
 ];
 
 const usps = [
@@ -46,24 +55,24 @@ const usps = [
 
 const faqs = [
   {
-    q: 'Is the treatment really painless?',
-    a: 'Yes. We use modern anaesthesia techniques and a gentle treatment approach so most patients feel little to no discomfort.',
+    question: 'What dental treatments do you offer?',
+    answer: 'We offer a full range of dental services including dental implants, root canal treatment, teeth cleaning & scaling, teeth whitening, braces & invisible aligners, cosmetic dentistry, pediatric dentistry, gum treatment, tooth extraction, and smile design.',
   },
   {
-    q: 'Do you offer dental implants in Dindigul?',
-    a: 'Yes. We provide advanced dental implant treatment by an MDS specialist using trusted implant systems.',
+    question: 'Is the treatment painful?',
+    answer: 'We focus on gentle and comfortable treatments. Our experienced & certified dentists use modern techniques and equipment to ensure minimal discomfort during all procedures.',
   },
   {
-    q: 'Are braces or aligners available for adults?',
-    a: 'Yes. We treat both teens and adults with braces and clear aligner options based on your smile goals.',
+    question: 'What are your clinic timings?',
+    answer: 'We are open from 9:00 AM to 9:00 PM, all days including weekends. Walk-ins and appointments are both welcome. We offer home visit services too.',
   },
   {
-    q: 'Do you treat children and senior citizens?',
-    a: 'Yes. We provide dental care for the whole family, including kids, adults, and elderly patients.',
+    question: 'Do you treat children?',
+    answer: 'Yes! We provide specialized pediatric dental care by MDS pedodontist doctors in a fun, comfortable environment designed to make children feel at ease during their visit.',
   },
   {
-    q: 'What are your call timings?',
-    a: 'You can call us from 9:00 AM to 9:00 PM IST, Sunday to Saturday.',
+    question: 'How long do dental implants last?',
+    answer: 'With proper care and maintenance, dental implants can last a lifetime. They are designed to fuse with your bone, providing a permanent solution for missing teeth.',
   },
 ];
 
@@ -72,11 +81,12 @@ const LandingPage = () => {
   const autoplayPlugin = useRef(Autoplay({ delay: 3500, stopOnInteraction: false }));
 
   const heroImages = [
-    { src: jamunaBuilding.src, alt: 'Jamuna Family Dental Care building' },
-    { src: jamunaExterior.src, alt: 'Clinic exterior' },
-    { src: jamunaTreatmentRoom.src, alt: 'Modern treatment room' },
-    { src: jamunaDoctorTreatment.src, alt: 'Doctor treating patient' },
-    { src: jamunaClinicInterior.src, alt: 'Clinic interior' },
+    { src: '/uploads/jfdc clinic.png', alt: 'Jamuna Family Dental Care building' },
+    { src: '/uploads/happy-family-appointment.jpg', alt: 'Happy patient family' },
+    { src: '/uploads/hero-treatment-room-blue.jpg', alt: 'Modern treatment room' },
+    { src: '/uploads/service-smile-design.png', alt: 'Smile Design' },
+    { src: '/uploads/hero-doctor-child.jpg', alt: 'Doctor treating child' },
+    { src: '/uploads/hero-consultation-room.jpg', alt: 'Consultation room' },
   ];
 
   useEffect(() => {
@@ -104,6 +114,17 @@ const LandingPage = () => {
       document.head.removeChild(script);
     };
   }, []);
+  const clinicImages = [
+    { src: '/uploads/clinic3.jpg', alt: 'Clinic Facility 1' },
+    { src: '/uploads/clininc2.jpg', alt: 'Clinic Facility 2' },
+    { src: '/uploads/clininc5.jpg', alt: 'Clinic Facility 3' },
+    { src: '/uploads/clinic1.jpg', alt: 'Clinic Facility 4' },
+    { src: '/uploads/clinic4.jpg', alt: 'Clinic Facility 5' },
+    { src: '/uploads/hero-consultation-room.jpg', alt: 'Consultation Room' },
+    { src: '/uploads/hero-reception.jpg', alt: 'Reception Area' },
+    { src: '/uploads/jamuna-doctor-operation.jpg', alt: 'Operation Theatre' },
+    { src: '/uploads/pediatric dentistry.jpg', alt: 'Pediatric Dentistry Area' },
+  ];
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
@@ -113,273 +134,260 @@ const LandingPage = () => {
         canonical="https://jamunadental.com/landing"
         noindex
       />
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-4 py-2.5 sm:px-6 md:gap-4 md:py-3">
-          <img
-            src={jfdcLogo.src}
-            alt="JFDC Logo"
-            className="h-9 w-9 rounded-full border-2 border-primary/15 object-cover md:h-11 md:w-11"
-          />
-          <div className="min-w-0 text-center">
-            <p className="text-sm font-bold leading-tight text-foreground sm:text-base md:text-lg">Jamuna Family Dental Care</p>
-            <p className="text-[11px] text-muted-foreground sm:text-xs md:text-sm">Trusted dental care in Dindigul</p>
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 lg:px-8 pt-4">
+        <div className="max-w-7xl mx-auto rounded-full bg-white/95 backdrop-blur-md shadow-lg border border-border">
+          <div className="flex items-center justify-between h-14 lg:h-16 px-4 lg:px-8">
+            <div className="flex items-center gap-2">
+              <img
+                src={jfdcLogo.src}
+                alt="JFDC Logo"
+                className="h-9 w-9 rounded-full border-2 border-primary/15 object-cover md:h-11 md:w-11"
+              />
+              <div className="min-w-0">
+                <p className="text-sm font-bold leading-tight text-foreground sm:text-base md:text-lg">Jamuna Family Dental Care</p>
+                <p className="text-[11px] text-muted-foreground sm:text-xs md:text-sm">Trusted dental care in Dindigul</p>
+              </div>
+            </div>
+            <div>
+               <a
+                href={`tel:${PHONE}`}
+                className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-sm px-5 py-2.5 rounded-full shadow-md font-bold transition-all"
+              >
+                <Phone className="mr-2 h-4 w-4" />
+                {PHONE_DISPLAY}
+              </a>
+            </div>
           </div>
         </div>
       </header>
 
       <div className="h-16" />
 
-      <section className="overflow-hidden bg-background px-0 pb-8 pt-4 sm:pt-6 md:pb-14 md:pt-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-16">
-            <div className="order-1 mx-auto flex w-full max-w-xl flex-col items-center space-y-4 text-center lg:mx-0 lg:max-w-none lg:items-start lg:space-y-5 lg:text-left">
-              <Badge className="border-0 bg-accent-teal px-3 py-1 text-xs text-accent-teal-foreground md:px-4 md:py-1.5 md:text-sm">
-                ⭐ Rated 4.9 by 548+ Patients
-              </Badge>
+      <section id="hero" className="relative bg-background min-h-screen flex items-center pt-20 overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10 py-8 lg:py-16">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-16 gap-6 lg:items-center">
+            
+            {/* ① Heading — always first */}
+            <div className="order-1 lg:col-start-1 lg:row-start-1 text-center lg:text-left pt-2">
+              <div className="space-y-2">
+                <Badge variant="outline" className="border-primary/20 text-primary bg-primary/5 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                  ⭐ Rated 4.9 by 548+ Patients
+                </Badge>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] tracking-tight">
+                  <span className="text-gray-900 block">Dindigul&apos;s Most</span>
+                  <span className="text-primary block mt-1">Trusted Dental Clinic</span>
+                </h1>
+                <h2 className="text-[#0080B5] font-bold tracking-[0.15em] uppercase text-xs sm:text-sm md:text-base mt-4">
+                  Expert MDS Specialists • Painless Care
+                </h2>
+              </div>
+            </div>
 
-              <h1 className="text-4xl font-extrabold leading-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                Dindigul&apos;s <span className="text-primary">Most Trusted</span> Dental Clinic
-              </h1>
+            {/* ② Carousel — between heading & content on mobile */}
+            <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 w-full max-w-2xl mx-auto">
+               <HeroCarousel images={heroImages.map(img => ({ src: img.src, alt: img.alt }))} />
+            </div>
 
-              <p className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg lg:text-xl">
-                Expert MDS specialist dental care for your entire family with painless treatments and advanced technology.
+            {/* ③ Description, highlights, CTA — below carousel on mobile */}
+            <div className="order-3 lg:col-start-1 lg:row-start-2 flex flex-col gap-5 text-center lg:text-left pb-4">
+              <p className="text-base sm:text-lg text-gray-600 leading-[1.6] max-w-2xl mx-auto lg:mx-0 font-medium">
+                Expert MDS specialist dental care for your entire family with painless treatments and advanced technology in the heart of Dindigul.
               </p>
 
-              <div className="flex w-full flex-wrap items-center justify-center gap-2 pt-1 md:gap-3 lg:justify-start">
-                <div className="flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1.5 md:px-4 md:py-2">
-                  <Award className="h-4 w-4 text-primary md:h-5 md:w-5" />
-                  <span className="text-xs font-semibold text-foreground md:text-sm">12+ Years Exp.</span>
-                </div>
-                <div className="flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1.5 md:px-4 md:py-2">
-                  <Users className="h-4 w-4 text-primary md:h-5 md:w-5" />
-                  <span className="text-xs font-semibold text-foreground md:text-sm">548+ Happy Reviews</span>
-                </div>
+              {/* Highlights Box */}
+              <div className="flex items-start justify-center lg:justify-start py-3 px-2 sm:px-4 border border-gray-100 bg-white/60 backdrop-blur-md rounded-2xl shadow-[0_4px_15px_-4px_rgba(0,0,0,0.05)] w-fit mx-auto lg:mx-0 mt-2">
+                {[
+                  { text: 'Modern treatments', icon: <path d="M12 22C12 22 15 19 16.5 16C18 13 18.5 10 17.5 7.5C16.5 5 14 4 12 5C10 4 7.5 5 6.5 7.5C5.5 10 6 13 7.5 16C9 19 12 22 12 22Z" /> },
+                  { text: 'Pain-free procedures', icon: <g><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-4" /></g> },
+                  { text: 'Gentle approach', icon: <g><circle cx="9" cy="7" r="4"/><path d="M16 11l-2-2m-1.5-1.5L11 6"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="16" cy="11" r="3"/><path d="M13 21v-2a3 3 0 0 1 3-3h3a3 3 0 0 1 3 3v2"/></g> },
+                  { text: 'Expert care', icon: <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /> },
+                ].map((highlight, idx, arr) => (
+                  <div key={idx} className={`flex flex-col items-center px-4 ${idx !== arr.length - 1 ? 'border-r border-gray-300/60' : ''}`}>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-sm border border-blue-50 flex items-center justify-center mb-2">
+                      <svg className="h-5 w-5 md:h-6 md:w-6 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        {highlight.icon}
+                      </svg>
+                    </div>
+                    <span className="text-[10px] md:text-xs font-bold text-center text-primary leading-tight max-w-[80px]">
+                      {highlight.text}
+                    </span>
+                  </div>
+                ))}
               </div>
 
-              <div className="flex w-full justify-center pt-2 lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-2">
                 <Button
                   size="lg"
-                  className="w-full max-w-sm rounded-full bg-primary px-6 py-6 text-base text-primary-foreground shadow-lg hover:bg-primary/90 sm:w-auto md:px-10 md:py-7 md:text-lg"
+                  className="rounded-full bg-primary px-8 py-7 text-base font-bold shadow-lg hover:bg-primary/90 transition-all hover:-translate-y-1 hover:shadow-primary/30 h-auto"
                   asChild
                 >
                   <a href={`tel:${PHONE}`} aria-label={`Call ${PHONE_DISPLAY}`}>
-                    <Phone className="mr-2 h-5 w-5 md:h-6 md:w-6" /> Call Now
+                    <Phone className="mr-2 h-5 w-5" /> Call Now
+                  </a>
+                </Button>
+                <Button
+                  size="lg"
+                  className="rounded-full bg-[#00A859] px-8 py-7 text-base font-bold shadow-lg hover:bg-[#00924D] text-white transition-all hover:-translate-y-1 hover:shadow-[#00A859]/30 h-auto"
+                  asChild
+                >
+                  <a href={`https://wa.me/${PHONE.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer">
+                    <svg className="mr-2 h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    WhatsApp Us
                   </a>
                 </Button>
               </div>
             </div>
-
-            <div className="order-2 mx-auto w-full max-w-[30rem] overflow-hidden rounded-2xl lg:max-w-none">
-              <Carousel opts={{ loop: true }} plugins={[autoplayPlugin.current]} className="w-full">
-                <CarouselContent>
-                  {heroImages.map((img, i) => (
-                    <CarouselItem key={i}>
-                      <img
-                        src={img.src}
-                        alt={img.alt}
-                        className="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl"
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-primary px-0 py-5 md:py-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {usps.map((usp, i) => (
-              <div key={i} className="flex min-h-[58px] items-center gap-2 rounded-lg bg-primary-foreground/10 px-3 py-2.5 md:min-h-[68px] md:gap-3 md:px-5 md:py-4">
-                <CircleCheckBig className="h-4 w-4 shrink-0 text-success md:h-5 md:w-5" />
-                <span className="text-xs font-medium leading-tight text-primary-foreground sm:text-sm md:text-base">{usp}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServiceMarquee services={services.map(s => s.title)} />
 
-      <section className="px-0 py-10 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 text-center md:mb-12">
-            <Badge className="mb-2 md:mb-3 md:text-sm">Our Services</Badge>
-            <h2 className="mb-2 text-2xl font-bold text-foreground md:text-4xl lg:text-5xl">Complete Dental Care Under One Roof</h2>
-            <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base lg:text-lg">
-              From routine check-ups to advanced implants — all by qualified MDS specialists.
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-primary text-white hover:bg-primary px-4 py-1.5">Our Services</Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">Complete Dental Care</h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
+              From routine treatments to advanced procedures, we provide a full range of dental services for all age groups in a clean and hygienic environment.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 md:gap-5">
-            {services.map((service, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 rounded-xl border border-border bg-card p-3 transition-shadow hover:shadow-md md:flex-col md:items-stretch md:gap-0 md:p-0 md:overflow-hidden"
-              >
-                <img
-                  src={service.img}
-                  alt={service.title}
-                  className="h-20 w-28 shrink-0 rounded-lg object-cover sm:w-32 md:h-44 md:w-full md:rounded-none md:rounded-t-xl"
-                />
-                <div className="min-w-0 flex-1 text-left md:p-5">
-                  <h3 className="mb-1 text-sm font-semibold leading-tight text-foreground sm:text-base md:text-lg md:mb-2">{service.title}</h3>
-                  <p className="text-xs leading-snug text-muted-foreground sm:text-sm md:text-base">{service.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <article key={index} className="group h-full overflow-hidden rounded-2xl bg-card border border-border shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 hover:border-primary/50">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={service.img}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-6">
+                    <h3 className="text-xl font-bold text-white group-hover:text-primary-light transition-colors">{service.title}</h3>
+                  </div>
                 </div>
-              </div>
+                <div className="p-8">
+                  <p className="text-muted-foreground text-base leading-relaxed mb-6">{service.desc}</p>
+                  <div className="flex items-center text-primary font-bold text-sm group-hover:translate-x-2 transition-transform">
+                    Learn More <CircleCheckBig className="ml-2 h-4 w-4" />
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* <PhotoGalleryMarquee /> */}
+      <AboutUsSection 
+        content={{
+          badge: 'About Us',
+          heading_part1: 'Your Journey to a',
+          heading_part2: 'Healthier Smile Begins Here',
+          subtitle: 'Serving families across Dindigul with ethical, modern and comfortable dental care.',
+          description: `With experienced and certified dentists along with modern equipments, we provide both routine dental treatments and advanced dental procedures in a clean and hygienic environment. Jamuna Family Dental Care combines modern techniques with a gentle & friendly approach to help every patient achieve their dream smile.\n\nAt JFDC, we believe in making dentistry transparent, ethical and comfortable for families, young adults and professionals across Dindigul.`,
+          image: '/uploads/about%20jamuna%20dental.png',
+          features: [
+            { title: 'Certified & Experienced Specialists', description: '' },
+            { title: 'Sterilized & Hygienic Clinic', description: '' },
+            { title: 'Gentle & Comfortable Treatment', description: '' },
+            { title: 'Quick Diagnosis & Treatment', description: '' },
+          ],
+          cta_text: 'View Treatments',
+          cta_secondary_text: 'Meet Our Doctors'
+        }} 
+      />
 
-      <section className="bg-muted/30 px-0 py-10 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-6 text-center md:mb-10">
-            <Badge className="mb-2 md:mb-3 md:text-sm">Meet Your Dentist</Badge>
-            <h2 className="text-2xl font-bold text-foreground md:text-4xl lg:text-5xl">Expert Care You Can Trust</h2>
+      <MilestonesSection 
+        content={{
+          badge: 'Our Track Record',
+          heading_part1: 'Numbers That',
+          heading_part2: 'Speak for Us',
+          description: 'Trusted by families across Dindigul since 2011',
+          image: '/uploads/hero-jfdc-front.jpg',
+          stats: [
+            { icon: 'Users', value: 18, suffix: '+', label: 'Years Experience', iconColor: 'text-primary', bgColor: 'bg-primary/5' },
+            { icon: 'Star', value: 600, suffix: '+', label: 'Patient Reviews', iconColor: 'text-[#009AA7]', bgColor: 'bg-[#009AA7]/10' },
+            { icon: 'Heart', value: 25, suffix: 'K+', label: 'Happy Patients', iconColor: 'text-destructive', bgColor: 'bg-destructive/5' },
+            { icon: 'Clock', value: 4, suffix: '.9★', label: 'Google Rating', iconColor: 'text-primary', bgColor: 'bg-primary/5' }
+          ]
+        }}
+      />
+
+      <WhyChooseUsSection 
+        content={{
+          heading: 'Your smile is our priority',
+          description: 'Jamuna Family Dental Care focuses on comfortable treatments, advanced technology, and personalized patient-centered dental care to help patients maintain healthy and confident smiles.',
+          image: '/uploads/why-choose-tooth.png',
+          features: [
+            { title: "Family-Centered Care", description: "We provide dental care for all ages — children, adults, and seniors — with gentle, comfortable treatments tailored to each patient." },
+            { title: "4.9★ Rating | 600+ Reviews", description: "Many patients highlight our professional care, advanced equipment, patient-friendly and comfortable & safe treatment experience. Trusted by families across Dindigul." },
+            { title: "Advanced Technology", description: "We use the latest dental equipment with sterilized instruments in a clean, hygienic clinic for quick diagnosis and precise treatment." }
+          ]
+        }}
+      />
+
+      <PriceTellerSection 
+        content={{
+          badge: 'Most Affordable in Dindigul',
+          heading: 'Most Affordable Dental Treatments in Dindigul',
+          description: 'Transparent, honest pricing with zero hidden fees — select a treatment below to see our rates.'
+        }}
+      />
+
+      <PhotoGalleryMarquee 
+        content={{ 
+          badge: 'CLINIC GALLERY',
+          heading_part1: 'Our Modern',
+          heading_part2: 'Facilities',
+          description: 'Experience our world-class dental care infrastructure in Dindigul.',
+          images: clinicImages 
+        }} 
+        hasGap={true} 
+      />
+
+      <TestimonialsSection 
+        content={{
+          badge: 'Patient Reviews',
+          heading: 'What Our Patients Say',
+          description: 'Read real stories from our satisfied patients across Dindigul.',
+          reviews: [
+            { author: "Kokila Kalimuthu", content: "Had a great experience at Jamuna Family dental care. Dr Arun sarath sir is very kind and gentle. Procedure was very smooth and pain-free. Very happy with the care and results." },
+            { author: "Suki Vignesh", content: "Nice ambience and excellent quality crowns.. very happy to get treated here.. Highly recommending this best dental hospital in dindigul" },
+            { author: "k. kokila", content: "Recently I visited jamuna family dental care for scaling and root canal treatment. Such a good & calm environment . Highly satisfied with their treatments." },
+            { author: "Antony Flx", content: "I had a very good experience of extraction of the wisdom tooth as well scaling and filling. So gentle and excellent service very kind in approach." }
+          ]
+        }}
+      />
+
+      <AppointmentBookingSection />
+
+      <FindUsSection />
+
+      <section id="faq" className="py-20 bg-primary/5">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center lg:text-left">
+            <span className="text-primary text-sm font-semibold tracking-wide mb-4 block uppercase tracking-[0.2em]">Common Questions</span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              <span className="text-primary">Everything You Need To Know</span><br />
+              <span className="text-foreground">About Dental Care</span>
+            </h2>
           </div>
-
-          <div className="grid items-center gap-6 md:grid-cols-2 md:gap-12 lg:gap-16">
-            <div className="flex justify-center">
-              <img
-                src={drArunPortrait.src}
-                alt="Dr. Arun Baabu Sarath"
-                className="aspect-[3/4] w-52 max-w-full rounded-2xl border-4 border-primary/10 object-cover shadow-xl md:w-72 lg:w-80"
+          <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-stretch">
+            <div className="hidden lg:block lg:col-span-2 relative rounded-3xl overflow-hidden shadow-2xl min-h-[500px]">
+              <img 
+                src={jamunaDoctorTreatment.src} 
+                alt="Dental care professional treating a patient" 
+                className="absolute inset-0 w-full h-full object-cover" 
               />
             </div>
-
-            <div className="space-y-3 text-center md:space-y-4 md:text-left">
-              <h3 className="text-xl font-bold text-foreground md:text-3xl lg:text-4xl">Dr. Arun Baabu Sarath</h3>
-              <p className="font-semibold text-primary md:text-lg">MDS — Prosthodontics</p>
-              <p className="text-muted-foreground md:text-lg">12+ Years of Clinical Experience</p>
-              <p className="text-sm leading-relaxed text-muted-foreground md:text-base lg:text-lg">
-                Dedicated to providing world-class dental care in Dindigul with special expertise in implants, cosmetic dentistry, and pain-free family care.
-              </p>
-              <div className="flex flex-wrap justify-center gap-1.5 pt-1 md:justify-start md:gap-2">
-                {['Dental Implants', 'Root Canal', 'Aligners', 'Cosmetic', 'Pediatric'].map((tag) => (
-                  <Badge key={tag} variant="secondary" className="px-2 py-0.5 text-xs md:px-3 md:py-1 md:text-sm">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
+            <div className="col-span-1 lg:col-span-3 flex flex-col justify-center">
+              <FAQAccordionReact faqs={faqs} />
             </div>
           </div>
         </div>
       </section>
 
-      <TestimonialsSection />
 
-      <section className="px-0 py-10 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-6 text-center md:mb-10">
-            <Badge className="mb-2 md:mb-3 md:text-sm">Find Us</Badge>
-            <h2 className="text-2xl font-bold text-foreground md:text-4xl lg:text-5xl">Visit Our Clinic</h2>
-          </div>
-
-          <div className="mx-auto mb-6 max-w-md space-y-3 md:max-w-lg md:space-y-4">
-            <div className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary md:h-5 md:w-5" />
-              <p className="text-sm text-foreground md:text-base">
-                41-B, Kurinji Street, Ram Nagar, Round Road, Near Vijayan Temptation, Dindigul - 624001
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <Clock className="h-4 w-4 shrink-0 text-primary md:h-5 md:w-5" />
-              <p className="text-sm text-foreground md:text-base">Sun – Sat: 9:00 AM – 9:00 PM IST</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <Phone className="h-4 w-4 shrink-0 text-primary md:h-5 md:w-5" />
-              <a href={`tel:${PHONE}`} className="text-sm font-semibold text-primary hover:underline md:text-base">
-                {PHONE_DISPLAY}
-              </a>
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-xl shadow-lg">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.0!2d77.9756!3d10.3624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00aa5f59e0f9c1%3A0x8c2b4e2e2d8f5a8e!2sJamuna%20Family%20Dental%20Care!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
-              width="100%"
-              height="280"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Jamuna Family Dental Care Location"
-              className="md:h-[400px]"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-muted/30 px-0 py-10">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <div className="mb-8 text-center">
-            <Badge className="mb-2">Common Questions</Badge>
-            <h2 className="text-2xl font-bold text-foreground md:text-4xl">Frequently Asked Questions</h2>
-          </div>
-
-          <Accordion type="single" collapsible className="space-y-2">
-            {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="rounded-lg border-0 bg-background">
-                <AccordionTrigger className="px-4 py-3 text-left text-sm font-medium text-foreground hover:text-primary hover:no-underline md:text-base">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="px-4 pb-3 text-sm leading-relaxed text-muted-foreground">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      <section className="bg-muted/30 px-0 py-12">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <div className="space-y-4 rounded-3xl bg-card p-6 shadow-soft sm:p-8">
-            <h2 className="text-2xl font-bold text-foreground md:text-4xl">Need to Speak to a Dentist?</h2>
-            <p className="text-sm text-muted-foreground md:text-base">
-              Call Jamuna Family Dental Care and speak to our clinic team today.
-            </p>
-            <div className="flex justify-center">
-              <Button
-                size="lg"
-                className="w-full max-w-sm rounded-full bg-primary px-8 py-6 text-base text-primary-foreground shadow-xl hover:bg-primary/90"
-                asChild
-              >
-                <a href={`tel:${PHONE}`} aria-label={`Call ${PHONE_DISPLAY}`}>
-                  <Phone className="mr-2 h-5 w-5" /> Call Now
-                </a>
-              </Button>
-            </div>
-            <p className="text-xs text-muted-foreground">9 AM – 9 PM IST · Sun – Sat</p>
-          </div>
-        </div>
-      </section>
-
-      <footer className="bg-foreground px-4 py-6 text-background md:py-8">
-        <div className="mx-auto max-w-7xl space-y-2 text-center text-xs md:text-sm">
-          <p className="font-medium">© 2026 Jamuna Family Dental Care, Dindigul. All rights reserved.</p>
-          <p className="text-background/60">41-B, Kurinji Street, Ram Nagar, Dindigul - 624001</p>
-        </div>
-      </footer>
-
-      {isMobile && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95 px-4 py-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] shadow-[0_-4px_20px_hsl(var(--foreground)/0.12)] backdrop-blur-sm">
-          <Button
-            size="lg"
-            className="w-full rounded-full bg-success py-5 text-base font-bold text-success-foreground shadow-lg hover:bg-success/90"
-            asChild
-          >
-            <a href={`tel:${PHONE}`} aria-label={`Call ${PHONE_DISPLAY}`}>
-              <Phone className="mr-2 h-5 w-5" /> Call Now
-            </a>
-          </Button>
-        </div>
-      )}
-
-      {isMobile && <div className="h-24" />}
     </div>
   );
 };
