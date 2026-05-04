@@ -23,7 +23,7 @@ const HeroCarousel = ({ images }: HeroCarouselProps) => {
       <CarouselContent>
         {images.map((image, index) => (
           <CarouselItem key={index}>
-            <div className="relative aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/11] overflow-hidden rounded-[2.5rem] md:rounded-[3rem] shadow-2xl border-4 border-white/40 bg-muted">
+            <div className="relative aspect-[16/10] md:aspect-[16/11] lg:aspect-[16/13] overflow-hidden rounded-[2.5rem] md:rounded-[3rem] shadow-2xl border-4 border-white/40 bg-muted">
               <img
                 src={image.src}
                 alt={image.alt || "Dental clinic treatment"}
