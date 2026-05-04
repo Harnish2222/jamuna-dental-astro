@@ -60,8 +60,14 @@ const Navigation = () => {
       >
         <div className="flex items-center justify-between h-14 lg:h-16 px-4 lg:px-8">
           {/* Logo */}
-          <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2 cursor-pointer">
-            <img src={jfdcLogo.src} alt="Jamuna Family Dental Care" className="h-10 w-auto object-contain" />
+          <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2 cursor-pointer" aria-label="Scroll to top">
+            <img 
+              src={jfdcLogo.src} 
+              alt="Jamuna Family Dental Care" 
+              width={70} 
+              height={70} 
+              className="h-10 w-auto object-contain" 
+            />
             <div>
               <span className="text-sm sm:text-lg font-bold text-primary sm:hidden">Jamuna Family Dental</span>
               <span className="text-lg font-bold text-primary hidden sm:block">JFDC</span>
@@ -75,6 +81,7 @@ const Navigation = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className="px-4 py-2 text-sm font-medium rounded-full transition-colors text-foreground hover:text-primary"
+                  aria-label={`Go to ${item.name}`}
                 >
                   {item.name}
                 </button>
@@ -88,13 +95,17 @@ const Navigation = () => {
               className="hidden sm:inline-flex rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-6"
               asChild
             >
-              <a href="tel:+917200620011" onClick={() => (window as any).gtag_report_phone_conversion?.()}><Phone className="w-4 h-4 mr-1" />Call Now</a>
+              <a href="tel:+917200620011" onClick={() => (window as any).gtag_report_phone_conversion?.()} aria-label="Call Jamuna Dental">
+                <Phone className="w-4 h-4 mr-1" />Call Now
+              </a>
             </Button>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 rounded-full hover:bg-muted transition-colors"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>

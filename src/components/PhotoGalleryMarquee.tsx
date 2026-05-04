@@ -85,10 +85,10 @@ const PhotoGalleryMarquee = ({ content, hasGap = false, aspectRatio = "aspect-sq
 
       <AnimatedSection animation="fade-up" delay="delay-200">
         <div className="relative" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
-          <Button variant="outline" size="icon" className="absolute left-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 rounded-full bg-background/90 shadow-lg backdrop-blur-sm transition-all duration-300 hover:bg-primary hover:text-primary-foreground md:left-3 md:h-10 md:w-10" onClick={scrollLeft}>
+          <Button variant="outline" size="icon" className="absolute left-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 rounded-full bg-background/90 shadow-lg backdrop-blur-sm transition-all duration-300 hover:bg-primary hover:text-primary-foreground md:left-3 md:h-10 md:w-10" onClick={scrollLeft} aria-label="Scroll gallery left">
             <ChevronLeft className="h-4 w-4 md:h-5 md:w-5" />
           </Button>
-          <Button variant="outline" size="icon" className="absolute right-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 rounded-full bg-background/90 shadow-lg backdrop-blur-sm transition-all duration-300 hover:bg-primary hover:text-primary-foreground md:right-3 md:h-10 md:w-10" onClick={scrollRight}>
+          <Button variant="outline" size="icon" className="absolute right-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 rounded-full bg-background/90 shadow-lg backdrop-blur-sm transition-all duration-300 hover:bg-primary hover:text-primary-foreground md:right-3 md:h-10 md:w-10" onClick={scrollRight} aria-label="Scroll gallery right">
             <ChevronRight className="h-4 w-4 md:h-5 md:w-5" />
           </Button>
           <div className="w-full overflow-hidden">

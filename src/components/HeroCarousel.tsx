@@ -14,13 +14,13 @@ const HeroCarousel = ({ images }: HeroCarouselProps) => {
   if (!images || images.length === 0) return null;
 
   return (
-    <Carousel opts={{ loop: true }} plugins={[autoplayPlugin.current]} className="w-full">
+    <Carousel opts={{ loop: true }} plugins={[autoplayPlugin.current]} className="w-full" aria-label="Featured dental treatments">
       <CarouselContent>
         {images.map((image, index) => (
           <CarouselItem key={index}>
             <img
               src={image.src}
-              alt={image.alt}
+              alt={image.alt || "Dental clinic treatment"}
               width={1200}
               height={900}
               loading={index === 0 ? 'eager' : 'lazy'}
