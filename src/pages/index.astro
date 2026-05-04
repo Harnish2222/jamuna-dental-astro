@@ -42,10 +42,10 @@ const optimizedHeroImages = await Promise.all(
   (homepageContent?.hero_carousel?.images || []).map(async (img: any) => {
     const optimized = await getImage({ 
       src: img.src, 
-      width: 1200, 
-      height: 900, 
+      width: 1920, 
+      height: 1080, 
       format: 'webp',
-      quality: 80 
+      quality: 90 
     });
     return { ...img, src: optimized.src };
   })
@@ -150,7 +150,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   <section id="hero" class="relative bg-background min-h-screen flex items-center pt-20">
     <div class="container mx-auto px-4 relative z-10 py-8">
       {/* On mobile: flex-col (order 1→2→3). On desktop: 2-col grid with carousel spanning both rows */}
-      <div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-16 gap-6 lg:items-center">
+      <div class="flex flex-col lg:grid lg:grid-cols-[1fr_1.2fr] lg:gap-x-16 gap-6 lg:items-center">
 
         {/* ① Heading — always first */}
         <div class="order-1 lg:col-start-1 lg:row-start-1 text-center lg:text-left pt-2">
@@ -300,7 +300,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.photo_gallery, images: optimizedPhotoImages }} hasGap={true} />
 
   {/* Static iframe-based reels */}
-  <InstagramReelsSection content={homepageContent?.instagram_reels} />
+  <InstagramReelsSection client:visible content={homepageContent?.instagram_reels} />
 
   {/* JotForm widget injection — needs JS to mount the script */}
   <TestimonialsSection client:visible content={homepageContent?.testimonials} />

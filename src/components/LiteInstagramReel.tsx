@@ -47,13 +47,12 @@ const LiteInstagramReel = ({ id, index }: LiteInstagramReelProps) => {
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             loading="lazy"
             onError={(e) => {
-              // Fallback to gradient if thumbnail fails
               (e.target as HTMLImageElement).style.display = 'none';
             }}
           />
 
           {/* Facade UI Overlay */}
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center bg-black/20 group-hover:bg-black/40 transition-colors">
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center bg-black/20 group-hover:bg-black/40 transition-colors">
             <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 mb-4 group-hover:scale-110 transition-transform duration-300">
               <Play className="w-8 h-8 text-white fill-white ml-1 shadow-lg" />
             </div>
@@ -62,20 +61,13 @@ const LiteInstagramReel = ({ id, index }: LiteInstagramReelProps) => {
               <span>Watch Reel</span>
             </div>
           </div>
-
-          {/* Branded Fallback (behind image) */}
-          <div 
-            className="absolute inset-0 -z-10"
-            style={{
-              background: `linear-gradient(${135 + index * 45}deg, hsl(var(--primary)) 0%, #dc2743 50%, #bc1888 100%)`,
-            }}
-          />
         </>
       ) : (
         /* Actual Embed: Only loaded on user click */
         <iframe
           src={embedUrl}
           className="absolute inset-0 w-full h-full border-0"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
           allowFullScreen
           scrolling="no"
           title={`Instagram Reel ${index + 1}`}
