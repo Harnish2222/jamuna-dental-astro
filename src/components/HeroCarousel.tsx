@@ -17,13 +17,13 @@ const HeroCarousel = ({ images }: HeroCarouselProps) => {
     <Carousel 
       opts={{ loop: true }} 
       plugins={[autoplayPlugin.current]} 
-      className="w-full max-w-[95vw] lg:max-w-none mx-auto" 
+      className="w-full" 
       aria-label="Featured dental treatments"
     >
       <CarouselContent>
         {images.map((image, index) => (
           <CarouselItem key={index}>
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/8] overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl border-4 border-white/40 bg-muted">
+            <div className="relative aspect-[16/10] md:aspect-[16/12] lg:aspect-[16/13] overflow-hidden rounded-[2.5rem] md:rounded-[4rem] shadow-2xl border-4 md:border-8 border-white/50 bg-muted">
               <img
                 src={image.src}
                 alt={image.alt || "Dental clinic treatment"}
@@ -33,8 +33,9 @@ const HeroCarousel = ({ images }: HeroCarouselProps) => {
                 loading={index === 0 ? "eager" : "lazy"}
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
-              {/* Optional Glassmorphism overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              {/* Premium Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10 pointer-events-none" />
             </div>
           </CarouselItem>
         ))}
