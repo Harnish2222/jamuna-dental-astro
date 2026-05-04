@@ -30,26 +30,39 @@ const InstagramReelsSection = ({ content }: InstagramReelsProps) => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {content.reels.map((id, index) => (
             <AnimatedSection key={id} animation="fade-up" delay={`delay-${(index % 4) * 100}`}>
-              <div
-                className="relative w-full rounded-xl overflow-hidden shadow-md"
+              <a
+                href={`https://www.instagram.com/reel/${id}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block w-full rounded-xl overflow-hidden shadow-md bg-gray-200"
                 style={{ aspectRatio: '9/16' }}
               >
-                <iframe
-                  src={`https://www.instagram.com/reel/${id}/embed/?hidecaption=true`}
-                  className="absolute border-0"
-                  allowFullScreen
-                  loading="lazy"
-                  scrolling="no"
-                  title={`Instagram Reel ${index + 1}`}
+                {/* Static Placeholder Image with Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+                <div 
+                  className="absolute inset-0 flex items-center justify-center z-20 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
+                    <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-white border-b-[8px] border-b-transparent ml-1" />
+                  </div>
+                </div>
+                
+                {/* Fallback pattern/gradient since we don't have the thumbnail locally */}
+                <div 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   style={{
-                    top: '-60px',
-                    left: 0,
-                    width: '100%',
-                    height: 'calc(100% + 200px)',
-                    overflow: 'hidden',
+                    background: `linear-gradient(${45 + index * 45}deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)`,
+                    opacity: 0.8
                   }}
                 />
-              </div>
+                
+                <div className="absolute bottom-4 left-4 right-4 z-30">
+                  <div className="flex items-center gap-2 text-white text-xs font-semibold">
+                    <Instagram className="h-4 w-4" />
+                    <span>View Reel</span>
+                  </div>
+                </div>
+              </a>
             </AnimatedSection>
           ))}
         </div>

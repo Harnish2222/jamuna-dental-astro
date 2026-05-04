@@ -307,7 +307,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
 
   <div id="appointment">
     {/* Form state lives here — hydrated island */}
-    <AppointmentBookingSection client:load content={homepageContent?.appointment} />
+    <AppointmentBookingSection client:visible content={homepageContent?.appointment} />
   </div>
 
   {/* ─── FAQ — static HTML accordion (no React, no JS) ───────────────── */}

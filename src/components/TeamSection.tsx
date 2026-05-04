@@ -57,7 +57,7 @@ export default function TeamSection({ content }: { content?: TeamContent }) {
                 >
                   
                   {/* Photo Area */}
-                  <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 flex-shrink-0">
+                  <div className="relative aspect-[4/5] min-h-[300px] overflow-hidden bg-gray-100 flex-shrink-0">
                     <img 
                       src={member.photo} 
                       alt={member.name} 
@@ -112,7 +112,7 @@ export default function TeamSection({ content }: { content?: TeamContent }) {
                 >
                   
                   {/* Photo Area */}
-                  <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 flex-shrink-0">
+                  <div className="relative aspect-[4/5] min-h-[300px] overflow-hidden bg-gray-100 flex-shrink-0">
                     <img 
                       src={member.photo} 
                       alt={member.name} 

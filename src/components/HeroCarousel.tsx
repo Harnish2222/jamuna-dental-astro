@@ -18,16 +18,17 @@ const HeroCarousel = ({ images }: HeroCarouselProps) => {
       <CarouselContent>
         {images.map((image, index) => (
           <CarouselItem key={index}>
-            <img
-              src={image.src}
-              alt={image.alt || "Dental clinic treatment"}
-              width={1200}
-              height={900}
-              loading={index === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-              {...(index === 0 ? { fetchpriority: 'high' as const } : {})}
-              className="rounded-2xl shadow-xl w-full aspect-[4/3] object-cover"
-            />
+            <div className="relative aspect-[16/9] sm:aspect-[4/3] lg:aspect-[16/10] overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl border border-white/20 bg-muted">
+              <img
+                src={image.src}
+                alt={image.alt || "Dental clinic treatment"}
+                width={1200}
+                height={900}
+                fetchpriority={index === 0 ? "high" : "auto"}
+                loading={index === 0 ? "eager" : "lazy"}
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+            </div>
           </CarouselItem>
         ))}
       </CarouselContent>

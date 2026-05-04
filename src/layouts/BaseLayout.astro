@@ -5,6 +5,21 @@ import Footer from '@/components/Footer';
 import FindUsSection from '@/components/FindUsSection';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
 
+// Self-host fonts for zero layout shift and faster loading
+import '@fontsource/outfit/300.css';
+import '@fontsource/outfit/400.css';
+import '@fontsource/outfit/500.css';
+import '@fontsource/outfit/600.css';
+import '@fontsource/outfit/700.css';
+import '@fontsource/outfit/800.css';
+import '@fontsource/outfit/900.css';
+import '@fontsource/plus-jakarta-sans/300.css';
+import '@fontsource/plus-jakarta-sans/400.css';
+import '@fontsource/plus-jakarta-sans/500.css';
+import '@fontsource/plus-jakarta-sans/600.css';
+import '@fontsource/plus-jakarta-sans/700.css';
+import '@fontsource/plus-jakarta-sans/800.css';
+
 export interface Props {
   title: string;
   description: string;
@@ -38,9 +53,6 @@ const GTAG_ID = 'AW-10788600128';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -87,9 +99,9 @@ const GTAG_ID = 'AW-10788600128';
       document.documentElement.classList.add('js-anim');
     </script>
 
-    {/* Google tag — loaded async, doesn't block render */}
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
-    <script is:inline define:vars={{ GTAG_ID }}>
+    {/* Google tag — loaded in Partytown web worker to prevent main-thread blocking */}
+    <script type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+    <script type="text/partytown" define:vars={{ GTAG_ID }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
       window.gtag = gtag;
