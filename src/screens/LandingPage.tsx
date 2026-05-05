@@ -132,7 +132,7 @@ const LandingPage = () => {
       <SEO
         title="Trusted Family Dental Clinic in Dindigul | Jamuna Family Dental Care"
         description="Expert MDS specialist dental care in Dindigul — implants, root canal, braces, kids dentistry. 4.9★ rated. Call +91 7200 620 011."
-        canonical="https://jamunadental.com/landing"
+        canonical="https://jamunadental.com/dental"
         noindex
       />
       <header className="fixed top-0 left-0 right-0 z-50 px-4 lg:px-8 pt-2 lg:pt-4">
