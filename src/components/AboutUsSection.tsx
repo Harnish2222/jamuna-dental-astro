@@ -131,11 +131,11 @@ const AboutUsSection = ({ content }: { content?: AboutContent }) => {
             )}
 
             {/* Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#services" className="bg-[#072674] hover:bg-[#072674]/90 text-white rounded-full px-8 py-6 text-sm font-bold shadow-lg shadow-[#072674]/20 group inline-flex items-center justify-center transition-colors h-14">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2 w-full sm:w-auto">
+              <a href="#services" className="w-full sm:w-auto bg-[#072674] hover:bg-[#072674]/90 text-white rounded-full px-8 py-6 text-sm font-bold shadow-lg shadow-[#072674]/20 group inline-flex items-center justify-center transition-colors h-14">
                 {content?.cta_text || 'View Services'}
               </a>
-              <a href="#team" className="border border-[#072674] text-[#072674] hover:bg-[#072674]/5 rounded-full px-8 py-6 text-sm font-bold bg-white inline-flex items-center justify-center transition-colors h-14">
+              <a href="#team" className="w-full sm:w-auto border border-[#072674] text-[#072674] hover:bg-[#072674]/5 rounded-full px-8 py-6 text-sm font-bold bg-white inline-flex items-center justify-center transition-colors h-14">
                 <User className="w-4 h-4 mr-2" />
                 {content?.cta_secondary_text || 'Meet Our Doctors'}
               </a>

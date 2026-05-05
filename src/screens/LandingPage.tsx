@@ -14,7 +14,6 @@ import AboutUsSection from '@/components/AboutUsSection';
 import MilestonesSection from '@/components/MilestonesSection';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';
 import PriceTellerSection from '@/components/PriceTellerSection';
-import AppointmentBookingSection from '@/components/AppointmentBookingSection';
 import FindUsSection from '@/components/FindUsSection';
 import FAQAccordionReact from '@/components/FAQAccordionReact';
 import SEO from '@/components/SEO';
@@ -44,6 +43,8 @@ const services = [
   { img: '/uploads/dental implant.jpg', title: 'Dental Implants', desc: 'Permanent, natural-looking replacement for missing teeth.' },
   { img: '/uploads/crowns and bridges1.jpg', title: 'Crowns & Bridges', desc: 'Restore damaged teeth and bridge gaps with strong, aesthetic zirconia.' },
   { img: '/uploads/clear%20alligners.jpg', title: 'Braces & Aligners', desc: 'Straighter teeth and a better bite for all ages.' },
+  { img: '/uploads/pediatric-dentistry.png', title: 'Kids Dentistry', desc: 'Gentle, child-friendly dental care in a fun, comfortable setting.' },
+  { img: '/uploads/emergency-toothache.png', title: 'Emergency Dental Care', desc: 'Fast relief for sudden dental pain, trauma, and urgent treatment needs.' },
 ];
 
 const usps = [
@@ -134,7 +135,7 @@ const LandingPage = () => {
         canonical="https://jamunadental.com/landing"
         noindex
       />
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 lg:px-8 pt-4">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 lg:px-8 pt-2 lg:pt-4">
         <div className="max-w-7xl mx-auto rounded-full bg-white/95 backdrop-blur-md shadow-lg border border-border">
           <div className="flex items-center justify-between h-14 lg:h-16 px-4 lg:px-8">
             <div className="flex items-center gap-2">
@@ -144,13 +145,17 @@ const LandingPage = () => {
                 className="h-9 w-9 rounded-full border-2 border-primary/15 object-cover md:h-11 md:w-11"
               />
               <div className="min-w-0">
-                <p className="text-sm font-bold leading-tight text-foreground sm:text-base md:text-lg">Jamuna Family Dental Care</p>
-                <p className="text-[11px] text-muted-foreground sm:text-xs md:text-sm">Trusted dental care in Dindigul</p>
+                <p className="text-sm font-bold leading-tight text-foreground sm:text-base md:text-lg">
+                  <span className="inline sm:hidden">Jamuna Dental</span>
+                  <span className="hidden sm:inline">Jamuna Family Dental Care</span>
+                </p>
+                <p className="hidden sm:block text-[11px] text-muted-foreground sm:text-xs md:text-sm">Trusted dental care in Dindigul</p>
               </div>
             </div>
             <div>
                <a
                 href={`tel:${PHONE}`}
+                onClick={() => (window as any).gtag_report_phone_conversion?.()}
                 className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-sm px-5 py-2.5 rounded-full shadow-md font-bold transition-all"
               >
                 <Phone className="mr-2 h-4 w-4" />
@@ -161,17 +166,18 @@ const LandingPage = () => {
         </div>
       </header>
 
-      <div className="h-16" />
+      <div className="hidden lg:block h-16" />
+      <div className="lg:hidden h-4" />
 
-      <section id="hero" className="relative bg-background min-h-screen flex items-center pt-20 overflow-hidden">
+      <section id="hero" className="relative bg-background min-h-screen flex items-center pt-8 lg:pt-20 overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 py-8 lg:py-16">
           <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-16 gap-6 lg:items-center">
             
             {/* ① Heading — always first */}
             <div className="order-1 lg:col-start-1 lg:row-start-1 text-center lg:text-left pt-2">
               <div className="space-y-2">
-                <Badge variant="outline" className="border-primary/20 text-primary bg-primary/5 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-                  ⭐ Rated 4.9 by 548+ Patients
+                <Badge variant="outline" className="border-primary/20 text-primary bg-primary/5 px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap">
+                  ⭐ Rated 4.9 by 600+ Patients
                 </Badge>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] tracking-tight">
                   <span className="text-gray-900 block">Dindigul&apos;s Most</span>
@@ -221,7 +227,7 @@ const LandingPage = () => {
                   className="rounded-full bg-primary px-8 py-7 text-base font-bold shadow-lg hover:bg-primary/90 transition-all hover:-translate-y-1 hover:shadow-primary/30 h-auto"
                   asChild
                 >
-                  <a href={`tel:${PHONE}`} aria-label={`Call ${PHONE_DISPLAY}`}>
+                  <a href={`tel:${PHONE}`} onClick={() => (window as any).gtag_report_phone_conversion?.()} aria-label={`Call ${PHONE_DISPLAY}`}>
                     <Phone className="mr-2 h-5 w-5" /> Call Now
                   </a>
                 </Button>
@@ -252,13 +258,14 @@ const LandingPage = () => {
               From routine treatments to advanced procedures, we provide a full range of dental services for all age groups in a clean and hygienic environment.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <article key={index} className="group h-full overflow-hidden rounded-2xl bg-card border border-border shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 hover:border-primary/50">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={service.img}
                     alt={service.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
@@ -295,6 +302,22 @@ const LandingPage = () => {
           cta_text: 'View Treatments',
           cta_secondary_text: 'Meet Our Doctors'
         }} 
+      />
+
+      <TestimonialsSection 
+        content={{
+          badge: 'Patient Reviews',
+          heading: 'What Our Patients Say',
+          description: 'Read real stories from our satisfied patients across Dindigul.',
+          reviews: [
+            { author: "Kokila Kalimuthu", content: "Had a great experience at Jamuna Family dental care. Dr Arun sarath sir is very kind and gentle. Procedure was very smooth and pain-free. Very happy with the care and results." },
+            { author: "Suki Vignesh", content: "Nice ambience and excellent quality crowns.. very happy to get treated here.. Highly recommending this best dental hospital in dindigul" },
+            { author: "k. kokila", content: "Recently I visited jamuna family dental care for scaling and root canal treatment. Such a good & calm environment . Highly satisfied with their treatments, Especially doctors and sisters caring." },
+            { author: "Antony Flx", content: "I had a very good experience of extraction of the wisdom tooth as well scaling and filling. So gentle and excellent service very kind in approach. Excellently skillful." },
+            { author: "karthick karthick", content: "I had the best experience at Jamuna dental..Dr Arun and Dr Priyanka were so well versed with the speciality procedures.. truly the best dental Hosptial in Dindigul" },
+            { author: "Amal Raj", content: "Treatment was painless drs and staffs were very kind. I had pain in lower teeth did rct and followed by crown. Now i am happy and satisfied thank you dr." }
+          ]
+        }}
       />
 
       <MilestonesSection 
@@ -345,21 +368,7 @@ const LandingPage = () => {
         hasGap={true} 
       />
 
-      <TestimonialsSection 
-        content={{
-          badge: 'Patient Reviews',
-          heading: 'What Our Patients Say',
-          description: 'Read real stories from our satisfied patients across Dindigul.',
-          reviews: [
-            { author: "Kokila Kalimuthu", content: "Had a great experience at Jamuna Family dental care. Dr Arun sarath sir is very kind and gentle. Procedure was very smooth and pain-free. Very happy with the care and results." },
-            { author: "Suki Vignesh", content: "Nice ambience and excellent quality crowns.. very happy to get treated here.. Highly recommending this best dental hospital in dindigul" },
-            { author: "k. kokila", content: "Recently I visited jamuna family dental care for scaling and root canal treatment. Such a good & calm environment . Highly satisfied with their treatments." },
-            { author: "Antony Flx", content: "I had a very good experience of extraction of the wisdom tooth as well scaling and filling. So gentle and excellent service very kind in approach." }
-          ]
-        }}
-      />
 
-      <AppointmentBookingSection />
 
       <FindUsSection />
 
@@ -377,6 +386,7 @@ const LandingPage = () => {
               <img 
                 src={jamunaDoctorTreatment.src} 
                 alt="Dental care professional treating a patient" 
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover" 
               />
             </div>
