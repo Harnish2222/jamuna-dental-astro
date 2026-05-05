@@ -1,19 +1,22 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Screen from '@/screens/LandingPage.tsx';
-import client from '../../tina/__generated__/client';
+import { loadLandingContent } from '@/lib/load-landing';
 
-const response = await client.queries.landing({ relativePath: 'landing.json' });
-const { data } = response;
+const data = await loadLandingContent();
+
+if (!data) {
+  throw new Error("Failed to load landing page content");
+}
 ---
 
 <BaseLayout
-  title={data.landing.seo?.title || "Trusted Family Dental Clinic in Dindigul | Jamuna Family Dental Care"}
-  description={data.landing.seo?.description || "Expert MDS specialist dental care in Dindigul — implants, root canal, braces, kids dentistry. 4.9★ rated. Call +91 7200 620 011."}
-  canonical={data.landing.seo?.canonical || "https://jamunadental.com/dental"}
-  noindex={data.landing.seo?.noindex}
+  title={data.seo?.title || "Trusted Family Dental Clinic in Dindigul | Jamuna Family Dental Care"}
+  description={data.seo?.description || "Expert MDS specialist dental care in Dindigul — implants, root canal, braces, kids dentistry. 4.9★ rated. Call +91 7200 620 011."}
+  canonical={data.seo?.canonical || "https://jamunadental.com/dental"}
+  noindex={data.seo?.noindex}
   hideFooterMap
   hideNav
 >
-  <Screen data={data.landing} client:load />
+  <Screen data={data} client:load />
 </BaseLayout>
