@@ -22,12 +22,12 @@
   },
   "hero_carousel": {
     "images": [
-      { "src": "/uploads/jfdc clinic.png", "alt": "Jamuna Family Dental Care building" },
-      { "src": "/uploads/happy-family-appointment.jpg", "alt": "Happy patient family" },
-      { "src": "/uploads/hero-treatment-room-blue.jpg", "alt": "Modern treatment room" },
-      { "src": "/uploads/service-smile-design.png", "alt": "Smile Design" },
-      { "src": "/uploads/hero-doctor-child.jpg", "alt": "Doctor treating child" },
-      { "src": "/uploads/hero-consultation-room.jpg", "alt": "Consultation room" }
+      { "src": "/uploads/jfdc clinic.png", "alt": "jfdc" },
+      { "src": "/uploads/happy-family-appointment.jpg" },
+      { "src": "/uploads/hero-treatment-room-blue.jpg", "alt": "Modern blue treatment room" },
+      { "src": "/uploads/service-smile-design.png" },
+      { "src": "/uploads/hero-doctor-child.jpg", "alt": "Doctor treating a child patient" },
+      { "src": "/uploads/hero-consultation-room.jpg", "alt": "Doctor consultation room" }
     ]
   },
   "service_marquee": {
@@ -57,14 +57,88 @@
     "title": "Complete Dental Care",
     "description": "From routine treatments to advanced procedures, we provide a full range of dental services for all age groups in a clean and hygienic environment.",
     "cards": [
-      { "image": "/uploads/service-general-dentistry.png", "title": "General & Preventive Dentistry", "description": "Routine care to keep your smile healthy and catch issues early." },
-      { "image": "/uploads/root canal.jpg", "title": "Root Canal Treatment", "description": "Save your natural tooth with painless, advanced root canal therapy." },
-      { "image": "/uploads/service-smile-design.png", "title": "Cosmetic Dentistry", "description": "Designed for a brighter, more confident smile." },
-      { "image": "/uploads/dental implant.jpg", "title": "Dental Implants", "description": "Permanent, natural-looking replacement for missing teeth." },
-      { "image": "/uploads/crowns and bridges1.jpg", "title": "Crowns & Bridges", "description": "Restore damaged teeth and bridge gaps with strong, aesthetic zirconia." },
-      { "image": "/uploads/clear%20alligners.jpg", "title": "Braces & Aligners", "description": "Straighter teeth and a better bite for all ages." },
-      { "image": "/uploads/pediatric-dentistry.png", "title": "Kids Dentistry", "description": "Gentle, child-friendly dental care in a fun, comfortable setting." },
-      { "image": "/uploads/emergency-toothache.png", "title": "Emergency Dental Care", "description": "Fast relief for sudden dental pain, trauma, and urgent treatment needs." }
+      {
+        "title": "General & Preventive Dentistry",
+        "description": "Routine care to keep your smile healthy and catch issues early.",
+        "bullets": [
+          { "text": "Oral Checkups" },
+          { "text": "Teeth Cleaning & Polishing" },
+          { "text": "Dental Fillings" },
+          { "text": "Advanced Digital X-Rays" }
+        ],
+        "image": "/uploads/service-general-dentistry.png"
+      },
+      {
+        "title": "Root Canal Treatment",
+        "description": "Save your natural tooth with painless, advanced root canal therapy.",
+        "bullets": [
+          { "text": "Single-visit RCT" },
+          { "text": "Painless procedure" },
+          { "text": "Save the natural tooth" }
+        ],
+        "image": "/uploads/root canal.jpg"
+      },
+      {
+        "title": "Cosmetic Dentistry",
+        "description": "Designed for a brighter, more confident smile.",
+        "bullets": [
+          { "text": "Teeth Whitening" },
+          { "text": "Veneers & Bonding" },
+          { "text": "Smile Design" },
+          { "text": "Gum Care" }
+        ],
+        "image": "/uploads/service-smile-design.png"
+      },
+      {
+        "title": "Dental Implants",
+        "description": "Permanent, natural-looking replacement for missing teeth.",
+        "bullets": [
+          { "text": "Single Tooth Implants" },
+          { "text": "Full Mouth Rehabilitation" },
+          { "text": "Bone Grafting" }
+        ],
+        "image": "/uploads/dental implant.jpg"
+      },
+      {
+        "title": "Crowns & Bridges",
+        "description": "Restore damaged teeth and bridge gaps with strong, aesthetic zirconia.",
+        "bullets": [
+          { "text": "Zirconia Crowns" },
+          { "text": "Dental Bridges" },
+          { "text": "Porcelain Fused to Metal" }
+        ],
+        "image": "/uploads/crowns and bridges1.jpg"
+      },
+      {
+        "title": "Braces & Aligners",
+        "description": "Straighter teeth and a better bite for all ages.",
+        "bullets": [
+          { "text": "Metal & Ceramic Braces" },
+          { "text": "Clear Aligners" },
+          { "text": "Invisible Braces" }
+        ],
+        "image": "/uploads/clear%20alligners.jpg"
+      },
+      {
+        "title": "Kids Dentistry",
+        "description": "Gentle, child-friendly dental care in a fun, comfortable setting.",
+        "bullets": [
+          { "text": "Pediatric specialists" },
+          { "text": "Child-friendly approach" },
+          { "text": "Preventive kids care" }
+        ],
+        "image": "/uploads/pediatric-dentistry.png"
+      },
+      {
+        "title": "Emergency Dental Care",
+        "description": "Fast relief for sudden dental pain, trauma, and urgent treatment needs.",
+        "bullets": [
+          { "text": "9 AM – 9 PM availability" },
+          { "text": "Same-day relief" },
+          { "text": "Walk-ins welcome" }
+        ],
+        "image": "/uploads/emergency-toothache.png"
+      }
     ]
   },
   "about": {
@@ -91,9 +165,24 @@
       { "author": "Kokila Kalimuthu", "content": "Had a great experience at Jamuna Family dental care. Dr Arun sarath sir is very kind and gentle. Procedure was very smooth and pain-free. Very happy with the care and results." },
       { "author": "Suki Vignesh", "content": "Nice ambience and excellent quality crowns.. very happy to get treated here.. Highly recommending this best dental hospital in dindigul" },
       { "author": "k. kokila", "content": "Recently I visited jamuna family dental care for scaling and root canal treatment. Such a good & calm environment . Highly satisfied with their treatments, Especially doctors and sisters caring." },
+      { "author": "ராகவேந்திரன் ரெங்கராஜ்", "content": "The doctor was very thorough, friendly, and listened with sincerity. I felt comfortable talking to the doctor, who took their time to explain my treatment options clearly. The nurse showed great clarity in her diagnosis and was very good at making me feel at ease." },
       { "author": "Antony Flx", "content": "I had a very good experience of extraction of the wisdom tooth as well scaling and filling. So gentle and excellent service very kind in approach. Excellently skillful." },
       { "author": "karthick karthick", "content": "I had the best experience at Jamuna dental..Dr Arun and Dr Priyanka were so well versed with the speciality procedures.. truly the best dental Hosptial in Dindigul" },
-      { "author": "Amal Raj", "content": "Treatment was painless drs and staffs were very kind. I had pain in lower teeth did rct and followed by crown. Now i am happy and satisfied thank you dr." }
+      { "author": "Amal Raj", "content": "Treatment was painless drs and staffs were very kind. I had pain in lower teeth did rct and followed by crown. Now i am happy and satisfied thank you dr." },
+      { "author": "femi living", "content": "Good ambience. Patient friendly clinc. I've been to this clinic for the first time for my RCT and at first I was bit hesitant but to be honest it was done perfectly without any complaints." },
+      { "author": "Richie Robinson", "content": "I visited Jamuna Family Dental Care in Dindigul for the first time and I’m very impressed. The staff were professional and welcoming. The dentist took time to explain what I needed." },
+      { "author": "Sherlock Holmes", "content": "I came for Root canal treatment here. It was tested with care and friendly. The doctors were calm and composed and explanatory for the all the doubts and questions." },
+      { "author": "vivek anandan", "content": "Thank you Dr for extracting my wisdom tooth without any discomfort. I am very comfortable and satisfied with treatment. Staffs were very kind." },
+      { "author": "jansirani santhi", "content": "Painless rcts and comfortable crowns.. highly recommended here for all your dental needs" },
+      { "author": "Panimatha Thiyagarajan", "content": "Thank you dr for advising right treatment for my problem i had filling in multiple teeth and it was painless treatment." },
+      { "author": "Ariya Suresh", "content": "I have fear about like this teeth pain last week.but I have satisfied like this treatment.because I haven't feel any pain at all.i am fully satisfied." },
+      { "author": "Katheeja Kabeer", "content": "Thank you sir I am happy that I visited this clinic I cam with pain in my lower back tooth and got treated with root canal treatment as suggested by Dr.sindhu." },
+      { "author": "sugumar t", "content": "Comfortable treatments and beautiful crowns given to me.. very happy and fully satisfied" },
+      { "author": "Vignesh Balakrishnan", "content": "Treatment was good. Doctors and staff also very calm" },
+      { "author": "RAJ DEV", "content": "Came here with gum swelling and bleeding dr.suggested for gum treatment and scaling and treatment was very comfortable." },
+      { "author": "Ananthi Ananthi", "content": "Experience was very comfortable.staffs and doctors were very supportive and caring. Underwent root canal treatment and followed by crown placement." },
+      { "author": "DAISY RANI", "content": "I had a comfortable and painless extraction and post extraction instructions were given properly." },
+      { "author": "Indira Renganathan", "content": "Painless and very comfortable root canals and very economical caps done here.. highly recommended" }
     ]
   },
   "photo_gallery": {
@@ -102,14 +191,18 @@
     "heading_part2": "Dindigul",
     "description": "Business leaders, educators, and public figures who choose Jamuna Family Dental Care.",
     "images": [
-      { "src": "/uploads/vip-kamalahassan.jpg", "alt": "Mr. N. KamalaHassan - Anil Foods MD" },
-      { "src": "/uploads/vip-vengatachalam.jpg", "alt": "Mr. Vengatachalam - Vivera Grande MD" },
-      { "src": "/uploads/vip-palpandi.jpg", "alt": "Mr. Palpandi - MSP School HM" },
-      { "src": "/uploads/vip-ramji.jpg", "alt": "Mr. Ramji Natarajan - SMB CBSE Principal" },
-      { "src": "/uploads/vip-ravi.jpg", "alt": "Mr. Ravi Thiyagarajan - Chettinadu Construction" },
-      { "src": "/uploads/vip-ravichandran.jpg", "alt": "Mr. Ravichandran - Padma Lites MD" },
-      { "src": "/uploads/vip-ramesh.jpg", "alt": "Mr. S. Ramesh - Naga Foods Director" },
-      { "src": "/uploads/vip-thenmozhi.jpg", "alt": "Mrs. Thenmozhi MLA & Mr. Gunasekar - Nilakottai MLA" }
+      { "src": "/uploads/vip-kamalahassan.jpg", "alt": "Mr. N. KamalaHassan - Anil Foods MD at JFDC" },
+      { "src": "/uploads/vip-vengatachalam.jpg", "alt": "Mr. Vengatachalam - Vivera Grande MD at JFDC" },
+      { "src": "/uploads/vip-palpandi.jpg", "alt": "Mr. Palpandi - MSP School HM at JFDC" },
+      { "src": "/uploads/vip-ramji.jpg", "alt": "Mr. Ramji Natarajan - SMB CBSE Principal at JFDC" },
+      { "src": "/uploads/vip-ravi.jpg", "alt": "Mr. Ravi Thiyagarajan - Chettinadu Construction at JFDC" },
+      { "src": "/uploads/vip-ravichandran.jpg", "alt": "Mr. Ravichandran - Padma Lites MD at JFDC" },
+      { "src": "/uploads/vip-ramesh.jpg", "alt": "Mr. S. Ramesh - Naga Foods Director at JFDC" },
+      { "src": "/uploads/vip-arul.jpg", "alt": "Dr. Er. Arul - VA Consultancy at JFDC" },
+      { "src": "/uploads/vip-thenmozhi.jpg", "alt": "Mrs. Thenmozhi MLA & Mr. Gunasekar - Nilakottai MLA at JFDC" },
+      { "src": "/uploads/vip-vengatachalam-steels.jpg", "alt": "Mr. Vengatachalam - 3S Shree Sivabalaaji Steels Vice Chairman at JFDC" },
+      { "src": "/uploads/vip-sujana.jpg", "alt": "Mrs. Sujana - iGenius Int PreSchool at JFDC" },
+      { "src": "/uploads/vip-manoharan.jpg", "alt": "Mr. Manoharan - Ambal Jeweller MD at JFDC" }
     ]
   },
   "milestones": {
@@ -146,15 +239,15 @@
     "heading_part2": "Facilities",
     "description": "Experience our world-class dental care infrastructure in Dindigul.",
     "images": [
-      { "src": "/uploads/clinic3.jpg", "alt": "Clinic Facility 1" },
-      { "src": "/uploads/clininc2.jpg", "alt": "Clinic Facility 2" },
-      { "src": "/uploads/clininc5.jpg", "alt": "Clinic Facility 3" },
-      { "src": "/uploads/clinic1.jpg", "alt": "Clinic Facility 4" },
-      { "src": "/uploads/clinic4.jpg", "alt": "Clinic Facility 5" },
-      { "src": "/uploads/hero-consultation-room.jpg", "alt": "Consultation Room" },
-      { "src": "/uploads/hero-reception.jpg", "alt": "Reception Area" },
-      { "src": "/uploads/jamuna-doctor-operation.jpg", "alt": "Operation Theatre" },
-      { "src": "/uploads/pediatric dentistry.jpg", "alt": "Pediatric Dentistry Area" }
+      { "src": "/uploads/clinic3.jpg" },
+      { "src": "/uploads/clininc2.jpg" },
+      { "src": "/uploads/clininc5.jpg" },
+      { "src": "/uploads/clinic1.jpg" },
+      { "src": "/uploads/clinic4.jpg" },
+      { "src": "/uploads/hero-consultation-room.jpg" },
+      { "src": "/uploads/hero-reception.jpg" },
+      { "src": "/uploads/jamuna-doctor-operation.jpg" },
+      { "src": "/uploads/pediatric dentistry.jpg" }
     ]
   },
   "faq": {

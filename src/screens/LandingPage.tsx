@@ -198,8 +198,20 @@ const LandingPage = ({ data }: LandingPageProps) => {
                   </div>
                 </div>
                 <div className="p-8">
-                  <p className="text-muted-foreground text-base leading-relaxed mb-6">{service.description}</p>
-                  <div className="flex items-center text-primary font-bold text-sm group-hover:translate-x-2 transition-transform">
+                  <p className="text-muted-foreground text-base leading-relaxed mb-4">{service.description}</p>
+                  
+                  {service.bullets && service.bullets.length > 0 && (
+                    <ul className="mb-6 space-y-2">
+                      {service.bullets.map((bullet: any, bIdx: number) => (
+                        <li key={bIdx} className="flex items-start gap-2 text-sm text-foreground/80 font-medium">
+                          <CircleCheckBig className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                          <span>{bullet.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="flex items-center text-primary font-bold text-sm group-hover:translate-x-2 transition-transform mt-auto">
                     Learn More <CircleCheckBig className="ml-2 h-4 w-4" />
                   </div>
                 </div>

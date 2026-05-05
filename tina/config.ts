@@ -525,6 +525,14 @@ export default defineConfig({
                 fields: [
                   { type: "string", label: "Title", name: "title" },
                   { type: "string", label: "Description", name: "description", ui: { component: "textarea" } },
+                  {
+                    type: "object",
+                    label: "Bullets",
+                    name: "bullets",
+                    list: true,
+                    ui: { itemProps: (item: any) => ({ label: item?.text || "Bullet Point" }) },
+                    fields: [{ type: "string", label: "Text", name: "text" }],
+                  },
                   { type: "image", label: "Image", name: "image" },
                 ],
               },
