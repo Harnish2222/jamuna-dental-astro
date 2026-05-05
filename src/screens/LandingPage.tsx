@@ -166,10 +166,10 @@ const LandingPage = () => {
         </div>
       </header>
 
-      <div className="hidden lg:block h-16" />
+      <div className="hidden lg:block h-4" />
       <div className="lg:hidden h-4" />
 
-      <section id="hero" className="relative bg-background min-h-screen flex items-center pt-8 lg:pt-20 overflow-hidden">
+      <section id="hero" className="relative bg-background min-h-screen flex items-center pt-8 lg:pt-12 overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 py-8 lg:py-16">
           <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-16 gap-6 lg:items-center">
             
@@ -320,6 +320,26 @@ const LandingPage = () => {
         }}
       />
 
+      <PhotoGalleryMarquee 
+        content={{ 
+          badge: 'OUR ESTEEMED PATIENTS',
+          heading_part1: 'Trusted by',
+          heading_part2: 'Dindigul',
+          description: 'Business leaders, educators, and public figures who choose Jamuna Family Dental Care.',
+          images: [
+            { src: '/uploads/vip-kamalahassan.jpg', alt: 'Mr. N. KamalaHassan - Anil Foods MD' },
+            { src: '/uploads/vip-vengatachalam.jpg', alt: 'Mr. Vengatachalam - Vivera Grande MD' },
+            { src: '/uploads/vip-palpandi.jpg', alt: 'Mr. Palpandi - MSP School HM' },
+            { src: '/uploads/vip-ramji.jpg', alt: 'Mr. Ramji Natarajan - SMB CBSE Principal' },
+            { src: '/uploads/vip-ravi.jpg', alt: 'Mr. Ravi Thiyagarajan - Chettinadu Construction' },
+            { src: '/uploads/vip-ravichandran.jpg', alt: 'Mr. Ravichandran - Padma Lites MD' },
+            { src: '/uploads/vip-ramesh.jpg', alt: 'Mr. S. Ramesh - Naga Foods Director' },
+            { src: '/uploads/vip-thenmozhi.jpg', alt: 'Mrs. Thenmozhi MLA & Mr. Gunasekar - Nilakottai MLA' }
+          ]
+        }} 
+        hasGap={true} 
+      />
+
       <MilestonesSection 
         content={{
           badge: 'Our Track Record',
@@ -336,6 +356,14 @@ const LandingPage = () => {
         }}
       />
 
+      <PriceTellerSection 
+        content={{
+          badge: 'Most Affordable in Dindigul',
+          heading: 'Most Affordable Dental Treatments in Dindigul',
+          description: 'Transparent, honest pricing with zero hidden fees — select a treatment below to see our rates.'
+        }}
+      />
+
       <WhyChooseUsSection 
         content={{
           heading: 'Your smile is our priority',
@@ -346,14 +374,6 @@ const LandingPage = () => {
             { title: "4.9★ Rating | 600+ Reviews", description: "Many patients highlight our professional care, advanced equipment, patient-friendly and comfortable & safe treatment experience. Trusted by families across Dindigul." },
             { title: "Advanced Technology", description: "We use the latest dental equipment with sterilized instruments in a clean, hygienic clinic for quick diagnosis and precise treatment." }
           ]
-        }}
-      />
-
-      <PriceTellerSection 
-        content={{
-          badge: 'Most Affordable in Dindigul',
-          heading: 'Most Affordable Dental Treatments in Dindigul',
-          description: 'Transparent, honest pricing with zero hidden fees — select a treatment below to see our rates.'
         }}
       />
 
