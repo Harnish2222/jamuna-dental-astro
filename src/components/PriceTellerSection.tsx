@@ -261,7 +261,7 @@ export default function PriceTellerSection({ content }: { content?: PriceTellerC
   const details = (active && TREATMENT_DETAILS[active.label]) ?? TREATMENT_DETAILS['Dental Implants'];
 
   return (
-    <section className="py-20 bg-[#F2F5F7]">
+    <section id="pricing" className="py-20 bg-[#F2F5F7]">
       <div className="container mx-auto px-4">
         
         {/* ── Heading ── */}
