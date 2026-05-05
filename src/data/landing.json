@@ -1,0 +1,188 @@
+{
+  "seo": {
+    "title": "Trusted Family Dental Clinic in Dindigul | Jamuna Family Dental Care",
+    "description": "Expert MDS specialist dental care in Dindigul — implants, root canal, braces, kids dentistry. 4.9★ rated. Call +91 7200 620 011.",
+    "canonical": "https://jamunadental.com/dental"
+  },
+  "hero": {
+    "heading_part1": "Dindigul's Most",
+    "heading_part2": "Trusted Dental Clinic",
+    "subheading": "Expert MDS Specialists • Painless Care",
+    "description": "Expert MDS specialist dental care for your entire family with painless treatments and advanced technology in the heart of Dindigul.",
+    "highlights": [
+      { "text": "Modern treatments" },
+      { "text": "Pain-free procedures" },
+      { "text": "Gentle approach" },
+      { "text": "Expert care" }
+    ],
+    "social_proof": {
+      "review_count": "600+ Patient Reviews",
+      "rating": "4.9"
+    }
+  },
+  "hero_carousel": {
+    "images": [
+      { "src": "/uploads/jfdc clinic.png", "alt": "Jamuna Family Dental Care building" },
+      { "src": "/uploads/happy-family-appointment.jpg", "alt": "Happy patient family" },
+      { "src": "/uploads/hero-treatment-room-blue.jpg", "alt": "Modern treatment room" },
+      { "src": "/uploads/service-smile-design.png", "alt": "Smile Design" },
+      { "src": "/uploads/hero-doctor-child.jpg", "alt": "Doctor treating child" },
+      { "src": "/uploads/hero-consultation-room.jpg", "alt": "Consultation room" }
+    ]
+  },
+  "service_marquee": {
+    "services": [
+      "Preventive Care",
+      "Teeth Cleaning",
+      "Oral Checkup",
+      "Advanced X-Rays",
+      "Dental Fillings",
+      "Teeth Whitening",
+      "Root Canal",
+      "Dental Implants",
+      "Orthodontics",
+      "Cosmetic Dentistry",
+      "Emergency Care",
+      "Kids Dentistry",
+      "Tooth Extraction",
+      "Gum Care",
+      "Zirconia Crowns",
+      "Aligners",
+      "Invisible Braces",
+      "Dental Surgery"
+    ]
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Complete Dental Care",
+    "description": "From routine treatments to advanced procedures, we provide a full range of dental services for all age groups in a clean and hygienic environment.",
+    "cards": [
+      { "image": "/uploads/service-general-dentistry.png", "title": "General & Preventive Dentistry", "description": "Routine care to keep your smile healthy and catch issues early." },
+      { "image": "/uploads/root canal.jpg", "title": "Root Canal Treatment", "description": "Save your natural tooth with painless, advanced root canal therapy." },
+      { "image": "/uploads/service-smile-design.png", "title": "Cosmetic Dentistry", "description": "Designed for a brighter, more confident smile." },
+      { "image": "/uploads/dental implant.jpg", "title": "Dental Implants", "description": "Permanent, natural-looking replacement for missing teeth." },
+      { "image": "/uploads/crowns and bridges1.jpg", "title": "Crowns & Bridges", "description": "Restore damaged teeth and bridge gaps with strong, aesthetic zirconia." },
+      { "image": "/uploads/clear%20alligners.jpg", "title": "Braces & Aligners", "description": "Straighter teeth and a better bite for all ages." },
+      { "image": "/uploads/pediatric-dentistry.png", "title": "Kids Dentistry", "description": "Gentle, child-friendly dental care in a fun, comfortable setting." },
+      { "image": "/uploads/emergency-toothache.png", "title": "Emergency Dental Care", "description": "Fast relief for sudden dental pain, trauma, and urgent treatment needs." }
+    ]
+  },
+  "about": {
+    "badge": "About Us",
+    "heading_part1": "Your Journey to a",
+    "heading_part2": "Healthier Smile Begins Here",
+    "subtitle": "Serving families across Dindigul with ethical, modern and comfortable dental care.",
+    "description": "With experienced and certified dentists along with modern equipments, we provide both routine dental treatments and advanced dental procedures in a clean and hygienic environment. Jamuna Family Dental Care combines modern techniques with a gentle & friendly approach to help every patient achieve their dream smile.\n\nAt JFDC, we believe in making dentistry transparent, ethical and comfortable for families, young adults and professionals across Dindigul.",
+    "image": "/uploads/about%20jamuna%20dental.png",
+    "features": [
+      { "title": "Certified & Experienced Specialists" },
+      { "title": "Sterilized & Hygienic Clinic" },
+      { "title": "Gentle & Comfortable Treatment" },
+      { "title": "Quick Diagnosis & Treatment" }
+    ],
+    "cta_text": "View Treatments",
+    "cta_secondary_text": "Meet Our Doctors"
+  },
+  "testimonials": {
+    "badge": "Patient Reviews",
+    "heading": "What Our Patients Say",
+    "description": "Read real stories from our satisfied patients across Dindigul.",
+    "reviews": [
+      { "author": "Kokila Kalimuthu", "content": "Had a great experience at Jamuna Family dental care. Dr Arun sarath sir is very kind and gentle. Procedure was very smooth and pain-free. Very happy with the care and results." },
+      { "author": "Suki Vignesh", "content": "Nice ambience and excellent quality crowns.. very happy to get treated here.. Highly recommending this best dental hospital in dindigul" },
+      { "author": "k. kokila", "content": "Recently I visited jamuna family dental care for scaling and root canal treatment. Such a good & calm environment . Highly satisfied with their treatments, Especially doctors and sisters caring." },
+      { "author": "Antony Flx", "content": "I had a very good experience of extraction of the wisdom tooth as well scaling and filling. So gentle and excellent service very kind in approach. Excellently skillful." },
+      { "author": "karthick karthick", "content": "I had the best experience at Jamuna dental..Dr Arun and Dr Priyanka were so well versed with the speciality procedures.. truly the best dental Hosptial in Dindigul" },
+      { "author": "Amal Raj", "content": "Treatment was painless drs and staffs were very kind. I had pain in lower teeth did rct and followed by crown. Now i am happy and satisfied thank you dr." }
+    ]
+  },
+  "photo_gallery": {
+    "badge": "OUR ESTEEMED PATIENTS",
+    "heading_part1": "Trusted by",
+    "heading_part2": "Dindigul",
+    "description": "Business leaders, educators, and public figures who choose Jamuna Family Dental Care.",
+    "images": [
+      { "src": "/uploads/vip-kamalahassan.jpg", "alt": "Mr. N. KamalaHassan - Anil Foods MD" },
+      { "src": "/uploads/vip-vengatachalam.jpg", "alt": "Mr. Vengatachalam - Vivera Grande MD" },
+      { "src": "/uploads/vip-palpandi.jpg", "alt": "Mr. Palpandi - MSP School HM" },
+      { "src": "/uploads/vip-ramji.jpg", "alt": "Mr. Ramji Natarajan - SMB CBSE Principal" },
+      { "src": "/uploads/vip-ravi.jpg", "alt": "Mr. Ravi Thiyagarajan - Chettinadu Construction" },
+      { "src": "/uploads/vip-ravichandran.jpg", "alt": "Mr. Ravichandran - Padma Lites MD" },
+      { "src": "/uploads/vip-ramesh.jpg", "alt": "Mr. S. Ramesh - Naga Foods Director" },
+      { "src": "/uploads/vip-thenmozhi.jpg", "alt": "Mrs. Thenmozhi MLA & Mr. Gunasekar - Nilakottai MLA" }
+    ]
+  },
+  "milestones": {
+    "badge": "Our Track Record",
+    "heading_part1": "Numbers That",
+    "heading_part2": "Speak for Us",
+    "description": "Trusted by families across Dindigul since 2011",
+    "image": "/uploads/hero-jfdc-front.jpg",
+    "stats": [
+      { "icon": "Users", "value": 18, "suffix": "+", "label": "Years Experience", "iconColor": "text-primary", "bgColor": "bg-primary/5" },
+      { "icon": "Star", "value": 600, "suffix": "+", "label": "Patient Reviews", "iconColor": "text-[#009AA7]", "bgColor": "bg-[#009AA7]/10" },
+      { "icon": "Heart", "value": 25, "suffix": "K+", "label": "Happy Patients", "iconColor": "text-destructive", "bgColor": "bg-destructive/5" },
+      { "icon": "Clock", "value": 4, "suffix": ".9★", "label": "Google Rating", "iconColor": "text-primary", "bgColor": "bg-primary/5" }
+    ]
+  },
+  "price_teller": {
+    "badge": "Most Affordable in Dindigul",
+    "heading": "Most Affordable Dental Treatments in Dindigul",
+    "description": "Transparent, honest pricing with zero hidden fees — select a treatment below to see our rates."
+  },
+  "why_choose": {
+    "heading": "Your smile is our priority",
+    "description": "Jamuna Family Dental Care focuses on comfortable treatments, advanced technology, and personalized patient-centered dental care to help patients maintain healthy and confident smiles.",
+    "image": "/uploads/why-choose-tooth.png",
+    "features": [
+      { "title": "Family-Centered Care", "description": "We provide dental care for all ages — children, adults, and seniors — with gentle, comfortable treatments tailored to each patient." },
+      { "title": "4.9★ Rating | 600+ Reviews", "description": "Many patients highlight our professional care, advanced equipment, patient-friendly and comfortable & safe treatment experience. Trusted by families across Dindigul." },
+      { "title": "Advanced Technology", "description": "We use the latest dental equipment with sterilized instruments in a clean, hygienic clinic for quick diagnosis and precise treatment." }
+    ]
+  },
+  "clinic_gallery": {
+    "badge": "CLINIC GALLERY",
+    "heading_part1": "Our Modern",
+    "heading_part2": "Facilities",
+    "description": "Experience our world-class dental care infrastructure in Dindigul.",
+    "images": [
+      { "src": "/uploads/clinic3.jpg", "alt": "Clinic Facility 1" },
+      { "src": "/uploads/clininc2.jpg", "alt": "Clinic Facility 2" },
+      { "src": "/uploads/clininc5.jpg", "alt": "Clinic Facility 3" },
+      { "src": "/uploads/clinic1.jpg", "alt": "Clinic Facility 4" },
+      { "src": "/uploads/clinic4.jpg", "alt": "Clinic Facility 5" },
+      { "src": "/uploads/hero-consultation-room.jpg", "alt": "Consultation Room" },
+      { "src": "/uploads/hero-reception.jpg", "alt": "Reception Area" },
+      { "src": "/uploads/jamuna-doctor-operation.jpg", "alt": "Operation Theatre" },
+      { "src": "/uploads/pediatric dentistry.jpg", "alt": "Pediatric Dentistry Area" }
+    ]
+  },
+  "faq": {
+    "badge": "Common Questions",
+    "heading_part1": "Everything You Need To Know",
+    "heading_part2": "About Dental Care",
+    "image": "/uploads/jamuna-doctor-treatment.jpg",
+    "items": [
+      {
+        "question": "What dental treatments do you offer?",
+        "answer": "We offer a full range of dental services including dental implants, root canal treatment, teeth cleaning & scaling, teeth whitening, braces & invisible aligners, cosmetic dentistry, pediatric dentistry, gum treatment, tooth extraction, and smile design."
+      },
+      {
+        "question": "Is the treatment painful?",
+        "answer": "We focus on gentle and comfortable treatments. Our experienced & certified dentists use modern techniques and equipment to ensure minimal discomfort during all procedures."
+      },
+      {
+        "question": "What are your clinic timings?",
+        "answer": "We are open from 9:00 AM to 9:00 PM, all days including weekends. Walk-ins and appointments are both welcome. We offer home visit services too."
+      },
+      {
+        "question": "Do you treat children?",
+        "answer": "Yes! We provide specialized pediatric dental care by MDS pedodontist doctors in a fun, comfortable environment designed to make children feel at ease during their visit."
+      },
+      {
+        "question": "How long do dental implants last?",
+        "answer": "With proper care and maintenance, dental implants can last a lifetime. They are designed to fuse with your bone, providing a permanent solution for missing teeth."
+      }
+    ]
+  }
+}
