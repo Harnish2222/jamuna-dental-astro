@@ -18,6 +18,7 @@ import HeroCarousel from '@/components/HeroCarousel';
 import PhotoGalleryMarquee from '@/components/PhotoGalleryMarquee';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import AppointmentBookingSection from '@/components/AppointmentBookingSection';
+import SmileGallerySection from '@/components/SmileGallerySection';
 
 // Static images
 import { Image } from 'astro:assets';
@@ -70,8 +71,8 @@ async function resolveOptimizedImage(src: string, width: number, height: number,
 const optimizedHeroImages = await Promise.all(
   (homepageContent?.hero_carousel?.images || []).map(async (img: any) => {
     const desktopSrc = await resolveOptimizedImage(img.src, 1200, 750, 75);
-    const mobileSrc = await resolveOptimizedImage(img.src, 640, 480, 60);
-    const smallMobileSrc = await resolveOptimizedImage(img.src, 380, 285, 55);
+    const mobileSrc = await resolveOptimizedImage(img.src, 640, 480, 50);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 380, 285, 45);
     return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
@@ -110,8 +111,8 @@ const services = await Promise.all((homepageContent?.services?.cards || []).map(
 // Optimize Price Teller treatments images
 const optimizedTreatments = await Promise.all((homepageContent?.price_teller?.treatments || []).map(async (t: any) => {
   const desktopSrc = await resolveOptimizedImage(t.image, 800, 600, 75);
-  const mobileSrc = await resolveOptimizedImage(t.image, 600, 450, 60);
-  const smallMobileSrc = await resolveOptimizedImage(t.image, 300, 225, 55);
+  const mobileSrc = await resolveOptimizedImage(t.image, 600, 450, 50);
+  const smallMobileSrc = await resolveOptimizedImage(t.image, 300, 225, 45);
   return { ...t, image: desktopSrc, mobileSrc, smallMobileSrc };
 }));
 
@@ -119,8 +120,8 @@ const optimizedTreatments = await Promise.all((homepageContent?.price_teller?.tr
 const optimizedClinicImages = await Promise.all(
   (homepageContent?.clinic_gallery?.images || []).map(async (img: any) => {
     const desktopSrc = await resolveOptimizedImage(img.src, 800, 600, 75);
-    const mobileSrc = await resolveOptimizedImage(img.src, 480, 360, 60);
-    const smallMobileSrc = await resolveOptimizedImage(img.src, 320, 240, 55);
+    const mobileSrc = await resolveOptimizedImage(img.src, 480, 360, 50);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 320, 240, 45);
     return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
@@ -132,6 +133,22 @@ const optimizedPhotoImages = await Promise.all(
     const mobileSrc = await resolveOptimizedImage(img.src, 400, 400, 60);
     const smallMobileSrc = await resolveOptimizedImage(img.src, 280, 280, 55);
     return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
+  })
+);
+
+// Optimize Smile Gallery transformations
+const optimizedTransformations = await Promise.all(
+  (homepageContent?.smile_gallery?.transformations || []).map(async (item: any) => {
+    const desktopSrc = await resolveOptimizedImage(item.image, 600, 600, 75);
+    const mobileSrc = await resolveOptimizedImage(item.image, 450, 450, 60);
+    const smallMobileSrc = await resolveOptimizedImage(item.image, 320, 320, 55);
+    
+    return { 
+      ...item, 
+      image: desktopSrc, 
+      mobileSrc, 
+      smallMobileSrc
+    };
   })
 );
 
@@ -162,6 +179,28 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   canonical="https://jamunadental.com/"
   jsonLd={[dentistSchema, organizationSchema, breadcrumbHome, homeFaqSchema]}
 >
+  <style slot="head">
+    /* Critical CSS for LCP improvement */
+    #hero { min-height: 100vh; display: flex; align-items: center; }
+    .hero-heading { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 0.75rem; }
+    @media (min-width: 1024px) { .hero-heading { font-size: 4rem; } }
+    .hero-subheading { color: #0080B5; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.875rem; }
+    .hero-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-weight: 700; }
+    .header-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; }
+  </style>
+  
+  {optimizedHeroImages[0] && (
+    <link 
+      rel="preload" 
+      as="image" 
+      href={optimizedHeroImages[0].src} 
+      imagesrcset={`${optimizedHeroImages[0].smallMobileSrc} 380w, ${optimizedHeroImages[0].mobileSrc} 640w, ${optimizedHeroImages[0].src} 1200w`}
+      imagesizes="(max-width: 480px) 380px, (max-width: 768px) 640px, 1200px"
+      slot="head"
+      fetchpriority="high"
+    />
+  )}
+
   {/* ─── Hero ─────────────────────────────────────────────────────────── */}
   {/* Static text + hydrated carousel island. Hero copy ships zero JS. */}
   <section id="hero" class="relative bg-background min-h-screen flex items-center pt-20">
@@ -182,7 +221,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
 
         {/* ② Carousel — between heading & content on mobile, right col spanning both rows on desktop */}
         <div class="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 w-full">
-          <HeroCarousel client:visible images={optimizedHeroImages} />
+          <HeroCarousel client:load images={optimizedHeroImages} />
         </div>
 
         {/* ③ Description, highlights, CTA, social proof — below carousel on mobile, left col row 2 on desktop */}
@@ -313,12 +352,19 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
     </div>
   </section>
 
-  {/* ─── Price Teller (interactive, hydrated) ────────────────────────── */}
   <PriceTellerSection 
     client:visible 
     content={{
       ...homepageContent?.price_teller,
       treatments: optimizedTreatments
+    }} 
+  />
+
+  <SmileGallerySection 
+    client:visible 
+    content={{
+      ...homepageContent?.smile_gallery,
+      transformations: optimizedTransformations
     }} 
   />
 

@@ -34,8 +34,8 @@ async function resolveOptimizedImage(src: string, width: number, height: number,
 const optimizedHeroImages = await Promise.all(
   (data.hero_carousel?.images || []).map(async (img: any) => {
     const desktopSrc = await resolveOptimizedImage(img.src, 1200, 750, 75);
-    const mobileSrc = await resolveOptimizedImage(img.src, 640, 480, 60);
-    const smallMobileSrc = await resolveOptimizedImage(img.src, 380, 285, 55);
+    const mobileSrc = await resolveOptimizedImage(img.src, 640, 480, 50);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 380, 285, 45);
     return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
@@ -44,16 +44,32 @@ const optimizedHeroImages = await Promise.all(
 const optimizedServices = await Promise.all(
   (data.services?.cards || []).map(async (card: any) => {
     const desktopSrc = await resolveOptimizedImage(card.image, 800, 600, 75);
-    const mobileSrc = await resolveOptimizedImage(card.image, 400, 300, 60);
-    const smallMobileSrc = await resolveOptimizedImage(card.image, 300, 225, 55);
+    const mobileSrc = await resolveOptimizedImage(card.image, 400, 300, 50);
+    const smallMobileSrc = await resolveOptimizedImage(card.image, 300, 225, 45);
     return { ...card, image: desktopSrc, mobileSrc, smallMobileSrc };
+  })
+);
+
+// Optimize Smile Gallery transformations
+const optimizedTransformations = await Promise.all(
+  (data.smile_gallery?.transformations || []).map(async (item: any) => {
+    const desktopSrc = await resolveOptimizedImage(item.image, 600, 600, 75);
+    const mobileSrc = await resolveOptimizedImage(item.image, 450, 450, 60);
+    const smallMobileSrc = await resolveOptimizedImage(item.image, 320, 320, 55);
+    
+    return { 
+      ...item, 
+      image: desktopSrc, 
+      mobileSrc, 
+      smallMobileSrc
+    };
   })
 );
 
 // Optimize other images
 const aboutDesktop = await resolveOptimizedImage(data.about?.image, 1000, 1200, 80);
-const aboutMobile = await resolveOptimizedImage(data.about?.image, 600, 720, 60);
-const aboutSmallMobile = await resolveOptimizedImage(data.about?.image, 380, 456, 55);
+const aboutMobile = await resolveOptimizedImage(data.about?.image, 600, 720, 50);
+const aboutSmallMobile = await resolveOptimizedImage(data.about?.image, 380, 456, 45);
 const optimizedAbout = { image: aboutDesktop, mobileSrc: aboutMobile, smallMobileSrc: aboutSmallMobile };
 const optimizedFaqImage = await resolveOptimizedImage(data.faq?.image, 1000, 750, 80);
 
@@ -77,6 +93,7 @@ const optimizedData = {
   hero_carousel: { ...data.hero_carousel, images: optimizedHeroImages },
   services: { ...data.services, cards: optimizedServices },
   about: { ...data.about, ...optimizedAbout },
+  smile_gallery: { ...data.smile_gallery, transformations: optimizedTransformations },
   clinic_gallery: { ...data.clinic_gallery, images: optimizedClinicImages },
   photo_gallery: { ...data.photo_gallery, images: optimizedPhotoImages },
   faq: { ...data.faq, image: optimizedFaqImage }
@@ -91,5 +108,25 @@ const optimizedData = {
   hideFooterMap
   hideNav
 >
+  <style slot="head">
+    /* Critical CSS for LCP improvement */
+    #hero { min-height: 100vh; display: flex; align-items: center; }
+    .hero-heading { font-size: 2.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 0.75rem; }
+    @media (min-width: 1024px) { .hero-heading { font-size: 4rem; } }
+    .hero-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-weight: 700; }
+  </style>
+  
+  {optimizedHeroImages[0] && (
+    <link 
+      rel="preload" 
+      as="image" 
+      href={optimizedHeroImages[0].src} 
+      imagesrcset={`${optimizedHeroImages[0].smallMobileSrc} 380w, ${optimizedHeroImages[0].mobileSrc} 640w, ${optimizedHeroImages[0].src} 1200w`}
+      imagesizes="(max-width: 480px) 380px, (max-width: 768px) 640px, 1200px"
+      slot="head"
+      fetchpriority="high"
+    />
+  )}
+
   <Screen data={optimizedData} client:load />
 </BaseLayout>

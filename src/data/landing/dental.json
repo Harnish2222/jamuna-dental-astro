@@ -218,6 +218,25 @@
       { "icon": "Clock", "value": 4, "suffix": ".9★", "label": "Google Rating", "iconColor": "text-primary", "bgColor": "bg-primary/5" }
     ]
   },
+  "smile_gallery": {
+    "badge": "SMILE GALLERY",
+    "heading": "Real Smiles. Real Transformations.",
+    "description": "Every smile has a story. Explore real before & after results from our happy patients.",
+    "transformations": [
+      {
+        "title": "Teeth Whitening",
+        "description": "Brighter, whiter & more confident smiles.",
+        "before": "/uploads/service-smile-design.png",
+        "after": "/uploads/tetth whitening.jpg"
+      },
+      {
+        "title": "Clear Aligners",
+        "description": "Perfectly aligned teeth without metal braces.",
+        "before": "/uploads/service-general-dentistry.png",
+        "after": "/uploads/clear%20alligners.jpg"
+      }
+    ]
+  },
   "price_teller": {
     "badge": "Most Affordable in Dindigul",
     "heading": "Most Affordable Dental Treatments in Dindigul",

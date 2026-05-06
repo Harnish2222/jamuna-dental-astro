@@ -12,6 +12,7 @@ import WhyChooseUsSection from '@/components/WhyChooseUsSection';
 import PriceTellerSection from '@/components/PriceTellerSection';
 import FindUsSection from '@/components/FindUsSection';
 import FAQAccordionReact from '@/components/FAQAccordionReact';
+import SmileGallerySection from '@/components/SmileGallerySection';
 import SEO from '@/components/SEO';
 import { tinaField } from 'tinacms/dist/react';
 
@@ -230,6 +231,8 @@ const LandingPage = ({ data }: LandingPageProps) => {
       <MilestonesSection content={landing.milestones} />
 
       <PriceTellerSection content={landing.price_teller} />
+      
+      <SmileGallerySection content={landing.smile_gallery} />
 
       <WhyChooseUsSection content={landing.why_choose} />
 

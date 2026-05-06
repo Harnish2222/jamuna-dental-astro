@@ -1,86 +1,94 @@
-import { useState } from 'react';
-import { Smile, Star } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import React from 'react';
 import AnimatedSection from '@/components/AnimatedSection';
+import { Badge } from '@/components/ui/badge';
+import { Camera } from 'lucide-react';
 
-import stockSmile1 from '@/assets/stock-smile-result-1.jpg';
-import stockSmile2 from '@/assets/stock-smile-result-2.jpg';
-import stockSmile3 from '@/assets/stock-smile-result-3.jpg';
-import stockSmile6 from '@/assets/stock-smile-result-6.jpg';
-import stockSmile7 from '@/assets/stock-smile-result-7.jpg';
-import stockSmile8 from '@/assets/stock-smile-result-8.jpg';
-import stockSmile9 from '@/assets/stock-smile-result-9.jpg';
-import stockDentalExam from '@/assets/stock-dental-exam.jpg';
-import stockTeethWhitening from '@/assets/stock-teeth-whitening.jpg';
+interface Transformation {
+  title: string;
+  description: string;
+  image: string;
+  mobileSrc?: string;
+  smallMobileSrc?: string;
+}
 
-const SmileGallerySection = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
-  const categories = ['All', 'Teeth Whitening', 'Veneers', 'Implants', 'Orthodontics', 'Full Makeover'];
+interface SmileGalleryProps {
+  content?: {
+    badge: string;
+    heading: string;
+    description: string;
+    transformations: Transformation[];
+  }
+}
 
-  const smileTransformations = [
-    { title: 'Professional Whitening', category: 'Teeth Whitening', description: 'Dramatic 8-shade improvement with our in-office whitening treatment.', testimonial: "I can't stop smiling! The results exceeded my expectations.", patient: 'Priya M.', image: stockTeethWhitening },
-    { title: 'Porcelain Veneers', category: 'Veneers', description: 'Complete smile transformation with custom porcelain veneers.', testimonial: 'My new smile has given me so much confidence.', patient: 'Rajesh S.', image: stockSmile1 },
-    { title: 'Dental Implants', category: 'Implants', description: 'Single tooth replacement with natural-looking dental implant.', testimonial: "You can't even tell which tooth is the implant!", patient: 'Kumar R.', image: stockSmile6 },
-    { title: 'Invisalign Treatment', category: 'Orthodontics', description: '18-month Invisalign journey for perfectly aligned teeth.', testimonial: 'The process was so easy and the results are amazing.', patient: 'Lakshmi L.', image: stockSmile7 },
-    { title: 'Crown Restoration', category: 'Implants', description: 'Full crown restoration for damaged front teeth.', testimonial: 'My smile looks completely natural now.', patient: 'Suresh K.', image: stockSmile2 },
-    { title: 'Complete Smile Makeover', category: 'Full Makeover', description: 'Combination of whitening, bonding, and veneers for total transformation.', testimonial: "Best investment I've ever made in myself.", patient: 'Anitha T.', image: stockSmile3 },
-    { title: 'Teeth Alignment', category: 'Orthodontics', description: 'Braces treatment for severe crowding and bite correction.', testimonial: 'Finally confident to smile in photos!', patient: 'Deepa M.', image: stockSmile8 },
-    { title: 'Whitening & Bonding', category: 'Teeth Whitening', description: 'Combined whitening and bonding for a celebrity-worthy smile.', testimonial: 'Everyone asks about my new smile.', patient: 'Vijay P.', image: stockSmile9 },
-    { title: 'Full Mouth Rehabilitation', category: 'Full Makeover', description: 'Complete restoration with implants, crowns, and veneers.', testimonial: 'Dr. transformed my oral health completely.', patient: 'Ganesh S.', image: stockDentalExam },
-  ];
-
-  const filteredTransformations = activeFilter === 'All' ? smileTransformations : smileTransformations.filter(item => item.category === activeFilter);
+const SmileGallerySection = ({ content }: SmileGalleryProps) => {
+  if (!content || !content.transformations || content.transformations.length === 0) return null;
 
   return (
-    <section id="gallery" className="py-20 bg-muted/30">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         <AnimatedSection animation="fade-up">
-          <div className="text-center mb-12">
-            <Badge className="mb-4">Patient Transformations</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Smile Gallery</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Browse our gallery of real patient results. Each smile tells a story of confidence restored.</p>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <Badge className="mb-4 bg-primary text-white hover:bg-primary px-4 py-1.5 uppercase tracking-widest text-xs font-bold">
+              {content.badge || 'Smile Gallery'}
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              {content.heading || 'Real Smiles. Real Transformations.'}
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              {content.description || 'Every smile has a story. Explore real before & after results from our happy patients.'}
+            </p>
           </div>
         </AnimatedSection>
 
-        <AnimatedSection animation="fade-up" delay="delay-100">
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((category) => (
-              <Button key={category} onClick={() => setActiveFilter(category)} variant={activeFilter === category ? "default" : "outline"} size="sm" className={`transition-all duration-300 ${activeFilter === category ? 'bg-primary text-primary-foreground' : 'hover:bg-primary/10'}`}>
-                <Smile className="w-4 h-4 mr-2" />{category}
-              </Button>
-            ))}
-          </div>
-        </AnimatedSection>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredTransformations.map((item, index) => (
-            <AnimatedSection key={index} animation="fade-up" delay={`delay-${(index % 3) * 100}`}>
-              <Card className="border-0 shadow-md overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
-                <CardContent className="p-0">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img src={item.image} alt={`${item.title} - Smile transformation`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  </div>
-                  <div className="p-6">
-                    <Badge variant="secondary" className="mb-3">{item.category}</Badge>
-                    <h3 className="text-xl font-semibold mb-2 text-primary group-hover:text-primary/80 transition-colors">{item.title}</h3>
-                    <p className="text-muted-foreground mb-4 leading-relaxed text-sm">{item.description}</p>
-                    <div className="border-t pt-4">
-                      <p className="text-sm italic text-muted-foreground mb-2">"{item.testimonial}"</p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-foreground">— {item.patient}</span>
-                        <div className="flex gap-1">{[...Array(5)].map((_, i) => (<Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />))}</div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {content.transformations.map((item, idx) => (
+            <TransformationCard key={idx} item={item} index={idx} />
           ))}
         </div>
       </div>
     </section>
+  );
+};
+
+const TransformationCard = ({ item, index }: { item: Transformation; index: number }) => {
+  return (
+    <AnimatedSection animation="fade-up" delay={`delay-${index * 100}`}>
+      <div className="group bg-white rounded-[2.5rem] p-4 shadow-xl border border-gray-100 transition-all duration-500 hover:shadow-2xl h-full flex flex-col">
+        {/* Image Container */}
+        <div className="relative aspect-square rounded-[2rem] overflow-hidden border-2 border-white shadow-inner bg-gray-50">
+          <img 
+            src={item.image} 
+            srcSet={item.smallMobileSrc ? `${item.smallMobileSrc} 320w, ${item.mobileSrc} 480w, ${item.image} 800w` : undefined}
+            sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, 800px"
+            alt={item.title}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+          
+          {/* Subtle Overlays */}
+          <div className="absolute top-4 left-4 z-20">
+             <span className="px-3 py-1 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-lg uppercase tracking-widest border border-white/20">Before</span>
+          </div>
+          <div className="absolute bottom-4 left-4 z-20">
+             <span className="px-3 py-1 bg-primary/70 backdrop-blur-md text-white text-[10px] font-bold rounded-lg uppercase tracking-widest border border-white/20">After</span>
+          </div>
+
+          {/* Gradient Overlay for better text readability if needed */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+
+        {/* Info Area */}
+        <div className="mt-6 px-4 pb-2 flex items-start gap-4">
+          <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+            <Camera className="w-6 h-6 text-primary" />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
+            <p className="text-gray-500 text-sm leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      </div>
+    </AnimatedSection>
   );
 };
 
