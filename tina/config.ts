@@ -439,7 +439,7 @@ export default defineConfig({
           include: "landing",
         },
         fields: [
-          {
+          /* {
             type: "object",
             label: "SEO Settings",
             name: "seo",
@@ -449,7 +449,7 @@ export default defineConfig({
               { type: "string", label: "Canonical URL", name: "canonical" },
               { type: "boolean", label: "No Index", name: "noindex" },
             ],
-          },
+          }, */
           {
             type: "object",
             label: "Hero Section",
