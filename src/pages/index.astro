@@ -43,9 +43,10 @@ const allUploads = import.meta.glob('/src/assets/uploads/**/*.{png,jpg,jpeg,webp
 async function resolveOptimizedImage(src: string, width: number, height: number, quality: number = 80) {
   if (!src) return null;
   
-  // Tina stores paths like "/uploads/image.png"
-  // We need to match it to our glob which is "/src/assets/uploads/image.png"
-  const assetPath = src.startsWith('/uploads/') ? `/src/assets${src}` : `/src/assets/uploads${src.startsWith('/') ? '' : '/'}${src}`;
+  // Tina stores paths like "/uploads/image.png" or "/uploads/image%20with%20space.png"
+  // We need to decode it to match the actual file system key used by Vite glob
+  const decodedSrc = decodeURIComponent(src);
+  const assetPath = decodedSrc.startsWith('/uploads/') ? `/src/assets${decodedSrc}` : `/src/assets/uploads${decodedSrc.startsWith('/') ? '' : '/'}${decodedSrc}`;
   
   const imageModule: any = allUploads[assetPath];
   
@@ -92,6 +93,12 @@ const services = await Promise.all((homepageContent?.services?.cards || []).map(
     link: card.link,
   };
 })) || [];
+
+// Optimize Price Teller treatments images
+const optimizedTreatments = await Promise.all((homepageContent?.price_teller?.treatments || []).map(async (t: any) => {
+  const optimizedSrc = await resolveOptimizedImage(t.image, 600, 800, 75);
+  return { ...t, image: optimizedSrc };
+}));
 
 // Optimize Clinic Gallery images
 const optimizedClinicImages = await Promise.all(
@@ -279,7 +286,13 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   </section>
 
   {/* ─── Price Teller (interactive, hydrated) ────────────────────────── */}
-  <PriceTellerSection client:visible content={homepageContent?.price_teller} />
+  <PriceTellerSection 
+    client:visible 
+    content={{
+      ...homepageContent?.price_teller,
+      treatments: optimizedTreatments
+    }} 
+  />
 
   <TeamSection content={{ ...homepageContent?.team, members: optimizedTeamMembers }} />
 
