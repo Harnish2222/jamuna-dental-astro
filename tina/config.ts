@@ -427,7 +427,7 @@ export default defineConfig({
           },
         ],
       },
-      {
+      /* {
         label: "Landing Page (/dental)",
         name: "landing",
         path: "src/data",
@@ -439,17 +439,6 @@ export default defineConfig({
           include: "landing",
         },
         fields: [
-          /* {
-            type: "object",
-            label: "SEO Settings",
-            name: "seo",
-            fields: [
-              { type: "string", label: "Title", name: "title" },
-              { type: "string", label: "Description", name: "description", ui: { component: "textarea" } },
-              { type: "string", label: "Canonical URL", name: "canonical" },
-              { type: "boolean", label: "No Index", name: "noindex" },
-            ],
-          }, */
           {
             type: "object",
             label: "Hero Section",
@@ -605,7 +594,7 @@ export default defineConfig({
                   { type: "string", label: "Alt Text", name: "alt" }
                 ]
               }
-            ]
+            ],
           },
           {
             type: "object",
@@ -699,7 +688,7 @@ export default defineConfig({
             ],
           },
         ],
-      },
+      }, */
     ],
   },
 });
