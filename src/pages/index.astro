@@ -37,17 +37,24 @@ import { getImage } from 'astro:assets';
 // Load content from TinaCMS
 const homepageContent = await loadHomepageContent();
 
-// Optimize Hero Carousel images
+// Optimize Hero Carousel images - generate both desktop and mobile versions
 const optimizedHeroImages = await Promise.all(
   (homepageContent?.hero_carousel?.images || []).map(async (img: any) => {
-    const optimized = await getImage({ 
+    const desktop = await getImage({ 
       src: img.src, 
-      width: 1920, 
-      height: 1080, 
+      width: 1400, // Reduced from 1920 for better compression
+      height: 875, 
       format: 'webp',
-      quality: 90 
+      quality: 80 
     });
-    return { ...img, src: optimized.src };
+    const mobile = await getImage({ 
+      src: img.src, 
+      width: 600, 
+      height: 450, 
+      format: 'webp',
+      quality: 75
+    });
+    return { ...img, src: desktop.src, mobileSrc: mobile.src };
   })
 );
 
@@ -66,8 +73,8 @@ const services = await Promise.all((homepageContent?.services?.cards || []).map(
   const imageUrl = card.image || '/uploads/service-general-dentistry.png';
   const optimized = await getImage({ 
     src: imageUrl, 
-    width: 600, 
-    height: 450, 
+    width: 800, 
+    height: 600, 
     format: 'webp' 
   });
   return {
@@ -263,8 +270,8 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
                 <Image
                   src={service.imageUrl}
                   alt={service.title}
-                  width={600}
-                  height={450}
+                  width={800}
+                  height={600}
                   loading="lazy"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

@@ -119,6 +119,17 @@ const GTAG_ID = 'AW-10788600128';
         });
         return true;
       };
+      window.gtag_report_form_conversion = function (url) {
+        gtag('event', 'conversion', {
+          send_to: `${GTAG_ID}/FORM_CONVERSION_LABEL`, // REPLACE WITH ACTUAL LABEL FROM GOOGLE ADS
+          event_callback: function() {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          }
+        });
+        return false;
+      };
       document.addEventListener('mousedown', function (e) {
         if (e.target && e.target.closest && e.target.closest('[href^="https://wa.me"]')) {
           gtag('event', 'conversion', { send_to: `${GTAG_ID}/LAe1CMC1gpwcEMDys5go` });

@@ -66,6 +66,9 @@ const AboutUsSection = ({ content }: { content?: AboutContent }) => {
               <img 
                 src={content?.image || jamunaDoctorOperation.src} 
                 alt="Doctor performing dental treatment at JFDC" 
+                width={800}
+                height={1000}
+                loading="lazy"
                 className="w-full h-full object-cover object-top" 
               />
             </div>

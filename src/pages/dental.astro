@@ -2,12 +2,65 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Screen from '@/screens/LandingPage.tsx';
 import { loadLandingContent } from '@/lib/load-landing';
+import { getImage } from 'astro:assets';
 
 const data = await loadLandingContent();
 
 if (!data) {
   throw new Error("Failed to load landing page content");
 }
+
+// Optimize Hero Carousel images
+const optimizedHeroImages = await Promise.all(
+  (data.hero_carousel?.images || []).map(async (img: any) => {
+    const desktop = await getImage({ src: img.src, width: 1400, height: 875, format: 'webp', quality: 80 });
+    const mobile = await getImage({ src: img.src, width: 600, height: 450, format: 'webp', quality: 75 });
+    return { ...img, src: desktop.src, mobileSrc: mobile.src };
+  })
+);
+
+// Optimize Service card images
+const optimizedServices = await Promise.all(
+  (data.services?.cards || []).map(async (card: any) => {
+    const optimized = await getImage({ src: card.image, width: 800, height: 600, format: 'webp' });
+    return { ...card, image: optimized.src };
+  })
+);
+
+// Optimize About image
+const optimizedAboutImage = data.about?.image 
+  ? (await getImage({ src: data.about.image, width: 800, height: 1000, format: 'webp' })).src 
+  : undefined;
+
+// Optimize Gallery images
+const optimizedClinicImages = await Promise.all(
+  (data.clinic_gallery?.images || []).map(async (img: any) => {
+    const optimized = await getImage({ src: img.src, width: 800, height: 600, format: 'webp' });
+    return { ...img, src: optimized.src };
+  })
+);
+
+const optimizedPhotoImages = await Promise.all(
+  (data.photo_gallery?.images || []).map(async (img: any) => {
+    const optimized = await getImage({ src: img.src, width: 600, height: 600, format: 'webp' });
+    return { ...img, src: optimized.src };
+  })
+);
+
+// Optimize FAQ image
+const optimizedFaqImage = data.faq?.image 
+  ? (await getImage({ src: data.faq.image, width: 800, height: 1000, format: 'webp' })).src 
+  : undefined;
+
+const optimizedData = {
+  ...data,
+  hero_carousel: { ...data.hero_carousel, images: optimizedHeroImages },
+  services: { ...data.services, cards: optimizedServices },
+  about: { ...data.about, image: optimizedAboutImage },
+  clinic_gallery: { ...data.clinic_gallery, images: optimizedClinicImages },
+  photo_gallery: { ...data.photo_gallery, images: optimizedPhotoImages },
+  faq: { ...data.faq, image: optimizedFaqImage }
+};
 ---
 
 <BaseLayout
@@ -18,5 +71,5 @@ if (!data) {
   hideFooterMap
   hideNav
 >
-  <Screen data={data} client:load />
+  <Screen data={optimizedData} client:load />
 </BaseLayout>

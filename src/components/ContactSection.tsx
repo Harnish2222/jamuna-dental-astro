@@ -15,6 +15,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    (window as any).gtag_report_form_conversion?.();
     alert('Thank you for your request! We will contact you shortly to confirm your appointment.');
   };
 

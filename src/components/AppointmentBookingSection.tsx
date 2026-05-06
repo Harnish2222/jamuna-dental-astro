@@ -26,6 +26,7 @@ const AppointmentBookingSection = ({ content }: { content?: AppointmentContent }
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
+    (window as any).gtag_report_form_conversion?.();
     setTimeout(() => {
       setSuccess(true);
       setSubmitting(false);
