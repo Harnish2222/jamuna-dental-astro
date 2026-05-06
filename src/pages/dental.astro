@@ -10,47 +10,60 @@ if (!data) {
   throw new Error("Failed to load landing page content");
 }
 
+// Resolve all images in public/uploads for Astro optimization
+const allUploads = import.meta.glob('/public/uploads/**/*.{png,jpg,jpeg,webp}', { eager: true });
+
+async function resolveOptimizedImage(src: string, width: number, height: number, quality: number = 80) {
+  if (!src) return null;
+  const publicPath = src.startsWith('/') ? `/public${src}` : `/public/${src}`;
+  const imageModule: any = allUploads[publicPath];
+  if (!imageModule) return src;
+  
+  const optimized = await getImage({
+    src: imageModule.default,
+    width,
+    height,
+    format: 'webp',
+    quality
+  });
+  return optimized.src;
+}
+
 // Optimize Hero Carousel images
 const optimizedHeroImages = await Promise.all(
   (data.hero_carousel?.images || []).map(async (img: any) => {
-    const desktop = await getImage({ src: img.src, width: 1400, height: 875, format: 'webp', quality: 80 });
-    const mobile = await getImage({ src: img.src, width: 600, height: 450, format: 'webp', quality: 75 });
-    return { ...img, src: desktop.src, mobileSrc: mobile.src };
+    const desktopSrc = await resolveOptimizedImage(img.src, 1400, 875, 80);
+    const mobileSrc = await resolveOptimizedImage(img.src, 600, 450, 75);
+    return { ...img, src: desktopSrc, mobileSrc };
   })
 );
 
 // Optimize Service card images
 const optimizedServices = await Promise.all(
   (data.services?.cards || []).map(async (card: any) => {
-    const optimized = await getImage({ src: card.image, width: 800, height: 600, format: 'webp' });
-    return { ...card, image: optimized.src };
+    const optimizedSrc = await resolveOptimizedImage(card.image, 800, 600, 75);
+    return { ...card, image: optimizedSrc };
   })
 );
 
-// Optimize About image
-const optimizedAboutImage = data.about?.image 
-  ? (await getImage({ src: data.about.image, width: 800, height: 1000, format: 'webp' })).src 
-  : undefined;
+// Optimize other images
+const optimizedAboutImage = await resolveOptimizedImage(data.about?.image, 1000, 1200, 80);
+const optimizedFaqImage = await resolveOptimizedImage(data.faq?.image, 1000, 750, 80);
 
 // Optimize Gallery images
 const optimizedClinicImages = await Promise.all(
   (data.clinic_gallery?.images || []).map(async (img: any) => {
-    const optimized = await getImage({ src: img.src, width: 800, height: 600, format: 'webp' });
-    return { ...img, src: optimized.src };
+    const optimizedSrc = await resolveOptimizedImage(img.src, 800, 600, 75);
+    return { ...img, src: optimizedSrc };
   })
 );
 
 const optimizedPhotoImages = await Promise.all(
   (data.photo_gallery?.images || []).map(async (img: any) => {
-    const optimized = await getImage({ src: img.src, width: 600, height: 600, format: 'webp' });
-    return { ...img, src: optimized.src };
+    const optimizedSrc = await resolveOptimizedImage(img.src, 600, 600, 75);
+    return { ...img, src: optimizedSrc };
   })
 );
-
-// Optimize FAQ image
-const optimizedFaqImage = data.faq?.image 
-  ? (await getImage({ src: data.faq.image, width: 800, height: 1000, format: 'webp' })).src 
-  : undefined;
 
 const optimizedData = {
   ...data,

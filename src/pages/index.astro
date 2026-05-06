@@ -37,51 +37,56 @@ import { getImage } from 'astro:assets';
 // Load content from TinaCMS
 const homepageContent = await loadHomepageContent();
 
-// Optimize Hero Carousel images - generate both desktop and mobile versions
+// Resolve all images in public/uploads for Astro optimization
+const allUploads = import.meta.glob('/public/uploads/**/*.{png,jpg,jpeg,webp}', { eager: true });
+
+async function resolveOptimizedImage(src: string, width: number, height: number, quality: number = 80) {
+  if (!src) return null;
+  
+  // Find the matching image in our glob
+  const publicPath = src.startsWith('/') ? `/public${src}` : `/public/${src}`;
+  const imageModule: any = allUploads[publicPath];
+  
+  if (!imageModule) {
+    console.warn(`Could not find image in public/uploads: ${src}`);
+    return src; // Fallback to original URL
+  }
+  
+  const optimized = await getImage({
+    src: imageModule.default,
+    width,
+    height,
+    format: 'webp',
+    quality
+  });
+  
+  return optimized.src;
+}
+
+// Optimize Hero Carousel images
 const optimizedHeroImages = await Promise.all(
   (homepageContent?.hero_carousel?.images || []).map(async (img: any) => {
-    const desktop = await getImage({ 
-      src: img.src, 
-      width: 1400, // Reduced from 1920 for better compression
-      height: 875, 
-      format: 'webp',
-      quality: 80 
-    });
-    const mobile = await getImage({ 
-      src: img.src, 
-      width: 600, 
-      height: 450, 
-      format: 'webp',
-      quality: 75
-    });
-    return { ...img, src: desktop.src, mobileSrc: mobile.src };
+    const desktopSrc = await resolveOptimizedImage(img.src, 1400, 875, 80);
+    const mobileSrc = await resolveOptimizedImage(img.src, 600, 450, 75);
+    return { ...img, src: desktopSrc, mobileSrc };
   })
 );
 
-// Optimize About Us image
-const optimizedAboutImage = homepageContent?.about?.image 
-  ? (await getImage({ 
-      src: homepageContent.about.image, 
-      width: 800, 
-      height: 1000, 
-      format: 'webp' 
-    })).src 
-  : undefined;
+// Optimize secondary sections images
+const optimizedAboutImage = await resolveOptimizedImage(homepageContent?.about?.image, 1000, 1200, 80);
+const optimizedWhyChooseImage = await resolveOptimizedImage(homepageContent?.why_choose?.image, 800, 600, 80);
+const optimizedMilestonesImage = await resolveOptimizedImage(homepageContent?.milestones?.image, 1200, 800, 80);
+const optimizedFaqImage = await resolveOptimizedImage(homepageContent?.faq?.image, 1000, 750, 80);
 
 // Build services array — use optimized image
 const services = await Promise.all((homepageContent?.services?.cards || []).map(async (card: any) => {
   const imageUrl = card.image || '/uploads/service-general-dentistry.png';
-  const optimized = await getImage({ 
-    src: imageUrl, 
-    width: 800, 
-    height: 600, 
-    format: 'webp' 
-  });
+  const optimizedSrc = await resolveOptimizedImage(imageUrl, 800, 600, 75);
   return {
     title: card.title,
     description: card.description,
     bullets: card.bullets?.map((b: any) => b.text) || [],
-    imageUrl: optimized.src,
+    imageUrl: optimizedSrc,
     link: card.link,
   };
 })) || [];
@@ -89,51 +94,26 @@ const services = await Promise.all((homepageContent?.services?.cards || []).map(
 // Optimize Clinic Gallery images
 const optimizedClinicImages = await Promise.all(
   (homepageContent?.clinic_gallery?.images || []).map(async (img: any) => {
-    const optimized = await getImage({ 
-      src: img.src, 
-      width: 800, 
-      height: 600, 
-      format: 'webp' 
-    });
-    return { ...img, src: optimized.src };
+    const optimizedSrc = await resolveOptimizedImage(img.src, 800, 600, 75);
+    return { ...img, src: optimizedSrc };
   })
 );
 
 // Optimize Photo Gallery images
 const optimizedPhotoImages = await Promise.all(
   (homepageContent?.photo_gallery?.images || []).map(async (img: any) => {
-    const optimized = await getImage({ 
-      src: img.src, 
-      width: 600, 
-      height: 600, 
-      format: 'webp' 
-    });
-    return { ...img, src: optimized.src };
+    const optimizedSrc = await resolveOptimizedImage(img.src, 600, 600, 75);
+    return { ...img, src: optimizedSrc };
   })
 );
 
 // Optimize Team Member photos
 const optimizedTeamMembers = await Promise.all(
   (homepageContent?.team?.members || []).map(async (member: any) => {
-    const optimized = await getImage({ 
-      src: member.photo, 
-      width: 400, 
-      height: 500, 
-      format: 'webp' 
-    });
-    return { ...member, photo: optimized.src };
+    const optimizedSrc = await resolveOptimizedImage(member.photo, 400, 500, 75);
+    return { ...member, photo: optimizedSrc };
   })
 );
-
-// Optimize FAQ image
-const optimizedFaqImage = homepageContent?.faq?.image 
-  ? (await getImage({ 
-      src: homepageContent.faq.image, 
-      width: 800, 
-      height: 1000, 
-      format: 'webp' 
-    })).src 
-  : undefined;
 
 // Build FAQs array from TinaCMS content
 const faqs = homepageContent?.faq?.items?.map((item: any) => ({
@@ -246,7 +226,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   {/* New Clinic Gallery Marquee (runs right to left) */}
   <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.clinic_gallery, images: optimizedClinicImages }} />
 
-  <MilestonesSection client:visible content={homepageContent?.milestones} />
+  <MilestonesSection client:visible content={{ ...homepageContent?.milestones, image: optimizedMilestonesImage }} />
 
   <MissionVisionSection client:visible content={homepageContent?.mission_vision} />
 
@@ -301,7 +281,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
 
   <TeamSection content={{ ...homepageContent?.team, members: optimizedTeamMembers }} />
 
-  <WhyChooseUsSection content={homepageContent?.why_choose} />
+  <WhyChooseUsSection content={{ ...homepageContent?.why_choose, image: optimizedWhyChooseImage }} />
 
   {/* Photo gallery slider — needs JS for the rAF-driven scroll */}
   <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.photo_gallery, images: optimizedPhotoImages }} hasGap={true} />
