@@ -238,7 +238,95 @@
   "price_teller": {
     "badge": "Most Affordable in Dindigul",
     "heading": "Most Affordable Dental Treatments in Dindigul",
-    "description": "Transparent, honest pricing with zero hidden fees — select a treatment below to see our rates."
+    "description": "Transparent, honest pricing with zero hidden fees — select a treatment below to see our rates.",
+    "treatments": [
+      {
+        "label": "Root Canal",
+        "image": "/uploads/service-root-canal.jpg",
+        "services": [
+          { "name": "Root Canal – Front Teeth", "price": "Rs. 2,500" },
+          { "name": "Root Canal – Back Teeth", "price": "Rs. 3,000" },
+          { "name": "Root Canal – Milk Tooth (Pulpectomy)", "price": "Rs. 2,500" },
+          { "name": "Re-Root Canal Treatment", "price": "Rs. 4,500" }
+        ]
+      },
+      {
+        "label": "Dental Implants",
+        "image": "/uploads/dental-implants.jpg",
+        "services": [
+          { "name": "Basic Implants", "price": "Rs. 18,000" },
+          { "name": "Advanced Implants", "price": "Rs. 25,000" },
+          { "name": "Nobel Implants", "price": "Rs. 35,000 – 45,000" }
+        ]
+      },
+      {
+        "label": "Braces",
+        "image": "/uploads/orthodontics-aligners.jpg",
+        "services": [
+          { "name": "Metal Braces (EMI available)", "price": "Rs. 25,000" },
+          { "name": "Ceramic Braces (EMI available)", "price": "Rs. 38,000" },
+          { "name": "Self Ligating Metal (EMI available)", "price": "Rs. 45,000" }
+        ]
+      },
+      {
+        "label": "Aligners",
+        "image": "/uploads/clear-alligners.jpg",
+        "services": [
+          { "name": "Basic Aligner (14 days)", "price": "Rs. 2,500 / Aligner" },
+          { "name": "Advanced Aligner (7 days)", "price": "Rs. 3,500 / Aligner" },
+          { "name": "Retainer (Essix)", "price": "Rs. 1,800" }
+        ]
+      },
+      {
+        "label": "Crowns",
+        "image": "/uploads/dental-crowns.jpg",
+        "services": [
+          { "name": "Zirconia – Basic (5 yr warranty)", "price": "Rs. 6,000" },
+          { "name": "Zirconia – Advanced (10 yr warranty)", "price": "Rs. 10,000" },
+          { "name": "Ceramic Crown (PFM) – Basic", "price": "Rs. 3,000" }
+        ]
+      },
+      {
+        "label": "Teeth Whitening",
+        "image": "/uploads/teeth-whitening.jpg",
+        "services": [
+          { "name": "Single Tooth", "price": "Rs. 450" },
+          { "name": "All Front Teeth", "price": "Rs. 2,500" }
+        ]
+      },
+      {
+        "label": "Teeth Cleaning",
+        "image": "/uploads/stock-dental-exam.jpg",
+        "services": [
+          { "name": "Scaling – Front Teeth", "price": "Rs. 450" },
+          { "name": "Scaling – Moderate Stains", "price": "Rs. 1,200" }
+        ]
+      },
+      {
+        "label": "Teeth Fillings",
+        "image": "/uploads/service-smile-design.jpg",
+        "services": [
+          { "name": "GIC Filling – Basic", "price": "Rs. 500" },
+          { "name": "Composite Filling – Back Tooth", "price": "Rs. 1,000" }
+        ]
+      },
+      {
+        "label": "Extraction",
+        "image": "/uploads/emergency-dental.jpg",
+        "services": [
+          { "name": "Extraction", "price": "Rs. 500" },
+          { "name": "Impaction – Lower 3rd Molar", "price": "Rs. 3,500" }
+        ]
+      },
+      {
+        "label": "Dentures",
+        "image": "/uploads/stock-beautiful-smile.jpg",
+        "services": [
+          { "name": "Complete Denture – Basic", "price": "Rs. 9,000" },
+          { "name": "Removable Denture", "price": "Rs. 500 / Tooth" }
+        ]
+      }
+    ]
   },
   "why_choose": {
     "heading": "Your smile is our priority",

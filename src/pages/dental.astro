@@ -91,6 +91,11 @@ const optimizedPhotoImages = await Promise.all(
   })
 );
 
+const optimizedTreatments = await Promise.all((data?.price_teller?.treatments || []).map(async (t: any) => {
+  const optimizedSrc = await resolveOptimizedImage(t.image, 800, 600, 75);
+  return { ...t, image: optimizedSrc };
+}));
+
 const optimizedData = {
   ...data,
   hero_carousel: { ...data.hero_carousel, images: optimizedHeroImages },
@@ -99,6 +104,7 @@ const optimizedData = {
   smile_gallery: { ...data.smile_gallery, transformations: optimizedTransformations },
   clinic_gallery: { ...data.clinic_gallery, images: optimizedClinicImages },
   photo_gallery: { ...data.photo_gallery, images: optimizedPhotoImages },
+  price_teller: { ...data.price_teller, treatments: optimizedTreatments },
   faq: { ...data.faq, image: optimizedFaqImage }
 };
 
