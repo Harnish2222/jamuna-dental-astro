@@ -1,3 +1,4 @@
+// Force TinaCMS re-index
 import { defineConfig } from "tinacms";
 
 const branch =
