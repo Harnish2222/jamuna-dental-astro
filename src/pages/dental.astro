@@ -33,17 +33,20 @@ async function resolveOptimizedImage(src: string, width: number, height: number,
 // Optimize Hero Carousel images
 const optimizedHeroImages = await Promise.all(
   (data.hero_carousel?.images || []).map(async (img: any) => {
-    const desktopSrc = await resolveOptimizedImage(img.src, 1400, 875, 80);
-    const mobileSrc = await resolveOptimizedImage(img.src, 600, 450, 75);
-    return { ...img, src: desktopSrc, mobileSrc };
+    const desktopSrc = await resolveOptimizedImage(img.src, 1200, 750, 75);
+    const mobileSrc = await resolveOptimizedImage(img.src, 640, 480, 60);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 380, 285, 55);
+    return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
 
 // Optimize Service card images
 const optimizedServices = await Promise.all(
   (data.services?.cards || []).map(async (card: any) => {
-    const optimizedSrc = await resolveOptimizedImage(card.image, 800, 600, 75);
-    return { ...card, image: optimizedSrc };
+    const desktopSrc = await resolveOptimizedImage(card.image, 800, 600, 75);
+    const mobileSrc = await resolveOptimizedImage(card.image, 400, 300, 60);
+    const smallMobileSrc = await resolveOptimizedImage(card.image, 300, 225, 55);
+    return { ...card, image: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
 

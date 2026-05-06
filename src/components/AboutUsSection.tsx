@@ -26,6 +26,8 @@ interface AboutContent {
   features?: AboutFeature[];
   stats?: AboutStat[];
   image?: string;
+  mobileSrc?: string;
+  smallMobileSrc?: string;
   cta_text?: string;
   cta_secondary_text?: string;
 }
@@ -65,9 +67,11 @@ const AboutUsSection = ({ content }: { content?: AboutContent }) => {
             <div className="relative rounded-3xl overflow-hidden bg-gray-200 aspect-[4/5] md:aspect-[4/3] lg:aspect-[4/4.5] xl:aspect-[4/4]">
               <img 
                 src={content?.image || jamunaDoctorOperation.src} 
+                srcSet={content?.smallMobileSrc ? `${content.smallMobileSrc} 380w, ${content.mobileSrc} 600w, ${content.image} 1000w` : undefined}
+                sizes="(max-width: 480px) 380px, (max-width: 768px) 600px, 1000px"
                 alt="Doctor performing dental treatment at JFDC" 
-                width={800}
-                height={1000}
+                width={1000}
+                height={1200}
                 loading="lazy"
                 className="w-full h-full object-cover object-top" 
               />

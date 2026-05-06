@@ -69,58 +69,79 @@ async function resolveOptimizedImage(src: string, width: number, height: number,
 // Optimize Hero Carousel images
 const optimizedHeroImages = await Promise.all(
   (homepageContent?.hero_carousel?.images || []).map(async (img: any) => {
-    const desktopSrc = await resolveOptimizedImage(img.src, 1400, 875, 80);
-    const mobileSrc = await resolveOptimizedImage(img.src, 600, 450, 75);
-    return { ...img, src: desktopSrc, mobileSrc };
+    const desktopSrc = await resolveOptimizedImage(img.src, 1200, 750, 75);
+    const mobileSrc = await resolveOptimizedImage(img.src, 640, 480, 60);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 380, 285, 55);
+    return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
 
 // Optimize secondary sections images
-const optimizedAboutImage = await resolveOptimizedImage(homepageContent?.about?.image, 1000, 1200, 80);
-const optimizedWhyChooseImage = await resolveOptimizedImage(homepageContent?.why_choose?.image, 800, 600, 80);
+const aboutDesktop = await resolveOptimizedImage(homepageContent?.about?.image, 1000, 1200, 80);
+const aboutMobile = await resolveOptimizedImage(homepageContent?.about?.image, 600, 720, 60);
+const aboutSmallMobile = await resolveOptimizedImage(homepageContent?.about?.image, 380, 456, 55);
+const optimizedAbout = { src: aboutDesktop, mobileSrc: aboutMobile, smallMobileSrc: aboutSmallMobile };
+
+const whyChooseDesktop = await resolveOptimizedImage(homepageContent?.why_choose?.image, 800, 600, 80);
+const whyChooseMobile = await resolveOptimizedImage(homepageContent?.why_choose?.image, 480, 360, 60);
+const whyChooseSmallMobile = await resolveOptimizedImage(homepageContent?.why_choose?.image, 300, 225, 55);
+const optimizedWhyChoose = { image: whyChooseDesktop, mobileSrc: whyChooseMobile, smallMobileSrc: whyChooseSmallMobile };
+
 const optimizedMilestonesImage = await resolveOptimizedImage(homepageContent?.milestones?.image, 1200, 800, 80);
 const optimizedFaqImage = await resolveOptimizedImage(homepageContent?.faq?.image, 1000, 750, 80);
 
 // Build services array — use optimized image
 const services = await Promise.all((homepageContent?.services?.cards || []).map(async (card: any) => {
   const imageUrl = card.image || '/uploads/service-general-dentistry.png';
-  const optimizedSrc = await resolveOptimizedImage(imageUrl, 800, 600, 75);
+  const desktopSrc = await resolveOptimizedImage(imageUrl, 800, 600, 75);
+  const mobileSrc = await resolveOptimizedImage(imageUrl, 480, 360, 60);
+  const smallMobileSrc = await resolveOptimizedImage(imageUrl, 320, 240, 55);
   return {
     title: card.title,
     description: card.description,
     bullets: card.bullets?.map((b: any) => b.text) || [],
-    imageUrl: optimizedSrc,
+    imageUrl: desktopSrc,
+    mobileSrc,
+    smallMobileSrc,
     link: card.link,
   };
 })) || [];
 
 // Optimize Price Teller treatments images
 const optimizedTreatments = await Promise.all((homepageContent?.price_teller?.treatments || []).map(async (t: any) => {
-  const optimizedSrc = await resolveOptimizedImage(t.image, 600, 800, 75);
-  return { ...t, image: optimizedSrc };
+  const desktopSrc = await resolveOptimizedImage(t.image, 800, 600, 75);
+  const mobileSrc = await resolveOptimizedImage(t.image, 600, 450, 60);
+  const smallMobileSrc = await resolveOptimizedImage(t.image, 300, 225, 55);
+  return { ...t, image: desktopSrc, mobileSrc, smallMobileSrc };
 }));
 
 // Optimize Clinic Gallery images
 const optimizedClinicImages = await Promise.all(
   (homepageContent?.clinic_gallery?.images || []).map(async (img: any) => {
-    const optimizedSrc = await resolveOptimizedImage(img.src, 800, 600, 75);
-    return { ...img, src: optimizedSrc };
+    const desktopSrc = await resolveOptimizedImage(img.src, 800, 600, 75);
+    const mobileSrc = await resolveOptimizedImage(img.src, 480, 360, 60);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 320, 240, 55);
+    return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
 
 // Optimize Photo Gallery images
 const optimizedPhotoImages = await Promise.all(
   (homepageContent?.photo_gallery?.images || []).map(async (img: any) => {
-    const optimizedSrc = await resolveOptimizedImage(img.src, 600, 600, 75);
-    return { ...img, src: optimizedSrc };
+    const desktopSrc = await resolveOptimizedImage(img.src, 600, 600, 75);
+    const mobileSrc = await resolveOptimizedImage(img.src, 400, 400, 60);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 280, 280, 55);
+    return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
 
 // Optimize Team Member photos
 const optimizedTeamMembers = await Promise.all(
   (homepageContent?.team?.members || []).map(async (member: any) => {
-    const optimizedSrc = await resolveOptimizedImage(member.photo, 400, 500, 75);
-    return { ...member, photo: optimizedSrc };
+    const desktopSrc = await resolveOptimizedImage(member.photo, 400, 500, 75);
+    const mobileSrc = await resolveOptimizedImage(member.photo, 280, 350, 60);
+    const smallMobileSrc = await resolveOptimizedImage(member.photo, 200, 250, 55);
+    return { ...member, photo: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
 
@@ -229,7 +250,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   <ServiceMarquee services={homepageContent?.service_marquee?.services} />
 
   <div id="about">
-    <AboutUsSection content={{ ...homepageContent?.about, image: optimizedAboutImage }} />
+    <AboutUsSection content={{ ...homepageContent?.about, ...optimizedAbout }} />
   </div>
 
   {/* New Clinic Gallery Marquee (runs right to left) */}
@@ -256,8 +277,10 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
           >
             <article class="group h-full overflow-hidden rounded-xl bg-card border border-border shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 hover:border-primary/50">
               <div class="relative aspect-[4/3] overflow-hidden">
-                <Image
+                <img
                   src={service.imageUrl}
+                  srcSet={`${service.smallMobileSrc} 320w, ${service.mobileSrc} 480w, ${service.imageUrl} 800w`}
+                  sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, 800px"
                   alt={service.title}
                   width={800}
                   height={600}
@@ -296,7 +319,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
 
   <TeamSection content={{ ...homepageContent?.team, members: optimizedTeamMembers }} />
 
-  <WhyChooseUsSection content={{ ...homepageContent?.why_choose, image: optimizedWhyChooseImage }} />
+  <WhyChooseUsSection content={{ ...homepageContent?.why_choose, ...optimizedWhyChoose }} />
 
   {/* Photo gallery slider — needs JS for the rAF-driven scroll */}
   <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.photo_gallery, images: optimizedPhotoImages }} hasGap={true} />

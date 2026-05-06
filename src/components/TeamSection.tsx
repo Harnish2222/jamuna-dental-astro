@@ -2,6 +2,8 @@ import { GraduationCap, Stethoscope } from 'lucide-react';
 
 interface TeamMember {
   photo: string;
+  mobileSrc?: string;
+  smallMobileSrc?: string;
   name: string;
   role: string;
   qualifications: string;
@@ -60,6 +62,8 @@ export default function TeamSection({ content }: { content?: TeamContent }) {
                   <div className="relative aspect-[4/5] min-h-[300px] overflow-hidden bg-gray-100 flex-shrink-0">
                     <img 
                       src={member.photo} 
+                      srcSet={member.smallMobileSrc ? `${member.smallMobileSrc} 200w, ${member.mobileSrc} 280w, ${member.photo} 400w` : undefined}
+                      sizes="(max-width: 480px) 200px, (max-width: 768px) 280px, 400px"
                       alt={member.name} 
                       className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     />
@@ -115,6 +119,8 @@ export default function TeamSection({ content }: { content?: TeamContent }) {
                   <div className="relative aspect-[4/5] min-h-[300px] overflow-hidden bg-gray-100 flex-shrink-0">
                     <img 
                       src={member.photo} 
+                      srcSet={member.smallMobileSrc ? `${member.smallMobileSrc} 200w, ${member.mobileSrc} 280w, ${member.photo} 400w` : undefined}
+                      sizes="(max-width: 480px) 200px, (max-width: 768px) 280px, 400px"
                       alt={member.name} 
                       className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     />
