@@ -80,7 +80,7 @@ const optimizedHeroImages = await Promise.all(
 const aboutDesktop = await resolveOptimizedImage(homepageContent?.about?.image, 1000, 1200, 80);
 const aboutMobile = await resolveOptimizedImage(homepageContent?.about?.image, 600, 720, 60);
 const aboutSmallMobile = await resolveOptimizedImage(homepageContent?.about?.image, 380, 456, 55);
-const optimizedAbout = { src: aboutDesktop, mobileSrc: aboutMobile, smallMobileSrc: aboutSmallMobile };
+const optimizedAbout = { image: aboutDesktop, mobileSrc: aboutMobile, smallMobileSrc: aboutSmallMobile };
 
 const whyChooseDesktop = await resolveOptimizedImage(homepageContent?.why_choose?.image, 800, 600, 80);
 const whyChooseMobile = await resolveOptimizedImage(homepageContent?.why_choose?.image, 480, 360, 60);
@@ -115,7 +115,7 @@ const optimizedTreatments = await Promise.all((homepageContent?.price_teller?.tr
   return { ...t, image: desktopSrc, mobileSrc, smallMobileSrc };
 }));
 
-// Optimize Clinic Gallery images
+// Optimize Clinic Gallery images (Limit to 6 on mobile)
 const optimizedClinicImages = await Promise.all(
   (homepageContent?.clinic_gallery?.images || []).map(async (img: any) => {
     const desktopSrc = await resolveOptimizedImage(img.src, 800, 600, 75);
@@ -125,7 +125,7 @@ const optimizedClinicImages = await Promise.all(
   })
 );
 
-// Optimize Photo Gallery images
+// Optimize Photo Gallery images (Limit to 6 on mobile)
 const optimizedPhotoImages = await Promise.all(
   (homepageContent?.photo_gallery?.images || []).map(async (img: any) => {
     const desktopSrc = await resolveOptimizedImage(img.src, 600, 600, 75);
@@ -254,7 +254,12 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   </div>
 
   {/* New Clinic Gallery Marquee (runs right to left) */}
-  <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.clinic_gallery, images: optimizedClinicImages }} />
+  <div class="hidden md:block">
+    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.clinic_gallery, images: optimizedClinicImages }} />
+  </div>
+  <div class="md:hidden">
+    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.clinic_gallery, images: optimizedClinicImages.slice(0, 6) }} />
+  </div>
 
   <MilestonesSection client:visible content={{ ...homepageContent?.milestones, image: optimizedMilestonesImage }} />
 
@@ -322,7 +327,12 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   <WhyChooseUsSection content={{ ...homepageContent?.why_choose, ...optimizedWhyChoose }} />
 
   {/* Photo gallery slider — needs JS for the rAF-driven scroll */}
-  <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.photo_gallery, images: optimizedPhotoImages }} hasGap={true} />
+  <div class="hidden md:block">
+    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.photo_gallery, images: optimizedPhotoImages }} hasGap={true} />
+  </div>
+  <div class="md:hidden">
+    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.photo_gallery, images: optimizedPhotoImages.slice(0, 6) }} hasGap={true} />
+  </div>
 
   {/* Static iframe-based reels */}
   <InstagramReelsSection client:visible content={homepageContent?.instagram_reels} />

@@ -51,7 +51,10 @@ const optimizedServices = await Promise.all(
 );
 
 // Optimize other images
-const optimizedAboutImage = await resolveOptimizedImage(data.about?.image, 1000, 1200, 80);
+const aboutDesktop = await resolveOptimizedImage(data.about?.image, 1000, 1200, 80);
+const aboutMobile = await resolveOptimizedImage(data.about?.image, 600, 720, 60);
+const aboutSmallMobile = await resolveOptimizedImage(data.about?.image, 380, 456, 55);
+const optimizedAbout = { image: aboutDesktop, mobileSrc: aboutMobile, smallMobileSrc: aboutSmallMobile };
 const optimizedFaqImage = await resolveOptimizedImage(data.faq?.image, 1000, 750, 80);
 
 // Optimize Gallery images
@@ -73,7 +76,7 @@ const optimizedData = {
   ...data,
   hero_carousel: { ...data.hero_carousel, images: optimizedHeroImages },
   services: { ...data.services, cards: optimizedServices },
-  about: { ...data.about, image: optimizedAboutImage },
+  about: { ...data.about, ...optimizedAbout },
   clinic_gallery: { ...data.clinic_gallery, images: optimizedClinicImages },
   photo_gallery: { ...data.photo_gallery, images: optimizedPhotoImages },
   faq: { ...data.faq, image: optimizedFaqImage }
