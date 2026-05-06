@@ -70,9 +70,9 @@ async function resolveOptimizedImage(src: string, width: number, height: number,
 // Optimize Hero Carousel images
 const optimizedHeroImages = await Promise.all(
   (homepageContent?.hero_carousel?.images || []).map(async (img: any) => {
-    const desktopSrc = await resolveOptimizedImage(img.src, 1200, 750, 75);
-    const mobileSrc = await resolveOptimizedImage(img.src, 640, 480, 50);
-    const smallMobileSrc = await resolveOptimizedImage(img.src, 380, 285, 45);
+    const desktopSrc = await resolveOptimizedImage(img.src, 1000, 625, 75);
+    const mobileSrc = await resolveOptimizedImage(img.src, 600, 450, 50);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 360, 270, 45);
     return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
@@ -94,9 +94,9 @@ const optimizedFaqImage = await resolveOptimizedImage(homepageContent?.faq?.imag
 // Build services array — use optimized image
 const services = await Promise.all((homepageContent?.services?.cards || []).map(async (card: any) => {
   const imageUrl = card.image || '/uploads/service-general-dentistry.png';
-  const desktopSrc = await resolveOptimizedImage(imageUrl, 800, 600, 75);
-  const mobileSrc = await resolveOptimizedImage(imageUrl, 480, 360, 60);
-  const smallMobileSrc = await resolveOptimizedImage(imageUrl, 320, 240, 55);
+  const desktopSrc = await resolveOptimizedImage(imageUrl, 600, 450, 75);
+  const mobileSrc = await resolveOptimizedImage(imageUrl, 450, 338, 50);
+  const smallMobileSrc = await resolveOptimizedImage(imageUrl, 300, 225, 45);
   return {
     title: card.title,
     description: card.description,
@@ -119,9 +119,9 @@ const optimizedTreatments = await Promise.all((homepageContent?.price_teller?.tr
 // Optimize Clinic Gallery images (Limit to 6 on mobile)
 const optimizedClinicImages = await Promise.all(
   (homepageContent?.clinic_gallery?.images || []).map(async (img: any) => {
-    const desktopSrc = await resolveOptimizedImage(img.src, 800, 600, 75);
-    const mobileSrc = await resolveOptimizedImage(img.src, 480, 360, 50);
-    const smallMobileSrc = await resolveOptimizedImage(img.src, 320, 240, 45);
+    const desktopSrc = await resolveOptimizedImage(img.src, 500, 500, 75);
+    const mobileSrc = await resolveOptimizedImage(img.src, 400, 400, 50);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 300, 300, 45);
     return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
@@ -194,8 +194,8 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
       rel="preload" 
       as="image" 
       href={optimizedHeroImages[0].src} 
-      imagesrcset={`${optimizedHeroImages[0].smallMobileSrc} 380w, ${optimizedHeroImages[0].mobileSrc} 640w, ${optimizedHeroImages[0].src} 1200w`}
-      imagesizes="(max-width: 480px) 380px, (max-width: 768px) 640px, 1200px"
+      imagesrcset={`${optimizedHeroImages[0].smallMobileSrc} 380w, ${optimizedHeroImages[0].mobileSrc} 600w, ${optimizedHeroImages[0].src} 1000w`}
+      imagesizes="(max-width: 480px) 380px, (max-width: 768px) 600px, 1000px"
       slot="head"
       fetchpriority="high"
     />

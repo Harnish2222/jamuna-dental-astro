@@ -26,8 +26,8 @@ const HeroCarousel = ({ images }: HeroCarouselProps) => {
             <div className="relative aspect-[16/10] md:aspect-[16/11] lg:aspect-[16/13] overflow-hidden rounded-[2.5rem] md:rounded-[3rem] shadow-2xl border-4 border-white/40 bg-muted">
               <img
                 src={image.src}
-                srcSet={image.smallMobileSrc ? `${image.smallMobileSrc} 380w, ${image.mobileSrc} 640w, ${image.src} 1200w` : (image.mobileSrc ? `${image.mobileSrc} 640w, ${image.src} 1200w` : undefined)}
-                sizes="(max-width: 480px) 380px, (max-width: 768px) 640px, 1200px"
+                srcSet={image.smallMobileSrc ? `${image.smallMobileSrc} 380w, ${image.mobileSrc} 600w, ${image.src} 1000w` : (image.mobileSrc ? `${image.mobileSrc} 600w, ${image.src} 1000w` : undefined)}
+                sizes="(max-width: 480px) 380px, (max-width: 768px) 600px, 1000px"
                 alt={image.alt || "Dental clinic treatment"}
                 width={1400}
                 height={875}

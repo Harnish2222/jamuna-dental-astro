@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Screen from '@/screens/LandingPage.tsx';
 import { loadLandingContent } from '@/lib/load-landing';
 import { getImage } from 'astro:assets';
+import jfdcLogoSrc from '@/assets/jfdc-logo.png';
 
 const data = await loadLandingContent();
 
@@ -33,9 +34,9 @@ async function resolveOptimizedImage(src: string, width: number, height: number,
 // Optimize Hero Carousel images
 const optimizedHeroImages = await Promise.all(
   (data.hero_carousel?.images || []).map(async (img: any) => {
-    const desktopSrc = await resolveOptimizedImage(img.src, 1200, 750, 75);
-    const mobileSrc = await resolveOptimizedImage(img.src, 640, 480, 50);
-    const smallMobileSrc = await resolveOptimizedImage(img.src, 380, 285, 45);
+    const desktopSrc = await resolveOptimizedImage(img.src, 1000, 625, 75);
+    const mobileSrc = await resolveOptimizedImage(img.src, 600, 450, 50);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 360, 270, 45);
     return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
@@ -43,7 +44,7 @@ const optimizedHeroImages = await Promise.all(
 // Optimize Service card images
 const optimizedServices = await Promise.all(
   (data.services?.cards || []).map(async (card: any) => {
-    const desktopSrc = await resolveOptimizedImage(card.image, 800, 600, 75);
+    const desktopSrc = await resolveOptimizedImage(card.image, 600, 450, 75);
     const mobileSrc = await resolveOptimizedImage(card.image, 400, 300, 50);
     const smallMobileSrc = await resolveOptimizedImage(card.image, 300, 225, 45);
     return { ...card, image: desktopSrc, mobileSrc, smallMobileSrc };
@@ -76,14 +77,14 @@ const optimizedFaqImage = await resolveOptimizedImage(data.faq?.image, 1000, 750
 // Optimize Gallery images
 const optimizedClinicImages = await Promise.all(
   (data.clinic_gallery?.images || []).map(async (img: any) => {
-    const optimizedSrc = await resolveOptimizedImage(img.src, 800, 600, 75);
+    const optimizedSrc = await resolveOptimizedImage(img.src, 500, 500, 75);
     return { ...img, src: optimizedSrc };
   })
 );
 
 const optimizedPhotoImages = await Promise.all(
   (data.photo_gallery?.images || []).map(async (img: any) => {
-    const optimizedSrc = await resolveOptimizedImage(img.src, 600, 600, 75);
+    const optimizedSrc = await resolveOptimizedImage(img.src, 400, 400, 75);
     return { ...img, src: optimizedSrc };
   })
 );
@@ -98,6 +99,15 @@ const optimizedData = {
   photo_gallery: { ...data.photo_gallery, images: optimizedPhotoImages },
   faq: { ...data.faq, image: optimizedFaqImage }
 };
+
+// Optimize logo (140x140 for retina @ 70px display)
+const optimizedLogo = await getImage({
+  src: jfdcLogoSrc,
+  width: 140,
+  height: 140,
+  format: 'webp',
+  quality: 90
+});
 ---
 
 <BaseLayout
@@ -121,12 +131,12 @@ const optimizedData = {
       rel="preload" 
       as="image" 
       href={optimizedHeroImages[0].src} 
-      imagesrcset={`${optimizedHeroImages[0].smallMobileSrc} 380w, ${optimizedHeroImages[0].mobileSrc} 640w, ${optimizedHeroImages[0].src} 1200w`}
-      imagesizes="(max-width: 480px) 380px, (max-width: 768px) 640px, 1200px"
+      imagesrcset={`${optimizedHeroImages[0].smallMobileSrc} 380w, ${optimizedHeroImages[0].mobileSrc} 600w, ${optimizedHeroImages[0].src} 1000w`}
+      imagesizes="(max-width: 480px) 380px, (max-width: 768px) 600px, 1000px"
       slot="head"
       fetchpriority="high"
     />
   )}
 
-  <Screen data={optimizedData} client:load />
+  <Screen data={optimizedData} logo={optimizedLogo.src} client:load />
 </BaseLayout>

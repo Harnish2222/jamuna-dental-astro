@@ -4,6 +4,8 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import FindUsSection from '@/components/FindUsSection';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
+import { getImage } from 'astro:assets';
+import jfdcLogoSrc from '@/assets/jfdc-logo.png';
 
 // Self-host fonts for zero layout shift and faster loading
 import '@fontsource/outfit/300.css';
@@ -47,6 +49,15 @@ const resolvedCanonical = canonical ?? new URL(Astro.url.pathname, SITE_URL).toS
 const ldBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
 const GTAG_ID = 'AW-10788600128';
+
+// Optimize logo (140x140 for retina @ 70px display)
+const optimizedLogo = await getImage({
+  src: jfdcLogoSrc,
+  width: 140,
+  height: 140,
+  format: 'webp',
+  quality: 90
+});
 ---
 
 <!doctype html>
@@ -142,7 +153,7 @@ const GTAG_ID = 'AW-10788600128';
   <body>
     <div class="min-h-screen flex flex-col">
       {/* Mobile menu state lives in Navigation — kept as a hydrated island. */}
-      {!hideNav && <Navigation client:load />}
+      {!hideNav && <Navigation client:load logo={optimizedLogo.src} />}
 
       <main class="flex-1">
         <slot />

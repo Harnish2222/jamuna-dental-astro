@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import jfdcLogo from '@/assets/jfdc-logo.png';
 
-const Navigation = () => {
+const Navigation = ({ logo }: { logo?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -62,7 +62,7 @@ const Navigation = () => {
           {/* Logo */}
           <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2 cursor-pointer" aria-label="Scroll to top">
             <img 
-              src={jfdcLogo.src} 
+              src={logo || jfdcLogo.src} 
               alt="Jamuna Family Dental Care" 
               width={70} 
               height={70} 

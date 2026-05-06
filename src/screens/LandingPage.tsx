@@ -25,7 +25,7 @@ interface LandingPageProps {
   data: any;
 }
 
-const LandingPage = ({ data }: LandingPageProps) => {
+const LandingPage = ({ data, logo }: { data: any; logo?: string }) => {
   const landing = data;
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const LandingPage = ({ data }: LandingPageProps) => {
           <div className="flex items-center justify-between h-14 lg:h-16 px-4 lg:px-8">
             <div className="flex items-center gap-2">
               <img
-                src={jfdcLogo.src}
+                src={logo || jfdcLogo.src}
                 alt="JFDC Logo"
                 className="h-9 w-9 rounded-full border-2 border-primary/15 object-cover md:h-11 md:w-11"
               />

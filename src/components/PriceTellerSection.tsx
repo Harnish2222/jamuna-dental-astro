@@ -422,30 +422,6 @@ export default function PriceTellerSection({ content }: { content?: PriceTellerC
         </div>
         
       </div>
-      
-      {/* Custom Scrollbar Styles for the sidebar */}
-      <style>{`
-        .custom-scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .custom-scrollbar-hide {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent; 
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #cbd5e1; 
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #94a3b8; 
-        }
-      `}</style>
     </section>
   );
 }
