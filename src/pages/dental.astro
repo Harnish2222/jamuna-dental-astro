@@ -10,13 +10,13 @@ if (!data) {
   throw new Error("Failed to load landing page content");
 }
 
-// Resolve all images in public/uploads for Astro optimization
-const allUploads = import.meta.glob('/public/uploads/**/*.{png,jpg,jpeg,webp}', { eager: true });
+// Resolve all images in src/assets/uploads for Astro optimization
+const allUploads = import.meta.glob('/src/assets/uploads/**/*.{png,jpg,jpeg,webp}', { eager: true });
 
 async function resolveOptimizedImage(src: string, width: number, height: number, quality: number = 80) {
   if (!src) return null;
-  const publicPath = src.startsWith('/') ? `/public${src}` : `/public/${src}`;
-  const imageModule: any = allUploads[publicPath];
+  const assetPath = src.startsWith('/uploads/') ? `/src/assets${src}` : `/src/assets/uploads${src.startsWith('/') ? '' : '/'}${src}`;
+  const imageModule: any = allUploads[assetPath];
   if (!imageModule) return src;
   
   const optimized = await getImage({
