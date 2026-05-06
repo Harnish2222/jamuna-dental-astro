@@ -17,7 +17,9 @@ const allUploads = import.meta.glob('/src/assets/uploads/**/*.{png,jpg,jpeg,webp
 async function resolveOptimizedImage(src: string, width: number, height: number, quality: number = 80) {
   if (!src) return null;
   const decodedSrc = decodeURIComponent(src);
-  const assetPath = decodedSrc.startsWith('/uploads/') ? `/src/assets${decodedSrc}` : `/src/assets/uploads${decodedSrc.startsWith('/') ? '' : '/'}${decodedSrc}`;
+  const assetPath = decodedSrc.startsWith('src/assets/uploads/') 
+    ? `/${decodedSrc}` 
+    : (decodedSrc.startsWith('/uploads/') ? `/src/assets${decodedSrc}` : `/src/assets/uploads${decodedSrc.startsWith('/') ? '' : '/'}${decodedSrc}`);
   const imageModule: any = allUploads[assetPath];
   if (!imageModule) return src;
   

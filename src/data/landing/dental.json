@@ -226,14 +226,12 @@
       {
         "title": "Teeth Whitening",
         "description": "Brighter, whiter & more confident smiles.",
-        "before": "/uploads/service-smile-design.png",
-        "after": "/uploads/tetth whitening.jpg"
+        "image": "/uploads/teeth-whitening.jpg"
       },
       {
         "title": "Clear Aligners",
         "description": "Perfectly aligned teeth without metal braces.",
-        "before": "/uploads/service-general-dentistry.png",
-        "after": "/uploads/clear%20alligners.jpg"
+        "image": "/uploads/clear%20alligners.jpg"
       }
     ]
   },

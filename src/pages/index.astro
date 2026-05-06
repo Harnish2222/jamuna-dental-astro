@@ -47,7 +47,9 @@ async function resolveOptimizedImage(src: string, width: number, height: number,
   // Tina stores paths like "/uploads/image.png" or "/uploads/image%20with%20space.png"
   // We need to decode it to match the actual file system key used by Vite glob
   const decodedSrc = decodeURIComponent(src);
-  const assetPath = decodedSrc.startsWith('/uploads/') ? `/src/assets${decodedSrc}` : `/src/assets/uploads${decodedSrc.startsWith('/') ? '' : '/'}${decodedSrc}`;
+  const assetPath = decodedSrc.startsWith('src/assets/uploads/') 
+    ? `/${decodedSrc}` 
+    : (decodedSrc.startsWith('/uploads/') ? `/src/assets${decodedSrc}` : `/src/assets/uploads${decodedSrc.startsWith('/') ? '' : '/'}${decodedSrc}`);
   
   const imageModule: any = allUploads[assetPath];
   
