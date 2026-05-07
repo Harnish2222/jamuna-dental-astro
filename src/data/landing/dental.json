@@ -249,7 +249,7 @@
     "image": "/src/assets/uploads/hero-jfdc-front.jpg",
     "stats": [
       { "icon": "Users", "value": 18, "suffix": "+", "label": "Years Experience", "iconColor": "text-primary", "bgColor": "bg-primary/5" },
-      { "icon": "Star", "value": 600, "suffix": "+", "label": "Patient Reviews", "iconColor": "text-[#009AA7]", "bgColor": "bg-[#009AA7]/10" },
+      { "icon": "Star", "value": 600, "suffix": "+", "label": "Patient Reviews", "iconColor": "text-teal", "bgColor": "bg-teal/10" },
       { "icon": "Heart", "value": 25, "suffix": "K+", "label": "Happy Patients", "iconColor": "text-destructive", "bgColor": "bg-destructive/5" },
       { "icon": "Clock", "value": 4, "suffix": ".9★", "label": "Google Rating", "iconColor": "text-primary", "bgColor": "bg-primary/5" }
     ]

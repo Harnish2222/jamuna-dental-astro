@@ -705,8 +705,8 @@
         "value": 600,
         "suffix": "+",
         "label": "Patient Reviews",
-        "iconColor": "text-accent-teal",
-        "bgColor": "bg-accent-teal/10"
+        "iconColor": "text-teal",
+        "bgColor": "bg-teal/10"
       },
       {
         "icon": "Heart",
