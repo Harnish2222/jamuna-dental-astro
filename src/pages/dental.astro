@@ -12,27 +12,26 @@ if (!data) {
 }
 
 // Resolve all images in src/assets/uploads for Astro optimization
-const allUploads = import.meta.glob('/src/assets/uploads/**/*.{png,jpg,jpeg,webp}', { eager: true });
+const allUploads = import.meta.glob('../assets/uploads/**/*.{png,jpg,jpeg,webp}', { eager: true });
 
 async function resolveOptimizedImage(src: string, width: number, height: number, quality: number = 80) {
   if (!src) return null;
   const decodedSrc = decodeURIComponent(src);
-  let assetPath = decodedSrc;
+  const filename = decodedSrc.split('/').pop();
+  if (!filename) return src;
+
+  // Try to find the image in the glob by matching the end of the key
+  const keys = Object.keys(allUploads);
+  const matchedKey = keys.find(key => key.endsWith(filename));
   
-  if (decodedSrc.startsWith('/src/assets/uploads/')) {
-    assetPath = decodedSrc;
-  } else if (decodedSrc.startsWith('src/assets/uploads/')) {
-    assetPath = `/${decodedSrc}`;
-  } else if (decodedSrc.startsWith('/uploads/')) {
-    assetPath = `/src/assets${decodedSrc}`;
-  } else if (decodedSrc.startsWith('uploads/')) {
-    assetPath = `/src/assets/${decodedSrc}`;
-  } else {
-    assetPath = `/src/assets/uploads${decodedSrc.startsWith('/') ? '' : '/'}${decodedSrc}`;
+  if (!matchedKey) {
+    if (import.meta.env.DEV) {
+      console.warn(`Could not find image: ${src}. Available keys:`, keys.slice(0, 10));
+    }
+    return src;
   }
-  
-  const imageModule: any = allUploads[assetPath];
-  if (!imageModule) return src;
+
+  const imageModule: any = allUploads[matchedKey];
   
   const optimized = await getImage({
     src: imageModule.default,
