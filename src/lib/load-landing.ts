@@ -1,11 +1,9 @@
-import fs from "fs";
-import path from "path";
+import { client } from "../../tina/__generated__/client";
 
 export async function loadLandingContent() {
   try {
-    const contentPath = path.join(process.cwd(), "src/data/landing/dental.json");
-    const fileContent = fs.readFileSync(contentPath, "utf-8");
-    return JSON.parse(fileContent);
+    const { data } = await client.queries.landing({ relativePath: "dental.json" });
+    return data.landing;
   } catch (error) {
     console.error("Error loading landing content:", error);
     return null;

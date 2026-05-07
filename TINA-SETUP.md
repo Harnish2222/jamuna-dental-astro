@@ -78,9 +78,11 @@ This starts:
 ```
 TinaCMS Editor (/admin)
     ↓
-src/data/homepage.json
+src/data/homepage.json (Storage)
     ↓
-src/lib/load-homepage.ts (loader)
+TinaCMS GraphQL API (via client.queries)
+    ↓
+src/lib/load-homepage.ts (loader using client)
     ↓
 src/pages/index.astro (uses content)
     ↓
@@ -91,14 +93,15 @@ Static HTML (built site)
 ```
 src/
 ├── data/
-│   └── homepage.json         ← Editable content (managed by TinaCMS)
+│   └── homepage.json         ← Content storage (managed by TinaCMS)
 ├── lib/
-│   └── load-homepage.ts      ← Content loader
+│   └── load-homepage.ts      ← Content loader (uses Tina GraphQL client)
 └── pages/
     └── index.astro           ← Homepage (uses loaded content)
 
 tina/
-└── config.ts                 ← TinaCMS schema & configuration
+├── config.ts                 ← TinaCMS schema & configuration
+└── __generated__/            ← Auto-generated GraphQL client & types
 
 .env.local                     ← GitHub OAuth credentials
 ```

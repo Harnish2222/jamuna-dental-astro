@@ -53,7 +53,7 @@
       }
     ],
     "stats": [],
-    "image": "/uploads/about%20jamuna%20dental.png",
+    "image": "/src/assets/uploads/about%20jamuna%20dental.png",
     "cta_text": "View Treatments →",
     "cta_secondary_text": "Meet Our Doctors"
   },
@@ -79,7 +79,7 @@
             "text": "Advanced Digital X-Rays"
           }
         ],
-        "image": "/uploads/service-general-dentistry.png",
+        "image": "/src/assets/uploads/service-general-dentistry.png",
         "link": "/services/general-dentistry/"
       },
       {
@@ -96,7 +96,7 @@
             "text": "Save the natural tooth"
           }
         ],
-        "image": "/uploads/root canal.jpg",
+        "image": "/src/assets/uploads/root canal.jpg",
         "link": "/services/general-dentistry/"
       },
       {
@@ -116,7 +116,7 @@
             "text": "Gum Care"
           }
         ],
-        "image": "/uploads/service-smile-design.png",
+        "image": "/src/assets/uploads/service-smile-design.png",
         "link": "/services/cosmetic-dentistry/"
       },
       {
@@ -133,7 +133,7 @@
             "text": "Bone Grafting"
           }
         ],
-        "image": "/uploads/dental implant.jpg",
+        "image": "/src/assets/uploads/dental implant.jpg",
         "link": "/services/dental-implants/"
       },
       {
@@ -150,7 +150,7 @@
             "text": "Porcelain Fused to Metal"
           }
         ],
-        "image": "/uploads/crowns and bridges1.jpg",
+        "image": "/src/assets/uploads/crowns and bridges1.jpg",
         "link": "/services/restorative-dentistry/"
       },
       {
@@ -167,7 +167,7 @@
             "text": "Invisible Braces"
           }
         ],
-        "image": "/uploads/clear%20alligners.jpg",
+        "image": "/src/assets/uploads/clear%20alligners.jpg",
         "link": "/services/orthodontics/"
       },
       {
@@ -184,7 +184,7 @@
             "text": "Preventive kids care"
           }
         ],
-        "image": "/uploads/pediatric-dentistry.png",
+        "image": "/src/assets/uploads/pediatric-dentistry.png",
         "link": "/services/pediatric-dentistry/"
       },
       {
@@ -201,7 +201,7 @@
             "text": "Walk-ins welcome"
           }
         ],
-        "image": "/uploads/emergency-toothache.png",
+        "image": "/src/assets/uploads/emergency-toothache.png",
         "link": "/services/emergency-dental-care/"
       }
     ]
@@ -209,7 +209,7 @@
   "why_choose": {
     "heading": "Your smile is our priority",
     "description": "Jamuna Family Dental Care focuses on comfortable treatments, advanced technology, and personalized patient-centered dental care to help patients maintain healthy and confident smiles.",
-    "image": "/uploads/why-choose-tooth.png",
+    "image": "/src/assets/uploads/why-choose-tooth.png",
     "features": [
       {
         "title": "Family-Centered Care",
@@ -259,7 +259,7 @@
         "answer": "We recommend visiting every 6 months for routine teeth cleanings and checkups. However, some patients may need frequent visits based on their oral health needs."
       }
     ],
-    "image": "/uploads/jamuna-clinic-interior.jpg"
+    "image": "/src/assets/uploads/jamuna-clinic-interior.jpg"
   },
   "price_teller": {
     "badge": "Most Affordable in Dindigul",
@@ -268,7 +268,7 @@
     "treatments": [
       {
         "label": "Root Canal",
-        "image": "/uploads/service-root-canal.jpg",
+        "image": "/src/assets/uploads/root canal.jpg",
         "services": [
           {
             "name": "Root Canal – Front Teeth",
@@ -290,7 +290,7 @@
       },
       {
         "label": "Dental Implants",
-        "image": "/uploads/dental-implants.jpg",
+        "image": "/src/assets/uploads/dental-implants.jpg",
         "services": [
           {
             "name": "Basic Implants",
@@ -308,7 +308,7 @@
       },
       {
         "label": "Braces",
-        "image": "/uploads/orthodontics-aligners.jpg",
+        "image": "/src/assets/uploads/orthodontics-aligners.jpg",
         "services": [
           {
             "name": "Metal Braces (EMI available)",
@@ -338,7 +338,7 @@
       },
       {
         "label": "Aligners",
-        "image": "/uploads/clear%20alligners.jpg",
+        "image": "/src/assets/uploads/clear%20alligners.jpg",
         "services": [
           {
             "name": "Basic Aligner (14 days)",
@@ -356,7 +356,7 @@
       },
       {
         "label": "Crowns",
-        "image": "/uploads/crown.png",
+        "image": "/src/assets/uploads/crown.png",
         "services": [
           {
             "name": "Zirconia – Basic (5 yr warranty)",
@@ -394,7 +394,7 @@
       },
       {
         "label": "Teeth Whitening",
-        "image": "/uploads/tetth whitening.jpg",
+        "image": "/src/assets/uploads/tetth whitening.jpg",
         "services": [
           {
             "name": "Single Tooth",
@@ -408,7 +408,7 @@
       },
       {
         "label": "Teeth Cleaning",
-        "image": "/uploads/stock-dental-exam.jpg",
+        "image": "/src/assets/uploads/stock-dental-exam.jpg",
         "services": [
           {
             "name": "Scaling – Front Teeth",
@@ -438,7 +438,7 @@
       },
       {
         "label": "Teeth Fillings",
-        "image": "/uploads/teeth fillings.png",
+        "image": "/src/assets/uploads/teeth fillings.png",
         "services": [
           {
             "name": "GIC Filling – Basic",
@@ -464,7 +464,7 @@
       },
       {
         "label": "Extraction",
-        "image": "/uploads/tooth%20extraction.jpg",
+        "image": "/src/assets/uploads/tooth%20extraction.jpg",
         "services": [
           {
             "name": "Pre Shedding",
@@ -486,7 +486,7 @@
       },
       {
         "label": "Dentures",
-        "image": "/uploads/dentures.png",
+        "image": "/src/assets/uploads/dentures.png",
         "services": [
           {
             "name": "Complete Denture – Basic",
@@ -514,39 +514,60 @@
     "description": "Every smile has a story. Explore real before & after results from our happy patients.",
     "transformations": [
       {
-        "title": "Teeth Whitening",
-        "description": "Brighter, whiter & more confident smiles.",
-        "image": "/uploads/teeth-whitening.jpg"
+        "title": "",
+        "description": "",
+        "image": "/src/assets/uploads/1.webp"
       },
       {
-        "title": "Clear Aligners",
-        "description": "Perfectly aligned teeth without metal braces.",
-        "image": "/uploads/clear%20alligners.jpg"
+        "title": "",
+        "description": "",
+        "image": "/src/assets/uploads/3.webp"
+      },
+      {
+        "title": "",
+        "description": "",
+        "image": "/src/assets/uploads/2.webp"
+      },
+      {
+        "image": "/src/assets/uploads/4.webp"
+      },
+      {
+        "image": "/src/assets/uploads/5.webp"
+      },
+      {
+        "image": "/src/assets/uploads/6.webp"
+      },
+      {
+        "image": "/src/assets/uploads/7.webp"
+      },
+      {
+        "title": "",
+        "image": "/src/assets/uploads/8.webp"
       }
     ]
   },
   "hero_carousel": {
     "images": [
       {
-        "src": "/uploads/jfdc clinic.png",
+        "src": "/src/assets/uploads/jfdc clinic.png",
         "alt": "jfdc"
       },
       {
-        "src": "/uploads/happy-family-appointment.jpg"
+        "src": "/src/assets/uploads/happy-family-appointment.jpg"
       },
       {
-        "src": "/uploads/hero-treatment-room-blue.jpg",
+        "src": "/src/assets/uploads/hero-treatment-room-blue.jpg",
         "alt": "Modern blue treatment room"
       },
       {
-        "src": "/uploads/service-smile-design.png"
+        "src": "/src/assets/uploads/service-smile-design.png"
       },
       {
-        "src": "/uploads/hero-doctor-child.jpg",
+        "src": "/src/assets/uploads/hero-doctor-child.jpg",
         "alt": "Doctor treating a child patient"
       },
       {
-        "src": "/uploads/hero-consultation-room.jpg",
+        "src": "/src/assets/uploads/hero-consultation-room.jpg",
         "alt": "Doctor consultation room"
       }
     ]
@@ -669,7 +690,7 @@
     "heading_part1": "Numbers That",
     "heading_part2": "Speak for Us",
     "description": "Trusted by families across Dindigul since 2011",
-    "image": "/uploads/hero-jfdc-front.jpg",
+    "image": "/src/assets/uploads/hero-jfdc-front.jpg",
     "stats": [
       {
         "icon": "Users",
@@ -734,31 +755,31 @@
     "description": "Experience world-class dental care in a clean, hygienic, and relaxing environment.",
     "images": [
       {
-        "src": "/uploads/clinic3.jpg"
+        "src": "/src/assets/uploads/clininc5.jpg"
       },
       {
-        "src": "/uploads/clininc2.jpg"
+        "src": "/src/assets/uploads/clinic4.jpg"
       },
       {
-        "src": "/uploads/clininc5.jpg"
+        "src": "/src/assets/uploads/JAMUNA BE AF.jpg"
       },
       {
-        "src": "/uploads/clinic1.jpg"
+        "src": "/src/assets/uploads/hero-reception.jpg"
       },
       {
-        "src": "/uploads/clinic4.jpg"
+        "src": "/src/assets/uploads/clinic3.jpg"
       },
       {
-        "src": "/uploads/hero-consultation-room.jpg"
+        "src": "/src/assets/uploads/clinic1.jpg"
       },
       {
-        "src": "/uploads/hero-reception.jpg"
+        "src": "/src/assets/uploads/hero-consultation-room.jpg"
       },
       {
-        "src": "/uploads/jamuna-doctor-operation.jpg"
+        "src": "/src/assets/uploads/jamuna-doctor-operation.jpg"
       },
       {
-        "src": "/uploads/pediatric dentistry.jpg"
+        "src": "/src/assets/uploads/JAMUNA BE AF (1).jpg"
       }
     ]
   },
@@ -769,55 +790,51 @@
     "description": "Business leaders, educators, and public figures from Dindigul who choose Jamuna Family Dental Care.",
     "images": [
       {
-        "src": "/uploads/vip-kamalahassan.jpg",
+        "src": "/src/assets/uploads/12.jpg",
         "alt": "Mr. N. KamalaHassan - Anil Foods MD at JFDC"
       },
       {
-        "src": "/uploads/vip-vengatachalam.jpg",
+        "src": "/src/assets/uploads/11.jpg",
         "alt": "Mr. Vengatachalam - Vivera Grande MD at JFDC"
       },
       {
-        "src": "/uploads/vip-palpandi.jpg",
+        "src": "/src/assets/uploads/9.jpg",
         "alt": "Mr. Palpandi - MSP School HM at JFDC"
       },
       {
-        "src": "/uploads/vip-ramji.jpg",
+        "src": "/src/assets/uploads/10.jpg",
         "alt": "Mr. Ramji Natarajan - SMB CBSE Principal at JFDC"
       },
       {
-        "src": "/uploads/vip-ravi.jpg",
+        "src": "/src/assets/uploads/7.jpg",
         "alt": "Mr. Ravi Thiyagarajan - Chettinadu Construction at JFDC"
       },
       {
-        "src": "/uploads/vip-ravichandran.jpg",
+        "src": "/src/assets/uploads/8.jpg",
         "alt": "Mr. Ravichandran - Padma Lites MD at JFDC"
       },
       {
-        "src": "/uploads/vip-ramesh.jpg",
+        "src": "/src/assets/uploads/6.jpg",
         "alt": "Mr. S. Ramesh - Naga Foods Director at JFDC"
       },
       {
-        "src": "/uploads/vip-arul.jpg",
+        "src": "/src/assets/uploads/3.jpg",
         "alt": "Dr. Er. Arul - VA Consultancy at JFDC"
       },
       {
-        "src": "/uploads/vip-thenmozhi.jpg",
+        "src": "/src/assets/uploads/5.jpg",
         "alt": "Mrs. Thenmozhi MLA & Mr. Gunasekar - Nilakottai MLA at JFDC"
       },
       {
-        "src": "/uploads/vip-vengatachalam-steels.jpg",
+        "src": "/src/assets/uploads/4.jpg",
         "alt": "Mr. Vengatachalam - 3S Shree Sivabalaaji Steels Vice Chairman at JFDC"
       },
       {
-        "src": "/uploads/vip-sujana.jpg",
+        "src": "/src/assets/uploads/2.jpg",
         "alt": "Mrs. Sujana - iGenius Int PreSchool at JFDC"
       },
       {
-        "src": "/uploads/vip-arul-2.jpg",
-        "alt": "Dr. Er. Arul - VA Consultancy at JFDC"
-      },
-      {
-        "src": "/uploads/vip-manoharan.jpg",
+        "src": "/src/assets/uploads/1.jpg",
         "alt": "Mr. Manoharan - Ambal Jeweller MD at JFDC"
       }
     ]
@@ -845,46 +862,46 @@
     "description": "Our team of highly qualified and experienced dentists are dedicated to providing you with the best dental care possible.",
     "members": [
       {
-        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_44_32 PM.png",
+        "photo": "/src/assets/uploads/ChatGPT Image May 3, 2026, 12_44_32 PM.png",
         "name": "Dr T Arun Sarath Baabu, MDS",
         "role": "Root Canal Specialist & Smile Designing Expert",
         "qualifications": "",
         "bio": "I make your Smiles Insta-worthy !"
       },
       {
-        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_35_52 PM.png",
+        "photo": "/src/assets/uploads/ChatGPT Image May 3, 2026, 12_35_52 PM.png",
         "name": "Dr V Priyanka",
         "role": "Esthetic Dentist ",
         "qualifications": "",
         "bio": "I get you Sparkling Smiles!"
       },
       {
-        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_24_55 PM.png",
+        "photo": "/src/assets/uploads/ChatGPT Image May 3, 2026, 12_24_55 PM.png",
         "name": "Dr T Hema Kalai Chelvi, MDS",
         "role": "Dental Implant Specialist",
         "qualifications": "",
         "bio": "I replace your missing teeth !!"
       },
       {
-        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_50_47 PM.png",
+        "photo": "/src/assets/uploads/ChatGPT Image May 3, 2026, 12_50_47 PM.png",
         "name": "Dr T Arivukkarasu, MDS",
         "role": "Gum and Surgery Specialist",
         "bio": "I make your Teeth stronger and Rock-solid"
       },
       {
-        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_17_53 PM.png",
+        "photo": "/src/assets/uploads/ChatGPT Image May 3, 2026, 12_17_53 PM.png",
         "name": "Dr S Sindhu",
         "role": "General Dentist",
         "bio": "I give you a comprehensive dental care"
       },
       {
-        "photo": "/uploads/ChatGPT Image May 3, 2026, 12_16_06 PM.png",
+        "photo": "/src/assets/uploads/ChatGPT Image May 3, 2026, 12_16_06 PM.png",
         "name": "Dr A Balamurugan",
         "role": "Child Specialist",
         "bio": "I protect your kids' teeth with no pain or fear "
       },
       {
-        "photo": "/uploads/dr noor.png",
+        "photo": "/src/assets/uploads/dr noor.png",
         "name": "Dr Noorul Thasleem",
         "role": "General Dentist",
         "bio": "I repair your damaged and decayed tooth"
@@ -895,7 +912,7 @@
     "heading_part1": "Book Your",
     "heading_part2": "Dental Visit",
     "description": "Take the first step towards a healthier smile. Fill in your details and our patient care team will reach out within 30 minutes to confirm your visit.",
-    "image": "/uploads/happy-family-appointment.jpg"
+    "image": "/src/assets/uploads/happy-family-appointment.jpg"
   },
   "settings": {
     "title": "Best Dental Clinic in Dindigul | Jamuna Family Dental Care",

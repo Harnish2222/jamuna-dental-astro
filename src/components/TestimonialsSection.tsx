@@ -75,7 +75,7 @@ const TestimonialsSection = ({ content }: { content?: TestimonialsContent }) => 
                 </div>
                 <div className="flex flex-col sm:flex-row items-center gap-3">
                   <div className="flex items-center gap-2 bg-[#F8F9FA] px-4 py-1.5 rounded-full border border-gray-100">
-                    <span className="text-2xl font-bold text-[#202124]">5.0</span>
+                    <span className="text-2xl font-bold text-[#202124]">4.9</span>
                     <div className="flex gap-0.5 text-[#FBBC05] drop-shadow-sm">
                       {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
                     </div>
@@ -102,16 +102,16 @@ const TestimonialsSection = ({ content }: { content?: TestimonialsContent }) => 
                 opts={{ align: "start", loop: true }}
                 plugins={[
                   Autoplay({
-                    delay: 6000,
+                    delay: 5000,
                     stopOnMouseEnter: true,
-                    stopOnInteraction: true,
+                    stopOnInteraction: false,
                   }),
                 ]}
                 className="w-full"
               >
                 <CarouselContent className="-ml-4 md:-ml-6">
                   {reviews.map((review, index) => (
-                    <CarouselItem key={index} className="pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                    <CarouselItem key={index} className="pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3">
                       <div className="bg-[#F8F9FA] rounded-xl p-8 h-full flex flex-col items-center text-center border border-gray-100">
                         {/* Stars */}
                         <div className="flex gap-1 text-[#FBBC05] mb-4">
@@ -126,7 +126,7 @@ const TestimonialsSection = ({ content }: { content?: TestimonialsContent }) => 
                         {review.content.length > 150 && (
                           <button 
                             onClick={() => toggleExpand(index)}
-                            className="text-[#70757A] text-sm hover:text-[#4285F4] transition-colors mb-6"
+                            className="text-[#202124] font-bold text-sm hover:text-[#4285F4] transition-colors mb-6 underline decoration-[#202124]/30 underline-offset-4"
                           >
                             {expandedIndices.includes(index) ? 'Read less' : 'Read more'}
                           </button>

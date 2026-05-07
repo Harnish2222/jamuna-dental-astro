@@ -17,9 +17,20 @@ const allUploads = import.meta.glob('/src/assets/uploads/**/*.{png,jpg,jpeg,webp
 async function resolveOptimizedImage(src: string, width: number, height: number, quality: number = 80) {
   if (!src) return null;
   const decodedSrc = decodeURIComponent(src);
-  const assetPath = decodedSrc.startsWith('src/assets/uploads/') 
-    ? `/${decodedSrc}` 
-    : (decodedSrc.startsWith('/uploads/') ? `/src/assets${decodedSrc}` : `/src/assets/uploads${decodedSrc.startsWith('/') ? '' : '/'}${decodedSrc}`);
+  let assetPath = decodedSrc;
+  
+  if (decodedSrc.startsWith('/src/assets/uploads/')) {
+    assetPath = decodedSrc;
+  } else if (decodedSrc.startsWith('src/assets/uploads/')) {
+    assetPath = `/${decodedSrc}`;
+  } else if (decodedSrc.startsWith('/uploads/')) {
+    assetPath = `/src/assets${decodedSrc}`;
+  } else if (decodedSrc.startsWith('uploads/')) {
+    assetPath = `/src/assets/${decodedSrc}`;
+  } else {
+    assetPath = `/src/assets/uploads${decodedSrc.startsWith('/') ? '' : '/'}${decodedSrc}`;
+  }
+  
   const imageModule: any = allUploads[assetPath];
   if (!imageModule) return src;
   
@@ -79,14 +90,14 @@ const optimizedFaqImage = await resolveOptimizedImage(data.faq?.image, 1000, 750
 // Optimize Gallery images
 const optimizedClinicImages = await Promise.all(
   (data.clinic_gallery?.images || []).map(async (img: any) => {
-    const optimizedSrc = await resolveOptimizedImage(img.src, 500, 500, 75);
+    const optimizedSrc = await resolveOptimizedImage(img.src, 1200, 1200, 90);
     return { ...img, src: optimizedSrc };
   })
 );
 
 const optimizedPhotoImages = await Promise.all(
   (data.photo_gallery?.images || []).map(async (img: any) => {
-    const optimizedSrc = await resolveOptimizedImage(img.src, 400, 400, 75);
+    const optimizedSrc = await resolveOptimizedImage(img.src, 1000, 1000, 85);
     return { ...img, src: optimizedSrc };
   })
 );

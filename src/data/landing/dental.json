@@ -22,12 +22,12 @@
   },
   "hero_carousel": {
     "images": [
-      { "src": "/uploads/jfdc clinic.png", "alt": "jfdc" },
-      { "src": "/uploads/happy-family-appointment.jpg" },
-      { "src": "/uploads/hero-treatment-room-blue.jpg", "alt": "Modern blue treatment room" },
-      { "src": "/uploads/service-smile-design.png" },
-      { "src": "/uploads/hero-doctor-child.jpg", "alt": "Doctor treating a child patient" },
-      { "src": "/uploads/hero-consultation-room.jpg", "alt": "Doctor consultation room" }
+      { "src": "/src/assets/uploads/jfdc clinic.png", "alt": "jfdc" },
+      { "src": "/src/assets/uploads/happy-family-appointment.jpg" },
+      { "src": "/src/assets/uploads/hero-treatment-room-blue.jpg", "alt": "Modern blue treatment room" },
+      { "src": "/src/assets/uploads/service-smile-design.png" },
+      { "src": "/src/assets/uploads/hero-doctor-child.jpg", "alt": "Doctor treating a child patient" },
+      { "src": "/src/assets/uploads/hero-consultation-room.jpg", "alt": "Doctor consultation room" }
     ]
   },
   "service_marquee": {
@@ -66,7 +66,7 @@
           { "text": "Dental Fillings" },
           { "text": "Advanced Digital X-Rays" }
         ],
-        "image": "/uploads/service-general-dentistry.png"
+        "image": "/src/assets/uploads/service-general-dentistry.png"
       },
       {
         "title": "Root Canal Treatment",
@@ -76,7 +76,7 @@
           { "text": "Painless procedure" },
           { "text": "Save the natural tooth" }
         ],
-        "image": "/uploads/root canal.jpg"
+        "image": "/src/assets/uploads/root canal.jpg"
       },
       {
         "title": "Cosmetic Dentistry",
@@ -87,7 +87,7 @@
           { "text": "Smile Design" },
           { "text": "Gum Care" }
         ],
-        "image": "/uploads/service-smile-design.png"
+        "image": "/src/assets/uploads/service-smile-design.png"
       },
       {
         "title": "Dental Implants",
@@ -97,7 +97,7 @@
           { "text": "Full Mouth Rehabilitation" },
           { "text": "Bone Grafting" }
         ],
-        "image": "/uploads/dental implant.jpg"
+        "image": "/src/assets/uploads/dental implant.jpg"
       },
       {
         "title": "Crowns & Bridges",
@@ -107,7 +107,7 @@
           { "text": "Dental Bridges" },
           { "text": "Porcelain Fused to Metal" }
         ],
-        "image": "/uploads/crowns and bridges1.jpg"
+        "image": "/src/assets/uploads/crowns and bridges1.jpg"
       },
       {
         "title": "Braces & Aligners",
@@ -117,7 +117,7 @@
           { "text": "Clear Aligners" },
           { "text": "Invisible Braces" }
         ],
-        "image": "/uploads/clear%20alligners.jpg"
+        "image": "/src/assets/uploads/clear%20alligners.jpg"
       },
       {
         "title": "Kids Dentistry",
@@ -127,7 +127,7 @@
           { "text": "Child-friendly approach" },
           { "text": "Preventive kids care" }
         ],
-        "image": "/uploads/pediatric-dentistry.png"
+        "image": "/src/assets/uploads/pediatric-dentistry.png"
       },
       {
         "title": "Emergency Dental Care",
@@ -137,7 +137,7 @@
           { "text": "Same-day relief" },
           { "text": "Walk-ins welcome" }
         ],
-        "image": "/uploads/emergency-toothache.png"
+        "image": "/src/assets/uploads/emergency-toothache.png"
       }
     ]
   },
@@ -147,7 +147,7 @@
     "heading_part2": "Healthier Smile Begins Here",
     "subtitle": "Serving families across Dindigul with ethical, modern and comfortable dental care.",
     "description": "With experienced and certified dentists along with modern equipments, we provide both routine dental treatments and advanced dental procedures in a clean and hygienic environment. Jamuna Family Dental Care combines modern techniques with a gentle & friendly approach to help every patient achieve their dream smile.\n\nAt JFDC, we believe in making dentistry transparent, ethical and comfortable for families, young adults and professionals across Dindigul.",
-    "image": "/uploads/about%20jamuna%20dental.png",
+    "image": "/src/assets/uploads/about%20jamuna%20dental.png",
     "features": [
       { "title": "Certified & Experienced Specialists" },
       { "title": "Sterilized & Hygienic Clinic" },
@@ -186,23 +186,59 @@
     ]
   },
   "photo_gallery": {
-    "badge": "OUR ESTEEMED PATIENTS",
-    "heading_part1": "Trusted by",
-    "heading_part2": "Dindigul",
-    "description": "Business leaders, educators, and public figures who choose Jamuna Family Dental Care.",
+    "badge": "+ Our Esteemed Patients",
+    "heading_part1": "Trusted",
+    "heading_part2": "by Dindigul",
+    "description": "Business leaders, educators, and public figures from Dindigul who choose Jamuna Family Dental Care.",
     "images": [
-      { "src": "/uploads/vip-kamalahassan.jpg", "alt": "Mr. N. KamalaHassan - Anil Foods MD at JFDC" },
-      { "src": "/uploads/vip-vengatachalam.jpg", "alt": "Mr. Vengatachalam - Vivera Grande MD at JFDC" },
-      { "src": "/uploads/vip-palpandi.jpg", "alt": "Mr. Palpandi - MSP School HM at JFDC" },
-      { "src": "/uploads/vip-ramji.jpg", "alt": "Mr. Ramji Natarajan - SMB CBSE Principal at JFDC" },
-      { "src": "/uploads/vip-ravi.jpg", "alt": "Mr. Ravi Thiyagarajan - Chettinadu Construction at JFDC" },
-      { "src": "/uploads/vip-ravichandran.jpg", "alt": "Mr. Ravichandran - Padma Lites MD at JFDC" },
-      { "src": "/uploads/vip-ramesh.jpg", "alt": "Mr. S. Ramesh - Naga Foods Director at JFDC" },
-      { "src": "/uploads/vip-arul.jpg", "alt": "Dr. Er. Arul - VA Consultancy at JFDC" },
-      { "src": "/uploads/vip-thenmozhi.jpg", "alt": "Mrs. Thenmozhi MLA & Mr. Gunasekar - Nilakottai MLA at JFDC" },
-      { "src": "/uploads/vip-vengatachalam-steels.jpg", "alt": "Mr. Vengatachalam - 3S Shree Sivabalaaji Steels Vice Chairman at JFDC" },
-      { "src": "/uploads/vip-sujana.jpg", "alt": "Mrs. Sujana - iGenius Int PreSchool at JFDC" },
-      { "src": "/uploads/vip-manoharan.jpg", "alt": "Mr. Manoharan - Ambal Jeweller MD at JFDC" }
+      {
+        "src": "/src/assets/uploads/12.jpg",
+        "alt": "Mr. N. KamalaHassan - Anil Foods MD at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/11.jpg",
+        "alt": "Mr. Vengatachalam - Vivera Grande MD at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/9.jpg",
+        "alt": "Mr. Palpandi - MSP School HM at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/10.jpg",
+        "alt": "Mr. Ramji Natarajan - SMB CBSE Principal at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/7.jpg",
+        "alt": "Mr. Ravi Thiyagarajan - Chettinadu Construction at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/8.jpg",
+        "alt": "Mr. Ravichandran - Padma Lites MD at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/6.jpg",
+        "alt": "Mr. S. Ramesh - Naga Foods Director at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/3.jpg",
+        "alt": "Dr. Er. Arul - VA Consultancy at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/5.jpg",
+        "alt": "Mrs. Thenmozhi MLA & Mr. Gunasekar - Nilakottai MLA at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/4.jpg",
+        "alt": "Mr. Vengatachalam - 3S Shree Sivabalaaji Steels Vice Chairman at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/2.jpg",
+        "alt": "Mrs. Sujana - iGenius Int PreSchool at JFDC"
+      },
+      {
+        "src": "/src/assets/uploads/1.jpg",
+        "alt": "Mr. Manoharan - Ambal Jeweller MD at JFDC"
+      }
     ]
   },
   "milestones": {
@@ -210,7 +246,7 @@
     "heading_part1": "Numbers That",
     "heading_part2": "Speak for Us",
     "description": "Trusted by families across Dindigul since 2011",
-    "image": "/uploads/hero-jfdc-front.jpg",
+    "image": "/src/assets/uploads/hero-jfdc-front.jpg",
     "stats": [
       { "icon": "Users", "value": 18, "suffix": "+", "label": "Years Experience", "iconColor": "text-primary", "bgColor": "bg-primary/5" },
       { "icon": "Star", "value": 600, "suffix": "+", "label": "Patient Reviews", "iconColor": "text-[#009AA7]", "bgColor": "bg-[#009AA7]/10" },
@@ -226,12 +262,22 @@
       {
         "title": "Teeth Whitening",
         "description": "Brighter, whiter & more confident smiles.",
-        "image": "/uploads/teeth-whitening.jpg"
+        "image": "/src/assets/uploads/teeth-whitening.jpg"
       },
       {
         "title": "Clear Aligners",
         "description": "Perfectly aligned teeth without metal braces.",
-        "image": "/uploads/clear%20alligners.jpg"
+        "image": "/src/assets/uploads/clear%20alligners.jpg"
+      },
+      {
+        "title": "Smile Makeover",
+        "description": "Complete smile transformation with advanced porcelain veneers.",
+        "image": "/src/assets/uploads/service-smile-design.jpg"
+      },
+      {
+        "title": "Dental Implants",
+        "description": "Permanent, natural-looking replacement for missing teeth.",
+        "image": "/src/assets/uploads/dental%20implant.jpg"
       }
     ]
   },
@@ -242,7 +288,7 @@
     "treatments": [
       {
         "label": "Root Canal",
-        "image": "/uploads/service-root-canal.jpg",
+        "image": "/src/assets/uploads/service-root-canal.jpg",
         "services": [
           { "name": "Root Canal – Front Teeth", "price": "Rs. 2,500" },
           { "name": "Root Canal – Back Teeth", "price": "Rs. 3,000" },
@@ -252,7 +298,7 @@
       },
       {
         "label": "Dental Implants",
-        "image": "/uploads/dental-implants.jpg",
+        "image": "/src/assets/uploads/dental-implants.jpg",
         "services": [
           { "name": "Basic Implants", "price": "Rs. 18,000" },
           { "name": "Advanced Implants", "price": "Rs. 25,000" },
@@ -261,7 +307,7 @@
       },
       {
         "label": "Braces",
-        "image": "/uploads/orthodontics-aligners.jpg",
+        "image": "/src/assets/uploads/orthodontics-aligners.jpg",
         "services": [
           { "name": "Metal Braces (EMI available)", "price": "Rs. 25,000" },
           { "name": "Ceramic Braces (EMI available)", "price": "Rs. 38,000" },
@@ -270,7 +316,7 @@
       },
       {
         "label": "Aligners",
-        "image": "/uploads/clear-alligners.jpg",
+        "image": "/src/assets/uploads/clear-alligners.jpg",
         "services": [
           { "name": "Basic Aligner (14 days)", "price": "Rs. 2,500 / Aligner" },
           { "name": "Advanced Aligner (7 days)", "price": "Rs. 3,500 / Aligner" },
@@ -279,7 +325,7 @@
       },
       {
         "label": "Crowns",
-        "image": "/uploads/dental-crowns.jpg",
+        "image": "/src/assets/uploads/dental-crowns.jpg",
         "services": [
           { "name": "Zirconia – Basic (5 yr warranty)", "price": "Rs. 6,000" },
           { "name": "Zirconia – Advanced (10 yr warranty)", "price": "Rs. 10,000" },
@@ -288,7 +334,7 @@
       },
       {
         "label": "Teeth Whitening",
-        "image": "/uploads/teeth-whitening.jpg",
+        "image": "/src/assets/uploads/teeth-whitening.jpg",
         "services": [
           { "name": "Single Tooth", "price": "Rs. 450" },
           { "name": "All Front Teeth", "price": "Rs. 2,500" }
@@ -296,7 +342,7 @@
       },
       {
         "label": "Teeth Cleaning",
-        "image": "/uploads/stock-dental-exam.jpg",
+        "image": "/src/assets/uploads/stock-dental-exam.jpg",
         "services": [
           { "name": "Scaling – Front Teeth", "price": "Rs. 450" },
           { "name": "Scaling – Moderate Stains", "price": "Rs. 1,200" }
@@ -304,7 +350,7 @@
       },
       {
         "label": "Teeth Fillings",
-        "image": "/uploads/service-smile-design.jpg",
+        "image": "/src/assets/uploads/service-smile-design.jpg",
         "services": [
           { "name": "GIC Filling – Basic", "price": "Rs. 500" },
           { "name": "Composite Filling – Back Tooth", "price": "Rs. 1,000" }
@@ -312,7 +358,7 @@
       },
       {
         "label": "Extraction",
-        "image": "/uploads/emergency-dental.jpg",
+        "image": "/src/assets/uploads/emergency-dental.jpg",
         "services": [
           { "name": "Extraction", "price": "Rs. 500" },
           { "name": "Impaction – Lower 3rd Molar", "price": "Rs. 3,500" }
@@ -320,7 +366,7 @@
       },
       {
         "label": "Dentures",
-        "image": "/uploads/stock-beautiful-smile.jpg",
+        "image": "/src/assets/uploads/stock-beautiful-smile.jpg",
         "services": [
           { "name": "Complete Denture – Basic", "price": "Rs. 9,000" },
           { "name": "Removable Denture", "price": "Rs. 500 / Tooth" }
@@ -331,7 +377,7 @@
   "why_choose": {
     "heading": "Your smile is our priority",
     "description": "Jamuna Family Dental Care focuses on comfortable treatments, advanced technology, and personalized patient-centered dental care to help patients maintain healthy and confident smiles.",
-    "image": "/uploads/why-choose-tooth.png",
+    "image": "/src/assets/uploads/why-choose-tooth.png",
     "features": [
       { "title": "Family-Centered Care", "description": "We provide dental care for all ages — children, adults, and seniors — with gentle, comfortable treatments tailored to each patient." },
       { "title": "4.9★ Rating | 600+ Reviews", "description": "Many patients highlight our professional care, advanced equipment, patient-friendly and comfortable & safe treatment experience. Trusted by families across Dindigul." },
@@ -344,22 +390,22 @@
     "heading_part2": "Facilities",
     "description": "Experience our world-class dental care infrastructure in Dindigul.",
     "images": [
-      { "src": "/uploads/clinic3.jpg" },
-      { "src": "/uploads/clininc2.jpg" },
-      { "src": "/uploads/clininc5.jpg" },
-      { "src": "/uploads/clinic1.jpg" },
-      { "src": "/uploads/clinic4.jpg" },
-      { "src": "/uploads/hero-consultation-room.jpg" },
-      { "src": "/uploads/hero-reception.jpg" },
-      { "src": "/uploads/jamuna-doctor-operation.jpg" },
-      { "src": "/uploads/pediatric dentistry.jpg" }
+      { "src": "/src/assets/uploads/clinic3.jpg" },
+      { "src": "/src/assets/uploads/clininc2.jpg" },
+      { "src": "/src/assets/uploads/clininc5.jpg" },
+      { "src": "/src/assets/uploads/clinic1.jpg" },
+      { "src": "/src/assets/uploads/clinic4.jpg" },
+      { "src": "/src/assets/uploads/hero-consultation-room.jpg" },
+      { "src": "/src/assets/uploads/hero-reception.jpg" },
+      { "src": "/src/assets/uploads/jamuna-doctor-operation.jpg" },
+      { "src": "/src/assets/uploads/pediatric dentistry.jpg" }
     ]
   },
   "faq": {
     "badge": "Common Questions",
     "heading_part1": "Everything You Need To Know",
     "heading_part2": "About Dental Care",
-    "image": "/uploads/jamuna-doctor-treatment.jpg",
+    "image": "/src/assets/uploads/jamuna-doctor-treatment.jpg",
     "items": [
       {
         "question": "What dental treatments do you offer?",

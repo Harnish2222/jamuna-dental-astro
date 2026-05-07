@@ -94,7 +94,7 @@ const PhotoGalleryMarquee = ({ content, hasGap = false, aspectRatio = "aspect-sq
           <div className="w-full overflow-hidden">
             <div ref={scrollRef} className={`flex will-change-transform ${hasGap ? 'gap-3 sm:gap-4 px-4 sm:px-6' : ''}`}>
               {tripleImages.map((image, index) => (
-                <div key={index} className={`group ${aspectRatio} w-[17rem] flex-shrink-0 overflow-hidden sm:w-72 md:w-80 lg:w-[22rem] ${hasGap ? 'rounded-2xl' : ''}`}>
+                <div key={index} className={`group ${aspectRatio} w-[18rem] flex-shrink-0 overflow-hidden sm:w-80 md:w-96 lg:w-[25rem] ${hasGap ? 'rounded-2xl' : ''}`}>
                   <img src={image.src} alt={image.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                 </div>
               ))}

@@ -232,7 +232,7 @@ const LandingPage = ({ data, logo }: { data: any; logo?: string }) => {
 
       <PriceTellerSection content={landing.price_teller} />
       
-      {/* <SmileGallerySection content={landing.smile_gallery} /> */}
+      <SmileGallerySection content={landing.smile_gallery} />
 
       <WhyChooseUsSection content={landing.why_choose} />
 

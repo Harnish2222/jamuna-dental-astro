@@ -47,15 +47,25 @@ async function resolveOptimizedImage(src: string, width: number, height: number,
   // Tina stores paths like "/uploads/image.png" or "/uploads/image%20with%20space.png"
   // We need to decode it to match the actual file system key used by Vite glob
   const decodedSrc = decodeURIComponent(src);
-  const assetPath = decodedSrc.startsWith('src/assets/uploads/') 
-    ? `/${decodedSrc}` 
-    : (decodedSrc.startsWith('/uploads/') ? `/src/assets${decodedSrc}` : `/src/assets/uploads${decodedSrc.startsWith('/') ? '' : '/'}${decodedSrc}`);
+  let assetPath = decodedSrc;
+  
+  if (decodedSrc.startsWith('/src/assets/uploads/')) {
+    assetPath = decodedSrc;
+  } else if (decodedSrc.startsWith('src/assets/uploads/')) {
+    assetPath = `/${decodedSrc}`;
+  } else if (decodedSrc.startsWith('/uploads/')) {
+    assetPath = `/src/assets${decodedSrc}`;
+  } else if (decodedSrc.startsWith('uploads/')) {
+    assetPath = `/src/assets/${decodedSrc}`;
+  } else {
+    assetPath = `/src/assets/uploads${decodedSrc.startsWith('/') ? '' : '/'}${decodedSrc}`;
+  }
   
   const imageModule: any = allUploads[assetPath];
   
   if (!imageModule) {
-    console.warn(`Could not find image in src/assets/uploads: ${src} (looked for ${assetPath})`);
-    return src; // Fallback to original URL
+    console.warn(`Could not find image: ${src} (tried ${assetPath})`);
+    return src;
   }
   
   const optimized = await getImage({
@@ -121,9 +131,9 @@ const optimizedTreatments = await Promise.all((homepageContent?.price_teller?.tr
 // Optimize Clinic Gallery images (Limit to 6 on mobile)
 const optimizedClinicImages = await Promise.all(
   (homepageContent?.clinic_gallery?.images || []).map(async (img: any) => {
-    const desktopSrc = await resolveOptimizedImage(img.src, 500, 500, 75);
-    const mobileSrc = await resolveOptimizedImage(img.src, 400, 400, 50);
-    const smallMobileSrc = await resolveOptimizedImage(img.src, 300, 300, 45);
+    const desktopSrc = await resolveOptimizedImage(img.src, 1200, 1200, 90);
+    const mobileSrc = await resolveOptimizedImage(img.src, 800, 800, 75);
+    const smallMobileSrc = await resolveOptimizedImage(img.src, 400, 400, 60);
     return { ...img, src: desktopSrc, mobileSrc, smallMobileSrc };
   })
 );
@@ -172,7 +182,7 @@ const faqs = homepageContent?.faq?.items?.map((item: any) => ({
 
 // Use settings from TinaCMS or fallback
 const title = homepageContent?.settings?.title || 'Best Dental Clinic in Dindigul | Jamuna Family Dental Care';
-const description = homepageContent?.settings?.description || 'Jamuna Family Dental Care – Best dental clinic in Dindigul offering dental implants, root canal, teeth whitening, braces, smile design & pediatric dentistry. 4.9★ rated, 553+ Google reviews. Call +91 7200 620 011.';
+const description = homepageContent?.settings?.description || 'Jamuna Family Dental Care – Best dental clinic in Dindigul offering dental implants, root canal, teeth whitening, braces, smile design & pediatric dentistry. 4.9★ rated, 600+ Google reviews. Call +91 7200 620 011.';
 ---
 
 <BaseLayout
@@ -362,13 +372,13 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
     }} 
   />
 
-  {/* <SmileGallerySection 
+  <SmileGallerySection 
     client:visible 
     content={{
       ...homepageContent?.smile_gallery,
       transformations: optimizedTransformations
     }} 
-  /> */}
+  />
 
   <TeamSection content={{ ...homepageContent?.team, members: optimizedTeamMembers }} />
 

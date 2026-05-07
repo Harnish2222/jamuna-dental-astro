@@ -12,11 +12,43 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({
     firstName: '', lastName: '', email: '', phone: '', service: '', message: '', preferredTime: ''
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    (window as any).gtag_report_form_conversion?.();
-    alert('Thank you for your request! We will contact you shortly to confirm your appointment.');
+    setSubmitting(true);
+
+    const data = {
+      ...formData,
+      formType: 'Contact Page Form'
+    };
+
+    try {
+      (window as any).gtag_report_form_conversion?.();
+
+      const { FORM_WEBHOOK_URL } = await import('@/lib/constants');
+      
+      if (FORM_WEBHOOK_URL) {
+        await fetch(FORM_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      }
+
+      setSuccess(true);
+      setSubmitting(false);
+      setFormData({
+        firstName: '', lastName: '', email: '', phone: '', service: '', message: '', preferredTime: ''
+      });
+      setTimeout(() => setSuccess(false), 5000);
+    } catch (err) {
+      console.error('Contact form submission failed:', err);
+      setSubmitting(false);
+      alert('Something went wrong. Please call us directly.');
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -95,7 +127,14 @@ const ContactSection = () => {
                 <Label htmlFor="c-message">Your Message</Label>
                 <Textarea id="c-message" value={formData.message} onChange={(e) => handleInputChange('message', e.target.value)} placeholder="Any concerns or questions..." className="mt-1 min-h-[100px]" />
               </div>
-              <Button type="submit" size="lg" className="w-full"><Send className="mr-2 w-5 h-5" />Request Appointment</Button>
+              <Button type="submit" size="lg" className={`w-full ${success ? 'bg-success text-success-foreground' : ''}`} disabled={submitting}>
+                {submitting ? 'Sending...' : success ? '✓ Request Received!' : 'Request Appointment'}
+              </Button>
+              {success && (
+                <div className="mt-4 p-4 bg-success/10 border border-success/20 text-success rounded-xl text-center text-sm font-bold">
+                  🎉 Thank you! We'll call you shortly to confirm your appointment.
+                </div>
+              )}
             </form>
           </AnimatedSection>
 

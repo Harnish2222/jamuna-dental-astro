@@ -105,6 +105,8 @@ Astro image imports return `ImageMetadata` objects `{ src: string, width: number
   ```
 
 - `dentalImages.ts` in `src/lib/` exports pre-resolved `.src` strings — use these freely in `<img>` tags.
+- **TinaCMS Uploads**: All TinaCMS images are saved to `src/assets/uploads/`.
+- **Optimization Pipeline**: In Astro pages, use the `resolveOptimizedImage` function (helper utilizing `import.meta.glob` and `getImage`) to ensure all CMS-managed images are optimized and served as WebP with proper responsive sizes.
 
 ---
 
@@ -131,10 +133,10 @@ Do **not** add `react-router-dom` as a dependency.
 
 ## Content & CMS
 
-- Clinic-wide settings: `src/content/site/clinic.json`
-- Service content: `src/content/services/*.mdx`
-- Static pages: `src/content/pages/*.mdx`
-- TinaCMS schema: `tina/config.ts` (install with `npm run tina:install` — excluded from default deps due to native `better-sqlite3` build requirement)
+- Homepage data: `src/data/homepage.json` (managed by TinaCMS)
+- Landing page data: `src/data/landing/dental.json` (managed by TinaCMS)
+- TinaCMS schema: `tina/config.ts`
+- Content fetching: Use `client.queries` from `tina/__generated__/client` in the lib loaders.
 
 ---
 
@@ -162,6 +164,8 @@ Do **not** add `react-router-dom` as a dependency.
 | Sitemap | `@astrojs/sitemap` v3.1.6 |
 | Deploy | Cloudflare Pages |
 | Domain | jamunadental.com |
+| Performance Target | Lighthouse 90+, Mobile Speed 81+ |
+| Image Strategy | Astro `getImage` + `src/assets/uploads` |
 
 ---
 

@@ -23,17 +23,45 @@ const AppointmentBookingSection = ({ content }: { content?: AppointmentContent }
   const [service, setService] = useState('Dental Implants');
   const [isSelectOpen, setIsSelectOpen] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
-    (window as any).gtag_report_form_conversion?.();
-    setTimeout(() => {
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      fullName: formData.get('fullName'),
+      phone: formData.get('phone'),
+      email: formData.get('email'),
+      treatment: service,
+      message: formData.get('message'),
+      formType: 'Appointment Form'
+    };
+
+    try {
+      // Track conversion
+      (window as any).gtag_report_form_conversion?.();
+
+      const { FORM_WEBHOOK_URL } = await import('@/lib/constants');
+      
+      if (FORM_WEBHOOK_URL) {
+        await fetch(FORM_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors', // Apps Script requires no-cors for simple redirects
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      }
+
       setSuccess(true);
       setSubmitting(false);
       (e.target as HTMLFormElement).reset();
       setService('Dental Implants');
       setTimeout(() => setSuccess(false), 5000);
-    }, 1200);
+    } catch (err) {
+      console.error('Form submission failed:', err);
+      setSubmitting(false);
+      alert('Something went wrong. Please call us directly.');
+    }
   };
 
   return (
@@ -79,17 +107,17 @@ const AppointmentBookingSection = ({ content }: { content?: AppointmentContent }
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Full Name</label>
-                    <input type="text" required placeholder="e.g. Priya Lakshmi" className="w-full px-6 py-4 bg-muted/50 border border-border rounded-xl text-foreground font-bold placeholder-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary/5 focus:bg-card focus:border-primary transition-all shadow-sm text-sm" />
+                    <input type="text" name="fullName" required placeholder="e.g. Priya Lakshmi" className="w-full px-6 py-4 bg-muted/50 border border-border rounded-xl text-foreground font-bold placeholder-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary/5 focus:bg-card focus:border-primary transition-all shadow-sm text-sm" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Phone Number</label>
-                    <input type="tel" required placeholder="+91 XXXXX XXXXX" className="w-full px-6 py-4 bg-muted/50 border border-border rounded-xl text-foreground font-bold placeholder-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary/5 focus:bg-card focus:border-primary transition-all shadow-sm text-sm" />
+                    <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX" className="w-full px-6 py-4 bg-muted/50 border border-border rounded-xl text-foreground font-bold placeholder-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary/5 focus:bg-card focus:border-primary transition-all shadow-sm text-sm" />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Email (Optional)</label>
-                    <input type="email" placeholder="name@email.com" className="w-full px-6 py-4 bg-muted/50 border border-border rounded-xl text-foreground font-bold placeholder-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary/5 focus:bg-card focus:border-primary transition-all shadow-sm text-sm" />
+                    <input type="email" name="email" placeholder="name@email.com" className="w-full px-6 py-4 bg-muted/50 border border-border rounded-xl text-foreground font-bold placeholder-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary/5 focus:bg-card focus:border-primary transition-all shadow-sm text-sm" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Treatment Needed</label>
@@ -115,7 +143,7 @@ const AppointmentBookingSection = ({ content }: { content?: AppointmentContent }
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Your Message</label>
-                  <textarea rows={2} placeholder="Tell us about your dental concern..." className="w-full px-6 py-4 bg-muted/50 border border-border rounded-xl text-foreground font-bold placeholder-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary/5 focus:bg-card focus:border-primary transition-all shadow-sm resize-none text-sm" />
+                  <textarea name="message" rows={2} placeholder="Tell us about your dental concern..." className="w-full px-6 py-4 bg-muted/50 border border-border rounded-xl text-foreground font-bold placeholder-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary/5 focus:bg-card focus:border-primary transition-all shadow-sm resize-none text-sm" />
                 </div>
                 <button type="submit" disabled={submitting} className={`w-full py-4 rounded-md font-bold text-sm uppercase tracking-[3px] transition-all shadow-xl hover:-translate-y-1 active:scale-[0.98] ${success ? 'bg-success text-success-foreground' : 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-primary/20 shadow-lg'}`}>
                   {submitting ? 'Booking...' : success ? '✓ Request Received!' : 'Book Appointment'}
