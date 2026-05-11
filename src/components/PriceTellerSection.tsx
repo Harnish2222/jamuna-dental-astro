@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronRight, ChevronDown, ShieldCheck, Settings, Calendar } from 'lucide-react';
+import { ChevronRight, ChevronDown, ShieldCheck, Settings, Calendar, Phone } from 'lucide-react';
 
 /* ── Custom Dental SVG Icons ───────────────────────────────────────────── */
 const IconTooth = ({ className }: { className?: string }) => (
@@ -409,10 +409,11 @@ export default function PriceTellerSection({ content }: { content?: PriceTellerC
                 <span>Prices may vary based on case complexity.</span>
               </div>
               <a 
-                href="#appointment" 
+                href="tel:+917200620011" 
+                onClick={() => (window as any).gtag_report_phone_conversion?.()}
                 className="bg-[#22c55e] hover:bg-[#16a34a] text-white font-semibold py-3 px-6 rounded-xl flex items-center gap-2 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto justify-center"
               >
-                <Calendar className="w-4 h-4" />
+                <Phone className="w-4 h-4" />
                 Call To Book Consultation
               </a>
             </div>
