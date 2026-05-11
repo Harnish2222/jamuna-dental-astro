@@ -21,14 +21,17 @@ export const websiteSchema = {
 export const dentistSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
+  '@id': `${SITE}/#dentist`,
   name: 'Jamuna Family Dental Care',
   alternateName: 'JFDC',
   description:
     'Modern dental clinic in Dindigul providing dental implants, root canal treatment, teeth whitening, braces, smile design, cosmetic dentistry, and pediatric dental care.',
   url: SITE,
   telephone: PHONE,
+  priceRange: '₹₹',
   address: ADDRESS,
   geo: { '@type': 'GeoCoordinates', latitude: 10.3673, longitude: 77.9803 },
+  hasMap: 'https://www.google.com/maps?cid=10919106066224151712',
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -40,6 +43,7 @@ export const dentistSchema = {
     'https://www.facebook.com/p/Jamuna-Family-Dental-Care-JFDC-100071995166959/',
     'https://in.linkedin.com/in/jamuna-family-dental-care-dindigul-0abb46358',
     'https://www.instagram.com/jamuna_family_dental_care/',
+    'https://maps.app.goo.gl/25QtWPxkh2uKd4V17',
   ],
   founder: {
     '@type': 'Person',
@@ -65,9 +69,15 @@ export const dentistSchema = {
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${SITE}/#organization`,
   name: 'Jamuna Family Dental Care',
   url: SITE,
-  logo: `${SITE}/og-image.jpg`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE}/og-image.jpg`,
+    width: '1200',
+    height: '630'
+  },
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: PHONE,

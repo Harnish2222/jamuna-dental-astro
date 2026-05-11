@@ -4,6 +4,7 @@ import Screen from '@/screens/LandingPage.tsx';
 import { loadLandingContent } from '@/lib/load-landing';
 import { getImage } from 'astro:assets';
 import jfdcLogoSrc from '@/assets/jfdc-logo.png';
+import { dentistSchema, organizationSchema } from '@/seo/schemas';
 
 const data: any = await loadLandingContent();
 
@@ -132,6 +133,7 @@ const optimizedLogo = await getImage({
   title={data.seo?.title || "Jamuna Family Dental Care | Trusted Family Dental Clinic in Dindigul"}
   description={data.seo?.description || "Expert MDS specialist dental care in Dindigul — implants, root canal, braces, kids dentistry. 4.9★ rated. Call +91 7200 620 011."}
   canonical={data.seo?.canonical || "https://jamunadental.com/dental"}
+  jsonLd={[dentistSchema, organizationSchema]}
   noindex={data.seo?.noindex}
   hideFooterMap
   hideNav
