@@ -31,7 +31,7 @@ const HeroCarousel = ({ images }: HeroCarouselProps) => {
                 alt={image.alt || "Dental clinic treatment"}
                 width={1400}
                 height={875}
-                fetchpriority={index === 0 ? "high" : "auto"}
+                fetchPriority={index === 0 ? "high" : "auto"}
                 loading={index === 0 ? "eager" : "lazy"}
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />

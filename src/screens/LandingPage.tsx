@@ -21,9 +21,7 @@ import jfdcLogo from '@/assets/jfdc-logo.png';
 const PHONE = '+917200620011';
 const PHONE_DISPLAY = '+91 7200 620 011';
 
-interface LandingPageProps {
-  data: any;
-}
+
 
 const LandingPage = ({ data, logo }: { data: any; logo?: string }) => {
   const landing = data;

@@ -27,9 +27,7 @@ export default defineConfig({
         name: "homepage",
         path: "src/data",
         format: "json",
-        ui: {
-          previewSrc: "/",
-        },
+        ui: {},
         match: {
           include: "homepage",
         },
@@ -730,9 +728,7 @@ export default defineConfig({
         name: "landing",
         path: "src/data/landing",
         format: "json",
-        ui: {
-          previewSrc: "/dental",
-        },
+        ui: {},
         fields: [
           {
             type: "object",

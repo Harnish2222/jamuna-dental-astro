@@ -5,7 +5,7 @@ import { loadLandingContent } from '@/lib/load-landing';
 import { getImage } from 'astro:assets';
 import jfdcLogoSrc from '@/assets/jfdc-logo.png';
 
-const data = await loadLandingContent();
+const data: any = await loadLandingContent();
 
 if (!data) {
   throw new Error("Failed to load landing page content");

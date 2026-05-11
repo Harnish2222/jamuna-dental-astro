@@ -100,6 +100,7 @@ const optimizedLogo = await getImage({
     {/* JSON-LD blocks rendered statically at build time */}
     {ldBlocks.map((block) => (
       <script
+        is:inline
         type="application/ld+json"
         set:html={JSON.stringify(block)}
       />
@@ -113,8 +114,8 @@ const optimizedLogo = await getImage({
     </script>
 
     {/* Google tag — loaded in Partytown web worker to prevent main-thread blocking */}
-    <script type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
-    <script type="text/partytown" define:vars={{ GTAG_ID }}>
+    <script is:inline type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+    <script is:inline type="text/partytown" define:vars={{ GTAG_ID }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
       window.gtag = gtag;

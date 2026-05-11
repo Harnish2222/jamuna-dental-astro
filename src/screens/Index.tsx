@@ -1,10 +1,10 @@
-import { ArrowRight, Phone, Stethoscope, Sparkles, Wrench, AlignCenter, Zap, Baby, Scissors, SmilePlus, ShieldCheck, HeartHandshake, Smile, Award, Siren, CheckCircle2 } from 'lucide-react';
+import { Phone, Stethoscope, Sparkles, Wrench, AlignCenter, Baby, SmilePlus, ShieldCheck, HeartHandshake, Award, Siren, CheckCircle2 } from 'lucide-react';
 import serviceImplants from '@/assets/service-implants.jpg';
 import AnimatedSection from '@/components/AnimatedSection';
 import serviceRootCanal from '@/assets/service-root-canal.jpg';
 import serviceToothExtraction from '@/assets/service-tooth-extraction.jpg';
 import serviceSmileDesign from '@/assets/service-smile-design.jpg';
-import serviceTeethWhitening from '@/assets/service-teeth-whitening.jpg';
+
 import { Link } from '@/lib/router-compat';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -17,13 +17,11 @@ import AboutUsSection from '@/components/AboutUsSection';
 import MilestonesSection from '@/components/MilestonesSection';
 import MissionVisionSection from '@/components/MissionVisionSection';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';
-import OurTeamSection from '@/components/OurTeamSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import AppointmentBookingSection from '@/components/AppointmentBookingSection';
 import PhotoGalleryMarquee from '@/components/PhotoGalleryMarquee';
 import InstagramReelsSection from '@/components/InstagramReelsSection';
-import BeforeAfterSection from '@/components/BeforeAfterSection';
-import SmileGallerySection from '@/components/SmileGallerySection';
+
 import { useRef } from 'react';
 import { dentalImages } from '@/lib/dentalImages';
 import SEO from '@/components/SEO';
@@ -34,7 +32,7 @@ import heroJfdcFront from '@/assets/hero-jfdc-front.jpg';
 import heroTreatmentBlue from '@/assets/hero-treatment-room-blue.jpg';
 import heroReception from '@/assets/hero-reception.jpg';
 import heroConsultation from '@/assets/hero-consultation-room.jpg';
-import heroTreatmentPink from '@/assets/hero-treatment-room-pink.jpg';
+
 import heroDoctorChild from '@/assets/hero-doctor-child.jpg';
 
 const Index = () => {
@@ -177,7 +175,7 @@ const Index = () => {
                   {heroImages.map((image, index) => (
                     <CarouselItem key={index}>
                       <img
-                        src={image.src}
+                        src={typeof image.src === 'string' ? image.src : (image.src as any).src}
                         alt={image.alt}
                         width={1200}
                         height={900}
@@ -220,7 +218,7 @@ const Index = () => {
                 <Link to={service.link}>
                   <Card className="group h-full overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border-border hover:border-primary/50">
                     <div className="relative aspect-[4/3] overflow-hidden">
-                      <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img src={typeof service.image === 'string' ? service.image : (service.image as any).src} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <service.icon className="absolute bottom-4 left-4 h-8 w-8 text-white" />
                     </div>

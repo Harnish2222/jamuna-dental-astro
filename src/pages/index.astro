@@ -22,10 +22,7 @@ import SmileGallerySection from '@/components/SmileGallerySection';
 
 // Static images
 import { Image } from 'astro:assets';
-// Hero avatar images — statically imported for Astro <Image> optimisation
-import dentist1 from '@/assets/indian-dentist-male-1.jpg';
-import dentist2 from '@/assets/indian-dentist-male-2.jpg';
-import hygienist from '@/assets/indian-hygienist-female.jpg';
+
 
 import {
   dentistSchema,
@@ -41,7 +38,7 @@ const homepageContent = await loadHomepageContent();
 // Resolve all images in src/assets/uploads for Astro optimization
 const allUploads = import.meta.glob('../assets/uploads/**/*.{png,jpg,jpeg,webp}', { eager: true });
 
-async function resolveOptimizedImage(src: string, width: number, height: number, quality: number = 80) {
+async function resolveOptimizedImage(src: string | null | undefined, width: number, height: number, quality: number = 80) {
   if (!src) return null;
   
   const decodedSrc = decodeURIComponent(src);
@@ -249,7 +246,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
                 <g><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 18V8"/></g>
               ];
               return (
-                <div class={`flex flex-col items-center px-4 ${idx !== homepageContent.hero.highlights.length - 1 ? 'border-r border-gray-300/60' : ''}`}>
+                <div class={`flex flex-col items-center px-4 ${idx !== (homepageContent?.hero?.highlights?.length || 0) - 1 ? 'border-r border-gray-300/60' : ''}`}>
                   <div class="w-12 h-12 rounded-full bg-white shadow-sm border border-blue-50 flex items-center justify-center mb-2">
                     <svg class="h-6 w-6 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       {icons[idx] || icons[0]}
@@ -291,23 +288,23 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   </section>
 
   {/* ─── Static sections (zero JS) ───────────────────────────────────── */}
-  <ServiceMarquee services={homepageContent?.service_marquee?.services} />
+  <ServiceMarquee services={homepageContent?.service_marquee?.services as any} />
 
   <div id="about">
-    <AboutUsSection content={{ ...homepageContent?.about, ...optimizedAbout }} />
+    <AboutUsSection content={{ ...homepageContent?.about, ...optimizedAbout } as any} />
   </div>
 
   {/* New Clinic Gallery Marquee (runs right to left) */}
   <div class="hidden md:block">
-    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.clinic_gallery, images: optimizedClinicImages }} />
+    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.clinic_gallery, images: optimizedClinicImages } as any} />
   </div>
   <div class="md:hidden">
-    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.clinic_gallery, images: optimizedClinicImages.slice(0, 6) }} />
+    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.clinic_gallery, images: optimizedClinicImages.slice(0, 6) } as any} />
   </div>
 
-  <MilestonesSection client:visible content={{ ...homepageContent?.milestones, image: optimizedMilestonesImage }} />
+  <MilestonesSection client:visible content={{ ...homepageContent?.milestones, image: optimizedMilestonesImage } as any} />
 
-  <MissionVisionSection client:visible content={homepageContent?.mission_vision} />
+  <MissionVisionSection client:visible content={homepageContent?.mission_vision as any} />
 
   {/* ─── Services grid (static HTML, just <a> + img) ─────────────────── */}
   <section id="services" class="py-20 bg-muted/30">
@@ -328,7 +325,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
               <div class="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={service.imageUrl}
-                  srcSet={`${service.smallMobileSrc} 320w, ${service.mobileSrc} 480w, ${service.imageUrl} 800w`}
+                  srcset={`${service.smallMobileSrc} 320w, ${service.mobileSrc} 480w, ${service.imageUrl} 800w`}
                   sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, 800px"
                   alt={service.title}
                   width={800}
@@ -342,7 +339,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
                 <h3 class="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
                 <p class="text-muted-foreground text-base leading-relaxed mb-4">{service.description}</p>
                 <ul class="space-y-1.5">
-                  {service.bullets.map((bullet) => (
+                  {service.bullets.map((bullet: string) => (
                     <li class="flex items-start gap-2 text-sm text-foreground/80">
                       <svg class="h-4 w-4 text-primary shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
                       <span>{bullet}</span>
@@ -362,7 +359,7 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
     content={{
       ...homepageContent?.price_teller,
       treatments: optimizedTreatments
-    }} 
+    } as any} 
   />
 
   <SmileGallerySection 
@@ -370,30 +367,30 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
     content={{
       ...homepageContent?.smile_gallery,
       transformations: optimizedTransformations
-    }} 
+    } as any} 
   />
 
-  <TeamSection content={{ ...homepageContent?.team, members: optimizedTeamMembers }} />
+  <TeamSection content={{ ...homepageContent?.team, members: optimizedTeamMembers } as any} />
 
-  <WhyChooseUsSection content={{ ...homepageContent?.why_choose, ...optimizedWhyChoose }} />
+  <WhyChooseUsSection content={{ ...homepageContent?.why_choose, ...optimizedWhyChoose } as any} />
 
   {/* Photo gallery slider — needs JS for the rAF-driven scroll */}
   <div class="hidden md:block">
-    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.photo_gallery, images: optimizedPhotoImages }} hasGap={true} />
+    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.photo_gallery, images: optimizedPhotoImages } as any} hasGap={true} />
   </div>
   <div class="md:hidden">
-    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.photo_gallery, images: optimizedPhotoImages.slice(0, 6) }} hasGap={true} />
+    <PhotoGalleryMarquee client:visible content={{ ...homepageContent?.photo_gallery, images: optimizedPhotoImages.slice(0, 6) } as any} hasGap={true} />
   </div>
 
   {/* Static iframe-based reels */}
-  <InstagramReelsSection client:visible content={homepageContent?.instagram_reels} />
+  <InstagramReelsSection client:visible content={homepageContent?.instagram_reels as any} />
 
   {/* JotForm widget injection — needs JS to mount the script */}
-  <TestimonialsSection client:visible content={homepageContent?.testimonials} />
+  <TestimonialsSection client:visible content={homepageContent?.testimonials as any} />
 
   <div id="appointment">
     {/* Form state lives here — hydrated island */}
-    <AppointmentBookingSection client:visible content={homepageContent?.appointment} />
+    <AppointmentBookingSection client:visible content={homepageContent?.appointment as any} />
   </div>
 
   {/* ─── FAQ — static HTML accordion (no React, no JS) ───────────────── */}

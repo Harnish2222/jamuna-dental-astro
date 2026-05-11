@@ -59,7 +59,7 @@ const TestimonialsSection = ({ content }: { content?: TestimonialsContent }) => 
         {/* Main Card Wrapper */}
         <div className="bg-white rounded-[2rem] shadow-xl p-6 md:p-10 border border-gray-100">
           {/* Authentic Google Header Block */}
-          <AnimatedSection animation="slide-up">
+          <AnimatedSection animation="fade-up">
             <div className="mb-10 flex flex-col md:flex-row justify-between items-center gap-6 border-b border-gray-100 pb-8">
               <div className="flex flex-col items-center md:items-start text-center md:text-left">
                 <div className="flex items-center mb-3">
@@ -96,7 +96,7 @@ const TestimonialsSection = ({ content }: { content?: TestimonialsContent }) => 
             </div>
           </AnimatedSection>
 
-          <AnimatedSection animation="fade-in" delay="delay-100">
+          <AnimatedSection animation="fade-up" delay="delay-100">
             <div className="w-full relative px-0 md:px-12">
               <Carousel
                 opts={{ align: "start", loop: true }}

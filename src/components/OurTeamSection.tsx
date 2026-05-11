@@ -45,7 +45,7 @@ const OurTeamSection = () => {
                     <svg className="absolute top-4 right-4 w-24 h-24 text-primary/5" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
                       <path d="M50 5C35 5 25 15 25 30C25 45 30 50 30 65C30 80 35 95 45 95C50 95 52 85 55 85C58 85 60 95 65 95C75 95 80 80 80 65C80 50 85 45 85 30C85 15 75 5 60 5C55 5 52 10 50 10C48 10 45 5 50 5Z" />
                     </svg>
-                    <img src={member.image} alt={member.name} className="relative z-10 w-full aspect-square object-cover object-top" loading="lazy" />
+                    <img src={typeof member.image === 'string' ? member.image : (member.image as any).src} alt={member.name} className="relative z-10 w-full aspect-square object-cover object-top" loading="lazy" />
                   </div>
                   <div className="bg-background p-4">
                     <h3 className="text-lg font-bold text-primary">{member.name}</h3>
