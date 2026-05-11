@@ -31,7 +31,7 @@ export const dentistSchema = {
   priceRange: '₹₹',
   address: ADDRESS,
   geo: { '@type': 'GeoCoordinates', latitude: 10.3635, longitude: 77.9886 },
-  hasMap: 'https://www.google.com/maps?cid=10919106066224151712',
+  hasMap: 'https://www.google.com/maps?cid=10919283906935451808',
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -43,7 +43,7 @@ export const dentistSchema = {
     'https://www.facebook.com/p/Jamuna-Family-Dental-Care-JFDC-100071995166959/',
     'https://in.linkedin.com/in/jamuna-family-dental-care-dindigul-0abb46358',
     'https://www.instagram.com/jamuna_family_dental_care/',
-    'https://maps.app.goo.gl/25QtWPxkh2uKd4V17',
+    'https://www.google.com/maps?cid=10919283906935451808',
   ],
   founder: {
     '@type': 'Person',
