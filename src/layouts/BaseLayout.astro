@@ -37,7 +37,7 @@ const {
   title,
   description,
   canonical,
-  ogImage = 'https://jamunadental.com/images/og-image.jpg',
+  ogImage = 'https://jamunadental.com/og-image.jpg',
   noindex = false,
   jsonLd,
   hideFooterMap = false,
@@ -47,6 +47,9 @@ const {
 const SITE_URL = 'https://jamunadental.com';
 const resolvedCanonical = canonical ?? new URL(Astro.url.pathname, SITE_URL).toString();
 const ldBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+
+import { websiteSchema } from '@/seo/schemas';
+ldBlocks.unshift(websiteSchema);
 
 const GTAG_ID = 'AW-10788600128';
 

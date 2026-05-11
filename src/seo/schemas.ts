@@ -11,6 +11,13 @@ const ADDRESS = {
   addressCountry: 'IN',
 };
 
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Jamuna Family Dental Care',
+  url: SITE,
+};
+
 export const dentistSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
