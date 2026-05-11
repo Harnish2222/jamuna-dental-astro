@@ -4,10 +4,10 @@ const SITE = 'https://jamunadental.com';
 const PHONE = '+917200620011';
 const ADDRESS = {
   '@type': 'PostalAddress',
-  streetAddress: '41, Kurinji Street, Ram Nagar, Near Vijayan Temptation',
+  streetAddress: '41-B, Kurinji Street, Round Rd, Ram Nagar',
   addressLocality: 'Dindigul',
   addressRegion: 'Tamil Nadu',
-  postalCode: '624001',
+  postalCode: '624005',
   addressCountry: 'IN',
 };
 
@@ -30,7 +30,7 @@ export const dentistSchema = {
   telephone: PHONE,
   priceRange: '₹₹',
   address: ADDRESS,
-  geo: { '@type': 'GeoCoordinates', latitude: 10.3673, longitude: 77.9803 },
+  geo: { '@type': 'GeoCoordinates', latitude: 10.3635, longitude: 77.9886 },
   hasMap: 'https://www.google.com/maps?cid=10919106066224151712',
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
