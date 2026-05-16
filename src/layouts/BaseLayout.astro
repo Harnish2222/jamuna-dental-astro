@@ -6,6 +6,7 @@ import FindUsSection from '@/components/FindUsSection';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
 import { getImage } from 'astro:assets';
 import jfdcLogoSrc from '@/assets/jfdc-logo.png';
+import { websiteSchema } from '@/seo/schemas';
 
 // Self-host fonts for zero layout shift and faster loading
 import '@fontsource/outfit/300.css';
@@ -54,8 +55,6 @@ const ldBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
 const GTAG_ID = gtagId || import.meta.env.PUBLIC_GTAG_ID || 'AW-10788600128';
 const GA4_ID = ga4Id || import.meta.env.PUBLIC_GA4_ID || 'G-XXXXXXXXXX';
-
-import { websiteSchema } from '@/seo/schemas';
 ldBlocks.unshift(websiteSchema);
 
 // Optimize logo (140x140 for retina @ 70px display)
