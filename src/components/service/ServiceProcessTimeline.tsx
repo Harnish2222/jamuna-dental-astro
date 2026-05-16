@@ -14,7 +14,11 @@ interface ServiceProcessTimelineProps {
   steps: ProcessStep[];
 }
 
-const ServiceProcessTimeline = ({ title, subtitle, steps }: ServiceProcessTimelineProps) => {
+const ServiceProcessTimeline = ({ 
+  title = "How It Works", 
+  subtitle = "Our step-by-step process for your dental treatment.", 
+  steps = [] 
+}: ServiceProcessTimelineProps) => {
   return (
     <section className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4">

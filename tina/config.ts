@@ -708,17 +708,26 @@ export default defineConfig({
           },
           {
             type: "object",
-            label: "Settings",
+            label: "Global Settings & SEO",
             name: "settings",
             fields: [
-              { type: "string", label: "Title", name: "title" },
+              { type: "string", label: "Site Title", name: "title" },
               {
                 type: "string",
-                label: "Description",
+                label: "Site Description",
                 name: "description",
                 ui: { component: "textarea" },
               },
-              { type: "string", label: "Canonical", name: "canonical" },
+              { type: "string", label: "Canonical URL", name: "canonical" },
+              {
+                type: "object",
+                label: "Tracking & Analytics",
+                name: "analytics",
+                fields: [
+                  { type: "string", label: "GA4 Measurement ID (G-XXXX)", name: "ga4_id" },
+                  { type: "string", label: "Google Ads Tag (AW-XXXX)", name: "gtag_id" },
+                ]
+              }
             ],
           },
         ],

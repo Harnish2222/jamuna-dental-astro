@@ -60,7 +60,7 @@ const Navigation = ({ logo }: { logo?: string }) => {
       >
         <div className="flex items-center justify-between h-14 lg:h-16 px-4 lg:px-8">
           {/* Logo */}
-          <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2 cursor-pointer" aria-label="Scroll to top">
+          <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2 cursor-pointer" aria-label="Scroll to top" data-tracking-label="Header Logo">
             <img 
               src={logo || jfdcLogo.src} 
               alt="Jamuna Family Dental Care" 

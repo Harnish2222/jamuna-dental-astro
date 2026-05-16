@@ -180,6 +180,8 @@ const description = homepageContent?.settings?.description || 'Jamuna Family Den
   description={description}
   canonical="https://jamunadental.com/"
   jsonLd={[dentistSchema, organizationSchema, breadcrumbHome, homeFaqSchema]}
+  ga4Id={homepageContent?.settings?.analytics?.ga4_id ?? undefined}
+  gtagId={homepageContent?.settings?.analytics?.gtag_id ?? undefined}
 >
   <style slot="head">
     /* Critical CSS for LCP improvement */

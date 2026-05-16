@@ -63,41 +63,41 @@
     "description": "From routine treatments to advanced procedures, we provide a full range of dental services for all age groups in a clean and hygienic environment.",
     "cards": [
       {
-        "title": "General & Preventive Dentistry",
-        "description": "Routine care to keep your smile healthy and catch issues early.",
+        "title": "General Dentistry & Teeth Cleaning",
+        "description": "Keep your smile healthy with routine checkups and professional teeth cleaning in Dindigul.",
         "bullets": [
           {
-            "text": "Oral Checkups"
+            "text": "Expert Teeth Cleaning & Scaling"
           },
           {
-            "text": "Teeth Cleaning & Polishing"
+            "text": "Oral Health Checkups"
           },
           {
-            "text": "Dental Fillings"
+            "text": "Painless Dental Fillings"
           },
           {
             "text": "Advanced Digital X-Rays"
           }
         ],
         "image": "/src/assets/uploads/service-general-dentistry.png",
-        "link": "/services/general-dentistry/"
+        "link": "/services/teeth-cleaning-scaling/"
       },
       {
-        "title": "Root Canal Treatment",
-        "description": "Save your natural tooth with painless, advanced root canal therapy.",
+        "title": "Painless Root Canal Treatment",
+        "description": "Save your natural tooth with the best root canal treatment in Dindigul using advanced rotary systems.",
         "bullets": [
           {
-            "text": "Single-visit RCT"
+            "text": "Single-visit Painless RCT"
           },
           {
-            "text": "Painless procedure"
+            "text": "Experienced RCT Specialists"
           },
           {
-            "text": "Save the natural tooth"
+            "text": "Highest Success Rates"
           }
         ],
         "image": "/src/assets/uploads/root canal.jpg",
-        "link": "/services/general-dentistry/"
+        "link": "/services/root-canal-treatment/"
       },
       {
         "title": "Cosmetic Dentistry",
@@ -154,21 +154,21 @@
         "link": "/services/restorative-dentistry/"
       },
       {
-        "title": "Braces & Aligners",
-        "description": "Straighter teeth and a better bite for all ages.",
+        "title": "Braces & Invisalign in Dindigul",
+        "description": "Get a perfect bite with metal braces, ceramic braces, or invisible aligners in Dindigul.",
         "bullets": [
           {
+            "text": "Clear Invisalign Aligners"
+          },
+          {
+            "text": "Invisible Braces Options"
+          },
+          {
             "text": "Metal & Ceramic Braces"
-          },
-          {
-            "text": "Clear Aligners"
-          },
-          {
-            "text": "Invisible Braces"
           }
         ],
         "image": "/src/assets/uploads/clear%20alligners.jpg",
-        "link": "/services/orthodontics/"
+        "link": "/services/invisalign-aligners/"
       },
       {
         "title": "Kids Dentistry",
@@ -914,6 +914,10 @@
   "settings": {
     "title": "Best Dental Clinic in Dindigul | Jamuna Family Dental Care",
     "description": "Jamuna Family Dental Care – Best dental clinic in Dindigul offering dental implants, root canal, teeth whitening, braces, smile design & pediatric dentistry. 4.9★ rated, 600+ Google reviews. Call +91 7200 620 011.",
-    "canonical": "https://jamunadental.com/"
+    "canonical": "https://jamunadental.com/",
+    "analytics": {
+      "ga4_id": "G-8LZEG56368",
+      "gtag_id": "AW-10788600128"
+    }
   }
 }

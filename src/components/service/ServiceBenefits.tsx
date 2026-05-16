@@ -14,9 +14,20 @@ interface ServiceBenefitsProps {
   description: string;
   benefits: Benefit[];
   images: [string, string];
+  badge?: string;
+  title?: string;
+  description?: string;
+  benefits?: Benefit[];
+  images?: [string, string];
 }
 
-const ServiceBenefits = ({ badge, title, description, benefits, images }: ServiceBenefitsProps) => {
+const ServiceBenefits = ({ 
+  badge = "Expert Care", 
+  title = "Why Choose Us", 
+  description = "Providing high-quality dental care with comfort.", 
+  benefits = [], 
+  images = ["", ""] 
+}: ServiceBenefitsProps) => {
   return (
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">

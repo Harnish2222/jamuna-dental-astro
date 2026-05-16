@@ -31,6 +31,8 @@ export interface Props {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   hideFooterMap?: boolean;
   hideNav?: boolean;
+  ga4Id?: string;
+  gtagId?: string;
 }
 
 const {
@@ -42,16 +44,19 @@ const {
   jsonLd,
   hideFooterMap = false,
   hideNav = false,
+  ga4Id,
+  gtagId,
 } = Astro.props as Props;
 
 const SITE_URL = 'https://jamunadental.com';
 const resolvedCanonical = canonical ?? new URL(Astro.url.pathname, SITE_URL).toString();
 const ldBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
+const GTAG_ID = gtagId || import.meta.env.PUBLIC_GTAG_ID || 'AW-10788600128';
+const GA4_ID = ga4Id || import.meta.env.PUBLIC_GA4_ID || 'G-XXXXXXXXXX';
+
 import { websiteSchema } from '@/seo/schemas';
 ldBlocks.unshift(websiteSchema);
-
-const GTAG_ID = 'AW-10788600128';
 
 // Optimize logo (140x140 for retina @ 70px display)
 const optimizedLogo = await getImage({
@@ -117,40 +122,86 @@ const optimizedLogo = await getImage({
     </script>
 
     {/* Google tag — loaded in Partytown web worker to prevent main-thread blocking */}
-    <script is:inline type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
-    <script is:inline type="text/partytown" define:vars={{ GTAG_ID }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', GTAG_ID);
-      gtag('config', `${GTAG_ID}/ZFGGCOaZ7pscEMDys5go`, {
-        phone_conversion_number: '+91 7200 620 011',
-      });
+    {GTAG_ID && (
+      <>
+        <script is:inline type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+        <script is:inline type="text/partytown" define:vars={{ GTAG_ID, GA4_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          
+          // Initialize Google Ads
+          gtag('config', GTAG_ID);
+          gtag('config', `${GTAG_ID}/ZFGGCOaZ7pscEMDys5go`, {
+            phone_conversion_number: '+91 7200 620 011',
+          });
+
+          // Initialize GA4 if ID is provided
+          if (GA4_ID && GA4_ID !== 'G-XXXXXXXXXX') {
+            gtag('config', GA4_ID);
+          }
+
       window.gtag_report_phone_conversion = function () {
         gtag('event', 'conversion', {
           send_to: `${GTAG_ID}/ZFGGCOaZ7pscEMDys5go`,
           phone_conversion_number: '+91 7200 620 011',
         });
+        gtag('event', 'call_click', { 'event_category': 'conversion', 'event_label': 'Phone Call' });
         return true;
       };
-      window.gtag_report_form_conversion = function (url) {
-        gtag('event', 'conversion', {
-          send_to: `${GTAG_ID}/FORM_CONVERSION_LABEL`, // REPLACE WITH ACTUAL LABEL FROM GOOGLE ADS
-          event_callback: function() {
-            if (typeof(url) != 'undefined') {
-              window.location = url;
-            }
-          }
-        });
-        return false;
-      };
+
+      // Professional Global Click Tracker
       document.addEventListener('mousedown', function (e) {
-        if (e.target && e.target.closest && e.target.closest('[href^="https://wa.me"]')) {
+        const target = e.target.closest('button, a');
+        if (!target) return;
+
+        const isLink = target.tagName === 'A';
+        const text = target.getAttribute('data-tracking-label') || target.innerText || target.getAttribute('aria-label') || target.getAttribute('title') || 'unlabeled';
+        const id = target.id || 'no-id';
+        const href = isLink ? target.getAttribute('href') : null;
+        
+        // 1. WhatsApp Click Tracking
+        if (isLink && href && href.startsWith('https://wa.me')) {
           gtag('event', 'conversion', { send_to: `${GTAG_ID}/LAe1CMC1gpwcEMDys5go` });
+          gtag('event', 'whatsapp_click', { 
+            'event_category': 'conversion', 
+            'event_label': text.trim(),
+            'value': 1 
+          });
         }
+
+        // 2. Phone Call Click Tracking (Direct tel: links)
+        if (isLink && href && href.startsWith('tel:')) {
+          gtag('event', 'call_click', { 
+            'event_category': 'conversion', 
+            'event_label': text.trim(),
+            'value': 1 
+          });
+        }
+
+        // 3. General Button/Link Click Tracking (for GA4 reports)
+        gtag('event', 'click_event', {
+          'event_category': isLink ? 'link' : 'button',
+          'event_label': text.trim().substring(0, 40),
+          'element_id': id,
+          'element_type': target.tagName.toLowerCase(),
+          'destination_url': href,
+          'page_path': window.location.pathname
+        });
+
+        // 4. Push to dataLayer for GTM compatibility
+        window.dataLayer.push({
+          'event': 'ui_interaction',
+          'ui_element': target.tagName.toLowerCase(),
+          'ui_text': text.trim(),
+          'ui_id': id,
+          'ui_destination': href
+        });
       });
     </script>
+      </>
+    )}
     <slot name="head" />
   </head>
 

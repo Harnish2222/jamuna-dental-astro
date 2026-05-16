@@ -44,7 +44,6 @@ const services = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    slug: z.string(),
     seoTitle: z.string(),
     seoDescription: z.string(),
     heroImage: z.string().optional(),
@@ -61,7 +60,6 @@ const pages = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    slug: z.string(),
     seoTitle: z.string(),
     seoDescription: z.string(),
     canonical: z.string().url().optional(),
