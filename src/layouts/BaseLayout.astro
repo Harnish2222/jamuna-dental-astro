@@ -120,11 +120,11 @@ const optimizedLogo = await getImage({
       document.documentElement.classList.add('js-anim');
     </script>
 
-    {/* Google tag — loaded in Partytown web worker to prevent main-thread blocking */}
+    {/* Google tag — loaded normally to ensure detection and fix CORS issues in web workers */}
     {GTAG_ID && (
       <>
-        <script is:inline type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
-        <script is:inline type="text/partytown" define:vars={{ GTAG_ID, GA4_ID }}>
+        <script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+        <script is:inline define:vars={{ GTAG_ID, GA4_ID }}>
           window.dataLayer = window.dataLayer || [];
           function gtag(){ dataLayer.push(arguments); }
           window.gtag = gtag;
